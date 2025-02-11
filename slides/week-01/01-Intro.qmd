@@ -2,30 +2,34 @@
 title: "Intro Session"
 subtitle: "Week 1"
 author: "David Schweizer"
-date: "February 13, 2024"
+date: "February 11, 2025"
 date-format: long
 institute: "University of Mannheim"
 format: 
   revealjs:
     theme: simple
     slide-number: c/t #< collapsed/total
-    footer: "Automated Data Collection | Spring 2024 | University of Mannheim"
+    footer: "Text-as-Data | Spring 2025 | University of Mannheim"
 editor: visual
 ---
 
 ## Plan for today
 
 -   Introduction round: Getting to know each other
+
 -   Course content and schedule
--   Your expectations
--   My expectations & course requirements
+
 -   Motivation for the course
+
+-   Your expectations
+
+-   My expectations & course requirements
 
 ## Introduction round
 
 -   I'll go first. A few words about me
 
--   You're next. Groups of 3-4
+-   You're next. Groups of 4.
 
     -   Introduce yourselves to your classmates
     -   What is your name? Where are you from? What do you study? Did you pick up a new hobby recently?
@@ -49,10 +53,10 @@ editor: visual
 
 # Your turn
 
-## Experience & Interests
+## Interests
 
 ::: {style="position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;"}
-<iframe sandbox="allow-scripts allow-same-origin allow-presentation" allowfullscreen="true" allowtransparency="true" frameborder="0" height="315" src="https://www.mentimeter.com/app/presentation/alfkc55uxc9mgzspg9z67nihkypr6p2n/embed" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" width="420">
+<iframe sandbox="allow-scripts allow-same-origin allow-presentation" allowfullscreen="true" allowtransparency="true" frameborder="0" height="315" src="https://www.mentimeter.com/app/presentation/al4swfrr8kdv8tvk4y2m3kjuf1tewq1u/embed" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" width="420">
 
 </iframe>
 :::
@@ -62,68 +66,131 @@ editor: visual
 ::: panel-tabset
 ## Intro
 
--   Week 01 - 13.02.2024 - Intro Session
+-   Week 01 - 11.02.2025 - Intro Session
 
 ## Block I
 
 **Block I: Import, Tidy, Transform, & Visualize Data**
 
--   Week 02 - 20.02.2024 - Intro to R
+-   Week 02 - 18.02.2025 - Intro to R
 
--   Week 03 - 27.02.2024 - Tidyverse I: Import, tidy, and transform
+-   Week 03 - 25.02.2025 - Tidyverse I: Import, tidy, and transform
 
--   Week 04 - 05.03.2024 - Tidyverse II: Import, tidy, and transform
-
--   Week 05 - 12.03.2024 - ggplot: Visualize
+-   Week 04 - 04.03.2025 - Tidyverse II: Transform, and visualize
 
 ## ... II
 
-**Block II: Communicate & Collaborate**
+**Block II: Text-as-Data**
 
--   Week 06 - 19.03.2024 - R Markdown / Quarto
+-   Week 05 - 11.03.2025 - Intro to Text-as-Data I: Concepts
 
--   *Week 07 - 26.03.2024 - Easter Break*
+-   Week 06 - 18.03.2025 - Intro to Text-as-Data II: Workflow
 
--   *Week 08 - 02.04.2024 - Easter Break*
+-   Week 07 - 25.03.2025 - Dictionary and Sentiment
 
--   Week 09 - 09.04.2024 - Version control (Github)
+-   Week 08 - 01.04.2025 - Topic Models
+
+-   Week 09 - 08.04.2025 - Advanced and state-of-the-art methods
 
 ## ... III
 
 **Block III: Web scraping**
 
--   Week 10 - 16.04.2024 - APIs
+-   Week 12 - 29.04.2025 - Web scraping: Basics
 
--   Week 11 - 23.04.2024 - Web scraping basics
+-   Week 13 - 06.05.2025 - Web scraping: Static
 
--   Week 12 - 30.04.2024 - Web scraping static
-
--   Week 13 - 07.05.2024 - Web scraping dynamic
-
-## ... II
-
-**Block II: Communicate Interactively**
-
--   Week 14 - 14.05.2024 - Interactive I: Create your first Shiny app
-
--   Week 15 - 21.05.2024 - Interactive II: Making pretty Shiny apps
+-   Week 14 - 13.05.2025 - Web scraping: Dynamic
 
 ## Closing
 
--   Week 16 - 28.05.2024 - Closing Session
+-   Week 15 - 20.05.2025 - Outlook: Large Language Models and more
+
+-   Week 16 - 27.05.2025 - Closing Session
+:::
+
+## General motivation
+
+The goal of this course is to equip you with the skills to:
+
+-   collect your own (text) data
+
+-   tidy, transform & visualize the data
+
+-   analyze the (text) data & communicate your results
+
+-   collaborate with others along the workflow
+
+Taking this course should not be an end in itself.
+
+## Why text-as-data?
+
+::: panel-tabset
+#### Data
+
+We can tap into (new) data:
+
+-   Political actors (speeches, press releases, social media, manifestos)
+-   Society (surveys, social media)
+-   News
+-   ...
+
+Everything that is published as text (or can be transcribed)!
+
+#### Academia I ...
+
+![](example_1.jpg)
+
+#### ... II
+
+![](example2.jpg)
+
+#### Reporting
+
+[![](wordcloud.jpg)](https://www.zeit.de/politik/deutschland/2025-02/tv-duell-bundestagswahl-merz-scholz-analyse)
+:::
+
+## Why R?
+
+::: panel-tabset 
+#### Benefits
+
+-   Versatile: Visualizations, statistical analysis, programming, incorporation of other programming languages
+
+-   Free and open source
+
+    -   Large community, there is basically an answer to every question you will have online: Stackoverflow, ChatGPT, ...
+
+-   Increasing popularity in academia & industry
+
+#### Learning
+
+[![](LearningR.png)](https://devhumor.com/media/trying-to-learn-any-programming-language-100)
+
+#### Reward
+
+[![](nicegraphs.png){width="1440"}](https://bbc.github.io/rcookbook/)
 :::
 
 ## Your expectations
 
 ::: {style="position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;"}
-<iframe sandbox="allow-scripts allow-same-origin allow-presentation" allowfullscreen="true" allowtransparency="true" frameborder="0" height="315" src="https://www.mentimeter.com/app/presentation/alc6tqyudcyvugs58kw3ps686rgdy65t/embed" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" width="420">
+<iframe sandbox="allow-scripts allow-same-origin allow-presentation" allowfullscreen="true" allowtransparency="true" frameborder="0" height="315" src="https://www.mentimeter.com/app/presentation/alt5zsc5amt8z1ifmnsyfbv1cgx8rotb/embed" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" width="420">
 
 </iframe>
 :::
 
-## Plan & expectations
+## Your motivation
 
--   Unfortunately, we are a large group. Maybe adaptation during the semester.
+::: {style="position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;"}
+<iframe sandbox="allow-scripts allow-same-origin allow-presentation" allowfullscreen="true" allowtransparency="true" frameborder="0" height="315" src="https://www.mentimeter.com/app/presentation/alykckhk5n63jrqk6yreybw84ocg866c/embed" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" width="420">
+
+</iframe>
+:::
+
+## My plan & expectations
+
+-   We are a rather large group. Maybe adaptation is needed during the semester.
 
 -   Mix of lecture-style input, live coding, group exercises, and discussion.
 
@@ -131,25 +198,37 @@ editor: visual
 
 -   Willingness to invest time to learn a (new) programming language, look for solutions on your own, and keep trying
 
+## Course requirements
+
+::: panel-tabset
+## Participation
+
+To get out the most of this seminar, active participation and preparation is needed!
+
+Check the readings, review the code (exercises), make sure that you understand the concepts, and ask questions!
+
+## Assignments
+
+Individual assignments during the semester (need to pass).
+
+There will be 3 (short) assignments during the semester - one for each block. Here, you have to demonstrate that you can apply the concepts/code presented during the session on your own.
+
+## Term paper
+
+**In a nutshell:** Ask a question you’re curious about, collect relevant data, and analyze them with regard to your question using the techniques learned in this seminar.
+
+The term paper can contain up to 4500 words (+/- 10%, excluding title page, references, and appendix). **Deadline: 01.07.2024, 17:00.** 100% of your grade.
+
+In any case, I recommend to discuss your approach and ideas either via e-mail or during **office hours**!
+:::
+
 ## Organisation & Resources
 
 -   Materials will be provided via the course website.
 
--   Communication via Slack. Nevertheless: Make sure that you have access to the course on ILIAS and that emails that are sent over ILIAS are forwarded to the email account you check regularly
+-   Communication via ILIAS. Make sure that you have access to the course on ILIAS and that emails that are sent over ILIAS are forwarded to the email account you check regularly
 
--   Weekly office hours before the course. Please make an appointment via e-mail.
-
--   Access to Dataquest (Online learning platform for programming languages and more)
-
-## Course requirements
-
--   Active participation & preparation
-
--   Individual assignments during the semester (10% of your grade)
-
--   Mid-term assignment (15% of your grade)
-
--   Final data project (75% of your grade)
+-   Weekly office hours before the course. Please make an appointment via e-mail!
 
 ## Important!
 
@@ -169,77 +248,21 @@ editor: visual
 -   Of course, you can always talk directly to me if you feel comfortable with the question. It is important to note that the **University's Equality and Diversity Office** supports and advises you in cases of discrimination or sexual harassment. The responsible contact person in such a case is **Dipl.-Psych. Ute Pfründer**. She is trained to deal with such incidents and will keep everything strictly confidential. No action will be taken without your express consent.
 :::
 
-## Motivation
-
-::: {style="position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;"}
-<iframe sandbox="allow-scripts allow-same-origin allow-presentation" allowfullscreen="true" allowtransparency="true" frameborder="0" height="315" src="https://www.mentimeter.com/app/presentation/alx1uia737s63pf4tnxo1zcrok8bvxgm/embed" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" width="420">
-
-</iframe>
-:::
-
-## Motivation
-
-The goal of this course is to equip you with the skills to:
-
--   collect your own data
-
--   tidy, transform & visualize the data
-
--   communicate your data & (exploratory) results
-
--   collaborate with others along the workflow
-
-Taking this course should not be an end in itself!
-
-## Why R?
-
-::: panel-tabset
-#### Benefits
-
--   Versatile: Visualizations, statistical analysis, programming, incorporation of other programming languages
-
--   Free and open source
-
-    -   Large community, there is basically an answer to every question you will have online: Stackoverflow, ChatGPT, ...
-
--   Increasing popularity in academia & industry
-
-#### Learning
-
-[![](LearningR.png)](https://devhumor.com/media/trying-to-learn-any-programming-language-100)
-
-#### Reward
-
-[![](nicegraphs.png){width="1440"}](https://bbc.github.io/rcookbook/)
-
-#### Opportunity
-
-[![](shinyapp.png){width="1699"}](https://vac-lshtm.shinyapps.io/ncov_tracker/)
-:::
-
 ## Until our next session
 
 ::: panel-tabset
-## Install & Join
+## Install
 
 -   Make sure R and RStudio is installed and works
 
     -   <https://posit.co/download/rstudio-desktop/>
-
--   Join the course Slack channel!
-
-    -   Invitation will follow via e-mail.
-
--   Join the Dataquest team!
-
-    -   Invitation will follow via e-mail.
 
 ## Read
 
 -   Chapter 2: Get Started in Healy, Data Visualization
 
     -   [Link to free online version](https://socviz.co/gettingstarted.html#gettingstarted)
-    -   Begin with **2.2 Use R with RStudio**
+    -   Especially, **2.2 Use R with RStudio**
 
 ## Think
 
@@ -247,7 +270,7 @@ Taking this course should not be an end in itself!
 
     -   What interests you substantially? Start thinking about possible research areas for your data project.
 
-    -   Feel also free to point out (via Slack or personally via e-mail) which data sets you are interested in. Our coding examples during the weekly sessions can be tailored accordingly!
+    -   Feel also free to point out (via ILIAS or personally via e-mail) which data sets you are interested in. Our coding examples during the weekly sessions can be tailored accordingly!
 :::
 
 # Any open questions?

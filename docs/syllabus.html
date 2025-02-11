@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Automated Data Collection - Course Website - Syllabus</title>
+<title>Text-as-Data - Course Website - Syllabus</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -44,7 +44,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -53,6 +59,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -69,12 +76,12 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./syllabus.html">Syllabus</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./syllabus.html">Syllabus</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -84,15 +91,13 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
       <a href="./index.html" class="sidebar-logo-link">
       <img src="./images/hex_sticker.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
-      <div class="sidebar-tools-main tools-wide">
-    <a href="https://aut-data-collection.slack.com" rel="" title="Slack" class="quarto-navigation-tool px-1" aria-label="Slack"><i class="bi bi-slack"></i></a>
-    <a href="https://ilias.uni-mannheim.de/goto.php?target=crs_1465074&amp;client_id=ILIAS" rel="" title="Ilias" class="quarto-navigation-tool px-1" aria-label="Ilias"><i class="bi bi-bank"></i></a>
-    <a href="https://www.datacamp.com/" rel="" title="Datacamp" class="quarto-navigation-tool px-1" aria-label="Datacamp"><i class="bi bi-rocket"></i></a>
+      <div class="sidebar-tools-main">
+    <a href="https://ilias.uni-mannheim.de/goto.php?target=crs_1589237&amp;client_id=ILIAS" title="Ilias" class="quarto-navigation-tool px-1" aria-label="Ilias"><i class="bi bi-bank"></i></a>
 </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -123,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -135,9 +140,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#course-requirements" id="toc-course-requirements" class="nav-link" data-scroll-target="#course-requirements"><strong>Course requirements</strong></a>
   <ul class="collapse">
   <li><a href="#active-participation-and-preparation" id="toc-active-participation-and-preparation" class="nav-link" data-scroll-target="#active-participation-and-preparation"><strong>Active participation and preparation:</strong></a></li>
-  <li><a href="#assignments-during-the-semester-10-of-your-grade" id="toc-assignments-during-the-semester-10-of-your-grade" class="nav-link" data-scroll-target="#assignments-during-the-semester-10-of-your-grade"><strong>Assignments during the semester (10% of your grade)</strong></a></li>
-  <li><a href="#mid-term-assignments-15-of-your-grade" id="toc-mid-term-assignments-15-of-your-grade" class="nav-link" data-scroll-target="#mid-term-assignments-15-of-your-grade"><strong>“Mid-term” assignments (15% of your grade)</strong></a></li>
-  <li><a href="#data-project-75-of-your-grade" id="toc-data-project-75-of-your-grade" class="nav-link" data-scroll-target="#data-project-75-of-your-grade"><strong>Data project (75% of your grade):</strong></a></li>
+  <li><a href="#assignments-during-the-semester-need-to-pass" id="toc-assignments-during-the-semester-need-to-pass" class="nav-link" data-scroll-target="#assignments-during-the-semester-need-to-pass"><strong>Assignments during the semester (need to pass)</strong></a></li>
+  <li><a href="#term-paper-100-of-your-grade" id="toc-term-paper-100-of-your-grade" class="nav-link" data-scroll-target="#term-paper-100-of-your-grade"><strong>Term paper (100% of your grade):</strong></a></li>
   </ul></li>
   <li><a href="#organization-learning-resources" id="toc-organization-learning-resources" class="nav-link" data-scroll-target="#organization-learning-resources"><strong>Organization &amp; Learning Resources</strong></a></li>
   <li><a href="#course-schedule" id="toc-course-schedule" class="nav-link" data-scroll-target="#course-schedule"><strong>Course Schedule</strong></a></li>
@@ -150,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Syllabus</h1>
-<p class="subtitle lead">Automated Data Collection - Spring 2024 - University of Mannheim</p>
+<p class="subtitle lead">Text as Data: Introduction to Computational Text Analysis in R - Spring 2025 - University of Mannheim</p>
 </div>
 
 
@@ -163,14 +167,16 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <section id="course-details" class="level2">
 <h2 class="anchored" data-anchor-id="course-details"><strong>Course details</strong></h2>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
-<col style="width: 34%">
-<col style="width: 65%">
+<col style="width: 35%">
+<col style="width: 64%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -179,7 +185,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>Time:</td>
-<td>Tuesday, 15:30 – 17:00, &nbsp;February 13 to May 28</td>
+<td>Tuesday, 15:30 – 17:00, &nbsp;February 11 to May 27</td>
 </tr>
 <tr class="odd">
 <td>Place:</td>
@@ -203,13 +209,17 @@ ul.task-list li input[type="checkbox"] {
 <section id="course-description" class="level2">
 <h2 class="anchored" data-anchor-id="course-description"><strong>Course description</strong></h2>
 <p><strong><br>
-</strong>Against the background of the ever-increasing availability of (unstructured) online data, the goal of this course is to equip the students with the necessary skills to collect large quantities of data for their own research projects, to process the data, and to automate this workflow in a reproducible way.</p>
-<p>The course introduces students to automated data collection using a very practical approach with the R programming language. The course consists of three major modules. First, you will be guided into the programming language and learn the fundamentals of R. No prior experience with R is necessary. Among other things, we will cover how to import, transform, and visualize data. Second, we will focus on the workflow for reproducible research. For example, this includes version control via Github and how to communicate your results. Third, we will cover static and dynamic web scraping as well as APIS’s from a conceptual perspective and use these tools to collect web data. Finally, we will also learn how to automate this process.</p>
+</strong>Against the background of the ever-increasing availability of (unstructured) data, the goal of this seminar is to equip you with the necessary skills to collect large quantities of text, to process it, and to analyse it. These skills allow you to pursue your own empirical research projects. The course consists of three major modules and is a very practical introduction to computational text analysis with the R programming language.</p>
+<ul>
+<li><p>First, you will be guided into the programming language learning the fundamentals of R and get to know the workflow for data analysis: Import, tidy, transform, and visualize data. No prior experience with R is necessary!</p></li>
+<li><p>Second, we will learn how to implement various text analysis methods and understand the intuition behind these methods.</p></li>
+<li><p>Third, we will cover static and dynamic web scraping and use these tools to collect our own text data.</p></li>
+</ul>
 <p>The goal of this course is to equip you with the skills to:</p>
 <ul>
 <li><p>collect your own data</p></li>
 <li><p>tidy, transform &amp; visualize the data</p></li>
-<li><p>communicate your data &amp; (exploratory) results</p></li>
+<li><p>analyze the data &amp; communicate your results</p></li>
 <li><p>collaborate with others along the workflow</p></li>
 </ul>
 <p>Taking this course should not be an end in itself. The motivation for this course is therefore twofold: First, these skills prepare you for conducting empirical research (including term papers, BA or MA theses), collaborating with other students / researchers, and communicating your work. Second, mastering these skills also prepare you for a career outside academia.</p>
@@ -220,103 +230,53 @@ ul.task-list li input[type="checkbox"] {
 <section id="active-participation-and-preparation" class="level3">
 <h3 class="anchored" data-anchor-id="active-participation-and-preparation"><strong>Active participation and preparation:</strong></h3>
 <p>Active participation during our weekly sessions is important to get the most out of this course. Engaging with the assigned readings is essential for participation.</p>
-<p>Use Slack to post any questions or discuss with your peers if you do not understand concepts. I will also regularly check our Slack channel.</p>
+<p>Use ILIAS to post any questions or discuss with your peers if you do not understand concepts.</p>
 </section>
-<section id="assignments-during-the-semester-10-of-your-grade" class="level3">
-<h3 class="anchored" data-anchor-id="assignments-during-the-semester-10-of-your-grade"><strong>Assignments during the semester (10% of your grade)</strong></h3>
-<p>There will be 2 (short) assignments during the semester. Here, you have to demonstrate that you can apply the concepts/code presented during the session on your own.</p>
+<section id="assignments-during-the-semester-need-to-pass" class="level3">
+<h3 class="anchored" data-anchor-id="assignments-during-the-semester-need-to-pass"><strong>Assignments during the semester (need to pass)</strong></h3>
+<p>There will be 3 (short) assignments during the semester. Here, you have to demonstrate that you can apply the concepts/code presented during the session on your own.</p>
 <p>Deadlines:</p>
 <ul>
-<li>Assignment 1: 12.03.2024 after the session -&gt; 19.03.2024 15:00</li>
-<li>Assignment 2: 09.04.2024 after the session -&gt; 16.04.2024 15:00</li>
-<li><del>Assignment 3: 07.05.2024 after the session -&gt; 14.05.2024 15:00</del></li>
-<li><del>Assignment 4: 21.05.2024 after the session -&gt; 28.05.2024 15:00</del> No mandatory assignment. Feel free to send me your code regarding the tasks for review.</li>
+<li>Assignment 1: 04.03.2025 after the session until 17.03.2025 13:00</li>
+<li>Assignment 2: 08.04.2025 after the session until 28.04.2025 13:00</li>
+<li>Assignment 3: 06.05.2025 after the session until 20.05.2025 13:00</li>
 </ul>
 </section>
-<section id="mid-term-assignments-15-of-your-grade" class="level3">
-<h3 class="anchored" data-anchor-id="mid-term-assignments-15-of-your-grade"><strong>“Mid-term” assignments (15% of your grade)</strong></h3>
-<p>The mid-term assignment differs from the other assignments in scope and length. Here, you should demonstrate your understanding of the concepts/code covered in the first half of the semester (importing, wrangling, and visualizing data).</p>
-<p>Deadline: 09.04.2024 15:00</p>
-</section>
-<section id="data-project-75-of-your-grade" class="level3">
-<h3 class="anchored" data-anchor-id="data-project-75-of-your-grade"><strong>Data project (75% of your grade):</strong></h3>
-<p><strong><em>In a nutshell: Ask a question you’re curious about, collect relevant data and visualize them with regard to your question.</em></strong></p>
-<p>Instead of a term paper, you will work on a data project. Again, in this final assignment, you need to demonstrate you understanding of the concepts/code covered during the semester. The goal is that you build your own data set using web scraping methods and present this data set. Hence, the data project includes the following steps:</p>
+<section id="term-paper-100-of-your-grade" class="level3">
+<h3 class="anchored" data-anchor-id="term-paper-100-of-your-grade"><strong>Term paper (100% of your grade):</strong></h3>
+<p><strong><em>In a nutshell: Ask a question you’re curious about, collect relevant data and analyze them with regard to your question using the techniques learned in this seminar.</em></strong></p>
+<p>The term paper should include the following:</p>
 <ul>
-<li><p>Collect own data using web scraping methods</p></li>
-<li><p>Tidy and transform the data</p></li>
-<li><p>Possibly enrich the data set with other data (sets)</p></li>
-<li><p>Visualize your data</p></li>
-<li><p>Present your data set using an interactive web application or an (interactive Quarto document)</p></li>
-<li><p>Describe: How could you or other researchers make use of this data for empirical research - What might be possible research questions?</p></li>
+<li><p>Brief introduction</p></li>
+<li><p>Brief theory and hypotheses</p></li>
+<li><p>Research design: Operationalization/Measurement, Case selection</p></li>
+<li><p>Analysis</p></li>
+<li><p>Brief conclusion</p></li>
 </ul>
-<p><strong>Group work</strong> (up to 3 students) is possible and encouraged for the data project. In case of group work, each student will receive the same grade.</p>
-<section id="in-more-detail" class="level4">
-<h4 class="anchored" data-anchor-id="in-more-detail"><strong>In more detail:</strong></h4>
-<p>There are two options. In any case, I recommend to discuss your approach and ideas either via e-mail or during office hours!</p>
-<p><strong><em>OPTION A: Your own project</em></strong></p>
-<p>You can choose the data based on your teams’ interests or based on work in other courses or research projects. The goal of this data project is for you to demonstrate proficiency in the techniques we have covered in this seminar and beyond, if you like) and apply them in a meaningful way.</p>
-<p>The goal is not to do an exhaustive data analysis/visualization, i.e., do not calculate every statistic, visualize the same data with lots of different graphs, or scrape as much information as possible, but rather let me know that you are proficient at asking a meaningful question, collect relevant data, and provide some descriptive answer; that you are proficient in using R, and that you work in a reproducible way.</p>
-<p>Therefore, the project is very open ended. You should create some kind of compelling and interactive visualization(s) of this data in R (Shiny dashboard). There is no limit on what tools or packages you may use but sticking to packages we learned in class is required. You do not need to visualize all of the data at once. For example, a single high-quality visualization will receive a much higher grade than a large number of poor-quality visualizations.</p>
-<p><strong><em>OPTION B: Press releases &amp; issue emphasis on immigration and the environment</em></strong></p>
-<p>Alternatively, you can work on a guided project. Some of the main steps in the workflow are roughly defined (i.e., research question and data), still you need to make your own decisions when it comes to presenting the data. We would be interested in investigating what drives issue emphasis (of mainstream parties) regarding the immigration and environment issue. This is not new, but inspired by:</p>
+<p>The term paper can contain up to 4500 words (+/- 10%, excluding title page, references, and appendix).</p>
+<p>In any case, I recommend to discuss your approach and ideas either via e-mail or during office hours!</p>
+<p><strong>A general breakdown of scoring is as follows (you will receive a more detailed checklist for my grading criteria towards the end of the semester):</strong></p>
 <ul>
-<li><p>Abou-Chadi, T. (2016). Niche party success and mainstream party policy shifts–how green and radical right parties differ in their impact.&nbsp;<em>British Journal of Political Science</em>,&nbsp;<em>46</em>(2), 417-436.</p></li>
-<li><p>Gessler, T., &amp; Hunger, S. (2022). How the refugee crisis and radical right parties shape party competition on immigration.&nbsp;<em>Political Science Research and Methods</em>,&nbsp;<em>10</em>(3), 524-544.</p></li>
+<li><p><em>1,0: Outstanding effort.</em></p></li>
+<li><p><em>1,3 - 2,0: Good effort.</em></p></li>
+<li><p><em>2,3 - 3,0: Good/Passing effort.</em></p></li>
+<li><p><em>3,3 - 4,0: Struggling effort.</em></p></li>
+<li><p><em>Fail.</em></p></li>
 </ul>
-<p>Our expectations would be that mainstream parties react (by increasing their issue emphasis) to the increased issue emphasis by radical right parties regarding immigration and by Green parties regarding the environment. However, other factors such as electoral strength of radical right and Greens, public salience, and external factors (asylum applications and protest events) could also drive the salience of these issues.</p>
-<p>This project would include the following:</p>
-<p><strong>Collect data</strong></p>
-<ul>
-<li><p>Scrape the press releases from the parliamentary groups of the AfD, the Greens , the CDU/CSU, and the SPD in the German Bundestag (latest starting point: January of 2023).</p>
-<ul>
-<li>Apply a “dictionary” (there are multiple ways to do so, e.g., quanteda package, the stringr package) to detect press releases related to the issue of the environment or immigration. We want to visualize the salience of these issues (share of press releases related to environment/immigration) on a monthly basis later on. You can find a dictionary for the immigration issue in the article by Gessler and Hunger (2022). <em>Schürmann, L. (2023). The impact of local protests on political elite communication: evidence from Fridays for Future in Germany. Journal of Elections, Public Opinion and Parties, 1-21.</em> provides a dictionary for the issue of the environment.</li>
-</ul></li>
-<li><p>Get data for the Sonntagsfrage here: <a href="https://www.wahlrecht.de/umfragen/" class="uri">https://www.wahlrecht.de/umfragen/</a>. You can click on the specific institutes for historical data. Reminder: We can easily scrape tables!</p></li>
-<li><p>Public salience: Following Gessler &amp; Hunger try out Google Trends <a href="https://trends.google.com/trends?geo=DE&amp;hl=de" class="uri">https://trends.google.com/trends?geo=DE&amp;hl=de</a> to get a measure for public salience for the immigration issue and the environment (e.g., topic “climate change”)</p></li>
-<li><p>Get data on asylum application (monthly) from Eurostat. In addition, collect the dates of global climate strikes <a href="https://fridaysforfuture.de/aktionen/">(organized by Fridays for Future in Germany</a>, you can extract these events either manually or scrape them).</p></li>
-</ul>
-<p><strong>Data transformation</strong></p>
-<ul>
-<li>For (one of) our visualizations, we want to have monthly time-series data. Of course you can also decide to produce more/other visualizations. E.g., there should be the following columns: <em>month, party, salience_immigration, salience_environment, sonntagsfrage, asylum_applications, protest.</em></li>
-</ul>
-<p><strong>Visualization</strong></p>
-<ul>
-<li>You should produce a dashboard with (interactive) visualizations. You are free to choose the visualization which you think are suited best to speak to the overall research question / expectations. Initially, I would expect a dashboard at least three pages (one for the issue of the environment, one for immigration, and one page with text describing your project workflow (e.g., justifiying visualization choices, your key take aways from presenting the descriptives). However, you can also come up with a different structure!</li>
-</ul>
-</section>
-<section id="grading-of-the-project-will-take-into-account-the-following" class="level4">
-<h4 class="anchored" data-anchor-id="grading-of-the-project-will-take-into-account-the-following"><strong>Grading of the project will take into account the following:</strong></h4>
-<ul>
-<li><p>Data collection: Correct? “Polite”? Documentation?</p></li>
-<li><p>Data transformation: Correct? Documentation/Annotation?</p></li>
-<li><p>Communication (Visualization(s) via dashboard): Correct? Style? Effort?</p></li>
-<li><p>Reproducibility: Can the dashboard and all pre-processing steps executed on another device without error? (You need to hand in the code for the shiny dashboard, R.data files, any R scripts for pre-processing, and the raw data.)</p></li>
-<li><p><em>BONUS: Creativity and Critical Thought - Is the project carefully thought out? How well is the project documented? Does it appear that time and effort went into the planning and implementation of the project? (More BONUS points possible for Option A)</em></p></li>
-</ul>
-<p><strong>A general breakdown of scoring is as follows:</strong></p>
-<ul>
-<li><p><em>1,0: Outstanding effort.</em> Student understands how to apply all concepts o the seminar, can collect data via webscraping “politely”, transform and visualize the data coherently and convincingly, and do so in a reproducible way.</p></li>
-<li><p><em>1,3 - 2,0: Good effort.</em> Student seems to understand most of the concepts and there are only minor mistakes regarding data collection and transformation. Communication could be clearer and/or the project is not fully reproducible.</p></li>
-<li><p><em>2,3 - 3,0: Good/Passing effort.</em> Student has misunderstanding of concepts in several areas, has some trouble with data collection and transformation, and the communication of results is sometimes unclear. Further, the project is not fully reproducible and it is visible that little effort went into the project.</p></li>
-<li><p><em>3,3 - 4,0: Struggling effort.</em> Student is making some effort, but has misunderstanding of many concepts and is unable to put together the workflow of the data project. Communication is unclear, the project is not reproducible.</p></li>
-<li><p><em>Fail</em>: Student is not making a sufficient effort.</p></li>
-</ul>
-</section>
 <section id="submission" class="level4">
 <h4 class="anchored" data-anchor-id="submission">Submission</h4>
 <p><strong>In case of any questions or problems, please get in touch with me as early as possible.</strong> Late submission will result in grade deductions.</p>
 <ul>
-<li>Submission via ILIAS (zip folder: This should include your code for the Shiny dashboard, R.data files, any R scripts for pre-processing, as well as raw data).</li>
-<li><strong>Deadline:</strong> August 06, 2024, 23:59.</li>
+<li>Submission via ILIAS (zip folder: This should include your term paper as PDF and replication packages).</li>
+<li><strong>Deadline:</strong> 01.07.2024, 17:00.</li>
 </ul>
 </section>
 </section>
 </section>
 <section id="organization-learning-resources" class="level2">
 <h2 class="anchored" data-anchor-id="organization-learning-resources"><strong>Organization &amp; Learning Resources</strong></h2>
-<p><strong>Course website, Slack, (and ILIAS):</strong></p>
-<p>The plan is to use primarily the course website and Slack for providing the structure of the seminar, materials, and communication, respectively. Nevertheless, you will also receive mails via ILIAS. Make sure to regularly check your university e-mail address.</p>
+<p><strong>Course website and ILIAS:</strong></p>
+<p>The plan is to use primarily the course website and ILIAS for providing the structure of the seminar, materials, and communication, respectively. Nevertheless, you will also receive mails via ILIAS. Make sure to regularly check your university e-mail address.</p>
 <p>If you have contacted me with a question via any channel and you did not hear back after 2 days (except over the weekend), please just send me your question again!</p>
 <p><strong>Office hours:</strong></p>
 <ul>
@@ -334,10 +294,9 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>If you need any support:</strong></p>
 <p>Of course, you can always talk directly to me if you feel comfortable with the question. It is important to note that the <a href="https://www.uni-mannheim.de/gleichstellung/beratung/">University’s Equality and Diversity Office</a> supports and advises you in cases of discrimination or sexual harassment. The responsible contact person in such a case is Dipl.-Psych. Ute Pfründer. She is trained to deal with such incidents and will keep everything strictly confidential. No action will be taken without your express consent. Further counseling services offered by the university can be found via this <a href="https://www.uni-mannheim.de/studium/beratung-und-service/beratungswegweiser/">link</a>.</p>
 <p><strong>Readings</strong></p>
-<p>The primary readings for this seminar are chapters from the following books:</p>
+<p>Readings will be provided on a weekly basis. General helpful readings for getting started with R in this seminar are chapters from the following books:</p>
 <ul>
 <li><p>Healy, Kieran. <em>Data visualization: a practical introduction</em>. Princeton University Press, 2018. <em>Free access via Katalog Primo and free online: https://socviz.co/</em></p></li>
-<li><p>Wilke, Claus E. <em>Fundamentals of Data Visualization</em>. O’Reilly Media, 2018. <em>Free access via Katalog Primo and free online: https://clauswilke.com/dataviz/</em></p></li>
 <li><p>Wickham, H., Çetinkaya-Rundel, M., &amp; Grolemund, G. (2023).&nbsp;<em>R for data science. 2ed</em>”. O’Reilly Media, Inc.&nbsp;<em>Free online:</em> <a href="https://r4ds.hadley.nz/" class="uri">https://r4ds.hadley.nz/</a></p></li>
 </ul>
 </section>
@@ -345,27 +304,26 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="course-schedule"><strong>Course Schedule</strong></h2>
 <p>The schedule is preliminary. Structure and/or content might change during the semester. You will find the readings, materials, and slides for each week on the course website (see <em>Schedule, slides &amp; materials</em>).</p>
 <p><strong>Intro</strong></p>
-<p>Week 01 - 13.02.2024 - Intro Session</p>
+<p>Week 01 - 11.02.2025 - Intro Session</p>
 <p><strong>Block I: Import, Tidy, Transform, &amp; Visualize Data</strong></p>
-<p>Week 02 - 20.02.2024 - Intro to R</p>
-<p>Week 03 - 27.02.2024 - Tidyverse I: Import, tidy, and transform</p>
-<p>Week 04 - 05.03.2024 - Tidyverse II: Import, tidy, and transform</p>
-<p>Week 05 - 12.03.2024 - ggplot: Visualize</p>
-<p><strong>Block II: Communicate &amp; Collaborate</strong></p>
-<p>Week 06 - 19.03.2024 - R Markdown / Quarto</p>
-<p><em>Week 07 - 26.03.2024 - Easter Break</em></p>
-<p><em>Week 08 - 02.04.2024 - Easter Break</em></p>
-<p>Week 09 - 09.04.2024 - Version control (Github)</p>
+<p>Week 02 - 18.02.2025 - Intro to R</p>
+<p>Week 03 - 25.02.2025 - Tidyverse I: Import, tidy, and transform</p>
+<p>Week 04 - 04.03.2025 - Tidyverse II: Transform, and visualize</p>
+<p><strong>Block II: Text-as-Data</strong></p>
+<p>Week 05 - 11.03.2025 - Intro to Text-as-Data I: Concepts</p>
+<p>Week 06 - 18.03.2025 - Intro to Text-as-Data II: Workflow</p>
+<p>Week 07 - 25.03.2025 - Dictionary and Sentiment</p>
+<p>Week 08 - 01.04.2025 - Topic Models</p>
+<p>Week 09 - 08.04.2025 - Advanced and state-of-the-art methods</p>
+<p><em>Week 10 - 15.04.2024 - Easter break</em></p>
+<p><em>Week 11 - 22.04.2025 - Easter break</em></p>
 <p><strong>Block III: Web scraping</strong></p>
-<p>Week 10 - 16.04.2024 - APIs</p>
-<p>Week 11 - 23.04.2024 - Web scraping basics</p>
-<p>Week 12 - 30.04.2024 - Web scraping static</p>
-<p>Week 13 - 07.05.2024 - Web scraping dynamic</p>
-<p><strong>Block II: Communicate Interactively</strong></p>
-<p>Week 14 - 14.05.2024 - Interactive I: Create your first Shiny app</p>
-<p>Week 15 - 21.05.2024 - Interactive II: Making pretty Shiny apps</p>
+<p>Week 12 - 29.04.2025 - Web scraping: Basics</p>
+<p>Week 13 - 06.05.2025 - Web scraping: Static</p>
+<p>Week 14 - 13.05.2025 - Web scraping: Dynamic</p>
 <p><strong>Closing</strong></p>
-<p>Week 16 - 28.05.2024 - Closing Session</p>
+<p>Week 15 - 20.05.2025 - Outlook: Large Language Models and more</p>
+<p>Week 16 - 27.05.2025 - Closing Session</p>
 
 
 </section>
@@ -450,10 +408,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -463,8 +438,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -476,7 +460,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -520,6 +627,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -545,6 +653,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -607,13 +741,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Automated Data Collection | Spring 2024 | University of Mannheim</div>   
+    <div class="nav-footer-left">
+<p>Text as Data: Introduction to Computational Text Analysis in R | Spring 2025 | University of Mannheim</p>
+</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
-    <div class="nav-footer-right">This page is built with <a href="https://quarto.org/">Quarto</a>.</div>
+    <div class="nav-footer-right">
+<p>This page is built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
   </div>
 </footer>
+
 
 
 

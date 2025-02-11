@@ -49,7 +49,7 @@ fonts <- font_files()
 font_add("Calibri", "calibriz.ttf")
 
 sticker(subplot = plot,
-  package = "Automated Data Collection",
+  package = "Text-as-Data",
   s_width = 1.6,
   s_height = 1,
   s_x = 0.93,

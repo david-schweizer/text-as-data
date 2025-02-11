@@ -3,7 +3,7 @@ title: "Intro to R"
 subtitle: "Week 02"
 description: ""
 author: ""
-date: "Feb 20, 2024"
+date: "Feb 18, 2025"
 listing:
   - id: slides
     contents:
@@ -35,38 +35,22 @@ listing:
 tbl-colwidths: [10,50,40]
 ---
 
-# Seminar slides
-
-::: {#slides}
-:::
-
-# Materials
-
-You can find the exercise [here](https://ilias.uni-mannheim.de/goto.php?target=file_1486988_download&client_id=ILIAS).
-
 # To Do's before our session
 
 ::: panel-tabset
-## Install & Join
+## Install
 
 -   Make sure R and RStudio is installed and works
 
     -   <https://posit.co/download/rstudio-desktop/>
 
--   Join the course Slack channel!
-
-    -   Invitation will follow via e-mail.
-
--   Join the Dataquest team!
-
-    -   Invitation will follow via e-mail.
 
 ## Read
 
 -   Chapter 2: Get Started in Healy, Data Visualization
 
     -   [Link to free online version](https://socviz.co/gettingstarted.html#gettingstarted)
-    -   Begin with **2.2 Use R with RStudio**
+    -   Especially, have a look at: **2.2 Use R with RStudio**
 
 ## Think
 
@@ -74,5 +58,15 @@ You can find the exercise [here](https://ilias.uni-mannheim.de/goto.php?target=f
 
     -   What interests you substantially? Start thinking about possible research areas for your data project.
 
-    -   Feel also free to point out (via Slack or personally via e-mail) which data sets you are interested in. Our coding examples during the weekly sessions can be tailored accordingly!
+    -   Feel also free to point out (via ILIAS or personally via e-mail) which data sets you are interested in. Our coding examples during the weekly sessions can be tailored accordingly!
 :::
+
+# Seminar slides
+
+::: {#slides}
+:::
+
+# Materials
+
+TBA.
+

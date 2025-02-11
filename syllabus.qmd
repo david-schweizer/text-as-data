@@ -1,6 +1,6 @@
 ---
 title: "Syllabus"
-subtitle: "Automated Data Collection - Spring 2024 - University of Mannheim"
+subtitle: "Text as Data: Introduction to Computational Text Analysis in R - Spring 2025 - University of Mannheim"
 editor: 
   markdown: 
     wrap: 72
@@ -9,9 +9,9 @@ editor:
 ## **Course details**
 
 |               |                                                                                             |
-|-------------------------|-----------------------------------------------|
+|-------------------------|----------------------------------------------|
 | Seminar:      | Übung - Methoden der Vergleichenden Regierungslehre                                         |
-| Time:         | Tuesday, 15:30 – 17:00,  February 13 to May 28                                              |
+| Time:         | Tuesday, 15:30 – 17:00,  February 11 to May 27                                              |
 | Place:        | C -108 Methodenlabor - groß/ Telefonlabor (A 5, 6 Bauteil C)                                |
 | Language:     | English                                                                                     |
 | Instructor:   | David Schweizer, M.A., david.schweizer\@uni-mannheim.de                                     |
@@ -21,22 +21,23 @@ editor:
 
 **\
 **Against the background of the ever-increasing availability of
-(unstructured) online data, the goal of this course is to equip the
-students with the necessary skills to collect large quantities of data
-for their own research projects, to process the data, and to automate
-this workflow in a reproducible way.
+(unstructured) data, the goal of this seminar is to equip you with the
+necessary skills to collect large quantities of text, to process it, and
+to analyse it. These skills allow you to pursue your own empirical
+research projects. The course consists of three major modules and is a
+very practical introduction to computational text analysis with the R
+programming language.
 
-The course introduces students to automated data collection using a very
-practical approach with the R programming language. The course consists
-of three major modules. First, you will be guided into the programming
-language and learn the fundamentals of R. No prior experience with R is
-necessary. Among other things, we will cover how to import, transform,
-and visualize data. Second, we will focus on the workflow for
-reproducible research. For example, this includes version control via
-Github and how to communicate your results. Third, we will cover static
-and dynamic web scraping as well as APIS’s from a conceptual perspective
-and use these tools to collect web data. Finally, we will also learn how
-to automate this process.
+-   First, you will be guided into the programming language learning the
+    fundamentals of R and get to know the workflow for data analysis:
+    Import, tidy, transform, and visualize data. No prior experience
+    with R is necessary!
+
+-   Second, we will learn how to implement various text analysis methods
+    and understand the intuition behind these methods.
+
+-   Third, we will cover static and dynamic web scraping and use these
+    tools to collect our own text data.
 
 The goal of this course is to equip you with the skills to:
 
@@ -44,7 +45,7 @@ The goal of this course is to equip you with the skills to:
 
 -   tidy, transform & visualize the data
 
--   communicate your data & (exploratory) results
+-   analyze the data & communicate your results
 
 -   collaborate with others along the workflow
 
@@ -66,230 +67,73 @@ Active participation during our weekly sessions is important to get the
 most out of this course. Engaging with the assigned readings is
 essential for participation.
 
-Use Slack to post any questions or discuss with your peers if you do not
-understand concepts. I will also regularly check our Slack channel.
+Use ILIAS to post any questions or discuss with your peers if you do not
+understand concepts.
 
-### **Assignments during the semester (10% of your grade)**
+### **Assignments during the semester (need to pass)**
 
-There will be 2 (short) assignments during the semester. Here, you have
+There will be 3 (short) assignments during the semester. Here, you have
 to demonstrate that you can apply the concepts/code presented during the
 session on your own.
 
 Deadlines:
 
--   Assignment 1: 12.03.2024 after the session -\> 19.03.2024 15:00
--   Assignment 2: 09.04.2024 after the session -\> 16.04.2024 15:00
--   ~~Assignment 3: 07.05.2024 after the session -\> 14.05.2024 15:00~~
--   ~~Assignment 4: 21.05.2024 after the session -\> 28.05.2024 15:00~~
-    No mandatory assignment. Feel free to send me your code regarding
-    the tasks for review.
+-   Assignment 1: 04.03.2025 after the session until 17.03.2025 13:00
+-   Assignment 2: 08.04.2025 after the session until 28.04.2025 13:00
+-   Assignment 3: 06.05.2025 after the session until 20.05.2025 13:00
 
-### **"Mid-term" assignments (15% of your grade)**
-
-The mid-term assignment differs from the other assignments in scope and
-length. Here, you should demonstrate your understanding of the
-concepts/code covered in the first half of the semester (importing,
-wrangling, and visualizing data).
-
-Deadline: 09.04.2024 15:00
-
-### **Data project (75% of your grade):**
+### **Term paper (100% of your grade):**
 
 ***In a nutshell: Ask a question you’re curious about, collect relevant
-data and visualize them with regard to your question.***
+data and analyze them with regard to your question using the techniques
+learned in this seminar.***
 
-Instead of a term paper, you will work on a data project. Again, in this
-final assignment, you need to demonstrate you understanding of the
-concepts/code covered during the semester. The goal is that you build
-your own data set using web scraping methods and present this data set.
-Hence, the data project includes the following steps:
+The term paper should include the following:
 
--   Collect own data using web scraping methods
+-   Brief introduction
 
--   Tidy and transform the data
+-   Brief theory and hypotheses
 
--   Possibly enrich the data set with other data (sets)
+-   Research design: Operationalization/Measurement, Case selection
 
--   Visualize your data
+-   Analysis
 
--   Present your data set using an interactive web application or an
-    (interactive Quarto document)
+-   Brief conclusion
 
--   Describe: How could you or other researchers make use of this data
-    for empirical research - What might be possible research questions?
+The term paper can contain up to 4500 words (+/- 10%, excluding title
+page, references, and appendix).
 
-**Group work** (up to 3 students) is possible and encouraged for the
-data project. In case of group work, each student will receive the same
-grade.
+In any case, I recommend to discuss your approach and ideas either via
+e-mail or during office hours!
 
-#### **In more detail:**
+**A general breakdown of scoring is as follows (you will receive a more
+detailed checklist for my grading criteria towards the end of the
+semester):**
 
-There are two options. In any case, I recommend to discuss your approach
-and ideas either via e-mail or during office hours!
+-   *1,0: Outstanding effort.*
 
-***OPTION A: Your own project***
+-   *1,3 - 2,0: Good effort.*
 
-You can choose the data based on your teams’ interests or based on work
-in other courses or research projects. The goal of this data project is
-for you to demonstrate proficiency in the techniques we have covered in
-this seminar and beyond, if you like) and apply them in a meaningful
-way.
+-   *2,3 - 3,0: Good/Passing effort.*
 
-The goal is not to do an exhaustive data analysis/visualization, i.e.,
-do not calculate every statistic, visualize the same data with lots of
-different graphs, or scrape as much information as possible, but rather
-let me know that you are proficient at asking a meaningful question,
-collect relevant data, and provide some descriptive answer; that you are
-proficient in using R, and that you work in a reproducible way.
+-   *3,3 - 4,0: Struggling effort.*
 
-Therefore, the project is very open ended. You should create some kind
-of compelling and interactive visualization(s) of this data in R (Shiny
-dashboard). There is no limit on what tools or packages you may use but
-sticking to packages we learned in class is required. You do not need to
-visualize all of the data at once. For example, a single high-quality
-visualization will receive a much higher grade than a large number of
-poor-quality visualizations.
-
-***OPTION B: Press releases & issue emphasis on immigration and the
-environment***
-
-Alternatively, you can work on a guided project. Some of the main steps
-in the workflow are roughly defined (i.e., research question and data),
-still you need to make your own decisions when it comes to presenting
-the data. We would be interested in investigating what drives issue
-emphasis (of mainstream parties) regarding the immigration and
-environment issue. This is not new, but inspired by:
-
--   Abou-Chadi, T. (2016). Niche party success and mainstream party
-    policy shifts–how green and radical right parties differ in their
-    impact. *British Journal of Political Science*, *46*(2), 417-436.
-
--   Gessler, T., & Hunger, S. (2022). How the refugee crisis and radical
-    right parties shape party competition on immigration. *Political
-    Science Research and Methods*, *10*(3), 524-544.
-
-Our expectations would be that mainstream parties react (by increasing
-their issue emphasis) to the increased issue emphasis by radical right
-parties regarding immigration and by Green parties regarding the
-environment. However, other factors such as electoral strength of
-radical right and Greens, public salience, and external factors (asylum
-applications and protest events) could also drive the salience of these
-issues.
-
-This project would include the following:
-
-**Collect data**
-
--   Scrape the press releases from the parliamentary groups of the AfD,
-    the Greens , the CDU/CSU, and the SPD in the German Bundestag
-    (latest starting point: January of 2023).
-
-    -   Apply a "dictionary" (there are multiple ways to do so, e.g.,
-        quanteda package, the stringr package) to detect press releases
-        related to the issue of the environment or immigration. We want
-        to visualize the salience of these issues (share of press
-        releases related to environment/immigration) on a monthly basis
-        later on. You can find a dictionary for the immigration issue in
-        the article by Gessler and Hunger (2022). *Schürmann, L. (2023).
-        The impact of local protests on political elite communication:
-        evidence from Fridays for Future in Germany. Journal of
-        Elections, Public Opinion and Parties, 1-21.* provides a
-        dictionary for the issue of the environment.
-
--   Get data for the Sonntagsfrage here:
-    <https://www.wahlrecht.de/umfragen/>. You can click on the specific
-    institutes for historical data. Reminder: We can easily scrape
-    tables!
-
--   Public salience: Following Gessler & Hunger try out Google Trends
-    <https://trends.google.com/trends?geo=DE&hl=de> to get a measure for
-    public salience for the immigration issue and the environment (e.g.,
-    topic "climate change")
-
--   Get data on asylum application (monthly) from Eurostat. In addition,
-    collect the dates of global climate strikes [(organized by Fridays
-    for Future in Germany](https://fridaysforfuture.de/aktionen/), you
-    can extract these events either manually or scrape them).
-
-**Data transformation**
-
--   For (one of) our visualizations, we want to have monthly time-series
-    data. Of course you can also decide to produce more/other
-    visualizations. E.g., there should be the following columns: *month,
-    party, salience_immigration, salience_environment, sonntagsfrage,
-    asylum_applications, protest.*
-
-**Visualization**
-
--   You should produce a dashboard with (interactive) visualizations.
-    You are free to choose the visualization which you think are suited
-    best to speak to the overall research question / expectations.
-    Initially, I would expect a dashboard at least three pages (one for
-    the issue of the environment, one for immigration, and one page with
-    text describing your project workflow (e.g., justifiying
-    visualization choices, your key take aways from presenting the
-    descriptives). However, you can also come up with a different
-    structure!
-
-#### **Grading of the project will take into account the following:**
-
--   Data collection: Correct? "Polite"? Documentation?
-
--   Data transformation: Correct? Documentation/Annotation?
-
--   Communication (Visualization(s) via dashboard): Correct? Style?
-    Effort?
-
--   Reproducibility: Can the dashboard and all pre-processing steps
-    executed on another device without error? (You need to hand in the
-    code for the shiny dashboard, R.data files, any R scripts for
-    pre-processing, and the raw data.)
-
--   *BONUS: Creativity and Critical Thought - Is the project carefully
-    thought out? How well is the project documented? Does it appear that
-    time and effort went into the planning and implementation of the
-    project? (More BONUS points possible for Option A)*
-
-**A general breakdown of scoring is as follows:**
-
--   *1,0: Outstanding effort.* Student understands how to apply all
-    concepts o the seminar, can collect data via webscraping "politely",
-    transform and visualize the data coherently and convincingly, and do
-    so in a reproducible way.
-
--   *1,3 - 2,0: Good effort.* Student seems to understand most of the
-    concepts and there are only minor mistakes regarding data collection
-    and transformation. Communication could be clearer and/or the
-    project is not fully reproducible.
-
--   *2,3 - 3,0: Good/Passing effort.* Student has misunderstanding of
-    concepts in several areas, has some trouble with data collection and
-    transformation, and the communication of results is sometimes
-    unclear. Further, the project is not fully reproducible and it is
-    visible that little effort went into the project.
-
--   *3,3 - 4,0: Struggling effort.* Student is making some effort, but
-    has misunderstanding of many concepts and is unable to put together
-    the workflow of the data project. Communication is unclear, the
-    project is not reproducible.
-
--   *Fail*: Student is not making a sufficient effort.
+-   *Fail.*
 
 #### Submission
 
 **In case of any questions or problems, please get in touch with me as
 early as possible.** Late submission will result in grade deductions.
 
--   Submission via ILIAS (zip folder: This should include your code for
-    the Shiny dashboard, R.data files, any R scripts for pre-processing,
-    as well as raw data).
--   **Deadline:** August 06, 2024, 23:59.
+-   Submission via ILIAS (zip folder: This should include your term
+    paper as PDF and replication packages).
+-   **Deadline:** 01.07.2024, 17:00.
 
 ## **Organization & Learning Resources**
 
-**Course website, Slack, (and ILIAS):**
+**Course website and ILIAS:**
 
-The plan is to use primarily the course website and Slack for providing
+The plan is to use primarily the course website and ILIAS for providing
 the structure of the seminar, materials, and communication,
 respectively. Nevertheless, you will also receive mails via ILIAS. Make
 sure to regularly check your university e-mail address.
@@ -336,16 +180,13 @@ found via this
 
 **Readings**
 
-The primary readings for this seminar are chapters from the following
-books:
+Readings will be provided on a weekly basis. General helpful readings
+for getting started with R in this seminar are chapters from the
+following books:
 
 -   Healy, Kieran. *Data visualization: a practical introduction*.
     Princeton University Press, 2018. *Free access via Katalog Primo and
     free online: https://socviz.co/*
-
--   Wilke, Claus E. *Fundamentals of Data Visualization*. O'Reilly
-    Media, 2018. *Free access via Katalog Primo and free online:
-    https://clauswilke.com/dataviz/*
 
 -   Wickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2023). *R for
     data science. 2ed*". O'Reilly Media, Inc. *Free online:*
@@ -360,44 +201,42 @@ materials*).
 
 **Intro**
 
-Week 01 - 13.02.2024 - Intro Session
+Week 01 - 11.02.2025 - Intro Session
 
 **Block I: Import, Tidy, Transform, & Visualize Data**
 
-Week 02 - 20.02.2024 - Intro to R
+Week 02 - 18.02.2025 - Intro to R
 
-Week 03 - 27.02.2024 - Tidyverse I: Import, tidy, and transform
+Week 03 - 25.02.2025 - Tidyverse I: Import, tidy, and transform
 
-Week 04 - 05.03.2024 - Tidyverse II: Import, tidy, and transform
+Week 04 - 04.03.2025 - Tidyverse II: Transform, and visualize
 
-Week 05 - 12.03.2024 - ggplot: Visualize
+**Block II: Text-as-Data**
 
-**Block II: Communicate & Collaborate**
+Week 05 - 11.03.2025 - Intro to Text-as-Data I: Concepts
 
-Week 06 - 19.03.2024 - R Markdown / Quarto
+Week 06 - 18.03.2025 - Intro to Text-as-Data II: Workflow
 
-*Week 07 - 26.03.2024 - Easter Break*
+Week 07 - 25.03.2025 - Dictionary and Sentiment
 
-*Week 08 - 02.04.2024 - Easter Break*
+Week 08 - 01.04.2025 - Topic Models
 
-Week 09 - 09.04.2024 - Version control (Github)
+Week 09 - 08.04.2025 - Advanced and state-of-the-art methods
+
+*Week 10 - 15.04.2024 - Easter break*
+
+*Week 11 - 22.04.2025 - Easter break*
 
 **Block III: Web scraping**
 
-Week 10 - 16.04.2024 - APIs
+Week 12 - 29.04.2025 - Web scraping: Basics
 
-Week 11 - 23.04.2024 - Web scraping basics
+Week 13 - 06.05.2025 - Web scraping: Static
 
-Week 12 - 30.04.2024 - Web scraping static
-
-Week 13 - 07.05.2024 - Web scraping dynamic
-
-**Block II: Communicate Interactively**
-
-Week 14 - 14.05.2024 - Interactive I: Create your first Shiny app
-
-Week 15 - 21.05.2024 - Interactive II: Making pretty Shiny apps
+Week 14 - 13.05.2025 - Web scraping: Dynamic
 
 **Closing**
 
-Week 16 - 28.05.2024 - Closing Session
+Week 15 - 20.05.2025 - Outlook: Large Language Models and more
+
+Week 16 - 27.05.2025 - Closing Session

@@ -28,7 +28,7 @@
     "href": "material.html",
     "title": "Schedule, slides & materials",
     "section": "",
-    "text": "You can find all course materials below. This includes slides, code, links to readings, etc.\nJust click on the topic of the respective week.\n\n\n\n\n\nWeek\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nFebruary 13, 2023\n\n\n\n\nWeek 02\n\n\nIntro to R\n\n\nFebruary 20, 2024\n\n\n\n\n\nNo matching items",
+    "text": "You can find all course materials below. This includes slides, code, links to readings, etc.\nJust click on the topic of the respective week.\n\n\n\n\n\nWeek\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nFebruary 11, 2025\n\n\n\n\nWeek 02\n\n\nIntro to R\n\n\nFebruary 18, 2025\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Schedule, slides & materials"
     ]
@@ -45,14 +45,17 @@
     "href": "syllabus.html",
     "title": "Syllabus",
     "section": "",
-    "text": "Seminar:\nÜbung - Methoden der Vergleichenden Regierungslehre\n\n\nTime:\nTuesday, 15:30 – 17:00,  February 13 to May 28\n\n\nPlace:\nC -108 Methodenlabor - groß/ Telefonlabor (A 5, 6 Bauteil C)\n\n\nLanguage:\nEnglish\n\n\nInstructor:\nDavid Schweizer, M.A., david.schweizer@uni-mannheim.de\n\n\nOffice hours:\nIn-person (A 340) or via Zoom, Tuesday 13:45 – 15:15, please make an appointment by e-mail"
+    "text": "Seminar:\nÜbung - Methoden der Vergleichenden Regierungslehre\n\n\nTime:\nTuesday, 15:30 – 17:00,  February 11 to May 27\n\n\nPlace:\nC -108 Methodenlabor - groß/ Telefonlabor (A 5, 6 Bauteil C)\n\n\nLanguage:\nEnglish\n\n\nInstructor:\nDavid Schweizer, M.A., david.schweizer@uni-mannheim.de\n\n\nOffice hours:\nIn-person (A 340) or via Zoom, Tuesday 13:45 – 15:15, please make an appointment by e-mail",
+    "crumbs": [
+      "Syllabus"
+    ]
   },
   {
     "objectID": "weeks/week-01.html",
     "href": "weeks/week-01.html",
     "title": "Intro Session",
     "section": "",
-    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nIntro Session\n\n\nWeek 1\n\n\nFeb 13, 2024\n\n\n\n\n\n\nNo matching items\n\n\n\n\nTo Do’s before our session\n\nNone. We will have an introductory session to get to know each other, go over the plan for the semester, and talk about both your and my expectations for the course.\nAlthough our sessions are in the “Methodenlabor” and you will have access to computers, I encourage you to bring your own laptop (if you have one). That way, you can also work on assignments during the semester and the final examination at home. We will have time tomorrow to ensure everybody can install a working version of R and RStudio."
+    "text": "To Do’s before our session\n\nNone. We will have an introductory session to get to know each other, go over the plan for the semester, and talk about both your and my expectations for the course.\nAlthough our sessions are in the “Methodenlabor” and you will have access to computers, I encourage you to bring your own laptop (if you have one). That way, you can also work on assignments during the semester and the final examination at home. We will have time tomorrow to ensure everybody can install a working version of R and RStudio.\n\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nIntro Session\n\n\nWeek 1\n\n\nFeb 11, 2025\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nThere are no materials for today’s session.\nHowever, below you can find the links to the examples given in the slides.\nText-as-Data articles:\n\nNostalgia in European Party Politics: A Text-Based Measurement Approach\nDoes Protest Influence Political Speech? Evidence from UK Climate Protest, 2017–2019\n\nZeit Online article:\n\nAcht Minuten Brandmauer, kaum Zeit fürs Klima\n\nBBC Example:\n\nBBC Visual and Data Journalism cookbook for R graphics"
   },
   {
     "objectID": "slides/week-01/01-example.html#bullet-point-list",
@@ -129,7 +132,7 @@
     "href": "weeks/week-02.html",
     "title": "Intro to R",
     "section": "",
-    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nIntro to R\n\n\nWeek 2\n\n\nFeb 20, 2023\n\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nYou can find the exercise here.\n\n\nTo Do’s before our session\n\nInstall & JoinReadThink\n\n\n\nMake sure R and RStudio is installed and works\n\nhttps://posit.co/download/rstudio-desktop/\n\nJoin the course Slack channel!\n\nInvitation will follow via e-mail.\n\nJoin the Dataquest team!\n\nInvitation will follow via e-mail.\n\n\n\n\n\nChapter 2: Get Started in Healy, Data Visualization\n\nLink to free online version\nBegin with 2.2 Use R with RStudio\n\n\n\n\n\nQuestions to think about until our next session:\n\nWhat interests you substantially? Start thinking about possible research areas for your data project.\nFeel also free to point out (via Slack or personally via e-mail) which data sets you are interested in. Our coding examples during the weekly sessions can be tailored accordingly!"
+    "text": "To Do’s before our session\n\nInstallReadThink\n\n\n\nMake sure R and RStudio is installed and works\n\nhttps://posit.co/download/rstudio-desktop/\n\n\n\n\n\nChapter 2: Get Started in Healy, Data Visualization\n\nLink to free online version\nEspecially, have a look at: 2.2 Use R with RStudio\n\n\n\n\n\nQuestions to think about until our next session:\n\nWhat interests you substantially? Start thinking about possible research areas for your data project.\nFeel also free to point out (via ILIAS or personally via e-mail) which data sets you are interested in. Our coding examples during the weekly sessions can be tailored accordingly!\n\n\n\n\n\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nIntro to R\n\n\nWeek 2\n\n\nFeb 18, 2025\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA."
   },
   {
     "objectID": "slides/week-01/01-Intro.html",
@@ -143,14 +146,20 @@
     "href": "syllabus.html#course-description",
     "title": "Syllabus",
     "section": "Course description",
-    "text": "Course description\n\nAgainst the background of the ever-increasing availability of (unstructured) online data, the goal of this course is to equip the students with the necessary skills to collect large quantities of data for their own research projects, to process the data, and to automate this workflow in a reproducible way.\nThe course introduces students to automated data collection using a very practical approach with the R programming language. The course consists of three major modules. First, you will be guided into the programming language and learn the fundamentals of R. No prior experience with R is necessary. Among other things, we will cover how to import, transform, and visualize data. Second, we will focus on the workflow for reproducible research. For example, this includes version control via Github and how to communicate your results. Third, we will cover static and dynamic web scraping as well as APIS’s from a conceptual perspective and use these tools to collect web data. Finally, we will also learn how to automate this process.\nThe goal of this course is to equip you with the skills to:\n\ncollect your own data\ntidy, transform & visualize the data\ncommunicate your data & (exploratory) results\ncollaborate with others along the workflow\n\nTaking this course should not be an end in itself. The motivation for this course is therefore twofold: First, these skills prepare you for conducting empirical research (including term papers, BA or MA theses), collaborating with other students / researchers, and communicating your work. Second, mastering these skills also prepare you for a career outside academia.\nThere are no prerequisites for this course, except the willingness to familiarise yourself with the R programming language."
+    "text": "Course description\n\nAgainst the background of the ever-increasing availability of (unstructured) data, the goal of this seminar is to equip you with the necessary skills to collect large quantities of text, to process it, and to analyse it. These skills allow you to pursue your own empirical research projects. The course consists of three major modules and is a very practical introduction to computational text analysis with the R programming language.\n\nFirst, you will be guided into the programming language learning the fundamentals of R and get to know the workflow for data analysis: Import, tidy, transform, and visualize data. No prior experience with R is necessary!\nSecond, we will learn how to implement various text analysis methods and understand the intuition behind these methods.\nThird, we will cover static and dynamic web scraping and use these tools to collect our own text data.\n\nThe goal of this course is to equip you with the skills to:\n\ncollect your own data\ntidy, transform & visualize the data\nanalyze the data & communicate your results\ncollaborate with others along the workflow\n\nTaking this course should not be an end in itself. The motivation for this course is therefore twofold: First, these skills prepare you for conducting empirical research (including term papers, BA or MA theses), collaborating with other students / researchers, and communicating your work. Second, mastering these skills also prepare you for a career outside academia.\nThere are no prerequisites for this course, except the willingness to familiarise yourself with the R programming language.",
+    "crumbs": [
+      "Syllabus"
+    ]
   },
   {
     "objectID": "syllabus.html#course-requirements",
     "href": "syllabus.html#course-requirements",
     "title": "Syllabus",
     "section": "Course requirements",
-    "text": "Course requirements\n\nActive participation and preparation:\nActive participation during our weekly sessions is important to get the most out of this course. Engaging with the assigned readings is essential for participation.\nUse Slack to post any questions or discuss with your peers if you do not understand concepts. I will also regularly check our Slack channel.\n\n\nAssignments during the semester (10% of your grade)\nThere will be 2 (short) assignments during the semester. Here, you have to demonstrate that you can apply the concepts/code presented during the session on your own.\nDeadlines:\n\nAssignment 1: 12.03.2024 after the session -&gt; 19.03.2024 15:00\nAssignment 2: 09.04.2024 after the session -&gt; 16.04.2024 15:00\nAssignment 3: 07.05.2024 after the session -&gt; 14.05.2024 15:00\nAssignment 4: 21.05.2024 after the session -&gt; 28.05.2024 15:00 No mandatory assignment. Feel free to send me your code regarding the tasks for review.\n\n\n\n“Mid-term” assignments (15% of your grade)\nThe mid-term assignment differs from the other assignments in scope and length. Here, you should demonstrate your understanding of the concepts/code covered in the first half of the semester (importing, wrangling, and visualizing data).\nDeadline: 09.04.2024 15:00\n\n\nData project (75% of your grade):\nIn a nutshell: Ask a question you’re curious about, collect relevant data and visualize them with regard to your question.\nInstead of a term paper, you will work on a data project. Again, in this final assignment, you need to demonstrate you understanding of the concepts/code covered during the semester. The goal is that you build your own data set using web scraping methods and present this data set. Hence, the data project includes the following steps:\n\nCollect own data using web scraping methods\nTidy and transform the data\nPossibly enrich the data set with other data (sets)\nVisualize your data\nPresent your data set using an interactive web application or an (interactive Quarto document)\nDescribe: How could you or other researchers make use of this data for empirical research - What might be possible research questions?\n\nGroup work (up to 3 students) is possible and encouraged for the data project. In case of group work, each student will receive the same grade.\n\nIn more detail:\nThere are two options. In any case, I recommend to discuss your approach and ideas either via e-mail or during office hours!\nOPTION A: Your own project\nYou can choose the data based on your teams’ interests or based on work in other courses or research projects. The goal of this data project is for you to demonstrate proficiency in the techniques we have covered in this seminar and beyond, if you like) and apply them in a meaningful way.\nThe goal is not to do an exhaustive data analysis/visualization, i.e., do not calculate every statistic, visualize the same data with lots of different graphs, or scrape as much information as possible, but rather let me know that you are proficient at asking a meaningful question, collect relevant data, and provide some descriptive answer; that you are proficient in using R, and that you work in a reproducible way.\nTherefore, the project is very open ended. You should create some kind of compelling and interactive visualization(s) of this data in R (Shiny dashboard). There is no limit on what tools or packages you may use but sticking to packages we learned in class is required. You do not need to visualize all of the data at once. For example, a single high-quality visualization will receive a much higher grade than a large number of poor-quality visualizations.\nOPTION B: Press releases & issue emphasis on immigration and the environment\nAlternatively, you can work on a guided project. Some of the main steps in the workflow are roughly defined (i.e., research question and data), still you need to make your own decisions when it comes to presenting the data. We would be interested in investigating what drives issue emphasis (of mainstream parties) regarding the immigration and environment issue. This is not new, but inspired by:\n\nAbou-Chadi, T. (2016). Niche party success and mainstream party policy shifts–how green and radical right parties differ in their impact. British Journal of Political Science, 46(2), 417-436.\nGessler, T., & Hunger, S. (2022). How the refugee crisis and radical right parties shape party competition on immigration. Political Science Research and Methods, 10(3), 524-544.\n\nOur expectations would be that mainstream parties react (by increasing their issue emphasis) to the increased issue emphasis by radical right parties regarding immigration and by Green parties regarding the environment. However, other factors such as electoral strength of radical right and Greens, public salience, and external factors (asylum applications and protest events) could also drive the salience of these issues.\nThis project would include the following:\nCollect data\n\nScrape the press releases from the parliamentary groups of the AfD, the Greens , the CDU/CSU, and the SPD in the German Bundestag (latest starting point: January of 2023).\n\nApply a “dictionary” (there are multiple ways to do so, e.g., quanteda package, the stringr package) to detect press releases related to the issue of the environment or immigration. We want to visualize the salience of these issues (share of press releases related to environment/immigration) on a monthly basis later on. You can find a dictionary for the immigration issue in the article by Gessler and Hunger (2022). Schürmann, L. (2023). The impact of local protests on political elite communication: evidence from Fridays for Future in Germany. Journal of Elections, Public Opinion and Parties, 1-21. provides a dictionary for the issue of the environment.\n\nGet data for the Sonntagsfrage here: https://www.wahlrecht.de/umfragen/. You can click on the specific institutes for historical data. Reminder: We can easily scrape tables!\nPublic salience: Following Gessler & Hunger try out Google Trends https://trends.google.com/trends?geo=DE&hl=de to get a measure for public salience for the immigration issue and the environment (e.g., topic “climate change”)\nGet data on asylum application (monthly) from Eurostat. In addition, collect the dates of global climate strikes (organized by Fridays for Future in Germany, you can extract these events either manually or scrape them).\n\nData transformation\n\nFor (one of) our visualizations, we want to have monthly time-series data. Of course you can also decide to produce more/other visualizations. E.g., there should be the following columns: month, party, salience_immigration, salience_environment, sonntagsfrage, asylum_applications, protest.\n\nVisualization\n\nYou should produce a dashboard with (interactive) visualizations. You are free to choose the visualization which you think are suited best to speak to the overall research question / expectations. Initially, I would expect a dashboard at least three pages (one for the issue of the environment, one for immigration, and one page with text describing your project workflow (e.g., justifiying visualization choices, your key take aways from presenting the descriptives). However, you can also come up with a different structure!\n\n\n\nGrading of the project will take into account the following:\n\nData collection: Correct? “Polite”? Documentation?\nData transformation: Correct? Documentation/Annotation?\nCommunication (Visualization(s) via dashboard): Correct? Style? Effort?\nReproducibility: Can the dashboard and all pre-processing steps executed on another device without error? (You need to hand in the code for the shiny dashboard, R.data files, any R scripts for pre-processing, and the raw data.)\nBONUS: Creativity and Critical Thought - Is the project carefully thought out? How well is the project documented? Does it appear that time and effort went into the planning and implementation of the project? (More BONUS points possible for Option A)\n\nA general breakdown of scoring is as follows:\n\n1,0: Outstanding effort. Student understands how to apply all concepts o the seminar, can collect data via webscraping “politely”, transform and visualize the data coherently and convincingly, and do so in a reproducible way.\n1,3 - 2,0: Good effort. Student seems to understand most of the concepts and there are only minor mistakes regarding data collection and transformation. Communication could be clearer and/or the project is not fully reproducible.\n2,3 - 3,0: Good/Passing effort. Student has misunderstanding of concepts in several areas, has some trouble with data collection and transformation, and the communication of results is sometimes unclear. Further, the project is not fully reproducible and it is visible that little effort went into the project.\n3,3 - 4,0: Struggling effort. Student is making some effort, but has misunderstanding of many concepts and is unable to put together the workflow of the data project. Communication is unclear, the project is not reproducible.\nFail: Student is not making a sufficient effort.\n\n\n\nSubmission\nIn case of any questions or problems, please get in touch with me as early as possible. Late submission will result in grade deductions.\n\nSubmission via ILIAS (zip folder: This should include your code for the Shiny dashboard, R.data files, any R scripts for pre-processing, as well as raw data).\nDeadline: August 06, 2024, 23:59."
+    "text": "Course requirements\n\nActive participation and preparation:\nActive participation during our weekly sessions is important to get the most out of this course. Engaging with the assigned readings is essential for participation.\nUse ILIAS to post any questions or discuss with your peers if you do not understand concepts.\n\n\nAssignments during the semester (need to pass)\nThere will be 3 (short) assignments during the semester. Here, you have to demonstrate that you can apply the concepts/code presented during the session on your own.\nDeadlines:\n\nAssignment 1: 04.03.2025 after the session until 17.03.2025 13:00\nAssignment 2: 08.04.2025 after the session until 28.04.2025 13:00\nAssignment 3: 06.05.2025 after the session until 20.05.2025 13:00\n\n\n\nTerm paper (100% of your grade):\nIn a nutshell: Ask a question you’re curious about, collect relevant data and analyze them with regard to your question using the techniques learned in this seminar.\nThe term paper should include the following:\n\nBrief introduction\nBrief theory and hypotheses\nResearch design: Operationalization/Measurement, Case selection\nAnalysis\nBrief conclusion\n\nThe term paper can contain up to 4500 words (+/- 10%, excluding title page, references, and appendix).\nIn any case, I recommend to discuss your approach and ideas either via e-mail or during office hours!\nA general breakdown of scoring is as follows (you will receive a more detailed checklist for my grading criteria towards the end of the semester):\n\n1,0: Outstanding effort.\n1,3 - 2,0: Good effort.\n2,3 - 3,0: Good/Passing effort.\n3,3 - 4,0: Struggling effort.\nFail.\n\n\nSubmission\nIn case of any questions or problems, please get in touch with me as early as possible. Late submission will result in grade deductions.\n\nSubmission via ILIAS (zip folder: This should include your term paper as PDF and replication packages).\nDeadline: 01.07.2024, 17:00.",
+    "crumbs": [
+      "Syllabus"
+    ]
   },
   {
     "objectID": "syllabus.html#recommended-readings",
@@ -164,14 +173,20 @@
     "href": "syllabus.html#organization-learning-resources",
     "title": "Syllabus",
     "section": "Organization & Learning Resources",
-    "text": "Organization & Learning Resources\nCourse website, Slack, (and ILIAS):\nThe plan is to use primarily the course website and Slack for providing the structure of the seminar, materials, and communication, respectively. Nevertheless, you will also receive mails via ILIAS. Make sure to regularly check your university e-mail address.\nIf you have contacted me with a question via any channel and you did not hear back after 2 days (except over the weekend), please just send me your question again!\nOffice hours:\n\nIn-person (A 340) or via Zoom, Tuesday 13:45 – 15:15, please make an appointment by e-mail.\nIf you have a specific question or problem (e.g., installing a specific package, finding a data source, etc.), please let me know before coming to the office hours. This way , I can also prepare for it and thereby making our meeting more productive and constructive.\n\nIllness (& Covid)\n\nIf you feel ill or have symptoms, please be considerate of your fellow students and yourself(!). Just let me know by e-mail.\n\nStudents with disabilities or chronic illnesses:\n\nPlease contact me or the Office of Student Affairs if you need special assistance due to disabilities or chronic illnesses. And please do this early in the semester so that we can make the appropriate arrangements.\n\nIf you need any support:\nOf course, you can always talk directly to me if you feel comfortable with the question. It is important to note that the University’s Equality and Diversity Office supports and advises you in cases of discrimination or sexual harassment. The responsible contact person in such a case is Dipl.-Psych. Ute Pfründer. She is trained to deal with such incidents and will keep everything strictly confidential. No action will be taken without your express consent. Further counseling services offered by the university can be found via this link.\nReadings\nThe primary readings for this seminar are chapters from the following books:\n\nHealy, Kieran. Data visualization: a practical introduction. Princeton University Press, 2018. Free access via Katalog Primo and free online: https://socviz.co/\nWilke, Claus E. Fundamentals of Data Visualization. O’Reilly Media, 2018. Free access via Katalog Primo and free online: https://clauswilke.com/dataviz/\nWickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2023). R for data science. 2ed”. O’Reilly Media, Inc. Free online: https://r4ds.hadley.nz/"
+    "text": "Organization & Learning Resources\nCourse website and ILIAS:\nThe plan is to use primarily the course website and ILIAS for providing the structure of the seminar, materials, and communication, respectively. Nevertheless, you will also receive mails via ILIAS. Make sure to regularly check your university e-mail address.\nIf you have contacted me with a question via any channel and you did not hear back after 2 days (except over the weekend), please just send me your question again!\nOffice hours:\n\nIn-person (A 340) or via Zoom, Tuesday 13:45 – 15:15, please make an appointment by e-mail.\nIf you have a specific question or problem (e.g., installing a specific package, finding a data source, etc.), please let me know before coming to the office hours. This way , I can also prepare for it and thereby making our meeting more productive and constructive.\n\nIllness (& Covid)\n\nIf you feel ill or have symptoms, please be considerate of your fellow students and yourself(!). Just let me know by e-mail.\n\nStudents with disabilities or chronic illnesses:\n\nPlease contact me or the Office of Student Affairs if you need special assistance due to disabilities or chronic illnesses. And please do this early in the semester so that we can make the appropriate arrangements.\n\nIf you need any support:\nOf course, you can always talk directly to me if you feel comfortable with the question. It is important to note that the University’s Equality and Diversity Office supports and advises you in cases of discrimination or sexual harassment. The responsible contact person in such a case is Dipl.-Psych. Ute Pfründer. She is trained to deal with such incidents and will keep everything strictly confidential. No action will be taken without your express consent. Further counseling services offered by the university can be found via this link.\nReadings\nReadings will be provided on a weekly basis. General helpful readings for getting started with R in this seminar are chapters from the following books:\n\nHealy, Kieran. Data visualization: a practical introduction. Princeton University Press, 2018. Free access via Katalog Primo and free online: https://socviz.co/\nWickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2023). R for data science. 2ed”. O’Reilly Media, Inc. Free online: https://r4ds.hadley.nz/",
+    "crumbs": [
+      "Syllabus"
+    ]
   },
   {
     "objectID": "syllabus.html#course-schedule",
     "href": "syllabus.html#course-schedule",
     "title": "Syllabus",
     "section": "Course Schedule",
-    "text": "Course Schedule\nThe schedule is preliminary. Structure and/or content might change during the semester. You will find the readings, materials, and slides for each week on the course website (see Schedule, slides & materials).\nIntro\nWeek 01 - 13.02.2024 - Intro Session\nBlock I: Import, Tidy, Transform, & Visualize Data\nWeek 02 - 20.02.2024 - Intro to R\nWeek 03 - 27.02.2024 - Tidyverse I: Import, tidy, and transform\nWeek 04 - 05.03.2024 - Tidyverse II: Import, tidy, and transform\nWeek 05 - 12.03.2024 - ggplot: Visualize\nBlock II: Communicate & Collaborate\nWeek 06 - 19.03.2024 - R Markdown / Quarto\nWeek 07 - 26.03.2024 - Easter Break\nWeek 08 - 02.04.2024 - Easter Break\nWeek 09 - 09.04.2024 - Version control (Github)\nBlock III: Web scraping\nWeek 10 - 16.04.2024 - APIs\nWeek 11 - 23.04.2024 - Web scraping basics\nWeek 12 - 30.04.2024 - Web scraping static\nWeek 13 - 07.05.2024 - Web scraping dynamic\nBlock II: Communicate Interactively\nWeek 14 - 14.05.2024 - Interactive I: Create your first Shiny app\nWeek 15 - 21.05.2024 - Interactive II: Making pretty Shiny apps\nClosing\nWeek 16 - 28.05.2024 - Closing Session"
+    "text": "Course Schedule\nThe schedule is preliminary. Structure and/or content might change during the semester. You will find the readings, materials, and slides for each week on the course website (see Schedule, slides & materials).\nIntro\nWeek 01 - 11.02.2025 - Intro Session\nBlock I: Import, Tidy, Transform, & Visualize Data\nWeek 02 - 18.02.2025 - Intro to R\nWeek 03 - 25.02.2025 - Tidyverse I: Import, tidy, and transform\nWeek 04 - 04.03.2025 - Tidyverse II: Transform, and visualize\nBlock II: Text-as-Data\nWeek 05 - 11.03.2025 - Intro to Text-as-Data I: Concepts\nWeek 06 - 18.03.2025 - Intro to Text-as-Data II: Workflow\nWeek 07 - 25.03.2025 - Dictionary and Sentiment\nWeek 08 - 01.04.2025 - Topic Models\nWeek 09 - 08.04.2025 - Advanced and state-of-the-art methods\nWeek 10 - 15.04.2024 - Easter break\nWeek 11 - 22.04.2025 - Easter break\nBlock III: Web scraping\nWeek 12 - 29.04.2025 - Web scraping: Basics\nWeek 13 - 06.05.2025 - Web scraping: Static\nWeek 14 - 13.05.2025 - Web scraping: Dynamic\nClosing\nWeek 15 - 20.05.2025 - Outlook: Large Language Models and more\nWeek 16 - 27.05.2025 - Closing Session",
+    "crumbs": [
+      "Syllabus"
+    ]
   },
   {
     "objectID": "syllabus.html#course-schedule-and-reading-material",
@@ -2365,7 +2380,10 @@
     "href": "syllabus.html#course-details",
     "title": "Syllabus",
     "section": "",
-    "text": "Seminar:\nÜbung - Methoden der Vergleichenden Regierungslehre\n\n\nTime:\nTuesday, 15:30 – 17:00,  February 13 to May 28\n\n\nPlace:\nC -108 Methodenlabor - groß/ Telefonlabor (A 5, 6 Bauteil C)\n\n\nLanguage:\nEnglish\n\n\nInstructor:\nDavid Schweizer, M.A., david.schweizer@uni-mannheim.de\n\n\nOffice hours:\nIn-person (A 340) or via Zoom, Tuesday 13:45 – 15:15, please make an appointment by e-mail"
+    "text": "Seminar:\nÜbung - Methoden der Vergleichenden Regierungslehre\n\n\nTime:\nTuesday, 15:30 – 17:00,  February 11 to May 27\n\n\nPlace:\nC -108 Methodenlabor - groß/ Telefonlabor (A 5, 6 Bauteil C)\n\n\nLanguage:\nEnglish\n\n\nInstructor:\nDavid Schweizer, M.A., david.schweizer@uni-mannheim.de\n\n\nOffice hours:\nIn-person (A 340) or via Zoom, Tuesday 13:45 – 15:15, please make an appointment by e-mail",
+    "crumbs": [
+      "Syllabus"
+    ]
   },
   {
     "objectID": "index.html#course-details",
@@ -7526,15 +7544,15 @@
     "objectID": "slides/week-01/01-Intro.html#plan-for-today",
     "href": "slides/week-01/01-Intro.html#plan-for-today",
     "title": "Intro Session",
-    "section": "",
-    "text": "Introduction round: Getting to know each other\nCourse content and schedule\nYour expectations\nMy expectations & course requirements\nMotivation for the course"
+    "section": "Plan for today",
+    "text": "Plan for today\n\nIntroduction round: Getting to know each other\nCourse content and schedule\nMotivation for the course\nYour expectations\nMy expectations & course requirements"
   },
   {
     "objectID": "slides/week-01/01-Intro.html#introduction-round",
     "href": "slides/week-01/01-Intro.html#introduction-round",
     "title": "Intro Session",
     "section": "Introduction round",
-    "text": "Introduction round\n\nI’ll go first. A few words about me\nYou’re next. Groups of 3-4\n\nIntroduce yourselves to your classmates\nWhat is your name? Where are you from? What do you study? Did you pick up a new hobby recently?\n\nPlenum\n\nIn a few sentences, present yourself to the plenum and tell the others one thing about the person you just met"
+    "text": "Introduction round\n\nI’ll go first. A few words about me\nYou’re next. Groups of 4.\n\nIntroduce yourselves to your classmates\nWhat is your name? Where are you from? What do you study? Did you pick up a new hobby recently?\n\nPlenum\n\nIn a few sentences, present yourself to the plenum and tell the others one thing about the person you just met"
   },
   {
     "objectID": "slides/week-01/01-Intro.html#about-me",
@@ -7555,7 +7573,7 @@
     "href": "slides/week-01/01-Intro.html#schedule-content",
     "title": "Intro Session",
     "section": "Schedule & Content",
-    "text": "Schedule & Content\n\nIntroBlock I… II… III… IIClosing\n\n\n\nWeek 01 - 13.02.2024 - Intro Session\n\n\n\nBlock I: Import, Tidy, Transform, & Visualize Data\n\nWeek 02 - 20.02.2024 - Intro to R\nWeek 03 - 27.02.2024 - Tidyverse I: Import, tidy, and transform\nWeek 04 - 05.03.2024 - Tidyverse II: Import, tidy, and transform\nWeek 05 - 12.03.2024 - ggplot: Visualize\n\n\n\nBlock II: Communicate & Collaborate\n\nWeek 06 - 19.03.2024 - R Markdown / Quarto\nWeek 07 - 26.03.2024 - Easter Break\nWeek 08 - 02.04.2024 - Easter Break\nWeek 09 - 09.04.2024 - Version control (Github)\n\n\n\nBlock III: Web scraping\n\nWeek 10 - 16.04.2024 - APIs\nWeek 11 - 23.04.2024 - Web scraping basics\nWeek 12 - 30.04.2024 - Web scraping static\nWeek 13 - 07.05.2024 - Web scraping dynamic\n\n\n\nBlock II: Communicate Interactively\n\nWeek 14 - 14.05.2024 - Interactive I: Create your first Shiny app\nWeek 15 - 21.05.2024 - Interactive II: Making pretty Shiny apps\n\n\n\n\nWeek 16 - 28.05.2024 - Closing Session"
+    "text": "Schedule & Content\n\nIntroBlock I… II… IIIClosing\n\n\n\nWeek 01 - 11.02.2025 - Intro Session\n\n\n\nBlock I: Import, Tidy, Transform, & Visualize Data\n\nWeek 02 - 18.02.2025 - Intro to R\nWeek 03 - 25.02.2025 - Tidyverse I: Import, tidy, and transform\nWeek 04 - 04.03.2025 - Tidyverse II: Transform, and visualize\n\n\n\nBlock II: Text-as-Data\n\nWeek 05 - 11.03.2025 - Intro to Text-as-Data I: Concepts\nWeek 06 - 18.03.2025 - Intro to Text-as-Data II: Workflow\nWeek 07 - 25.03.2025 - Dictionary and Sentiment\nWeek 08 - 01.04.2025 - Topic Models\nWeek 09 - 08.04.2025 - Advanced and state-of-the-art methods\n\n\n\nBlock III: Web scraping\n\nWeek 12 - 29.04.2025 - Web scraping: Basics\nWeek 13 - 06.05.2025 - Web scraping: Static\nWeek 14 - 13.05.2025 - Web scraping: Dynamic\n\n\n\n\nWeek 15 - 20.05.2025 - Outlook: Large Language Models and more\nWeek 16 - 27.05.2025 - Closing Session"
   },
   {
     "objectID": "slides/week-01/01-Intro.html#your-expectations",
@@ -7569,21 +7587,21 @@
     "href": "slides/week-01/01-Intro.html#plan-expectations",
     "title": "Intro Session",
     "section": "Plan & expectations",
-    "text": "Plan & expectations\n\nUnfortunately, we are a large group. Maybe adaptation during the semester.\nMix of lecture-style input, live coding, group exercises, and discussion.\nActive participation in class and preparation\nWillingness to invest time to learn a (new) programming language, look for solutions on your own, and keep trying"
+    "text": "Plan & expectations\n\nWe are a rather large group. Maybe adaptation is needed during the semester.\nMix of lecture-style input, live coding, group exercises, and discussion.\nActive participation in class and preparation\nWillingness to invest time to learn a (new) programming language, look for solutions on your own, and keep trying"
   },
   {
     "objectID": "slides/week-01/01-Intro.html#organisation-resources",
     "href": "slides/week-01/01-Intro.html#organisation-resources",
     "title": "Intro Session",
     "section": "Organisation & Resources",
-    "text": "Organisation & Resources\n\nMaterials will be provided via the course website.\nCommunication via Slack. Nevertheless: Make sure that you have access to the course on ILIAS and that emails that are sent over ILIAS are forwarded to the email account you check regularly\nWeekly office hours before the course. Please make an appointment via e-mail.\nAccess to Dataquest (Online learning platform for programming languages and more)"
+    "text": "Organisation & Resources\n\nMaterials will be provided via the course website.\nCommunication via ILIAS. Make sure that you have access to the course on ILIAS and that emails that are sent over ILIAS are forwarded to the email account you check regularly\nWeekly office hours before the course. Please make an appointment via e-mail!"
   },
   {
     "objectID": "slides/week-01/01-Intro.html#course-requirements",
     "href": "slides/week-01/01-Intro.html#course-requirements",
     "title": "Intro Session",
     "section": "Course requirements",
-    "text": "Course requirements\n\nActive participation & preparation\nIndividual assignments during the semester (10% of your grade)\nMid-term assignment (15% of your grade)\nFinal data project (75% of your grade)"
+    "text": "Course requirements\n\nParticipationAssignmentsTerm paper\n\n\nTo get out the most of this seminar, active participation and preparation is needed!\nCheck the readings, review the code (exercises), make sure that you understand the concepts, and ask questions!\n\n\nIndividual assignments during the semester (need to pass).\nThere will be 3 (short) assignments during the semester - one for each block. Here, you have to demonstrate that you can apply the concepts/code presented during the session on your own.\n\n\nIn a nutshell: Ask a question you’re curious about, collect relevant data, and analyze them with regard to your question using the techniques learned in this seminar.\nThe term paper can contain up to 4500 words (+/- 10%, excluding title page, references, and appendix). Deadline: 01.07.2024, 17:00. 100% of your grade.\nIn any case, I recommend to discuss your approach and ideas either via e-mail or during office hours!"
   },
   {
     "objectID": "slides/week-01/01-Intro.html#important",
@@ -7597,28 +7615,28 @@
     "href": "slides/week-01/01-Intro.html#motivation",
     "title": "Intro Session",
     "section": "Motivation",
-    "text": "Motivation"
+    "text": "Motivation\nThe goal of this course is to equip you with the skills to:\n\ncollect your own (text) data\ntidy, transform & visualize the data\nanalyze the (text) data & communicate your results\ncollaborate with others along the workflow\n\nTaking this course should not be an end in itself."
   },
   {
     "objectID": "slides/week-01/01-Intro.html#motivation-1",
     "href": "slides/week-01/01-Intro.html#motivation-1",
     "title": "Intro Session",
     "section": "Motivation",
-    "text": "Motivation\nThe goal of this course is to equip you with the skills to:\n\ncollect your own data\ntidy, transform & visualize the data\ncommunicate your data & (exploratory) results\ncollaborate with others along the workflow\n\nTaking this course should not be an end in itself!"
+    "text": "Motivation"
   },
   {
     "objectID": "slides/week-01/01-Intro.html#why-r",
     "href": "slides/week-01/01-Intro.html#why-r",
     "title": "Intro Session",
     "section": "Why R?",
-    "text": "Why R?\n\nBenefitsLearningRewardOpportunity\n\n\n\nVersatile: Visualizations, statistical analysis, programming, incorporation of other programming languages\nFree and open source\n\nLarge community, there is basically an answer to every question you will have online: Stackoverflow, ChatGPT, …\n\nIncreasing popularity in academia & industry"
+    "text": "Why R?\n\nBenefitsLearningReward\n\n\n\nVersatile: Visualizations, statistical analysis, programming, incorporation of other programming languages\nFree and open source\n\nLarge community, there is basically an answer to every question you will have online: Stackoverflow, ChatGPT, …\n\nIncreasing popularity in academia & industry"
   },
   {
     "objectID": "slides/week-01/01-Intro.html#until-our-next-session",
     "href": "slides/week-01/01-Intro.html#until-our-next-session",
     "title": "Intro Session",
     "section": "Until our next session",
-    "text": "Until our next session\n\nInstall & JoinReadThink\n\n\n\nMake sure R and RStudio is installed and works\n\nhttps://posit.co/download/rstudio-desktop/\n\nJoin the course Slack channel!\n\nInvitation will follow via e-mail.\n\nJoin the Dataquest team!\n\nInvitation will follow via e-mail.\n\n\n\n\n\nChapter 2: Get Started in Healy, Data Visualization\n\nLink to free online version\nBegin with 2.2 Use R with RStudio\n\n\n\n\n\nQuestions to think about until our next session:\n\nWhat interests you substantially? Start thinking about possible research areas for your data project.\nFeel also free to point out (via Slack or personally via e-mail) which data sets you are interested in. Our coding examples during the weekly sessions can be tailored accordingly!"
+    "text": "Until our next session\n\nInstallReadThink\n\n\n\nMake sure R and RStudio is installed and works\n\nhttps://posit.co/download/rstudio-desktop/\n\n\n\n\n\nChapter 2: Get Started in Healy, Data Visualization\n\nLink to free online version\nEspecially, 2.2 Use R with RStudio\n\n\n\n\n\nQuestions to think about until our next session:\n\nWhat interests you substantially? Start thinking about possible research areas for your data project.\nFeel also free to point out (via ILIAS or personally via e-mail) which data sets you are interested in. Our coding examples during the weekly sessions can be tailored accordingly!"
   },
   {
     "objectID": "slides/week-02/02-Intro_R.html",
@@ -7871,5 +7889,40 @@
     "title": "Intro to R",
     "section": "Accessing and subsetting data frames",
     "text": "Accessing and subsetting data frames\nWe can also access individual variables using the $ sign:\n\ndf$party\n\n[1] \"CDU\" \"CSU\" \"SPD\"\n\n\nAlternatively, we can index by variable name:\n\ndf[\"party\"]\n\n  party\n1   CDU\n2   CSU\n3   SPD\n\n\nOr variable order:\n\ndf[1]\n\n  party\n1   CDU\n2   CSU\n3   SPD"
+  },
+  {
+    "objectID": "slides/week-01/01-Intro.html#my-plan-expectations",
+    "href": "slides/week-01/01-Intro.html#my-plan-expectations",
+    "title": "Intro Session",
+    "section": "My plan & expectations",
+    "text": "My plan & expectations\n\nWe are a rather large group. Maybe adaptation is needed during the semester.\nMix of lecture-style input, live coding, group exercises, and discussion.\nActive participation in class and preparation\nWillingness to invest time to learn a (new) programming language, look for solutions on your own, and keep trying"
+  },
+  {
+    "objectID": "slides/week-01/01-Intro.html#interests",
+    "href": "slides/week-01/01-Intro.html#interests",
+    "title": "Intro Session",
+    "section": "Interests",
+    "text": "Interests"
+  },
+  {
+    "objectID": "slides/week-01/01-Intro.html#your-motivation",
+    "href": "slides/week-01/01-Intro.html#your-motivation",
+    "title": "Intro Session",
+    "section": "Your motivation",
+    "text": "Your motivation"
+  },
+  {
+    "objectID": "slides/week-01/01-Intro.html#general-motivation",
+    "href": "slides/week-01/01-Intro.html#general-motivation",
+    "title": "Intro Session",
+    "section": "General motivation",
+    "text": "General motivation\nThe goal of this course is to equip you with the skills to:\n\ncollect your own (text) data\ntidy, transform & visualize the data\nanalyze the (text) data & communicate your results\ncollaborate with others along the workflow\n\nTaking this course should not be an end in itself."
+  },
+  {
+    "objectID": "slides/week-01/01-Intro.html#why-text-as-data",
+    "href": "slides/week-01/01-Intro.html#why-text-as-data",
+    "title": "Intro Session",
+    "section": "Why text-as-data?",
+    "text": "Why text-as-data?\n\nDataAcademia I …… IIReporting\n\n\nWe can tap into (new) data:\n\nPolitical actors (speeches, press releases, social media, manifestos)\nSociety (surveys, social media)\nNews\n…\n\nEverything that is published as text (or can be transcribed)!"
   }
 ]
