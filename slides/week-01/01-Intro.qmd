@@ -94,6 +94,10 @@ editor: visual
 
 ## ... III
 
+-   *Week 10 - 15.04.2025 - Easter Break*
+
+-   *Week 11 - 22.04.2025 - Easter Break*
+
 **Block III: Web scraping**
 
 -   Week 12 - 29.04.2025 - Web scraping: Basics
@@ -152,7 +156,7 @@ Everything that is published as text (or can be transcribed)!
 
 ## Why R?
 
-::: panel-tabset 
+::: panel-tabset
 #### Benefits
 
 -   Versatile: Visualizations, statistical analysis, programming, incorporation of other programming languages
