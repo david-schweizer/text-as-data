@@ -1,0 +1,27 @@
+---
+title: "Schedule, slides & materials"
+listing:
+  - id: material
+    contents:
+      - weeks/week-01.qmd
+      - weeks/week-02.qmd
+    type: table
+    fields: [subtitle, title, date]
+    field-display-names:
+      title: "Topic"
+      description: "Date"
+      subtitle: "Week"
+    date-format: "MMMM DD, YYYY"
+    sort: [filename]
+    sort-ui: false
+    filter-ui: false
+ #tbl-colwidths: [5,20,50,25]
+editor: visual
+---
+
+You can find all course materials below. This includes slides, code, links to readings, etc.
+
+Just click on the topic of the respective week.
+
+::: {#material}
+:::

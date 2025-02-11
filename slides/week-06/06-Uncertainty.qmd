@@ -1,0 +1,287 @@
+---
+title: "Quarto"
+subtitle: "Week 6"
+author: "David Schweizer"
+date: "March 19, 2024"
+date-format: long
+institute: "University of Mannheim"
+format: 
+  revealjs:
+    theme: simple
+    slide-number: c/t #< collapsed/total
+    footer: "Automated Data Collection | Spring 2024 | University of Mannheim"
+editor: visual
+---
+
+## Plan for today
+
+Input
+
+-   Reproducibility, R Markdown & Quarto
+
+Coding Session
+
+-   Drafting your first Quarto documents
+
+# Reproducibility
+
+## Reproducibility ⟶ Why R?
+
+... and not just Excel? R ...
+
+-   ... can deal with more data faster.
+
+-   ... is open-source and free.
+
+-   ... allows us to reproduce results and understand data processing steps.
+
+## But what could go wrong?
+
+![](genes.png)
+
+## ... a lot!
+
+![](genes2.png){width="632"}
+
+## ... and there is more ...
+
+![](budget1.png)
+
+-   **Result:** Economic growth slows when a country's debt is higher than 90% of GDP
+
+-   **Implication:** e.g., cited by Republican Paul Ryan in his [proposed 2013 budge](http://budget.house.gov/prosperity/fy2013.htm)t: *The Path to Prosperity: A Blueprint for American Renewal*
+
+## ... wrong basis for policy decisions
+
+![](budget3.png){fig-align="center"}
+
+## How can we avoid this?
+
+-   Do not change the raw data!
+
+    -   If there is no other way, document and explain what you did extensively.
+
+-   Use open formats
+
+    -   e.g., .csv and not .xlsx
+
+-   Use reproducible code
+
+    -   **R Markdown & Quarto**
+
+## R Markdown
+
+*R Markdown provides an **unified authoring framework** for data science, **combining your code, its results, and your prose commentary.** R Markdown documents are **fully reproducible** and support dozens of output formats, like PDFs, Word files, slideshows, and more.*
+
+[R for Data Science](https://r4ds.had.co.nz/r-markdown.html#r-markdown)
+
+## Why should we use R Markdown?
+
+1.  Communication of our analysis with a focus on conclusions and not on the code.
+
+2.  Collaboration with other researchers who want to understand your data analysis and your code.
+
+3.  Annotation of the codes and thoughts regarding the coding and data analysis can be stored in the same document.
+
+[R for Data Science](https://r4ds.had.co.nz/r-markdown.html#r-markdown)
+
+## R Markdown - AirBnb
+
+![](airbnb.png)
+
+## R Markdown - UK Government
+
+Formerly, a typical statistics production process in government agencies in the UK:
+
+![](govuk2.png){width="1348"}
+
+. . .
+
+Prone to errors & time-consuming ⟶ Development to a reproducible analytical pipeline:
+
+![](govuk.png){width="443"}
+
+## Moving to Quarto
+
+-   Quarto is not an R package as R Markdown, but an command line interface tool.
+
+-   It gives you the s**ame functionality as R Markdown** as well as other packages.
+
+-   It **extends R Markdown** through native support for other programming languages such as Python.
+
+-   The "new" way to produce articles & reports, presentations, interactive documents, websites or books.
+
+[R for Data Science](https://r4ds.hadley.nz/quarto.html#introduction)
+
+## 
+
+[![](quarto.jpg)](https://quarto.org/)
+
+## Create a Quarto Document
+
+![](quarto1.jpg)
+
+## Create a Quarto Document
+
+![](quarto2.jpg)
+
+## Create a Quarto Document
+
+![](quarto3.jpg)
+
+## Create a Quarto Document
+
+![](quarto4.jpg)
+
+## Create a Quarto Document
+
+![](quarto5.jpg)
+
+# Gapminder example
+
+## YAML header
+
+```{r, eval=FALSE, echo=TRUE}
+---
+title: "Explore Gapminder Data"
+author: "David Schweizer"
+format: 
+  html: default
+editor: visual
+---
+```
+
+## Code chunks - Data
+
+We make use of the Gapminder data.
+
+```{r, echo=TRUE, results='hide', message=FALSE, warning=FALSE}
+# #| label: load-packages-and-data
+# #| include: false
+
+library(tidyverse)
+library(gapminder)
+
+gapminder <- gapminder
+```
+
+## Code chunks - Wrangle
+
+```{r, echo=TRUE, results='hide'}
+# #| label: wrangle-data
+# #| echo: true
+# #| results: hide
+
+gapminder_2007_europe <- gapminder %>% 
+  filter(year == 2007 & continent == "Europe") %>% 
+  select(-c(year,continent,pop))
+
+head(gapminder_2007_europe, n = 5)
+```
+
+## Code chunks - Visualize
+
+```{r, echo=TRUE}
+# #| label: visualize-data
+# #| echo: false
+# #| message: false
+# #| fig-cap: "GDP per capita and life expectancy in Europe in 2007"
+```
+
+```{r, echo=FALSE, results='asis', fig.cap="GDP per capita and life expectancy in Europe in 2007"}
+# #| label: visualize-data
+# #| echo: false
+# #| message: false
+# #| fig-cap: "GDP per capita and life expectancy in Europe in 2007"
+
+ggplot(gapminder_2007_europe, 
+       aes(x = gdpPercap,
+           y = lifeExp)) +
+  geom_point() +
+  geom_smooth() +
+  theme_minimal()
+```
+
+## Output
+
+![](output.jpg)
+
+## Code chunk options
+
+[![](code.jpg)](https://r4ds.hadley.nz/quarto#code-chunks)
+
+## Render to different formats
+
+Quarto offers many output formats. You can find a complete overview [here](https://quarto.org/docs/output-formats/all-formats.html).
+
+Interesting for us so far:
+
+-   HTML
+
+-   PDF
+
+-   Word
+
+## Adjust the YAML header
+
+::: panel-tabset
+## HTML
+
+```{r, eval=FALSE, echo=TRUE}
+---
+title: "Explore Gapminder Data"
+author: "David Schweizer"
+format: 
+  html: default
+
+editor: visual
+---
+
+```
+
+## PDF
+
+```{r, echo=TRUE, eval=FALSE}
+---
+title: "Explore Gapminder Data"
+author: "David Schweizer"
+format: 
+  pdf: default
+
+editor: visual
+---
+```
+
+## Word
+
+```{r, echo=TRUE, eval=FALSE}
+---
+title: "Explore Gapminder Data"
+author: "David Schweizer"
+format: 
+  docx: default
+
+editor: visual
+---
+```
+:::
+
+## Next steps
+
+We have covered the basics. Now, it is your turn to practice and explore Quarto:
+
+-   [Get Started: Quarto](https://quarto.org/docs/get-started/hello/rstudio.html)
+
+-   [Writing a reproducible paper with RStudio and Quarto](https://osf.io/preprints/osf/ur4xn)
+
+-   [Gallery: Quarto](https://quarto.org/docs/gallery/)
+
+-   [R for Data Science](https://r4ds.hadley.nz/quarto)
+
+# Your turn
+
+-   We will work with the [ParlGov data](https://www.parlgov.org/data-info/). Download under "Main tables" *Parties* and *Elections.*
+
+-   Goal for today: Show the development of vote shares by party family over time in European elections. You can choose what type of visualization you want to produce. You can also zoom in on specific countries if you want to.
+
+-   Create a Quarto document and render to HTML. Give it a title and include your name as author. Do not show the code, but only the final plot. Give the plot a caption and describe it with a few sentences.

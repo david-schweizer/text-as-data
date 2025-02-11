@@ -1,0 +1,387 @@
+---
+title: "Web scraping dynamic"
+subtitle: "Week 13"
+author: "David Schweizer"
+date: "May 07, 2024"
+date-format: long
+institute: "University of Mannheim"
+format: 
+  revealjs:
+    theme: simple
+    slide-number: c/t #< collapsed/total
+    footer: "Automated Data Collection | Spring 2024 | University of Mannheim"
+editor: visual
+---
+
+```{r setup, include=FALSE}
+pacman::p_load("tidyverse",
+    "robotstxt",
+    "rvest",
+    "polite",
+    "RSelenium")
+
+load("links.rda")
+load("list.rda")
+```
+
+## Plan for today
+
+-   Short input:
+
+    -   **Crawling** static pages and **scraping dynamic** pages
+
+-   Your turn!
+
+## Crawling (Static) Pages: Overview
+
+Most of the time, one page does not include all information we are interested in (e.g, it is spread over different pages of a website).
+
+In this case, we can **crawl** over these different pages by using information on one of the website's pages.
+
+We can use *for loops* for crawling.
+
+-   This can take a long time
+-   We should even more think about ethical scraping!
+
+## Example: Bundeswahlleiterin - BTW 2021
+
+![](Bild1.png)
+
+## Example: BTW 2021 - Land
+
+![](bild3.jpg)
+
+## Example: BTW 2021 - Results in tables
+
+![](bild4.jpg)
+
+## Example: Select links with SelectorGadget
+
+![](Bild2.png)
+
+## Example: Get links
+
+First, we scrape the page that has all URLs:
+
+```{r, echo = TRUE, eval=FALSE}
+links <- bow(url = "https://www.bundeswahlleiter.de/bundestagswahlen/2021/ergebnisse.html") %>%
+        scrape() %>%
+        html_elements(css = ".linklist__item+ .linklist__item a") %>% 
+        html_attr("href") %>% 
+        url_absolute(base = "https://www.bundeswahlleiter.de/bundestagswahlen/2021/")
+```
+
+```{r, echo=TRUE}
+head(links)
+```
+
+## Example: Get tables from each page
+
+First, we create an empty list. We store our table later in that list.
+
+```{r, echo = TRUE, eval = FALSE}
+#| code-line-numbers: "1"
+list <- list ()
+
+for (i in 1:length(links)) {
+  
+  page <- bow(links[i]) %>% scrape()
+  
+  list[[i]] <- page %>% 
+          html_table() 
+}
+```
+
+## Example: Get tables from each page
+
+Next, we use a *for loop* to iterate over each element in our list of links:
+
+```{r, echo = TRUE, eval = FALSE}
+#| code-line-numbers: "3,10"
+list <- list () 
+
+for (i in 1:length(links)) { 
+    
+  page <- bow(links[i]) %>% scrape()
+
+  list[[i]] <- page %>% 
+        html_table() 
+
+}
+```
+
+## Example: Get tables from each page
+
+Then, we *politely* (`bow()`) get the source code for each link (`scrape()`):
+
+```{r, echo = TRUE, eval = FALSE}
+#| code-line-numbers: "5"
+list <- list () 
+
+for (i in 1:length(links)) { 
+  
+page <- bow(links[i]) %>% scrape()
+
+list[[i]] <- page %>% 
+        html_table() 
+
+} 
+```
+
+## Example: Get tables from each page
+
+Finally, we scrape the tables from each page with `html_table()` and store the results in our list:
+
+```{r, echo = TRUE, eval = FALSE}
+#| code-line-numbers: "7,8"
+list <- list () 
+
+for (i in 1:length(links)) { 
+  
+page <- bow(links[i]) %>% scrape() 
+
+list[[i]] <- page %>% 
+        html_table()
+
+} 
+```
+
+## Example: Get tables from each page
+
+Check the first list entry:
+
+```{r, echo = TRUE}
+list[[1]] ## Baden-Württemberg
+```
+
+## Example: BTW 2021 - More links
+
+![](bild5.jpg)
+
+# Scraping dynamic pages
+
+## Overview
+
+Dynamic pages display custom content.
+
+Different visitors see different content on the same page - e.g., depending on their input (clicking, scrolling) - URL stays the same
+
+For example, the Bundeswahlleiter (Federal Returining Officer) has dynamic elements on its website (e.g., selecting election year or voting results on subnational levels).
+
+It is more difficult to scrape dynamic than static pages - we need one extra step - for this extra step, we are using the package *RSelenium*
+
+## Dynamic Pages: Steps
+
+Three main steps:
+
+-   Use *RSelenium* to identify and select the desired elements of the page by clicking, searching, selecting from within RStudio
+-   Get the source code
+    -   *RSelenium* downloads in XML format
+    -   we can use *rvest* to transform this into HTML
+-   Extract the relevant information from the source code using the *rvest* package
+    -   this is the same process as for static pages
+
+## Dynamic Pages: RSelenium
+
+The *RSelenium* package integrates the [Selenium 2.0 WebDriver](https://www.selenium.dev/documentation/) into R. The package allows us to interact with
+
+-   browsers on our device (e.g., open a browser and navigating to a page)
+
+-   elements on a page (e.g., opening or clicking on a drop-down menu)
+
+In case you are stuck on a particular problem, you can easily find help for only (e.g., stackoverflow, google, etc.) or more information in the [vignette](https://cran.r-project.org/web/packages/RSelenium/vignettes/basics.html).
+
+## Starting a Server With Firefox
+
+We use the `rsDriver` function to start a server. This way we can control a browser of our choice from within R.
+
+-   The function `rsDriver` creates the object *driver* and the web browser opens
+
+-   You should avoid controlling this browser manually
+
+-   You should avoid creating multiple servers
+
+-   *Note*: We can start only one server per port
+
+```{r, echo=TRUE, eval=FALSE}
+driver <- RSelenium::rsDriver(port = 0001L, 
+                              browser = "firefox",
+                              ...
+                              )
+```
+
+## Starting a Server With Firefox
+
+![](bild3.png)
+
+## Starting a Server With Firefox
+
+Next, we separate the client and server as different objects:
+
+```{r, echo =TRUE, eval = FALSE}
+browser <- driver$client
+server <- driver$server
+```
+
+::: {.callout-note appearance="simple"}
+`rsDriver()` creates a client and a server
+
+-   our code primarily interacts with the client
+
+-   we can think of the client as the browser itself; it has the class *remoteDriver*
+:::
+
+## Navigate dynamic pages
+
+```{r, echo =TRUE, eval=FALSE}
+browser$navigate(url = "https://www.bundeswahlleiter.de/bundestagswahlen/2021/ergebnisse.html")
+```
+
+::: {.callout-note appearance="simple"}
+*navigate* is a *method* and not a *function*
+
+-   we cannot pipe (%\>%) it into browser but have to use the dollar sign notation
+
+-   it is optional to type the name of the *url* argument
+:::
+
+## Navigate dynamic pages
+
+![](bild4.png)
+
+## Navigate dynamic pages
+
+Go back to previous URL:
+
+```{r, echo =TRUE, eval=FALSE}
+browser$goBack()
+```
+
+Go forward:
+
+```{r, echo =TRUE, eval=FALSE}
+browser$goForward()
+```
+
+Refresh:
+
+```{r, echo =TRUE, eval=FALSE}
+browser$refresh()
+```
+
+## Navigate dynamic pages
+
+Get URL of current page:
+
+```{r, echo =TRUE, eval=FALSE}
+browser$getCurrentUrl()
+```
+
+Get title of current page
+
+```{r, echo =TRUE, eval=FALSE}
+browser$getTitle()
+```
+
+## Dynamic Pages: Close & Open Browser
+
+We can close the browser without closing our session on the server:
+
+```{r, echo =TRUE, eval=FALSE}
+browser$close()
+```
+
+And open a new browser without using the `rsDriver` function again, as the server is still running:
+
+```{r, echo =TRUE, eval=FALSE}
+browser$open()
+```
+
+## Dynamic Pages: Get Page Source
+
+Using the *RSelenium* package, we get the page source code the following way:
+
+```{r, echo =TRUE, eval=FALSE}
+browser$getPageSource()[[1]]
+```
+
+-   *Note:* This method returns a list . The XML source is in the first item of the list. This is why we use \[\[1\]\] to access it.
+
+<!-- -->
+
+-   This is similar to our *bow() %\>% scrape()* process
+
+## Dynamic Pages: Get Page Source
+
+We can extract links combining methods and function from the *RSelenium* and the *rvest* package:
+
+```{r, eval= FALSE, echo = TRUE}
+browser$getPageSource()[[1]] %>% 
+        read_html() %>% 
+        html_elements(css = ".linklist__item+ .linklist__item a") %>% 
+        html_attr("href")
+```
+
+## Dynamic Pages: Find Elements
+
+We can locate an element on the open browser using CSS selectors
+
+There are also other selectors as
+
+-   xpath
+
+-   id
+
+-   name
+
+-   link text
+
+## Dynamic Pages: Find and Highlight Elements
+
+```{r, echo=TRUE, eval = FALSE}
+## navigate to page
+browser$navigate(url = "https://www.bundeswahlleiter.de/bundestagswahlen/2021/ergebnisse.html")
+
+## find and store element
+selection <- browser$findElement(using = "css selector", value = ".dropdown__toggler")
+
+## highlight element
+selection$highlightElement()
+```
+
+Note: The highlighted element will flash for one or two seconds on the open browser.
+
+## Dynamic Pages: Input (Selenium Keys)
+
+```{r, echo=TRUE}
+as_tibble(selKeys) %>% 
+  names()
+```
+
+## Dynamic Pages: Input
+
+For example, we can scroll up and down a page from within R:
+
+```{r, echo=TRUE, eval=FALSE}
+body <- browser$findElement(using = "css", value = "body")
+
+body$sendKeysToElement(list(key = "page_down"))
+```
+
+# Dynamic Pages: Example Bundeswahlleiterin
+
+You can find the code on ILIAS or a link on the website.
+
+# Your turn!
+
+## Task for today: Basic
+
+-   Try to navigate the Bundeswahlleiterin website with commands from RStudio
+
+-   Can you extend the example and scrape the data for the remaining states?
+
+## Task for today: Advanced
+
+-   Try to scrape the election data at the district level in Baden-Württemberg. This follows the same logic as in the example.
+
+-   Try to scrape press releases from the AfD <https://www.afd.de/presse/>. Things to consider: How can you crawl over all press releases? How can you actually access the separate press releases? How can you display all press releases

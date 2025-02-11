@@ -1,0 +1,51 @@
+---
+title: "Tidyverse II: Import, tidy, and transform"
+subtitle: "Week 04"
+description: ""
+author: ""
+date: "Mar 05, 2024"
+listing:
+  - id: slides
+    contents:
+      - ../slides/week-04/*.qmd
+    type: table
+    fields: [title, subtitle, date]
+    #date-format: "ddd, MMM DD"
+    field-display-names:
+      title: "Topic"
+      subtitle: "Session"
+      date: "Date"
+    sort: [filename]
+    sort-ui: false
+    filter-ui: false
+  # - id: assignments
+  #   contents:
+  #     - ../hw/w1-*.qmd
+  #     - ../labs/w1-*.qmd
+  #   type: table
+  #   fields: [categories, title, date]
+  #   date-format: "ddd, MMM DD"
+  #   field-display-names:
+  #     categories: "Assignment"
+  #     title: "Title"
+  #     date: "Due"
+  #   sort: [date]
+  #   sort-ui: false
+  #   filter-ui: false
+tbl-colwidths: [10,50,40]
+---
+
+# Seminar slides
+
+::: {#slides}
+:::
+
+# Materials
+
+You find the R script with the coding task [here](https://ilias.uni-mannheim.de/goto.php?target=file_1496638_download&client_id=ILIAS). The solution to the task can be found [here](https://ilias.uni-mannheim.de/goto.php?target=file_1496637_download&client_id=ILIAS).
+
+You can download the original .csv files from the BundeswahlleiterIn [here](https://ilias.uni-mannheim.de/goto.php?target=fold_1496644&client_id=ILIAS). If you struggle with the data import, you can find the necessary data frames [here](https://ilias.uni-mannheim.de/goto.php?target=file_1496640_download&client_id=ILIAS).
+
+# To Do's before our session
+
+Try to apply the learnings from last session! Import your own data set, and wrangle the data.

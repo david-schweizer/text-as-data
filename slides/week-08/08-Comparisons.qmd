@@ -1,0 +1,125 @@
+---
+title: "APIs"
+subtitle: "Week 10"
+author: "David Schweizer"
+date: "April 16, 2024"
+date-format: long
+institute: "University of Mannheim"
+format: 
+  revealjs:
+    theme: simple
+    slide-number: c/t #< collapsed/total
+    footer: "Automated Data Collection | Spring 2024 | University of Mannheim"
+editor: visual
+---
+
+## Where are we at?
+
+[![](whole_game.jpg)](https://r4ds.hadley.nz/intro)
+
+## Plan for today
+
+-   Short input: What is an API?
+
+-   Coding example: World Bank API
+
+-   Your turn!
+
+## API
+
+Application
+
+Programming
+
+Interface
+
+## What is an API?
+
+::: {.callout-tip appearance="simple"}
+APIs are mechanisms that enable two software components to communicate with each other using a set of definitions and protocols.
+
+– [Amazon Web Services](https://aws.amazon.com/what-is/api/?nc1=h_ls)
+:::
+
+[![](What-is-an-API.png)](https://www.geeksforgeeks.org/what-is-an-api/)
+
+## Use cases?
+
+. . .
+
+[![](airmap.jpg)](https://airbnb.io/AirMapView/)
+
+## Use cases
+
+::: columns
+::: {.column width="30%"}
+![](apple.jpg){width="268"}
+:::
+
+::: {.column width="70%"}
+[![](google.jpg){width="1160"}](https://medium.com/@sameeranthony93/google-weather-api-and-the-leading-alternatives-2f0425b67edc)
+:::
+:::
+
+# Have you already used (indirectly) any API for your own research?
+
+## API endpoints
+
+::: panel-tabset
+## In general
+
+We send a request with:
+
+-   different parameters
+
+-   (depending on the API) an API key
+
+In turn, we receive:
+
+-   data in a JSON, txt, XML or other formats
+
+## API call
+
+![](api_call.png)
+
+## Response
+
+```{r, eval = FALSE, echo=TRUE}
+[
+  {
+    "page": 1,
+    "pages": 1,
+    "per_page": 50,
+    "total": 1,
+    "sourceid": "2",
+    "lastupdated": "2024-03-28"
+  },
+  [
+    {
+      "indicator": {
+        "id": "SP.POP.TOTL",
+        "value": "Population, total"
+      },
+      "country": {
+        "id": "US",
+        "value": "United States"
+      },
+      "countryiso3code": "USA",
+      "date": "2000",
+      "value": 282162411,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    }
+  ]
+]
+```
+:::
+
+# Coding example
+
+You can find the Quarto document on the website and on ILIAS.
+
+# Your turn
+
+You can find the Quarto document on the website and on ILIAS.

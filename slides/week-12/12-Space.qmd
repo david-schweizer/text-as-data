@@ -1,0 +1,233 @@
+---
+title: "Interactive I: Create your first Shiny app"
+subtitle: "Week 14"
+author: "David Schweizer"
+date: "May 14, 2024"
+date-format: long
+institute: "University of Mannheim"
+format: 
+  revealjs:
+    theme: simple
+    slide-number: c/t #< collapsed/total
+    footer: "Automated Data Collection | Spring 2024 | University of Mannheim"
+editor: visual
+---
+
+## ... so far:
+
+-   Block I: Import, Tidy, Transform, & Visualize Data
+
+-   Block II: Communicate & Collaborate
+
+![](workflow.png){fig-align="center"}
+
+-   Block III: Web scraping
+
+➡️ Today and next week: Back to communicating our results (Block II), but in an **interactive** way!
+
+## Plan for today
+
+```{r, include=FALSE}
+pacman::p_load("tidyverse")
+```
+
+**Short input**
+
+-   Using dashboards
+
+-   A short introduction to shiny (dashboards)
+
+-   Next week: Reactivity & themes
+
+**Coding**
+
+-   Applied examples
+
+-   Your first shiny app!
+
+## Dashboards
+
+-   Dashboards represent a tool for effective data visualization
+
+-   They allow us to communicate information as intuitively as possible and can support data-driven decision making
+
+-   We focus presenting our *results* and telling a story!
+
+-   Dashboards are useful for science communication but also provide added value in other areas such as consulting, business, etc.
+
+## Dashboard - Covid
+
+... but of course many other applications! GovTech, Finance, Marketing, ...
+
+[![](dashboard_example.jpg)](https://infektionsradar.gesund.bund.de/de)
+
+# Shiny apps
+
+## Why Shiny apps?
+
+Most importantly:
+
+-   (Interactive) communication of scientific results
+
+-   (Interactive) visualization of data sets
+
+But there are many more use cases!
+
+## Shiny apps - User showcase
+
+[![](user_showcase.jpg)](https://shiny.posit.co/r/gallery/#user-showcase)
+
+## Shiny apps in action in government
+
+... and more interesting examples [here](https://www.appsilon.com/post/r-shiny-in-government-examples).
+
+[![](shiny_scotland.jpg)](https://scotland.shinyapps.io/sg-national-electrofishing-programme-scotland/)
+
+## Shiny apps in your final project
+
+[![StatePol Database: \<https://statepol.github.io/Database/\>](statepol.jpg)](https://statepol.github.io/Database/)
+
+## Shiny apps can also look like this:
+
+[![news-r: https://gallery.shinyapps.io/freedom-press-index/#home](shiny_press.jpg)](https://gallery.shinyapps.io/freedom-press-index/#home)
+
+# But let's start with the basics!
+
+## Key elements of a Shiny app
+
+-   UI (user interface):
+
+    -   Here, we can determine the "look" of our app.
+
+-   Server:
+
+    -   Here, we define our functions
+
+-   shinyApp():
+
+    -   Combines our UI and server parts.
+
+## bslib
+
+![](images/clipboard-3666061840.png)
+
+## How to assemble these elements
+
+::: panel-tabset
+## set up
+
+```{r, eval=F, echo=TRUE}
+library(shiny)
+library(bslib)
+library(tidyverse)
+
+data <- readRDS("data/constituency_shapes_vote.RDS")
+```
+
+## ui
+
+```{r, eval=F, echo=TRUE}
+ui <- page_sidebar(
+      title = "2017 German election data",
+      sidebar = sidebar(
+        selectInput(
+          inputId = "parties", 
+          label = "Choose a party", 
+          choices = c("AfD", "CDU", "CSU", 
+                      "Left" = "DIE LINKE", 
+                      "FDP", 
+                      "Greens" = "GRÜNE", 
+                      "SPD"), 
+          selected = "AfD"
+        )
+      ),
+    
+    plotOutput("histogram")
+)
+
+```
+
+## server
+
+```{r, eval=F, echo=TRUE}
+server <- function(input, output) {
+  
+  output$histogram <- renderPlot({
+    
+    data %>% 
+      filter(party == input$parties) %>%
+      ggplot() +
+      geom_histogram(aes(x = vote_share),
+                     binwidth = 2.5,
+                     boundary = 0) +
+      scale_x_continuous(labels = scales::percent_format(scale = 1), 
+                         limits = c(0, 80)) +
+      theme_minimal() +
+      labs(y = "Count",
+           x = "Vote share")
+  })
+}
+```
+
+## shinyApp()
+
+```{r, eval=F, echo=TRUE}
+shinyApp(ui = ui, server = server)
+```
+
+## Output
+
+![](basic.jpg){width="1002"}
+:::
+
+## Applied Example - Multiple pages
+
+[![](dashboard.jpg)](https://davidschweizer.shinyapps.io/shiny_dashboard/)
+
+## Building your own app
+
+::: panel-tabset
+## Get started
+
+-   There are many great resources online. I recommend starting with the R Shiny documentation on how to get started and to build your own app:
+
+    -   https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/index.html
+
+-   In addition, the *Mastering Shiny* book by Hadley Wickham is great!
+
+    -   https://mastering-shiny.org/index.html
+
+## Customize
+
+[![](shiny.png){width="852"}](https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/index.html)
+
+## Widgets
+
+[![](widgets.png){width="719"}](https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/index.html)
+:::
+
+## How to publish your app
+
+-   There are many ways. I find *shinyapps.io* the easiest.
+
+    -   Set up a free account at *shinyapps.io*
+
+-   Follow only a few steps in this [short tutorial](https://shiny.posit.co/r/articles/share/shinyapps/). It includes:
+
+    -   Installing and loading the rsconnect package
+
+    -   Add your token from your shinyapps.io account to the rsconnect package once
+
+    -   Deploy your app via the *Publish* button while viewing the app
+
+# Applied example
+
+## Your turn!
+
+-   Take some time to understand and run the R scripts provided on ILIAS or access the via the links on the course website.
+
+-   Now, apply it to different data! Always a simple start: Gapminder.
+
+-   Also: Try out different widgets. For example, a slider. When using a slider, you need a continuous variable!
+
+-   If you have time left, set up a free account at *shinyapps.io* and try to publish your first Shiny app (dashboard) online.

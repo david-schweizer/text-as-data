@@ -1,0 +1,599 @@
+---
+title: "Web scraping static"
+subtitle: "Week 12"
+author: "David Schweizer"
+date: "April 30, 2024"
+date-format: long
+institute: "University of Mannheim"
+format: 
+  revealjs:
+    theme: simple
+    slide-number: c/t #< collapsed/total
+    footer: "Automated Data Collection | Spring 2024 | University of Mannheim"
+editor: visual
+---
+
+```{r setup, include=FALSE}
+pacman::p_load("tidyverse",
+    "robotstxt",
+    "rvest",
+    "polite")
+```
+
+## Plan for today
+
+-   Input:
+
+    -   Scraping static web pages politely
+
+-   Coming up:
+
+    -   **Crawling** static pages and **scraping dynamic** pages
+
+## Static Pages: Overview (1)
+
+We will use the `rvest` package to scrape data from static pages
+
+-   Static pages display the same source code and content to all visitors
+
+    -   All visitors see the same page at a given URL
+    -   Each page has a different URL
+    -   e.g., wikipedia
+
+## Static Pages: Overview (2)
+
+There are two main steps:
+
+-   Download the source code from one or multiple pages to R
+
+    -   This is usually the only interaction with the page we need
+
+-   Select the information we want to extract from the source code
+
+## Static Pages: rvest
+
+Popular, "proven" R package exclusively for web scraping by [Hadley Wickham](https://hadley.nz/) (part of the *tidyverse*)
+
+-   Tutorials / documentation:
+    -   [Package documentation](https://cran.r-project.org/web/packages/rvest/rvest.pdf)
+    -   [rvest overivew](https://rvest.tidyverse.org/)
+    -   [Example by Julian Unkel](https://bookdown.org/joone/ComputationalMethods/web-scraping.html)
+-   Can be easily combined with the `polite` package for ethical web scraping!
+
+## rvest: Get Source Code
+
+The `read_html` function gets the source code of a page:
+
+```{r, echo = TRUE}
+read_html("https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location")
+```
+
+::: {.callout-note appearance="simple"}
+-   This is the first step of web scraping!
+-   Now, we need to select the specific information we want to extract
+:::
+
+## rvest: Get Source Code
+
+For ethical web scraping, we check the protocol first:
+
+```{r, echo = TRUE}
+paths_allowed(domain = "https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location")
+```
+
+. . .
+
+```{r, echo = TRUE}
+read_html("https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location")
+```
+
+## rvest + polite: Get Source Code
+
+-   Using the `polite` package simplifies ethical web scraping
+
+-   Extracting the source coude is divided into two steps:
+
+    -   Checking the protocol
+
+    -   Extract source code if allowed
+
+-   In addition, it allows us to:
+
+    -   Set a time interval for accessing the page (minimum what is specified in the protocol)
+
+    -   Introducing yourself to the website administrator while scraping
+
+## rvest + polite: Get Source Code
+
+::: panel-tabset
+## Info
+
+We can use to `bow` function to check the webpage's protocol
+
+-   for a specific URL
+
+## Code
+
+```{r, echo = TRUE, eval = FALSE}
+#| code-line-numbers: "2"
+bow(
+  url,
+  ...
+  )
+```
+:::
+
+## rvest + polite: Get Source Code
+
+::: panel-tabset
+## Info
+
+We can use to `bow` function to check the webpage's protocol
+
+-   for a specific URL
+-   for a specific agent
+
+::: {.callout-note appearance="simple"}
+The argument `user-agent` provides the website administrator with information (e.g., name or contact details)
+:::
+
+## Code
+
+```{r, echo = TRUE, eval = FALSE}
+#| code-line-numbers: "3"
+bow(
+  url, 
+  user_agent = "R Übung", 
+  ...
+  )
+```
+:::
+
+## rvest + polite: Get Source Code
+
+::: panel-tabset
+## Info
+
+We can use to `bow` function to check the webpage's protocol
+
+-   for a specific URL
+-   for a specific agent
+-   for crawl-delay
+
+::: {.callout-note appearance="simple"}
+The argument `delay` cannot be smaller than in the protocol directive
+:::
+
+## Code
+
+```{r, echo = TRUE, eval = FALSE}
+#| code-line-numbers: "4"
+bow(
+  url, 
+  user_agent = "R Übung", 
+  delay = 5 
+  ...
+  )
+```
+:::
+
+## rvest + polite: Get Source Code
+
+```{r, echo = TRUE}
+bow(
+  "https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location", 
+  user_agent = "R Übung", 
+  delay = 5
+  )
+```
+
+## rvest + polite: Get Source Code
+
+::: panel-tabset
+## Info
+
+Now, we can use the `scrape` function to extract the source code:
+
+-   for an object created with the `bow` function
+-   it will only work if the results from the `bow` function are positive
+    -   meaning that we follow the webpage's protocol
+
+Pipe `bow` into `scrape` to avoid creating additional objects.
+
+## Code
+
+```{r, echo = TRUE, eval = FALSE}
+scrape(bow,
+       ...
+       )
+```
+
+\
+
+```{r, echo = TRUE, eval = FALSE}
+bow(
+  url,
+  ...
+  ) %>% 
+  scrape()
+```
+:::
+
+## rvest + polite: Get Source Code
+
+No difference, no protocol against access:
+
+```{r, echo = TRUE, eval=FALSE}
+read_html("https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location")
+```
+
+ 
+
+```{r, echo = TRUE}
+bow("https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location") %>% 
+  scrape()
+```
+
+## rvest + polite: Get Source Code
+
+Now we see a difference as there is a protocol against access:
+
+```{r, echo = TRUE}
+read_html("https://www.zeit.de/rezepte/suche/")
+```
+
+```{r, echo = TRUE}
+bow("https://www.zeit.de/rezepte/suche/") %>% 
+  scrape()
+```
+
+::: {.callout-tip appearance="simple"}
+**Remember**: We can check the protocol of webpages with the `robotstxt` package or by adding *robots.txt* to the URL (e.g., www.zeit.de/robots.txt)\]
+:::
+
+## Exercise 1
+
+-   Get the source code of https://en.wikipedia.org/wiki/World_population using the *read_html* function
+
+-   Get the same source code using the *polite* package
+
+    -   "introduce" yourself to the webpage
+    -   define a delay time
+
+## rvest: html_elements
+
+::: panel-tabset
+## Info
+
+The function `html_elements` allows us to extract one ore multiple HTML elements from the *source code* we have downloaded.
+
+::: {.callout-note appearance="simple"}
+`html_element` gets the first instance of a specific element, whereas `html_elements` gets all instances.
+:::
+
+## Code
+
+```{r, echo = TRUE, eval = FALSE}
+#| code-line-numbers: "2,8"
+html_element(
+             x, 
+             css, 
+             xpath)
+
+
+html_elements(
+              x, 
+              css, 
+              xpath)
+```
+:::
+
+## rvest: html_elements
+
+::: panel-tabset
+## Info
+
+The function `html_elements` allows us to extract one ore multiple HTML elements from the *source code* we have downloaded.
+
+We specify the HTML elements with a selector: CSS or XPATH.
+
+::: {.callout-note appearance="simple"}
+During our course, we will use CSS, which is simplified by using Chrome and/or SelectorGadget (ScrapeMate).
+:::
+
+## Code
+
+```{r, echo = TRUE, eval = FALSE}
+#| code-line-numbers: "3,9"
+html_element(
+             x, 
+             css, 
+             xpath)
+
+
+html_elements(
+              x, 
+              css, 
+              xpath)
+```
+:::
+
+## How to Find Selectors?
+
+Finding the right selectors is the most important step for web scraping. We have different ways to do this:
+
+-   We can inspect the source code / DOM
+    -   Not easy, time consuming, error-prone
+-   We can use browser extensions such as *SelectorGadget*
+    -   Not always accurate, but easy and quicker
+-   We can use Chrome
+    -   Good for selecting single elements
+
+## Using SelectorGadget?
+
+::: panel-tabset
+## Info
+
+Finding selectors for hyperlinks on the Wikipedia page for [UN organizations by location](https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location)
+
+-   Visit the webpage on your (Chrome ) browser
+
+-   Activate the *SelectorGadget* extension
+
+-   Click on any hyperlink
+
+::: {.callout-note appearance="simple"}
+-   The clicked on element is highlighted in green
+
+-   others are highlighted in yellow
+
+-   *SelectorGadget* identifies the selector *a*
+:::
+
+## Example
+
+![](screenshot1.png){width="822"}
+:::
+
+## rvest: html_elements
+
+Extracting the *a* (anchor) elements on the webpage:
+
+```{r, echo = TRUE}
+bow(
+  url = "https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location") %>%
+  scrape() %>%
+  html_elements(css = "a")
+```
+
+## rvest: html_elements
+
+Extracting only the **first** *a* (anchor) elements on the webpage:
+
+```{r, echo = TRUE}
+#| code-line-numbers: "4"
+bow(
+  url = "https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location") %>%
+  scrape() %>%
+  html_element(css = "a") 
+```
+
+::: {.callout-note appearance="simple"}
+Here, we use only the singluar version `html_element` and not `html_elements`
+:::
+
+## Find Selectors With SelectorGadget
+
+::: panel-tabset
+## Info
+
+Now, click on one of the hyperlinks in the left pane (e.g., "Main page") and one of the hyperlinks outside the tables on the main pane (e.g., "1 Locations") as we are only interested in the hyperlinks in the tables.
+
+::: {.callout-note appearance="simple"}
+-   If you click on a yellow element, it is then highlighted red
+
+-   Other elements are not highlighted anymore
+
+-   *SelectorGadget* identifies the selector *.datasortkey a*
+:::
+
+## Example
+
+![](screenshot2.png){width="860"}
+:::
+
+## rvest: html_elements
+
+Extracting *a* (anchor) elements on the webpage with class *.datasortkey*:
+
+```{r, echo = TRUE}
+#| code-line-numbers: "4"
+bow(
+  url = "https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location") %>%
+  scrape() %>%
+  html_elements(css = ".datasortkey a") 
+```
+
+## How to Find Selectors With Chrome?
+
+::: panel-tabset
+## Step 1
+
+-   Right click, and then *Inspect*
+
+![](screenshot3.png){width="860"}
+
+## Step 2
+
+-   Click on ![](screenshot4.png) , then on the element on the front end
+
+-   Right click on the highlighted element in the DOM
+
+-   Follow: *Copy -\> Copy selector*
+:::
+
+## rvest: html_elements
+
+Extracting only the links for Africa:
+
+```{r, echo = TRUE}
+bow(
+  url = "https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location") %>%
+  scrape() %>%
+  html_elements(css = "#mw-content-text > div.mw-parser-output > table:nth-child(7) > tbody > 
+                tr > td:nth-child(2) > a")  
+```
+
+## rvest: html_text
+
+::: panel-tabset
+## Info
+
+The function `html_text` extracts the text content of one or more HTML elements:
+
+-   the elements chosen with the `html_elements` function
+
+::: {.callout-note appearance="simple"}
+-   Two versions:
+    -   `html_text`returns text with any space or line breaks around it
+    -   `html_text2` returns plain text
+:::
+
+## Code
+
+```{r, echo = TRUE, eval =FALSE}
+html_text(x, trim = FALSE)
+
+html_text2(x, preserve_nbsp = FALSE)
+```
+:::
+
+## rvest: html_text
+
+```{r, echo = TRUE}
+#| code-line-numbers: "5"
+bow(
+  url = "https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location") %>%
+  scrape() %>%
+  html_elements(css = ".datasortkey a") %>% 
+  html_text() 
+```
+
+## rvest: html_attr & html_attrs
+
+::: panel-tabset
+## Info
+
+The function `html_attrs` extracts the attributes of one or more HTML elements:
+
+-   the elements chosen with the `html_elements` function
+
+::: {.callout-note appearance="simple"}
+-   Two versions:
+    -   singular extracts specified attribute
+        -   attribute is specified with its name, not CSS
+    -   plural extracts all attributes
+:::
+
+## Code
+
+```{r, echo = TRUE, eval = FALSE}
+html_attr(x, name, default = NA_character_)
+
+html_attrs(x)
+```
+:::
+
+## rvest: html_attrs
+
+```{r, echo = TRUE}
+bow(
+  url = "https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location") %>%
+  scrape() %>%
+  html_elements(css = ".datasortkey a") %>% 
+  html_attrs() #<<
+```
+
+## rvest: html_attr
+
+Note: Some URLs are given relative to a base URL (here: https://en.wikipedia.org)
+
+```{r, echo = TRUE}
+#| code-line-numbers: "5"
+bow(
+  url = "https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location") %>%
+  scrape() %>%
+  html_elements(css = ".datasortkey a") %>% 
+  html_attr(name = "href") 
+```
+
+## rvest: html_attr & url_absolute
+
+Using the `url_absolut` function to complete the relative URLs:
+
+```{r, echo = TRUE}
+#| code-line-numbers: "6"
+bow(
+  url = "https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location") %>%
+  scrape() %>%
+  html_elements(css = ".datasortkey a") %>% 
+  html_attr(name = "href") %>% 
+  url_absolute(base = "https://en.wikipedia.org") 
+```
+
+## rvest: html_table
+
+Get full tables with the `html_table` function:
+
+```{r, echo = TRUE}
+#| code-line-numbers: "5"
+bow(
+  url = "https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location") %>%
+  scrape() %>%
+  html_elements(css = "#mw-content-text > div.mw-parser-output > table") %>% 
+  html_table(fill = TRUE) 
+```
+
+## rvest: Extracting single variables
+
+An approach to create a table by getting each variable separately (e.g., cities):
+
+```{r, echo = TRUE}
+tibble(
+  Cities =
+  bow(
+  url = "https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location") %>%
+  scrape() %>%
+  html_elements(
+    css = "#mw-content-text > div.mw-parser-output > table:nth-child(7) > tbody > 
+    tr > td:nth-child(2) > a") %>% 
+  html_text()
+)
+```
+
+## rvest: Extracting single variables
+
+```{r, echo = TRUE}
+source_code <- bow(
+  url = "https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location") %>%
+  scrape() 
+
+tibble(
+  Cities = source_code  %>% 
+  html_elements(css = 
+     "#mw-content-text > div.mw-parser-output > table:nth-child(7) > tbody > 
+      tr > td:nth-child(2) > a") %>% 
+  html_text()
+)
+```
+
+::: {.callout-note appearance="simple"}
+If you do this, try to keep the number of interactions with websites at a minimum by saving the source code as an object!
+:::
+
+## Exercise 2:
+
+-   Scrape the this [Wikipedia site](https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location) (politely)
+    -   Create a data frame including United Nations organizations in Europe
+    -   Can you manage to have one row per organization?
+-   Try to scrape another static website!

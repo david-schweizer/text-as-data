@@ -1,0 +1,92 @@
+---
+title: "Closing Session"
+subtitle: "Week 16"
+author: "David Schweizer"
+date: "May 28, 2024"
+date-format: long
+institute: "University of Mannheim"
+format: 
+  revealjs:
+    theme: simple
+    slide-number: c/t #< collapsed/total
+    footer: "Automated Data Collection | Spring 2024 | University of Mannheim"
+editor: visual
+---
+
+## Plan for today
+
+-   Recap - Content
+
+-   Data project
+
+-   Outlook
+
+-   Recap - (Your) Feedback
+
+## Recap - Content
+
+![](workflow.png)
+
+**AND:** Reproducibility
+
+## Data project
+
+*In a nutshell: Ask a question you’re curious about, collect relevant data and visualize them with regard to your question.*
+
+## Data project
+
+-   Collect own data using web scraping methods
+
+-   Tidy and transform the data
+
+-   Possibly enrich the data set with other data (sets)
+
+-   Visualize your data & Present your data set using an interactive web application or an (interactive Quarto document)
+
+-   Describe: How could you or other researchers make use of this data for empirical research - What might be possible research questions?
+
+## Data project - My inspiration
+
+[![StatePol Database: https://statepol.github.io/Database](statepol.jpg)](https://statepol.github.io/Database)
+
+## Data project
+
+Let's have a look at the [syllabus](https://automated-data-collection.netlify.app/syllabus) for details.
+
+AND: I recommend discussing your project with me individually at least once via e-mail or office hours!
+
+## Outlook: What now?
+
+Practice and deep dive:
+
+-   Still access to Datacamp!
+
+Examples in social science:
+
+-   [MZES Social Data Science Lab](https://www.mzes.uni-mannheim.de/socialsciencedatalab/page/about/)
+
+Apply!
+
+-   Seminars, term papers, thesis
+
+-   [CorrelAid - Data 4 Good](https://www.correlaid.org/)
+
+## Outlook: What is possible?
+
+[![news-r: https://gallery.shinyapps.io/freedom-press-index/#home](shiny_press.jpg)](https://gallery.shinyapps.io/freedom-press-index/#home)
+
+## Recap - Feedback
+
+-   Organizational
+
+-   Structure
+
+-   Participation
+
+-   Learning
+
+## Your Feedback
+
+1.  "Open round"
+
+2.  Please take some time to fill out the survey by the institute. This is both valuable for me professionally but also for further iterations of this seminar!

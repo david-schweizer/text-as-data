@@ -1,0 +1,18 @@
+---
+title: "Text as Data: Introduction to Computational Text Analysis in R"
+subtitle: "Übung: Methoden der Vergleichenden Regierungslehre - Spring 2025"
+---
+
+## **Course overview**
+
+Against the background of the ever-increasing availability of (unstructured) data, the goal of this seminar is to equip you with the necessary skills to collect large quantities of text, to process it, and to analyse it. These skills allow you to pursue your own empirical research projects. The course consists of three major modules and is a very practical introduction to computational text analysis with the R programming language.
+
+-   First, you will be guided into the programming language learning the fundamentals of R and get to know the workflow for data analysis: Import, tidy, transform, and visualize data. No prior experience with R is necessary!
+
+-   Second, we will learn how to implement various text analysis methods and understand the intuition behind these methods.
+
+-   Third, we will cover static and dynamic web scraping and use these tools to collect our own text data.
+
+## **Navigating this website**
+
+On this website, you can find the syllabus as well as all course materials (see *Schedule, slides & materials*).

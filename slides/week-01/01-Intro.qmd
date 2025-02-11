@@ -1,0 +1,253 @@
+---
+title: "Intro Session"
+subtitle: "Week 1"
+author: "David Schweizer"
+date: "February 13, 2024"
+date-format: long
+institute: "University of Mannheim"
+format: 
+  revealjs:
+    theme: simple
+    slide-number: c/t #< collapsed/total
+    footer: "Automated Data Collection | Spring 2024 | University of Mannheim"
+editor: visual
+---
+
+## Plan for today
+
+-   Introduction round: Getting to know each other
+-   Course content and schedule
+-   Your expectations
+-   My expectations & course requirements
+-   Motivation for the course
+
+## Introduction round
+
+-   I'll go first. A few words about me
+
+-   You're next. Groups of 3-4
+
+    -   Introduce yourselves to your classmates
+    -   What is your name? Where are you from? What do you study? Did you pick up a new hobby recently?
+
+-   Plenum
+
+    -   In a few sentences, present yourself to the plenum and tell the others one thing about the person you just met
+
+## About me
+
+-   PhD candidate in Political Science at the CDSS and research associate at the Chair of Comparative Government since fall 2021
+
+-   Focus on party competition and intra-party politics
+
+-   Academic Background:
+
+    -   M.A. Political Science (LMU)
+    -   B.Sc. Economics (Goethe University)
+
+-   New hobby: mountaineering
+
+# Your turn
+
+## Experience & Interests
+
+::: {style="position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;"}
+<iframe sandbox="allow-scripts allow-same-origin allow-presentation" allowfullscreen="true" allowtransparency="true" frameborder="0" height="315" src="https://www.mentimeter.com/app/presentation/alfkc55uxc9mgzspg9z67nihkypr6p2n/embed" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" width="420">
+
+</iframe>
+:::
+
+## Schedule & Content
+
+::: panel-tabset
+## Intro
+
+-   Week 01 - 13.02.2024 - Intro Session
+
+## Block I
+
+**Block I: Import, Tidy, Transform, & Visualize Data**
+
+-   Week 02 - 20.02.2024 - Intro to R
+
+-   Week 03 - 27.02.2024 - Tidyverse I: Import, tidy, and transform
+
+-   Week 04 - 05.03.2024 - Tidyverse II: Import, tidy, and transform
+
+-   Week 05 - 12.03.2024 - ggplot: Visualize
+
+## ... II
+
+**Block II: Communicate & Collaborate**
+
+-   Week 06 - 19.03.2024 - R Markdown / Quarto
+
+-   *Week 07 - 26.03.2024 - Easter Break*
+
+-   *Week 08 - 02.04.2024 - Easter Break*
+
+-   Week 09 - 09.04.2024 - Version control (Github)
+
+## ... III
+
+**Block III: Web scraping**
+
+-   Week 10 - 16.04.2024 - APIs
+
+-   Week 11 - 23.04.2024 - Web scraping basics
+
+-   Week 12 - 30.04.2024 - Web scraping static
+
+-   Week 13 - 07.05.2024 - Web scraping dynamic
+
+## ... II
+
+**Block II: Communicate Interactively**
+
+-   Week 14 - 14.05.2024 - Interactive I: Create your first Shiny app
+
+-   Week 15 - 21.05.2024 - Interactive II: Making pretty Shiny apps
+
+## Closing
+
+-   Week 16 - 28.05.2024 - Closing Session
+:::
+
+## Your expectations
+
+::: {style="position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;"}
+<iframe sandbox="allow-scripts allow-same-origin allow-presentation" allowfullscreen="true" allowtransparency="true" frameborder="0" height="315" src="https://www.mentimeter.com/app/presentation/alc6tqyudcyvugs58kw3ps686rgdy65t/embed" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" width="420">
+
+</iframe>
+:::
+
+## Plan & expectations
+
+-   Unfortunately, we are a large group. Maybe adaptation during the semester.
+
+-   Mix of lecture-style input, live coding, group exercises, and discussion.
+
+-   Active participation in class and preparation
+
+-   Willingness to invest time to learn a (new) programming language, look for solutions on your own, and keep trying
+
+## Organisation & Resources
+
+-   Materials will be provided via the course website.
+
+-   Communication via Slack. Nevertheless: Make sure that you have access to the course on ILIAS and that emails that are sent over ILIAS are forwarded to the email account you check regularly
+
+-   Weekly office hours before the course. Please make an appointment via e-mail.
+
+-   Access to Dataquest (Online learning platform for programming languages and more)
+
+## Course requirements
+
+-   Active participation & preparation
+
+-   Individual assignments during the semester (10% of your grade)
+
+-   Mid-term assignment (15% of your grade)
+
+-   Final data project (75% of your grade)
+
+## Important!
+
+::: panel-tabset
+## Illness (& Covid)
+
+-   If you feel ill or have symptoms, please be considerate of your fellow students and yourself(!). Just let me know by e-mail.
+
+## Disabilities
+
+-   Please contact me or the Office of Student Affairs if you need special assistance due to disabilities or chronic illnesses.
+
+-   And please do this early in the semester so that we can make the appropriate arrangements immediately.
+
+## Support
+
+-   Of course, you can always talk directly to me if you feel comfortable with the question. It is important to note that the **University's Equality and Diversity Office** supports and advises you in cases of discrimination or sexual harassment. The responsible contact person in such a case is **Dipl.-Psych. Ute Pfründer**. She is trained to deal with such incidents and will keep everything strictly confidential. No action will be taken without your express consent.
+:::
+
+## Motivation
+
+::: {style="position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;"}
+<iframe sandbox="allow-scripts allow-same-origin allow-presentation" allowfullscreen="true" allowtransparency="true" frameborder="0" height="315" src="https://www.mentimeter.com/app/presentation/alx1uia737s63pf4tnxo1zcrok8bvxgm/embed" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" width="420">
+
+</iframe>
+:::
+
+## Motivation
+
+The goal of this course is to equip you with the skills to:
+
+-   collect your own data
+
+-   tidy, transform & visualize the data
+
+-   communicate your data & (exploratory) results
+
+-   collaborate with others along the workflow
+
+Taking this course should not be an end in itself!
+
+## Why R?
+
+::: panel-tabset
+#### Benefits
+
+-   Versatile: Visualizations, statistical analysis, programming, incorporation of other programming languages
+
+-   Free and open source
+
+    -   Large community, there is basically an answer to every question you will have online: Stackoverflow, ChatGPT, ...
+
+-   Increasing popularity in academia & industry
+
+#### Learning
+
+[![](LearningR.png)](https://devhumor.com/media/trying-to-learn-any-programming-language-100)
+
+#### Reward
+
+[![](nicegraphs.png){width="1440"}](https://bbc.github.io/rcookbook/)
+
+#### Opportunity
+
+[![](shinyapp.png){width="1699"}](https://vac-lshtm.shinyapps.io/ncov_tracker/)
+:::
+
+## Until our next session
+
+::: panel-tabset
+## Install & Join
+
+-   Make sure R and RStudio is installed and works
+
+    -   <https://posit.co/download/rstudio-desktop/>
+
+-   Join the course Slack channel!
+
+    -   Invitation will follow via e-mail.
+
+-   Join the Dataquest team!
+
+    -   Invitation will follow via e-mail.
+
+## Read
+
+-   Chapter 2: Get Started in Healy, Data Visualization
+
+    -   [Link to free online version](https://socviz.co/gettingstarted.html#gettingstarted)
+    -   Begin with **2.2 Use R with RStudio**
+
+## Think
+
+-   Questions to think about until our next session:
+
+    -   What interests you substantially? Start thinking about possible research areas for your data project.
+
+    -   Feel also free to point out (via Slack or personally via e-mail) which data sets you are interested in. Our coding examples during the weekly sessions can be tailored accordingly!
+:::
+
+# Any open questions?

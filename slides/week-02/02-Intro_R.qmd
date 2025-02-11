@@ -1,0 +1,16 @@
+---
+title: "Intro to R"
+subtitle: "Week 2"
+author: "David Schweizer"
+date: "February 18, 2025"
+date-format: long
+institute: "University of Mannheim"
+format: 
+  revealjs:
+    theme: simple
+    slide-number: c/t #< collapsed/total
+    footer: "Text as Data in R | Spring 2025 | University of Mannheim"
+editor: visual
+---
+
+# TBA
