@@ -13,4 +13,511 @@ format:
 editor: visual
 ---
 
-# TBA
+```{r, include = FALSE}
+library(stringr)
+```
+
+## Plan for today
+
+**Input**
+
+-   R, R Studio, and basics
+
+-   Data types & formats
+
+-   How to deal with objects
+
+**Your turn: Short exercises**
+
+## 
+
+::: columns
+::: {.column width="15%"}
+![](R_logo.svg.png){width="70" height="56"}
+:::
+
+::: {.column width="85%"}
+-   *R is a language and environment for statistical computing and graphics.* [Click here for more info](https://www.r-project.org/about.html)
+
+-   We refer to the basic functionalities of R as *base R*
+
+-   We can extend these installing *R packages* from [*CRAN*](https://cran.r-project.org/) *(The Comprehensive R Archive Network).* For example, the *tidyverse.* This allows us to simplify the data analysis workflow.
+
+-   BUT: It comes with a limited GUI (Graphical User Interface)
+:::
+:::
+
+## R GUI
+
+![](R_GUI.jpg)
+
+## 
+
+::: columns
+::: {.column width="15%"}
+![](RStudio-Logo-Flat.png){width="150"}
+:::
+
+::: {.column width="85%"}
+-   RStudio is the most popular *IDE (Integretated Development Environment)* for R.
+
+    -   IDEs enable syntax highlighting, auto-completion, or a better overview our created output.
+
+-   Beyond these general benefits, R Studio provides us with
+
+    -   an integration of version control via *Git* and addins such as [citr](https://github.com/crsh/citr) or [*styler*](https://styler.r-lib.org/)
+
+    -   interfaces to other programming languages (e.g., Python via the *reticulate* package)
+:::
+:::
+
+## R Studio Interface
+
+![](RStudio_IDE.jpg)
+
+## R Studio - Script editor
+
+![](ide1.png)
+
+## R Studio - Console
+
+![](ide3.png)
+
+## R Studio - Environment
+
+![](ide2.png)
+
+## R Studio - Files, Plots, Help, ...
+
+![](ide4.png)
+
+## R Studio - Options
+
+![](Rstudio_global.jpg)
+
+# R Basics
+
+## Using R as a calculator
+
+The simplest application is to use R as a calculator:
+
+```{r, echo=TRUE}
+1 + 1
+```
+
+\
+
+```{r, echo=TRUE}
+1 / 10
+```
+
+\
+
+```{r, echo=TRUE}
+2 * 2
+```
+
+## Commenting code
+
+We can comment our code using the **\#**. Input thereafter will not be executed as code.
+
+```{r, echo=TRUE}
+# Addition
+1 + 1
+```
+
+\
+
+```{r, echo=TRUE}
+2 * 2 # 2 times 2 should equal four
+```
+
+Typically, we want to comment our code extensively for replicability and reusability.
+
+## Functions
+
+Functions are essential for our workflow in R. They take input(s) as argument, and produce output(s) depending on the input.
+
+```{r, echo=TRUE}
+sqrt(100)
+```
+
+## Objects I
+
+R is an object-oriented programming language.
+
+-   Therefore, we can store single values, multiple values, character strings, etc. in an object.
+
+-   We can *assign* a single value to an object using the assignment operator **\<-**
+
+```{r, echo=TRUE}
+# here we assign the numeric value 10 to the object x:
+x <- 10
+
+# we can do the same for a character string:
+y <- "This is a character string"
+
+```
+
+## Objects II
+
+We can also store the output of functions in objects:
+
+```{r, echo=TRUE}
+# here, we calculate the square root of 100 
+# and store it in a object called "result"
+result <- sqrt(100)
+```
+
+Further, we can also do calculations with objects:
+
+```{r, echo=TRUE}
+# here we add our two objects and store the result in z
+z <- x + result
+```
+
+Finally, we can print the object to the console by typing its name:
+
+```{r, echo=TRUE}
+# z should print the number 20 (10 + sqrt(10))
+z
+```
+
+## Packages
+
+-   Packages allow us to go beyond *base R* functionalities.
+
+-   They consist of various functions that simplify tasks and provide documentation.
+
+<!-- -->
+
+-   We can install packages from within R via [*CRAN*](https://cran.r-project.org/)*:*
+
+```{r, echo=TRUE, eval=FALSE}
+# we need to install packages only once:
+install.packages("stringr")
+
+# however, we need to load the package every time we (re-)start R
+library(stringr)
+```
+
+## Example: stringr
+
+```{r, echo=TRUE, eval=FALSE}
+# lets load the stringr package:
+library(stringr)
+
+# using the help() function, we can inspect the documentation
+help(stringr)
+```
+
+. . .
+
+![](stringr.jpg){width="900"}
+
+## Example: stringr
+
+The *stringr* package provides us with multiple functions to manipulate strings.
+
+```{r, echo=TRUE}
+# as an example, we create a fictitious actor ID from the Twitter API
+string <- "id:twitter.com:207584738373"
+
+# to match this ID with meta data, we only want to keep the numbers
+# we can make use of the function str_replace()
+# It needs these arguments: str_replace(string, pattern, replacement)
+clean_ID <- str_replace(string, "id:twitter.com:", "")
+
+# let's check if it worked:
+clean_ID
+```
+
+## tidyverse
+
+[![](tidyverse.jpg)](https://www.tidyverse.org/)
+
+## tidyverse vs. base R
+
+The tidyverse has become very popular among R users. It provides:
+
+-   clean and tidy code (readability)
+
+-   functions for typical data science tasks
+
+-   a coherent "grammar"
+
+BUT: it also introduces dependencies, and packages evolve.
+
+## Develop your own coding style
+
+![](Bild2.png)
+
+# Data types & formats
+
+## It all depends on how
+
+::: panel-tabset
+## how &
+
+How: data types
+
+-   Numeric values (integers & doubles)
+
+-   Character strings
+
+-   Logical values
+
+-   Factors
+
+-   ...
+
+## where data is stored
+
+Where: data formats
+
+-   Vectors
+
+-   Data frames/Tibbles
+
+-   Lists
+
+-   ...
+:::
+
+## Numeric values
+
+There are two types in R: *Integers* (numbers without a decimal values) and *doubles* (numbers with decimal values)
+
+```{r, echo=TRUE}
+# We place an L behind the value to be specific that it is an integer
+x <- 10L
+
+# using the typeof() function we can check the data type
+typeof(x)
+```
+
+```{r, echo=TRUE}
+# create a double
+z <- 10.55
+
+# check data type
+typeof(z)
+```
+
+```{r, echo=TRUE}
+# is x numeric?
+is.numeric(x)
+```
+
+## Character strings
+
+A string represents a series of characters. Numbers and/or symbols can also be part of a string.
+
+```{r, echo=TRUE}
+# we need to wrap the string into quotation marks
+
+string <- "Hello"
+
+# we can check the type using class()
+class(string)
+
+# an example with numbers
+ID <- "id:twitter.com:207584738373"
+
+# check again
+class(string)
+```
+
+## Factors
+
+We call data types that assume that their values are not continuous and have distinct categories factors.
+
+Factors take numeric values or character strings as input and convert them into so-called levels:
+
+```{r, echo=TRUE}
+# let's create an factor:
+factor(1)
+```
+
+## Logical values
+
+They are either *TRUE* or *FALSE* (and also called Boolean values). We produce them by making logical requests:
+
+```{r, echo=TRUE}
+1 > 2
+```
+
+We can also store logical values is objects:
+
+```{r, echo=TRUE}
+logical <- 1 > 2
+
+logical
+```
+
+## Logical operators
+
+::: panel-tabset
+## Relational
+
+-   `<` less than
+
+-   `<=` less than or equal to
+
+-   `>` greater than
+
+-   `>=` greater than or equal to
+
+-   `==` exactly equal to
+
+-   `!=` not equal to
+
+## Logical
+
+-   & (AND)
+
+-   \| (OR)
+:::
+
+## Data formats
+
+[![](formats.jpg)](https://devopedia.org/r-data-structures)
+
+## Vector
+
+We can create vectors by combining individual objects with the function *c()* ("concatenating"):
+
+```{r, echo=TRUE}
+# This works for numbers
+numeric_vector <- c(1,2,3)
+
+numeric_vector
+```
+
+```{r, echo=TRUE}
+# ... for characters
+character_vector <- c("CDU", "CSU", "SPD")
+
+character_vector
+```
+
+```{r, echo=TRUE}
+# and for logical values
+logical_vector <- c(TRUE, FALSE, FALSE)
+
+logical_vector
+```
+
+## Data frames
+
+They are comparable to data sets as in Stata or SPSS
+
+-   with n rows and k columns
+
+-   and allow us to store variables of different classes.
+
+```{r, echo=TRUE}
+# we create a data frame called df 
+# using the function "data.frame()
+df <- data.frame(
+  party = c("CDU", "CSU", "SPD"),
+  vote_share = c("27", "5", "13")
+)
+```
+
+. .
+
+```{r, echo=TRUE}
+df
+```
+
+## Data frames
+
+We can also check the dimensions, number of observations, and number of variables:
+
+```{r, echo=TRUE}
+# dimensions
+dim(df)
+
+# number of observations
+nrow(df)
+
+# number of variables
+ncol(df)
+```
+
+## Lists
+
+We can combine any number of objects to a list:
+
+```{r, echo=TRUE}
+# using the list() function
+test_list <- list(numeric_vector,
+                  character_vector)
+
+test_list
+```
+
+# How to deal with objects
+
+## Accessing and subsetting objects
+
+-   Typically, we are not interested in all of the data
+
+-   We want to access specific information
+
+-   This works similar across different object types (vectors, data frames, lists, ...)
+
+```{r, echo=TRUE}
+# Let's go back to our party vector:
+party_vector <- c("CDU", "CSU", "SPD")
+
+# we only want to access the first element
+party_vector[1]
+```
+
+```{r, echo=TRUE}
+# we can store this in a new object:
+CDU <- party_vector[1]
+```
+
+## Accessing and subsetting data frames
+
+We can select rows, columns, and specific elements. This follows the general logic:
+
+```{r, echo=TRUE, eval=FALSE}
+data_frame[specify_row, specify_column]
+```
+
+Let's try this:
+
+```{r, echo=TRUE}
+# This is our data frame
+df
+
+# Let's select only the first column
+df[,1]
+```
+
+## Accessing and subsetting data frames
+
+We can also access individual variables using the \$ sign:
+
+```{r, echo=TRUE}
+df$party
+```
+
+Alternatively, we can index by variable name:
+
+```{r, echo=TRUE}
+df["party"]
+```
+
+Or variable order:
+
+```{r, echo=TRUE}
+df[1]
+```
+
+# Your turn!
+You can find the exercise on ILIAS or download it via the website.

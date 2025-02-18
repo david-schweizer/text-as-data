@@ -44,7 +44,6 @@ tbl-colwidths: [10,50,40]
 
     -   <https://posit.co/download/rstudio-desktop/>
 
-
 ## Read
 
 -   Chapter 2: Get Started in Healy, Data Visualization
@@ -68,5 +67,4 @@ tbl-colwidths: [10,50,40]
 
 # Materials
 
-TBA.
-
+You download today's exercise [**here**](https://ilias.uni-mannheim.de/goto.php?target=file_1618241_download&client_id=ILIAS). An exemplary solution will be uploaded on ILIAS after the session.

@@ -8,11 +8,11 @@
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.450">
+  <meta name="generator" content="quarto-1.4.555">
 
   <meta name="author" content="David Schweizer">
-  <meta name="dcterms.date" content="2023-02-27">
-  <title>Automated Data Collection - Course Website - Tidyverse I: Import, tidy, and transform</title>
+  <meta name="dcterms.date" content="2025-02-25">
+  <title>Text-as-Data - Course Website - Tidyverse I: Import, tidy, and transform</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -30,71 +30,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -222,7 +157,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -405,422 +341,15 @@ David Schweizer
     </div>
 </div>
 
-  <p class="date">February 27, 2023</p>
+  <p class="date">February 25, 2025</p>
 </section>
-<section id="plan-for-today" class="slide level2">
-<h2>Plan for today</h2>
+<section id="tba" class="title-slide slide level1 center">
+<h1>TBA</h1>
 
-<img data-src="workflow.png" class="r-stretch quarto-figure-center"><p class="caption">Data project workflow from R for Data Science</p></section>
-<section id="data-wrangling" class="slide level2">
-<h2>Data wrangling …</h2>
-<p>… includes all steps to prepare our data for visualization, modeling, and analysis:</p>
-<ul>
-<li><p>importing data</p></li>
-<li><p>subsetting (selecting) our data</p></li>
-<li><p>renaming variables or recode values</p></li>
-<li><p>creating new variables</p></li>
-</ul>
-<p>… will account for most of the time spent on your data project!</p>
-</section>
-<section id="tidyverse" class="slide level2">
-<h2>tidyverse</h2>
-
-<img data-src="tidyverse.jpg" class="r-stretch"></section>
-<section id="dplyr" class="slide level2">
-<h2>dplyr</h2>
-<div class="columns">
-<div class="column" style="width:20%;">
-<p><img data-src="dplyr.jpg"></p>
-</div><div class="column" style="width:80%;">
-<p>The dplyr package provides us with the <em>verbs</em> to wrangle our data:</p>
-<ul>
-<li><p><em>select()</em></p></li>
-<li><p><em>filter()</em></p></li>
-<li><p><em>mutate()</em></p></li>
-<li><p><em>group_by()</em></p></li>
-<li><p><em>summarize()</em></p></li>
-<li><p>… and many more!</p></li>
-</ul>
-</div>
-</div>
-</section>
-<section id="tidyverse-concepts" class="slide level2">
-<h2>Tidyverse: Concepts</h2>
-<p>There is much more to the tidyverse, but two important concepts that you should be familiar with, if you want to use it, are:</p>
-<ul>
-<li><p><strong>Tidy data</strong></p></li>
-<li><p><strong>Pipes</strong></p></li>
-</ul>
-</section>
-<section id="tidy-data" class="slide level2">
-<h2>Tidy data</h2>
-<p>Tidy refers to the <strong>structure of the data</strong>.</p>
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Variables</a></li><li><a href="#tabset-1-2">Observations</a></li><li><a href="#tabset-1-3">Values</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1">
-<p>Each variable has its own column.</p>
-<p><img data-src="tidy11.png"></p>
-</div>
-<div id="tabset-1-2">
-<p>Each observation has its own row.</p>
-<p><img data-src="tidy12.png"></p>
-</div>
-<div id="tabset-1-3">
-<p>Each value has its own cell.</p>
-<p><img data-src="tidy13.png"></p>
-</div>
-</div>
-</div>
-</section>
-<section id="pipes" class="slide level2">
-<h2>Pipes</h2>
-<p>Usually, in R we apply functions as follows:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">f</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>In the logic of pipes this function is written as:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>x <span class="sc">%&gt;%</span> <span class="fu">f</span>(.)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Here, object x is <em>piped</em> into function f, becoming (by default) its first argument. We can use pipes with more than one function, too:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>x <span class="sc">%&gt;%</span>    </span>
-<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">f_1</span>() <span class="sc">%&gt;%</span>    </span>
-<span id="cb3-3"><a href="#cb3-3"></a>  <span class="fu">f_2</span>() <span class="sc">%&gt;%</span>    </span>
-<span id="cb3-4"><a href="#cb3-4"></a>  <span class="fu">f_3</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="pipes-1" class="slide level2">
-<h2>Pipes</h2>
-<p>The %&gt;% pipe used in the tidyverse is part of the <a href="https://magrittr.tidyverse.org/"><em>magrittr package</em></a> which also includes other specialized types of pipes.</p>
-<ul>
-<li><p>RStudio offers a keyboard shortcut for inserting the %&gt;% pipe: <em>Ctrl + Shift + M (Windows &amp; Linux)/Cmd + Shift + M (Mac)</em></p></li>
-<li><p>Since version 4.1.0, base R also offers its own pipe <em>|&gt;</em>, which is similar to but not the same as the %&gt;% pipe</p></li>
-</ul>
-</section>
-<section>
-<section id="importing-data" class="title-slide slide level1 center">
-<h1>Importing data</h1>
-
-</section>
-<section id="importing-data-manually" class="slide level2">
-<h2>Importing data manually</h2>
-<div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Choose file format</a></li><li><a href="#tabset-2-2">Choose file</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1">
-<p><img data-src="import1.png" width="875"></p>
-</div>
-<div id="tabset-2-2">
-<p><img data-src="import2.png" width="867"></p>
-</div>
-</div>
-</div>
-</section>
-<section id="importing-files" class="slide level2">
-<h2>Importing files</h2>
-<ul>
-<li><p><strong>R:</strong> use <code>load("filename.RData")</code> or <code>readRDS("filename.RDS")</code>.</p></li>
-<li><p><strong>Excel:</strong> e.g., load <code>library("xlsx")</code> and use <code>read.xlsx("filename.xlsx")</code>.</p></li>
-<li><p><strong>Stata:</strong> e.g., load <code>library("haven")</code> and use <code>read_dta("filename.dta")</code>.</p></li>
-</ul>
-<p>Consult the R documentation (e.g.&nbsp;type <code>?read.xlsx</code>) to get an overview about options (e.g.&nbsp;<code>sheetIndex</code> or <code>startRow</code>).Tidy &amp; Transform</p>
-</section>
-<section id="import-gles-wave-25" class="slide level2">
-<h2>Import GLES wave 25</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># we load the haven package to import Stata files</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">library</span>(haven)</span>
-<span id="cb4-3"><a href="#cb4-3"></a></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="co"># we store the data in the object "gles_25"</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a>gles_25 <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">"ZA7731_sA_v1-0-0.dta"</span>)</span>
-<span id="cb4-6"><a href="#cb4-6"></a></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="co"># let's check the class of our object</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a><span class="fu">dim</span>(gles_25)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 10030   201</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># and it's dimensions</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">class</span>(gles_25)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "tbl_df"     "tbl"        "data.frame"</code></pre>
-</div>
-</div>
-</section>
-<section id="inspect-gles-wave-25" class="slide level2">
-<h2>Inspect GLES wave 25</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># let's have a look at a subset of the data</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a>gles_25[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 10 × 7
-   study                       version doi   field_start field_end sample  lfdn 
-   &lt;dbl+lbl&gt;                   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;     &lt;dbl+l&gt; &lt;dbl&gt;
- 1 7731 [ZA7731 GLES Panel 20… 1-0-0 … 10.4… 2023-10-11  2023-10-… 4 [Sam… 18540
- 2 7731 [ZA7731 GLES Panel 20… 1-0-0 … 10.4… 2023-10-11  2023-10-… 3 [Sam… 12587
- 3 7731 [ZA7731 GLES Panel 20… 1-0-0 … 10.4… 2023-10-11  2023-10-… 6 [Sam… 26011
- 4 7731 [ZA7731 GLES Panel 20… 1-0-0 … 10.4… 2023-10-11  2023-10-… 6 [Sam… 26012
- 5 7731 [ZA7731 GLES Panel 20… 1-0-0 … 10.4… 2023-10-11  2023-10-… 6 [Sam… 26014
- 6 7731 [ZA7731 GLES Panel 20… 1-0-0 … 10.4… 2023-10-11  2023-10-… 6 [Sam… 26018
- 7 7731 [ZA7731 GLES Panel 20… 1-0-0 … 10.4… 2023-10-11  2023-10-… 6 [Sam… 26019
- 8 7731 [ZA7731 GLES Panel 20… 1-0-0 … 10.4… 2023-10-11  2023-10-… 4 [Sam… 18556
- 9 7731 [ZA7731 GLES Panel 20… 1-0-0 … 10.4… 2023-10-11  2023-10-… 4 [Sam… 18557
-10 7731 [ZA7731 GLES Panel 20… 1-0-0 … 10.4… 2023-10-11  2023-10-… 6 [Sam… 26021</code></pre>
-</div>
-</div>
-</section>
-<section id="inspect-gles-wave-25-1" class="slide level2">
-<h2>Inspect GLES wave 25</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># let's have a look at a subset of the data</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="co"># alternatively, you can use: names(gles_25)[1:50]</span></span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="fu">colnames</span>(gles_25)[<span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "study"       "version"     "doi"         "field_start" "field_end"  
- [6] "sample"      "lfdn"        "kp25_2601"   "kp25_010"    "kp25_011a"  
-[11] "kp25_011b"   "kp25_011c"   "kp25_170"    "kp25_190aa"  "kp25_190ab" 
-[16] "kp25_190ba"  "kp25_190bb"  "kp25_850a"   "kp25_850b"   "kp25_870a"  
-[21] "kp25_870b"   "kp25_2880d"  "kp25_2880g"  "kp25_2880o"  "kp25_2880x" 
-[26] "kp25_2880cv" "kp25_1090"   "kp25_1290"   "kp25_1130"   "kp25_1210"  
-[31] "kp25_020"    "kp25_2880p"  "kp25_2880t"  "kp25_2880u"  "kp25_2880y" 
-[36] "kp25_2880al" "kp25_650f2"  "kp25_650o1"  "kp25_650l1"  "kp25_650s"  
-[41] "kp25_650e2"  "kp25_650g2"  "kp25_650h2"  "kp25_650k1"  "kp25_2880bg"
-[46] "kp25_2880bh" "kp25_2880bp" "kp25_2880bq" "kp25_2880bs" "kp25_5020"  </code></pre>
-</div>
-</div>
-</section>
-<section id="renaming" class="slide level2">
-<h2>Renaming</h2>
-<div class="panel-tabset">
-<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">General</a></li><li><a href="#tabset-3-2">base R</a></li><li><a href="#tabset-3-3">dplyr</a></li></ul>
-<div class="tab-content">
-<div id="tabset-3-1">
-<p>As you have seen, not all variable names are informative or they are quite long. This complicates the coding process for us and reviewers. We want:</p>
-<ul>
-<li><p>short,</p></li>
-<li><p>and informative variable names</p></li>
-</ul>
-</div>
-<div id="tabset-3-2">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># we rename only column 22</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="fu">colnames</span>(gles_25)[<span class="dv">22</span>] <span class="ot">&lt;-</span> <span class="st">"ego_state_measures_inequality"</span></span>
-<span id="cb12-3"><a href="#cb12-3"></a></span>
-<span id="cb12-4"><a href="#cb12-4"></a><span class="co"># let's check if it worked</span></span>
-<span id="cb12-5"><a href="#cb12-5"></a><span class="fu">colnames</span>(gles_25)[<span class="dv">22</span><span class="sc">:</span><span class="dv">23</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "ego_state_measures_inequality" "kp25_2880g"                   </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># we can also rename multiple columns at once:</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="fu">colnames</span>(gles_25)[<span class="dv">22</span><span class="sc">:</span><span class="dv">23</span>] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"ego_state_measures_inequality"</span>,</span>
-<span id="cb14-3"><a href="#cb14-3"></a>                              <span class="st">"ego_state_no_economy"</span>)</span>
-<span id="cb14-4"><a href="#cb14-4"></a></span>
-<span id="cb14-5"><a href="#cb14-5"></a><span class="co"># let's check if it worked</span></span>
-<span id="cb14-6"><a href="#cb14-6"></a><span class="fu">colnames</span>(gles_25)[<span class="dv">22</span><span class="sc">:</span><span class="dv">23</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "ego_state_measures_inequality" "ego_state_no_economy"         </code></pre>
-</div>
-</div>
-</div>
-<div id="tabset-3-3">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>gles_25_new <span class="ot">&lt;-</span> gles_25 <span class="sc">%&gt;%</span> </span>
-<span id="cb16-2"><a href="#cb16-2"></a>  <span class="co"># rename: new = old</span></span>
-<span id="cb16-3"><a href="#cb16-3"></a>  <span class="fu">rename</span>(<span class="at">ego_state_measures_inequality =</span> kp25_2880d)</span>
-<span id="cb16-4"><a href="#cb16-4"></a></span>
-<span id="cb16-5"><a href="#cb16-5"></a><span class="fu">colnames</span>(gles_25)[<span class="dv">22</span><span class="sc">:</span><span class="dv">23</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "kp25_2880d" "kp25_2880g"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>gles_25_new <span class="ot">&lt;-</span> gles_25 <span class="sc">%&gt;%</span> </span>
-<span id="cb18-2"><a href="#cb18-2"></a>  <span class="co"># rename: new = old </span></span>
-<span id="cb18-3"><a href="#cb18-3"></a>  <span class="co"># rename multiple variables at once</span></span>
-<span id="cb18-4"><a href="#cb18-4"></a>  <span class="fu">rename</span>(<span class="at">ego_state_measures_inequality =</span> kp25_2880d,</span>
-<span id="cb18-5"><a href="#cb18-5"></a>         <span class="at">ego_state_no_economy =</span> kp25_2880g)</span>
-<span id="cb18-6"><a href="#cb18-6"></a></span>
-<span id="cb18-7"><a href="#cb18-7"></a><span class="fu">colnames</span>(gles_25)[<span class="dv">22</span><span class="sc">:</span><span class="dv">23</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "kp25_2880d" "kp25_2880g"</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="selecting" class="slide level2">
-<h2>Selecting</h2>
-<div class="panel-tabset">
-<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">General</a></li><li><a href="#tabset-4-2">base R</a></li><li><a href="#tabset-4-3">dplyr</a></li></ul>
-<div class="tab-content">
-<div id="tabset-4-1">
-<p>Usually, we do not want to work with the full data set. For example, we do not need all of the 201 variables of the GLES wave 25. Therefore, we subset our data.</p>
-<p>This also requires that we have engaged with the data set and the codebook (if available).</p>
-</div>
-<div id="tabset-4-2">
-<p>In base R, there are multiple ways to subset the data.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>gles_new <span class="ot">&lt;-</span> gles_25[,<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div id="tabset-4-3">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># we can subset the data using the select() verb</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a></span>
-<span id="cb21-3"><a href="#cb21-3"></a>gles_select <span class="ot">&lt;-</span> gles_25 <span class="sc">%&gt;%</span> </span>
-<span id="cb21-4"><a href="#cb21-4"></a>  <span class="fu">select</span>(study<span class="sc">:</span>kp25_011a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="select-and-rename-in-one-step" class="slide level2">
-<h2>Select and Rename in one step</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>gles <span class="ot">&lt;-</span> gles_25 <span class="sc">%&gt;%</span> </span>
-<span id="cb22-2"><a href="#cb22-2"></a>  <span class="co"># select(new_nam = old_name)</span></span>
-<span id="cb22-3"><a href="#cb22-3"></a>  <span class="fu">select</span>(<span class="at">pol_interest_country =</span> kp25_011a,</span>
-<span id="cb22-4"><a href="#cb22-4"></a>         <span class="at">pol_interest_state =</span> kp25_011b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="filtering" class="slide level2">
-<h2>Filtering</h2>
-<div class="panel-tabset">
-<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">General</a></li><li><a href="#tabset-5-2">base R</a></li><li><a href="#tabset-5-3">dplyr</a></li></ul>
-<div class="tab-content">
-<div id="tabset-5-1">
-<p>Filtering refers to rows instead of columns. We want to only include (or exclude) a specific set of observations.</p>
-<p>Therefore, we need to use comparison or logical operators (e.g, ==, &amp;, …).</p>
-</div>
-<div id="tabset-5-2">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>gles_filter <span class="ot">&lt;-</span> gles[gles<span class="sc">$</span>pol_interest_state <span class="sc">==</span> <span class="dv">5</span>,]</span>
-<span id="cb23-2"><a href="#cb23-2"></a></span>
-<span id="cb23-3"><a href="#cb23-3"></a><span class="fu">dim</span>(gles_filter)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 616   2</code></pre>
-</div>
-</div>
-</div>
-<div id="tabset-5-3">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># we can use the filter() verb</span></span>
-<span id="cb25-2"><a href="#cb25-2"></a>gles_filter <span class="ot">&lt;-</span> gles <span class="sc">%&gt;%</span> </span>
-<span id="cb25-3"><a href="#cb25-3"></a>  <span class="fu">filter</span>(pol_interest_state <span class="sc">==</span> <span class="dv">5</span>)</span>
-<span id="cb25-4"><a href="#cb25-4"></a></span>
-<span id="cb25-5"><a href="#cb25-5"></a><span class="fu">dim</span>(gles_filter)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 616   2</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="adding-logical-operators" class="slide level2">
-<h2>Adding logical operators</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># now, we want to filter depending on political interest on the state and country level</span></span>
-<span id="cb27-2"><a href="#cb27-2"></a></span>
-<span id="cb27-3"><a href="#cb27-3"></a>gles_filter <span class="ot">&lt;-</span> gles <span class="sc">%&gt;%</span> </span>
-<span id="cb27-4"><a href="#cb27-4"></a>  <span class="fu">filter</span>(pol_interest_state <span class="sc">==</span> <span class="dv">5</span> <span class="sc">&amp;</span> pol_interest_country <span class="sc">==</span> <span class="dv">5</span> )</span>
-<span id="cb27-5"><a href="#cb27-5"></a></span>
-<span id="cb27-6"><a href="#cb27-6"></a><span class="fu">dim</span>(gles_filter)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 569   2</code></pre>
-</div>
-</div>
-</section>
-<section id="mutating---class" class="slide level2">
-<h2>Mutating - Class</h2>
-<div class="panel-tabset">
-<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">General</a></li><li><a href="#tabset-6-2">base R</a></li><li><a href="#tabset-6-3">dplyr</a></li></ul>
-<div class="tab-content">
-<div id="tabset-6-1">
-<p>Oftentimes, we want to transform the class of our variables. E.g., transform a character variable (“2024”) to a numeric one (“2024).</p>
-<p>In base R, there is: <em>as.numeric(), as.character(), as.factor(), and as.logical()</em></p>
-</div>
-<div id="tabset-6-2">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># Let's test this:</span></span>
-<span id="cb29-2"><a href="#cb29-2"></a><span class="fu">class</span>(gles<span class="sc">$</span>pol_interest_state)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "haven_labelled" "vctrs_vctr"     "double"        </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="co"># what values are there?</span></span>
-<span id="cb31-2"><a href="#cb31-2"></a><span class="fu">table</span>(gles<span class="sc">$</span>pol_interest_state)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
- -99  -93    1    2    3    4    5 
-  82   46 1728 3346 3246  966  616 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># change them to character</span></span>
-<span id="cb33-2"><a href="#cb33-2"></a>gles<span class="sc">$</span>character_test <span class="ot">&lt;-</span> <span class="fu">as.character</span>(gles<span class="sc">$</span>pol_interest_state)</span>
-<span id="cb33-3"><a href="#cb33-3"></a></span>
-<span id="cb33-4"><a href="#cb33-4"></a><span class="fu">class</span>(gles<span class="sc">$</span>character_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "character"</code></pre>
-</div>
-</div>
-</div>
-<div id="tabset-6-3">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># We can do the same using mutate() in dpylr:</span></span>
-<span id="cb35-2"><a href="#cb35-2"></a>gles <span class="ot">&lt;-</span> gles <span class="sc">%&gt;%</span> </span>
-<span id="cb35-3"><a href="#cb35-3"></a>  <span class="fu">mutate</span>(<span class="at">character_test =</span> <span class="fu">as.character</span>(pol_interest_state))</span>
-<span id="cb35-4"><a href="#cb35-4"></a></span>
-<span id="cb35-5"><a href="#cb35-5"></a><span class="co"># let's check it</span></span>
-<span id="cb35-6"><a href="#cb35-6"></a><span class="fu">class</span>(gles<span class="sc">$</span>character_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "character"</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="recoding" class="slide level2">
-<h2>Recoding</h2>
-<div class="panel-tabset">
-<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">General</a></li><li><a href="#tabset-7-2">Get labels</a></li><li><a href="#tabset-7-3">dplyr</a></li></ul>
-<div class="tab-content">
-<div id="tabset-7-1">
-<p>Sometimes, we might want to recode specific values. For example, we do not want to display numeric values but their labels. We can solve this using the <em>recode()</em> verb. But as always, we have multiple possibilities to do so.</p>
-</div>
-<div id="tabset-7-2">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># get value labels</span></span>
-<span id="cb37-2"><a href="#cb37-2"></a><span class="fu">table</span>(gles_25<span class="sc">$</span>kp25_050k)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
- -99  -93    1    2    3    4    5 
-  37  246  329  618 3200 3778 1822 </code></pre>
-</div>
-</div>
-</div>
-<div id="tabset-7-3">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="co"># Now we can recode (some of) the values</span></span>
-<span id="cb39-2"><a href="#cb39-2"></a>gles_25_recode <span class="ot">&lt;-</span> gles_25 <span class="sc">%&gt;%</span> </span>
-<span id="cb39-3"><a href="#cb39-3"></a>  <span class="fu">mutate</span>(<span class="at">new =</span> <span class="fu">case_when</span>(kp25_050k <span class="sc">==</span> <span class="sc">-</span><span class="dv">99</span> <span class="sc">~</span> <span class="cn">NA</span>,</span>
-<span id="cb39-4"><a href="#cb39-4"></a>                         <span class="cn">TRUE</span> <span class="sc">~</span> kp25_050k))</span>
-<span id="cb39-5"><a href="#cb39-5"></a></span>
-<span id="cb39-6"><a href="#cb39-6"></a><span class="fu">table</span>(gles_25_recode<span class="sc">$</span>new)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
- -93    1    2    3    4    5 
- 246  329  618 3200 3778 1822 </code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section></section>
-<section id="your-turn" class="title-slide slide level1 center">
-<h1>Your turn!</h1>
-
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
-<p>Automated Data Collection | Spring 2024 | University of Mannheim</p>
+<p>Text as Data in R | Spring 2025 | University of Mannheim</p>
+</div>
 </div>
 </section>
     </div>
@@ -849,7 +378,6 @@ David Schweizer
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -1034,44 +562,6 @@ David Schweizer
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
@@ -1148,10 +638,27 @@ David Schweizer
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -1161,8 +668,17 @@ David Schweizer
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -1176,7 +692,11 @@ David Schweizer
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {

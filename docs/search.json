@@ -132,7 +132,7 @@
     "href": "weeks/week-02.html",
     "title": "Intro to R",
     "section": "",
-    "text": "To Do’s before our session\n\nInstallReadThink\n\n\n\nMake sure R and RStudio is installed and works\n\nhttps://posit.co/download/rstudio-desktop/\n\n\n\n\n\nChapter 2: Get Started in Healy, Data Visualization\n\nLink to free online version\nEspecially, have a look at: 2.2 Use R with RStudio\n\n\n\n\n\nQuestions to think about until our next session:\n\nWhat interests you substantially? Start thinking about possible research areas for your data project.\nFeel also free to point out (via ILIAS or personally via e-mail) which data sets you are interested in. Our coding examples during the weekly sessions can be tailored accordingly!\n\n\n\n\n\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nIntro to R\n\n\nWeek 2\n\n\nFeb 18, 2025\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA."
+    "text": "To Do’s before our session\n\nInstallReadThink\n\n\n\nMake sure R and RStudio is installed and works\n\nhttps://posit.co/download/rstudio-desktop/\n\n\n\n\n\nChapter 2: Get Started in Healy, Data Visualization\n\nLink to free online version\nEspecially, have a look at: 2.2 Use R with RStudio\n\n\n\n\n\nQuestions to think about until our next session:\n\nWhat interests you substantially? Start thinking about possible research areas for your data project.\nFeel also free to point out (via ILIAS or personally via e-mail) which data sets you are interested in. Our coding examples during the weekly sessions can be tailored accordingly!\n\n\n\n\n\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nIntro to R\n\n\nWeek 2\n\n\nFeb 18, 2025\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nYou download today’s exercise here. An exemplary solution will be uploaded on ILIAS after the session."
   },
   {
     "objectID": "slides/week-01/01-Intro.html",
@@ -200,7 +200,7 @@
     "href": "weeks/week-03.html",
     "title": "Tidyverse I: Import, tidy, and transform",
     "section": "",
-    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nTidyverse I: Import, tidy, and transform\n\n\nWeek 3\n\n\nFeb 27, 2023\n\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nYou can find the script here.\n\n\nTo Do’s before our session\n\nReadThink\n\n\n\nChapter 7: Data Import in R for Data Science\n\nLink to free online version\n\nChapter 3: Data Transformation in R for Data Science\n\nLink to free online version\n\n\n\n\n\nQuestions to think about until our next session:\n\nDo you have a particular data set you would like to import into R? Let me know!"
+    "text": "To Do’s before our session\n\nReadThink\n\n\n\nChapter 7: Data Import in R for Data Science\n\nLink to free online version\n\nChapter 3: Data Transformation in R for Data Science\n\nLink to free online version\n\n\n\n\n\nQuestions to think about until our next session:\n\nDo you have a particular data set you would like to import into R? Let me know!\n\n\n\n\n\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nTidyverse I: Import, tidy, and transform\n\n\nWeek 3\n\n\nFeb 25, 2025\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA."
   },
   {
     "objectID": "weeks/week-04.html",
@@ -7649,8 +7649,8 @@
     "objectID": "slides/week-02/02-Intro_R.html#plan-for-today",
     "href": "slides/week-02/02-Intro_R.html#plan-for-today",
     "title": "Intro to R",
-    "section": "",
-    "text": "Input\n\nR, R Studio, and basics\nData types & formats\nHow to deal with objects\n\nSmall exercises in between"
+    "section": "Plan for today",
+    "text": "Plan for today\nInput\n\nR, R Studio, and basics\nData types & formats\nHow to deal with objects\n\nYour turn: Short exercises"
   },
   {
     "objectID": "slides/week-02/02-Intro_R.html#section",
@@ -7762,7 +7762,7 @@
     "href": "slides/week-02/02-Intro_R.html#example-stringr",
     "title": "Intro to R",
     "section": "Example: stringr",
-    "text": "Example: stringr\n\n# lets load the stringr package:\nlibrary(stringr)\n\n# using the help() function, we can inspect the documentation\nhelp(stringr)\n\n. . ."
+    "text": "Example: stringr\n\n# lets load the stringr package:\nlibrary(stringr)\n\n# using the help() function, we can inspect the documentation\nhelp(stringr)"
   },
   {
     "objectID": "slides/week-02/02-Intro_R.html#example-stringr-1",
