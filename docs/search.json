@@ -28,7 +28,7 @@
     "href": "material.html",
     "title": "Schedule, slides & materials",
     "section": "",
-    "text": "You can find all course materials below. This includes slides, code, links to readings, etc.\nJust click on the topic of the respective week.\n\n\n\n\n\nWeek\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nFebruary 11, 2025\n\n\n\n\nWeek 02\n\n\nIntro to R\n\n\nFebruary 18, 2025\n\n\n\n\nWeek 03\n\n\nTidyverse I: Import, tidy, and transform\n\n\nFebruary 25, 2025\n\n\n\n\n\nNo matching items",
+    "text": "You can find all course materials below. This includes slides, code, links to readings, etc.\nJust click on the topic of the respective week.\n\n\n\n\n\nWeek\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nFebruary 11, 2025\n\n\n\n\nWeek 02\n\n\nIntro to R\n\n\nFebruary 18, 2025\n\n\n\n\nWeek 03\n\n\nTidyverse I: Import, tidy, and transform\n\n\nFebruary 25, 2025\n\n\n\n\nWeek 04\n\n\nTidyverse II: Transform, and visualize\n\n\nMarch 04, 2025\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Schedule, slides & materials"
     ]
@@ -200,14 +200,14 @@
     "href": "weeks/week-03.html",
     "title": "Tidyverse I: Import, tidy, and transform",
     "section": "",
-    "text": "To Do’s before our session\n\nReadThink\n\n\n\nChapter 7: Data Import in R for Data Science\n\nLink to free online version\n\nChapter 3: Data Transformation in R for Data Science\n\nLink to free online version\n\n\n\n\n\nQuestions to think about until our next session:\n\nDo you have a particular data set you would like to import into R? Let me know!\n\n\n\n\n\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nTidyverse I: Import, tidy, and transform\n\n\nWeek 3\n\n\nFeb 25, 2025\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA."
+    "text": "To Do’s before our session\n\nReadThink\n\n\n\nChapter 7: Data Import in R for Data Science\n\nLink to free online version\n\nChapter 3: Data Transformation in R for Data Science\n\nLink to free online version\n\n\n\n\n\nQuestions to think about until our next session:\n\nDo you have a particular data set you would like to import into R? Let me know!\n\n\n\n\n\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nTidyverse I: Import, tidy, and transform\n\n\nWeek 3\n\n\nFeb 25, 2025\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nYou download today’s exercise here. An exemplary solution will be uploaded on ILIAS after the session."
   },
   {
     "objectID": "weeks/week-04.html",
     "href": "weeks/week-04.html",
-    "title": "Tidyverse II: Import, tidy, and transform",
+    "title": "Tidyverse II: Transform, and visualize",
     "section": "",
-    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nTidyverse II: Import, tidy, and transform\n\n\nWeek 4\n\n\nMar 5, 2023\n\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nYou find the R script with the coding task here. The solution to the task can be found here.\nYou can download the original .csv files from the BundeswahlleiterIn here. If you struggle with the data import, you can find the necessary data frames here.\n\n\nTo Do’s before our session\nTry to apply the learnings from last session! Import your own data set, and wrangle the data."
+    "text": "To Do’s before our session\nTry to apply the learnings from last session! Import your own data set, and wrangle the data.\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nTidyverse II: Transform, and visualize\n\n\nWeek 4\n\n\nMar 4, 2025\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA."
   },
   {
     "objectID": "weeks/week-05.html",
@@ -5039,7 +5039,7 @@
     "href": "slides/week-03/03-Data.html#plan-for-today",
     "title": "Tidyverse I: Import, tidy, and transform",
     "section": "Plan for today",
-    "text": "Plan for today\n\nData project workflow from R for Data Science"
+    "text": "Plan for today\n\n\n\nData project workflow from R for Data Science"
   },
   {
     "objectID": "slides/week-03/03-Data.html#data-project-workflow",
@@ -5193,7 +5193,7 @@
     "href": "slides/week-03/03-Data.html#importing-files",
     "title": "Tidyverse I: Import, tidy, and transform",
     "section": "Importing files",
-    "text": "Importing files\n\nR: use load(\"filename.RData\") or readRDS(\"filename.RDS\").\nExcel: e.g., load library(\"xlsx\") and use read.xlsx(\"filename.xlsx\").\nStata: e.g., load library(\"haven\") and use read_dta(\"filename.dta\").\n\nConsult the R documentation (e.g. type ?read.xlsx) to get an overview about options (e.g. sheetIndex or startRow).Tidy & Transform"
+    "text": "Importing files\n\nR: use load(\"filename.RData\") or readRDS(\"filename.RDS\").\nExcel: e.g., load library(\"xlsx\") and use read.xlsx(\"filename.xlsx\").\nStata: e.g., load library(\"haven\") and use read_dta(\"filename.dta\").\n\nConsult the R documentation (e.g. type ?read.xlsx) to get an overview about options (e.g. sheetIndex or startRow)."
   },
   {
     "objectID": "slides/week-04/04-AmountsAndProportions.html#organizational",
