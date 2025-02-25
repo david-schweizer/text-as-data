@@ -2,14 +2,14 @@
 title: "Tidyverse I: Import, tidy, and transform"
 subtitle: "Week 3"
 author: "David Schweizer"
-date: "February 25, 2025"
+date: "September 19, 2024"
 date-format: long
 institute: "University of Mannheim"
 format: 
   revealjs:
     theme: simple
     slide-number: c/t #< collapsed/total
-    footer: "Text as Data in R | Spring 2025 | University of Mannheim"
+    footer: "Automated Data Collection with R | Fall 2024 | University of Mannheim"
 editor: visual
 ---
 
@@ -154,11 +154,7 @@ The %\>% pipe used in the tidyverse is part of the [*magrittr package*](https://
 
 -   **Stata:** e.g., load `library("haven")` and use `read_dta("filename.dta")`.
 
-Consult the R documentation (e.g. type `?read.xlsx`) to get an overview about options (e.g. `sheetIndex` or `startRow`).
-
-
-# Let's import data!
-
+Consult the R documentation (e.g. type `?read.xlsx`) to get an overview about options (e.g. `sheetIndex` or `startRow`).Tidy & Transform
 
 ## Import GLES wave 25
 
@@ -238,7 +234,7 @@ gles_25_new <- gles_25 %>%
   rename(ego_state_measures_inequality = kp25_2880d,
          ego_state_no_economy = kp25_2880g)
 
-colnames(gles_25)[22:23]
+colnames(gles_25_new)[22:23]
 ```
 :::
 
@@ -264,6 +260,15 @@ gles_new <- gles_25[,1:10]
 ```{r, echo=TRUE}
 # we can subset the data using the select() verb
 
+# Only the variable "study"
+gles_select <- gles_25 %>% 
+  select(study)
+
+# Only the variables "study" and "kp25_011a"
+gles_select <- gles_25 %>% 
+  select(study, kp25_011a)
+
+# All variables from "study" until "kp25_011a"
 gles_select <- gles_25 %>% 
   select(study:kp25_011a)
 ```
@@ -330,27 +335,23 @@ In base R, there is: *as.numeric(), as.character(), as.factor(), and as.logical(
 
 ```{r, echo = TRUE}
 # Let's test this:
-class(gles$pol_interest_state)
-
-# what values are there?
-table(gles$pol_interest_state)
+class(gles_25$version)
 
 # change them to character
-gles$character_test <- as.character(gles$pol_interest_state)
+gles_25$character_test <- as.character(gles_25$version)
 
-class(gles$character_test)
-
+class(gles_25$character_test)
 ```
 
 ## dplyr
 
 ```{r, echo = TRUE}
 # We can do the same using mutate() in dpylr:
-gles <- gles %>% 
-  mutate(character_test = as.character(pol_interest_state))
+gles_25 <- gles_25 %>% 
+  mutate(character_test = as.character(version))
 
 # let's check it
-class(gles$character_test)
+class(gles_25$character_test)
 ```
 :::
 
@@ -359,25 +360,32 @@ class(gles$character_test)
 ::: panel-tabset
 ## General
 
-Sometimes, we might want to recode specific values. For example, we do not want to display numeric values but their labels. We can solve this using the *recode()* verb. But as always, we have multiple possibilities to do so.
+Sometimes, we might want to recode specific values. For example, we do not want to display numeric values but their labels. We can solve this using the *case_match()* verb. But as always, we have multiple possibilities to do so. I prefer *case_when()* or *if_else()*.
 
 ## Get labels
 
 ```{r, echo = TRUE}
 # get value labels
-table(gles_25$kp25_050k)
+table(gles_25$kp25_050k, useNA = "always")
 ```
 
 ## dplyr
 
 ```{r, echo=TRUE}
+table(gles_25$kp25_050k, useNA = "always")
+
 # Now we can recode (some of) the values
 gles_25_recode <- gles_25 %>% 
+  # reads: when kp25_050k is equal to 99, then assign NA,
+  # otherwise, assign the existing value in kp25_050k
   mutate(new = case_when(kp25_050k == -99 ~ NA,
-                         TRUE ~ kp25_050k))
+                         TRUE ~ kp25_050k),
+         new = if_else(kp25_050k == -99, NA, kp25_050k))
 
-table(gles_25_recode$new)
+table(gles_25_recode$new, useNA = "always")
 ```
 :::
 
 # Your turn!
+
+You can find the exercise for this session on the course website or directly on ILIAS.

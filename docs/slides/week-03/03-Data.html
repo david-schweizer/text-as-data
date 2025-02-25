@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.4.555">
 
   <meta name="author" content="David Schweizer">
-  <meta name="dcterms.date" content="2025-02-25">
+  <meta name="dcterms.date" content="2024-09-19">
   <title>Text-as-Data - Course Website - Tidyverse I: Import, tidy, and transform</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -406,7 +406,7 @@ David Schweizer
     </div>
 </div>
 
-  <p class="date">February 25, 2025</p>
+  <p class="date">September 19, 2024</p>
 </section>
 <section id="plan-for-today" class="slide level2">
 <h2>Plan for today</h2>
@@ -531,12 +531,7 @@ David Schweizer
 <li><p><strong>Excel:</strong> e.g., load <code>library("xlsx")</code> and use <code>read.xlsx("filename.xlsx")</code>.</p></li>
 <li><p><strong>Stata:</strong> e.g., load <code>library("haven")</code> and use <code>read_dta("filename.dta")</code>.</p></li>
 </ul>
-<p>Consult the R documentation (e.g.&nbsp;type <code>?read.xlsx</code>) to get an overview about options (e.g.&nbsp;<code>sheetIndex</code> or <code>startRow</code>).</p>
-</section></section>
-<section>
-<section id="lets-import-data" class="title-slide slide level1 center">
-<h1>Let’s import data!</h1>
-
+<p>Consult the R documentation (e.g.&nbsp;type <code>?read.xlsx</code>) to get an overview about options (e.g.&nbsp;<code>sheetIndex</code> or <code>startRow</code>).Tidy &amp; Transform</p>
 </section>
 <section id="import-gles-wave-25" class="slide level2">
 <h2>Import GLES wave 25</h2>
@@ -650,9 +645,9 @@ David Schweizer
 <span id="cb18-4"><a></a>  <span class="fu">rename</span>(<span class="at">ego_state_measures_inequality =</span> kp25_2880d,</span>
 <span id="cb18-5"><a></a>         <span class="at">ego_state_no_economy =</span> kp25_2880g)</span>
 <span id="cb18-6"><a></a></span>
-<span id="cb18-7"><a></a><span class="fu">colnames</span>(gles_25)[<span class="dv">22</span><span class="sc">:</span><span class="dv">23</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-7"><a></a><span class="fu">colnames</span>(gles_25_new)[<span class="dv">22</span><span class="sc">:</span><span class="dv">23</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "kp25_2880d" "kp25_2880g"</code></pre>
+<pre><code>[1] "ego_state_measures_inequality" "ego_state_no_economy"         </code></pre>
 </div>
 </div>
 </div>
@@ -678,8 +673,17 @@ David Schweizer
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="co"># we can subset the data using the select() verb</span></span>
 <span id="cb21-2"><a></a></span>
-<span id="cb21-3"><a></a>gles_select <span class="ot">&lt;-</span> gles_25 <span class="sc">%&gt;%</span> </span>
-<span id="cb21-4"><a></a>  <span class="fu">select</span>(study<span class="sc">:</span>kp25_011a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-3"><a></a><span class="co"># Only the variable "study"</span></span>
+<span id="cb21-4"><a></a>gles_select <span class="ot">&lt;-</span> gles_25 <span class="sc">%&gt;%</span> </span>
+<span id="cb21-5"><a></a>  <span class="fu">select</span>(study)</span>
+<span id="cb21-6"><a></a></span>
+<span id="cb21-7"><a></a><span class="co"># Only the variables "study" and "kp25_011a"</span></span>
+<span id="cb21-8"><a></a>gles_select <span class="ot">&lt;-</span> gles_25 <span class="sc">%&gt;%</span> </span>
+<span id="cb21-9"><a></a>  <span class="fu">select</span>(study, kp25_011a)</span>
+<span id="cb21-10"><a></a></span>
+<span id="cb21-11"><a></a><span class="co"># All variables from "study" until "kp25_011a"</span></span>
+<span id="cb21-12"><a></a>gles_select <span class="ot">&lt;-</span> gles_25 <span class="sc">%&gt;%</span> </span>
+<span id="cb21-13"><a></a>  <span class="fu">select</span>(study<span class="sc">:</span>kp25_011a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -754,21 +758,14 @@ David Schweizer
 <div id="tabset-6-2">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="co"># Let's test this:</span></span>
-<span id="cb29-2"><a></a><span class="fu">class</span>(gles<span class="sc">$</span>pol_interest_state)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-2"><a></a><span class="fu">class</span>(gles_25<span class="sc">$</span>version)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "haven_labelled" "vctrs_vctr"     "double"        </code></pre>
+<pre><code>[1] "character"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="co"># what values are there?</span></span>
-<span id="cb31-2"><a></a><span class="fu">table</span>(gles<span class="sc">$</span>pol_interest_state)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
- -99  -93    1    2    3    4    5 
-  82   46 1728 3346 3246  966  616 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="co"># change them to character</span></span>
-<span id="cb33-2"><a></a>gles<span class="sc">$</span>character_test <span class="ot">&lt;-</span> <span class="fu">as.character</span>(gles<span class="sc">$</span>pol_interest_state)</span>
-<span id="cb33-3"><a></a></span>
-<span id="cb33-4"><a></a><span class="fu">class</span>(gles<span class="sc">$</span>character_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="co"># change them to character</span></span>
+<span id="cb31-2"><a></a>gles_25<span class="sc">$</span>character_test <span class="ot">&lt;-</span> <span class="fu">as.character</span>(gles_25<span class="sc">$</span>version)</span>
+<span id="cb31-3"><a></a></span>
+<span id="cb31-4"><a></a><span class="fu">class</span>(gles_25<span class="sc">$</span>character_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "character"</code></pre>
 </div>
@@ -776,12 +773,12 @@ David Schweizer
 </div>
 <div id="tabset-6-3">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a><span class="co"># We can do the same using mutate() in dpylr:</span></span>
-<span id="cb35-2"><a></a>gles <span class="ot">&lt;-</span> gles <span class="sc">%&gt;%</span> </span>
-<span id="cb35-3"><a></a>  <span class="fu">mutate</span>(<span class="at">character_test =</span> <span class="fu">as.character</span>(pol_interest_state))</span>
-<span id="cb35-4"><a></a></span>
-<span id="cb35-5"><a></a><span class="co"># let's check it</span></span>
-<span id="cb35-6"><a></a><span class="fu">class</span>(gles<span class="sc">$</span>character_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="co"># We can do the same using mutate() in dpylr:</span></span>
+<span id="cb33-2"><a></a>gles_25 <span class="ot">&lt;-</span> gles_25 <span class="sc">%&gt;%</span> </span>
+<span id="cb33-3"><a></a>  <span class="fu">mutate</span>(<span class="at">character_test =</span> <span class="fu">as.character</span>(version))</span>
+<span id="cb33-4"><a></a></span>
+<span id="cb33-5"><a></a><span class="co"># let's check it</span></span>
+<span id="cb33-6"><a></a><span class="fu">class</span>(gles_25<span class="sc">$</span>character_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "character"</code></pre>
 </div>
@@ -796,31 +793,40 @@ David Schweizer
 <ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">General</a></li><li><a href="#tabset-7-2">Get labels</a></li><li><a href="#tabset-7-3">dplyr</a></li></ul>
 <div class="tab-content">
 <div id="tabset-7-1">
-<p>Sometimes, we might want to recode specific values. For example, we do not want to display numeric values but their labels. We can solve this using the <em>recode()</em> verb. But as always, we have multiple possibilities to do so.</p>
+<p>Sometimes, we might want to recode specific values. For example, we do not want to display numeric values but their labels. We can solve this using the <em>case_match()</em> verb. But as always, we have multiple possibilities to do so. I prefer <em>case_when()</em> or <em>if_else()</em>.</p>
 </div>
 <div id="tabset-7-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="co"># get value labels</span></span>
-<span id="cb37-2"><a></a><span class="fu">table</span>(gles_25<span class="sc">$</span>kp25_050k)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a><span class="co"># get value labels</span></span>
+<span id="cb35-2"><a></a><span class="fu">table</span>(gles_25<span class="sc">$</span>kp25_050k, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
- -99  -93    1    2    3    4    5 
-  37  246  329  618 3200 3778 1822 </code></pre>
+ -99  -93    1    2    3    4    5 &lt;NA&gt; 
+  37  246  329  618 3200 3778 1822    0 </code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-7-3">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a><span class="co"># Now we can recode (some of) the values</span></span>
-<span id="cb39-2"><a></a>gles_25_recode <span class="ot">&lt;-</span> gles_25 <span class="sc">%&gt;%</span> </span>
-<span id="cb39-3"><a></a>  <span class="fu">mutate</span>(<span class="at">new =</span> <span class="fu">case_when</span>(kp25_050k <span class="sc">==</span> <span class="sc">-</span><span class="dv">99</span> <span class="sc">~</span> <span class="cn">NA</span>,</span>
-<span id="cb39-4"><a></a>                         <span class="cn">TRUE</span> <span class="sc">~</span> kp25_050k))</span>
-<span id="cb39-5"><a></a></span>
-<span id="cb39-6"><a></a><span class="fu">table</span>(gles_25_recode<span class="sc">$</span>new)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="fu">table</span>(gles_25<span class="sc">$</span>kp25_050k, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
- -93    1    2    3    4    5 
- 246  329  618 3200 3778 1822 </code></pre>
+ -99  -93    1    2    3    4    5 &lt;NA&gt; 
+  37  246  329  618 3200 3778 1822    0 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a><span class="co"># Now we can recode (some of) the values</span></span>
+<span id="cb39-2"><a></a>gles_25_recode <span class="ot">&lt;-</span> gles_25 <span class="sc">%&gt;%</span> </span>
+<span id="cb39-3"><a></a>  <span class="co"># reads: when kp25_050k is equal to 99, then assign NA,</span></span>
+<span id="cb39-4"><a></a>  <span class="co"># otherwise, assign the existing value in kp25_050k</span></span>
+<span id="cb39-5"><a></a>  <span class="fu">mutate</span>(<span class="at">new =</span> <span class="fu">case_when</span>(kp25_050k <span class="sc">==</span> <span class="sc">-</span><span class="dv">99</span> <span class="sc">~</span> <span class="cn">NA</span>,</span>
+<span id="cb39-6"><a></a>                         <span class="cn">TRUE</span> <span class="sc">~</span> kp25_050k),</span>
+<span id="cb39-7"><a></a>         <span class="at">new =</span> <span class="fu">if_else</span>(kp25_050k <span class="sc">==</span> <span class="sc">-</span><span class="dv">99</span>, <span class="cn">NA</span>, kp25_050k))</span>
+<span id="cb39-8"><a></a></span>
+<span id="cb39-9"><a></a><span class="fu">table</span>(gles_25_recode<span class="sc">$</span>new, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ -93    1    2    3    4    5 &lt;NA&gt; 
+ 246  329  618 3200 3778 1822   37 </code></pre>
 </div>
 </div>
 </div>
@@ -829,10 +835,11 @@ David Schweizer
 </section></section>
 <section id="your-turn" class="title-slide slide level1 center">
 <h1>Your turn!</h1>
+<p>You can find the exercise for this session on the course website or directly on ILIAS.</p>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
-<p>Text as Data in R | Spring 2025 | University of Mannheim</p>
+<p>Automated Data Collection with R | Fall 2024 | University of Mannheim</p>
 </div>
 </div>
 </section>
