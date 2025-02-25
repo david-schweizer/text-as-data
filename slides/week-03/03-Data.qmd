@@ -2,14 +2,14 @@
 title: "Tidyverse I: Import, tidy, and transform"
 subtitle: "Week 3"
 author: "David Schweizer"
-date: "September 19, 2024"
+date: "February 25, 2025"
 date-format: long
 institute: "University of Mannheim"
 format: 
   revealjs:
     theme: simple
     slide-number: c/t #< collapsed/total
-    footer: "Automated Data Collection with R | Fall 2024 | University of Mannheim"
+    footer: "Text-as-Data | Spring 2025 | University of Mannheim"
 editor: visual
 ---
 
