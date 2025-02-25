@@ -526,17 +526,36 @@ David Schweizer
 </section>
 <section id="importing-files" class="slide level2">
 <h2>Importing files</h2>
+<p>We can import various formats. For example:</p>
 <ul>
-<li><p><strong>R:</strong> use <code>load("filename.RData")</code> or <code>readRDS("filename.RDS")</code>.</p></li>
-<li><p><strong>Excel:</strong> e.g., load <code>library("xlsx")</code> and use <code>read.xlsx("filename.xlsx")</code>.</p></li>
-<li><p><strong>Stata:</strong> e.g., load <code>library("haven")</code> and use <code>read_dta("filename.dta")</code>.</p></li>
+<li><p><strong>R:</strong> <code>load("file.RData")</code> / <code>readRDS("file.RDS")</code>.</p></li>
+<li><p><strong>CSV:</strong> <code>library("readr")</code> / <code>read_csv("file.csv")</code>.</p></li>
+<li><p><strong>Stata:</strong> <code>library("haven")</code> / <code>read_dta("file.dta")</code>.</p></li>
 </ul>
-<p>Consult the R documentation (e.g.&nbsp;type <code>?read.xlsx</code>) to get an overview about options (e.g.&nbsp;<code>sheetIndex</code> or <code>startRow</code>).</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>We can import files locally or access them online.</p></li>
+<li><p>Consult the R documentation (e.g.&nbsp;type <code>?read_csv</code>) to get an overview about options (e.g.&nbsp;<code>skip</code>).</p></li>
+</ul>
+</div>
+</div>
+</div>
 </section></section>
 <section>
-<section id="lets-import-data" class="title-slide slide level1 center">
-<h1>Let’s import data!</h1>
-
+<section id="lets-import-some-data" class="title-slide slide level1 center">
+<h1>Let’s import some data!</h1>
+<ul>
+<li><a href="https://search.gesis.org/research_data/ZA7733">GLES Panel Wave 27</a> [You need to create a fee account]</li>
+<li><a href="https://www.bundeswahlleiterin.de/bundestagswahlen/2025/ergebnisse/opendata/btw25/csv/">2025 German federal election results</a></li>
+</ul>
 </section>
 <section id="import-gles-wave-25" class="slide level2">
 <h2>Import GLES wave 25</h2>

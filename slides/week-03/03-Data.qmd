@@ -148,15 +148,24 @@ The %\>% pipe used in the tidyverse is part of the [*magrittr package*](https://
 
 ## Importing files
 
--   **R:** use `load("filename.RData")` or `readRDS("filename.RDS")`.
+We can import various formats. For example:
 
--   **Excel:** e.g., load `library("xlsx")` and use `read.xlsx("filename.xlsx")`.
+-   **R:** `load("file.RData")` / `readRDS("file.RDS")`.
 
--   **Stata:** e.g., load `library("haven")` and use `read_dta("filename.dta")`.
+-   **CSV:** `library("readr")` / `read_csv("file.csv")`.
 
-Consult the R documentation (e.g. type `?read.xlsx`) to get an overview about options (e.g. `sheetIndex` or `startRow`).
+-   **Stata:** `library("haven")` / `read_dta("file.dta")`.
 
-# Let's import data!
+::: callout-tip
+-    We can import files locally or access them online.
+
+-   Consult the R documentation (e.g. type `?read_csv`) to get an overview about options (e.g. `skip`).
+:::
+
+# Let's import some data!
+
+-   [GLES Panel Wave 27](https://search.gesis.org/research_data/ZA7733) \[You need to create a fee account\]
+-   [2025 German federal election results](https://www.bundeswahlleiterin.de/bundestagswahlen/2025/ergebnisse/opendata/btw25/csv/)
 
 ## Import GLES wave 25
 
