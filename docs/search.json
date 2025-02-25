@@ -5193,7 +5193,7 @@
     "href": "slides/week-03/03-Data.html#importing-files",
     "title": "Tidyverse I: Import, tidy, and transform",
     "section": "Importing files",
-    "text": "Importing files\n\nR: use load(\"filename.RData\") or readRDS(\"filename.RDS\").\nExcel: e.g., load library(\"xlsx\") and use read.xlsx(\"filename.xlsx\").\nStata: e.g., load library(\"haven\") and use read_dta(\"filename.dta\").\n\nConsult the R documentation (e.g. type ?read.xlsx) to get an overview about options (e.g. sheetIndex or startRow).Tidy & Transform"
+    "text": "Importing files\n\nR: use load(\"filename.RData\") or readRDS(\"filename.RDS\").\nExcel: e.g., load library(\"xlsx\") and use read.xlsx(\"filename.xlsx\").\nStata: e.g., load library(\"haven\") and use read_dta(\"filename.dta\").\n\nConsult the R documentation (e.g. type ?read.xlsx) to get an overview about options (e.g. sheetIndex or startRow)."
   },
   {
     "objectID": "slides/week-04/04-AmountsAndProportions.html#organizational",

@@ -154,7 +154,9 @@ The %\>% pipe used in the tidyverse is part of the [*magrittr package*](https://
 
 -   **Stata:** e.g., load `library("haven")` and use `read_dta("filename.dta")`.
 
-Consult the R documentation (e.g. type `?read.xlsx`) to get an overview about options (e.g. `sheetIndex` or `startRow`).Tidy & Transform
+Consult the R documentation (e.g. type `?read.xlsx`) to get an overview about options (e.g. `sheetIndex` or `startRow`).
+
+# Let's import data!
 
 ## Import GLES wave 25
 
