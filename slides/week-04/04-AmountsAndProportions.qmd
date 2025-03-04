@@ -116,19 +116,19 @@ head(afd_wide, n = 1)
 afd_wide <- afd_wide %>% 
   mutate(Vote_share_diff = vote_share_1 - vote_share_2)
 
-head(afd)
+head(afd_wide)
 ```
 
 ## To long
 
 ```{r, echo=TRUE}
-afd_diff <- afd %>%
+afd_diff <- afd_wide %>%
   pivot_longer(cols = !c(district_no:group_name), 
                names_to = "vote", 
                names_prefix = "vote_share_",
                values_to = "vote_share")
 
-head(afd_diff,)
+head(afd_diff)
 ```
 :::
 

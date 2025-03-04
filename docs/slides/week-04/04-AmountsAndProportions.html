@@ -550,39 +550,40 @@ David Schweizer
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>afd_wide <span class="ot">&lt;-</span> afd_wide <span class="sc">%&gt;%</span> </span>
 <span id="cb13-2"><a></a>  <span class="fu">mutate</span>(<span class="at">Vote_share_diff =</span> vote_share_1 <span class="sc">-</span> vote_share_2)</span>
 <span id="cb13-3"><a></a></span>
-<span id="cb13-4"><a></a><span class="fu">head</span>(afd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-4"><a></a><span class="fu">head</span>(afd_wide)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 7
-  district_no district_type district_name group_type group_name  vote vote_share
-  &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt;
-1 001         Wahlkreis     Flensburg – … Partei     AfD            1       15.0
-2 001         Wahlkreis     Flensburg – … Partei     AfD            2       15.3
-3 002         Wahlkreis     Nordfrieslan… Partei     AfD            1       16.0
-4 002         Wahlkreis     Nordfrieslan… Partei     AfD            2       16.1
-5 003         Wahlkreis     Steinburg – … Partei     AfD            1       20.4
-6 003         Wahlkreis     Steinburg – … Partei     AfD            2       20.4</code></pre>
+<pre><code># A tibble: 6 × 8
+  district_no district_type district_name     group_type group_name vote_share_1
+  &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;             &lt;chr&gt;      &lt;chr&gt;             &lt;dbl&gt;
+1 001         Wahlkreis     Flensburg – Schl… Partei     AfD                15.0
+2 002         Wahlkreis     Nordfriesland – … Partei     AfD                16.0
+3 003         Wahlkreis     Steinburg – Dith… Partei     AfD                20.4
+4 004         Wahlkreis     Rendsburg-Eckern… Partei     AfD                15.4
+5 005         Wahlkreis     Kiel              Partei     AfD                10.7
+6 006         Wahlkreis     Plön – Neumünster Partei     AfD                17.8
+# ℹ 2 more variables: vote_share_2 &lt;dbl&gt;, Vote_share_diff &lt;dbl&gt;</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-2-4">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>afd_diff <span class="ot">&lt;-</span> afd <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>afd_diff <span class="ot">&lt;-</span> afd_wide <span class="sc">%&gt;%</span></span>
 <span id="cb15-2"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">!</span><span class="fu">c</span>(district_no<span class="sc">:</span>group_name), </span>
 <span id="cb15-3"><a></a>               <span class="at">names_to =</span> <span class="st">"vote"</span>, </span>
 <span id="cb15-4"><a></a>               <span class="at">names_prefix =</span> <span class="st">"vote_share_"</span>,</span>
 <span id="cb15-5"><a></a>               <span class="at">values_to =</span> <span class="st">"vote_share"</span>)</span>
 <span id="cb15-6"><a></a></span>
-<span id="cb15-7"><a></a><span class="fu">head</span>(afd_diff,)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-7"><a></a><span class="fu">head</span>(afd_diff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 7
   district_no district_type district_name group_type group_name vote  vote_share
   &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;
-1 001         Wahlkreis     Flensburg – … Partei     AfD        vote         1  
-2 001         Wahlkreis     Flensburg – … Partei     AfD        vote…       15.0
-3 001         Wahlkreis     Flensburg – … Partei     AfD        vote         2  
-4 001         Wahlkreis     Flensburg – … Partei     AfD        vote…       15.3
-5 002         Wahlkreis     Nordfrieslan… Partei     AfD        vote         1  
-6 002         Wahlkreis     Nordfrieslan… Partei     AfD        vote…       16.0</code></pre>
+1 001         Wahlkreis     Flensburg – … Partei     AfD        1        15.0   
+2 001         Wahlkreis     Flensburg – … Partei     AfD        2        15.3   
+3 001         Wahlkreis     Flensburg – … Partei     AfD        Vote…    -0.223 
+4 002         Wahlkreis     Nordfrieslan… Partei     AfD        1        16.0   
+5 002         Wahlkreis     Nordfrieslan… Partei     AfD        2        16.1   
+6 002         Wahlkreis     Nordfrieslan… Partei     AfD        Vote…    -0.0405</code></pre>
 </div>
 </div>
 </div>
