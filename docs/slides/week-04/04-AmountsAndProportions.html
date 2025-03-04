@@ -522,31 +522,35 @@ David Schweizer
 </div>
 <div id="tabset-2-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>afd_wide <span class="ot">&lt;-</span> afd <span class="sc">%&gt;%</span></span>
-<span id="cb9-2"><a></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">"vote"</span>, </span>
-<span id="cb9-3"><a></a>              <span class="at">names_prefix =</span> <span class="st">"vote_share_"</span>,</span>
-<span id="cb9-4"><a></a>              <span class="at">values_from =</span> <span class="st">"vote_share"</span>)</span>
-<span id="cb9-5"><a></a></span>
-<span id="cb9-6"><a></a><span class="fu">head</span>(afd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">head</span>(afd, <span class="at">n =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 7
+<pre><code># A tibble: 2 × 7
   district_no district_type district_name group_type group_name  vote vote_share
   &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt;
 1 001         Wahlkreis     Flensburg – … Partei     AfD            1       15.0
-2 001         Wahlkreis     Flensburg – … Partei     AfD            2       15.3
-3 002         Wahlkreis     Nordfrieslan… Partei     AfD            1       16.0
-4 002         Wahlkreis     Nordfrieslan… Partei     AfD            2       16.1
-5 003         Wahlkreis     Steinburg – … Partei     AfD            1       20.4
-6 003         Wahlkreis     Steinburg – … Partei     AfD            2       20.4</code></pre>
+2 001         Wahlkreis     Flensburg – … Partei     AfD            2       15.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>afd_wide <span class="ot">&lt;-</span> afd <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">"vote"</span>, </span>
+<span id="cb11-3"><a></a>              <span class="at">names_prefix =</span> <span class="st">"vote_share_"</span>,</span>
+<span id="cb11-4"><a></a>              <span class="at">values_from =</span> <span class="st">"vote_share"</span>)</span>
+<span id="cb11-5"><a></a></span>
+<span id="cb11-6"><a></a><span class="fu">head</span>(afd_wide, <span class="at">n =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 7
+  district_no district_type district_name     group_type group_name vote_share_1
+  &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;             &lt;chr&gt;      &lt;chr&gt;             &lt;dbl&gt;
+1 001         Wahlkreis     Flensburg – Schl… Partei     AfD                15.0
+# ℹ 1 more variable: vote_share_2 &lt;dbl&gt;</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-2-3">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>afd_wide <span class="ot">&lt;-</span> afd_wide <span class="sc">%&gt;%</span> </span>
-<span id="cb11-2"><a></a>  <span class="fu">mutate</span>(<span class="at">Vote_share_diff =</span> vote_share_1 <span class="sc">-</span> vote_share_2)</span>
-<span id="cb11-3"><a></a></span>
-<span id="cb11-4"><a></a><span class="fu">head</span>(afd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>afd_wide <span class="ot">&lt;-</span> afd_wide <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a></a>  <span class="fu">mutate</span>(<span class="at">Vote_share_diff =</span> vote_share_1 <span class="sc">-</span> vote_share_2)</span>
+<span id="cb13-3"><a></a></span>
+<span id="cb13-4"><a></a><span class="fu">head</span>(afd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 7
   district_no district_type district_name group_type group_name  vote vote_share
@@ -562,13 +566,13 @@ David Schweizer
 </div>
 <div id="tabset-2-4">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>afd_diff <span class="ot">&lt;-</span> afd <span class="sc">%&gt;%</span></span>
-<span id="cb13-2"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">!</span><span class="fu">c</span>(district_no<span class="sc">:</span>group_name), </span>
-<span id="cb13-3"><a></a>               <span class="at">names_to =</span> <span class="st">"vote"</span>, </span>
-<span id="cb13-4"><a></a>               <span class="at">names_prefix =</span> <span class="st">"vote_share_"</span>,</span>
-<span id="cb13-5"><a></a>               <span class="at">values_to =</span> <span class="st">"vote_share"</span>)</span>
-<span id="cb13-6"><a></a></span>
-<span id="cb13-7"><a></a><span class="fu">head</span>(afd_diff,)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>afd_diff <span class="ot">&lt;-</span> afd <span class="sc">%&gt;%</span></span>
+<span id="cb15-2"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">!</span><span class="fu">c</span>(district_no<span class="sc">:</span>group_name), </span>
+<span id="cb15-3"><a></a>               <span class="at">names_to =</span> <span class="st">"vote"</span>, </span>
+<span id="cb15-4"><a></a>               <span class="at">names_prefix =</span> <span class="st">"vote_share_"</span>,</span>
+<span id="cb15-5"><a></a>               <span class="at">values_to =</span> <span class="st">"vote_share"</span>)</span>
+<span id="cb15-6"><a></a></span>
+<span id="cb15-7"><a></a><span class="fu">head</span>(afd_diff,)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 7
   district_no district_type district_name group_type group_name vote  vote_share
@@ -601,19 +605,19 @@ David Schweizer
 <section id="example-summary-statistics---mutate" class="slide level2">
 <h2>Example: Summary statistics - mutate()</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>afd_mean <span class="ot">&lt;-</span> afd <span class="sc">%&gt;%</span> </span>
-<span id="cb15-2"><a></a>  <span class="fu">filter</span>(vote <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb15-3"><a></a>  <span class="fu">mutate</span>(<span class="at">mean =</span> <span class="fu">mean</span>(vote_share))</span>
-<span id="cb15-4"><a></a></span>
-<span id="cb15-5"><a></a><span class="fu">dim</span>(afd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>afd_mean <span class="ot">&lt;-</span> afd <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2"><a></a>  <span class="fu">filter</span>(vote <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-3"><a></a>  <span class="fu">mutate</span>(<span class="at">mean =</span> <span class="fu">mean</span>(vote_share))</span>
+<span id="cb17-4"><a></a></span>
+<span id="cb17-5"><a></a><span class="fu">dim</span>(afd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 598   7</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">dim</span>(afd_mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">dim</span>(afd_mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 299   8</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">head</span>(afd_mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">head</span>(afd_mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 8
   district_no district_type district_name group_type group_name  vote vote_share
@@ -631,11 +635,11 @@ David Schweizer
 <section id="summarize" class="slide level2">
 <h2>Summarize()</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>afd_mean <span class="ot">&lt;-</span> afd <span class="sc">%&gt;%</span> </span>
-<span id="cb21-2"><a></a>  <span class="fu">filter</span>(vote <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb21-3"><a></a>  <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(vote_share)) <span class="co"># option: "na.rm = TRUE"</span></span>
-<span id="cb21-4"><a></a></span>
-<span id="cb21-5"><a></a>afd_mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>afd_mean <span class="ot">&lt;-</span> afd <span class="sc">%&gt;%</span> </span>
+<span id="cb23-2"><a></a>  <span class="fu">filter</span>(vote <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-3"><a></a>  <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(vote_share)) <span class="co"># option: "na.rm = TRUE"</span></span>
+<span id="cb23-4"><a></a></span>
+<span id="cb23-5"><a></a>afd_mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
    mean
@@ -647,15 +651,15 @@ David Schweizer
 <section id="summarize-1" class="slide level2">
 <h2>Summarize()</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>afd_statistics <span class="ot">&lt;-</span> afd <span class="sc">%&gt;%</span> </span>
-<span id="cb23-2"><a></a>  <span class="fu">filter</span>(vote <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb23-3"><a></a>  <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(vote_share),      <span class="co"># option: "na.rm = TRUE"</span></span>
-<span id="cb23-4"><a></a>            <span class="at">median =</span> <span class="fu">median</span>(vote_share),</span>
-<span id="cb23-5"><a></a>            <span class="at">minimum =</span> <span class="fu">min</span>(vote_share),</span>
-<span id="cb23-6"><a></a>            <span class="at">maximum =</span> <span class="fu">max</span>(vote_share),</span>
-<span id="cb23-7"><a></a>            <span class="at">sd =</span> <span class="fu">sd</span>(vote_share)) </span>
-<span id="cb23-8"><a></a></span>
-<span id="cb23-9"><a></a>afd_statistics</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>afd_statistics <span class="ot">&lt;-</span> afd <span class="sc">%&gt;%</span> </span>
+<span id="cb25-2"><a></a>  <span class="fu">filter</span>(vote <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-3"><a></a>  <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(vote_share),      <span class="co"># option: "na.rm = TRUE"</span></span>
+<span id="cb25-4"><a></a>            <span class="at">median =</span> <span class="fu">median</span>(vote_share),</span>
+<span id="cb25-5"><a></a>            <span class="at">minimum =</span> <span class="fu">min</span>(vote_share),</span>
+<span id="cb25-6"><a></a>            <span class="at">maximum =</span> <span class="fu">max</span>(vote_share),</span>
+<span id="cb25-7"><a></a>            <span class="at">sd =</span> <span class="fu">sd</span>(vote_share)) </span>
+<span id="cb25-8"><a></a></span>
+<span id="cb25-9"><a></a>afd_statistics</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 5
    mean median minimum maximum    sd
@@ -668,17 +672,17 @@ David Schweizer
 <h2>Group and summarize</h2>
 <p>We can use <em>group_by()</em> to calculate summary statistics for different groups:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>statistics_group <span class="ot">&lt;-</span> election <span class="sc">%&gt;%</span> </span>
-<span id="cb25-2"><a></a>  <span class="fu">filter</span>(district_type <span class="sc">==</span> <span class="st">"Wahlkreis"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb25-3"><a></a>  <span class="fu">filter</span>(vote <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb25-4"><a></a>  <span class="co"># this is the same as: filter(group_name == "SPD" | group_name == "CDU")</span></span>
-<span id="cb25-5"><a></a>  <span class="fu">filter</span>(group_name <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"SPD"</span>, <span class="st">"CDU"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb25-6"><a></a>  <span class="fu">group_by</span>(group_name) <span class="sc">%&gt;%</span>  <span class="co"># do not forget to ungroup()</span></span>
-<span id="cb25-7"><a></a>  <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(vote_share,</span>
-<span id="cb25-8"><a></a>                        <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb25-9"><a></a>  <span class="fu">ungroup</span>() <span class="co"># ungroup after</span></span>
-<span id="cb25-10"><a></a></span>
-<span id="cb25-11"><a></a>statistics_group</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>statistics_group <span class="ot">&lt;-</span> election <span class="sc">%&gt;%</span> </span>
+<span id="cb27-2"><a></a>  <span class="fu">filter</span>(district_type <span class="sc">==</span> <span class="st">"Wahlkreis"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-3"><a></a>  <span class="fu">filter</span>(vote <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-4"><a></a>  <span class="co"># this is the same as: filter(group_name == "SPD" | group_name == "CDU")</span></span>
+<span id="cb27-5"><a></a>  <span class="fu">filter</span>(group_name <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"SPD"</span>, <span class="st">"CDU"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-6"><a></a>  <span class="fu">group_by</span>(group_name) <span class="sc">%&gt;%</span>  <span class="co"># do not forget to ungroup()</span></span>
+<span id="cb27-7"><a></a>  <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(vote_share,</span>
+<span id="cb27-8"><a></a>                        <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-9"><a></a>  <span class="fu">ungroup</span>() <span class="co"># ungroup after</span></span>
+<span id="cb27-10"><a></a></span>
+<span id="cb27-11"><a></a>statistics_group</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   group_name  mean
@@ -704,12 +708,12 @@ David Schweizer
 <div class="tab-content">
 <div id="tabset-3-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="co"># Let's use our gapminder_example data</span></span>
-<span id="cb27-2"><a></a><span class="fu">library</span>(gapminder)</span>
-<span id="cb27-3"><a></a></span>
-<span id="cb27-4"><a></a>gapminder_example <span class="ot">&lt;-</span> gapminder </span>
-<span id="cb27-5"><a></a></span>
-<span id="cb27-6"><a></a><span class="fu">head</span>(gapminder_example)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="co"># Let's use our gapminder_example data</span></span>
+<span id="cb29-2"><a></a><span class="fu">library</span>(gapminder)</span>
+<span id="cb29-3"><a></a></span>
+<span id="cb29-4"><a></a>gapminder_example <span class="ot">&lt;-</span> gapminder </span>
+<span id="cb29-5"><a></a></span>
+<span id="cb29-6"><a></a><span class="fu">head</span>(gapminder_example)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 6
   country     continent  year lifeExp      pop gdpPercap
@@ -725,10 +729,10 @@ David Schweizer
 </div>
 <div id="tabset-3-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="co"># and add this dataframe</span></span>
-<span id="cb29-2"><a></a>random <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">r1 =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1704</span>))</span>
-<span id="cb29-3"><a></a></span>
-<span id="cb29-4"><a></a><span class="fu">head</span>(random)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="co"># and add this dataframe</span></span>
+<span id="cb31-2"><a></a>random <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">r1 =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1704</span>))</span>
+<span id="cb31-3"><a></a></span>
+<span id="cb31-4"><a></a><span class="fu">head</span>(random)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  r1
 1  1
@@ -742,10 +746,10 @@ David Schweizer
 </div>
 <div id="tabset-3-3">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="co"># now we can just join these two dataframes</span></span>
-<span id="cb31-2"><a></a>new <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(gapminder_example, random)</span>
-<span id="cb31-3"><a></a></span>
-<span id="cb31-4"><a></a>new</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="co"># now we can just join these two dataframes</span></span>
+<span id="cb33-2"><a></a>new <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(gapminder_example, random)</span>
+<span id="cb33-3"><a></a></span>
+<span id="cb33-4"><a></a>new</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,704 × 7
    country     continent  year lifeExp      pop gdpPercap    r1
@@ -774,8 +778,8 @@ David Schweizer
 <div class="tab-content">
 <div id="tabset-4-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="co"># Let's use our gapminder_example data</span></span>
-<span id="cb33-2"><a></a><span class="fu">head</span>(gapminder_example)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a><span class="co"># Let's use our gapminder_example data</span></span>
+<span id="cb35-2"><a></a><span class="fu">head</span>(gapminder_example)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 6
   country     continent  year lifeExp      pop gdpPercap
@@ -791,12 +795,12 @@ David Schweizer
 </div>
 <div id="tabset-4-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a><span class="co"># and add this dataframe</span></span>
-<span id="cb35-2"><a></a>more_info <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">country =</span> <span class="st">"Austria"</span>,</span>
-<span id="cb35-3"><a></a>                        <span class="at">year =</span> <span class="dv">2007</span>,</span>
-<span id="cb35-4"><a></a>                        <span class="at">gdpPercap =</span> <span class="cn">NA</span>)</span>
-<span id="cb35-5"><a></a></span>
-<span id="cb35-6"><a></a>more_info</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="co"># and add this dataframe</span></span>
+<span id="cb37-2"><a></a>more_info <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">country =</span> <span class="st">"Austria"</span>,</span>
+<span id="cb37-3"><a></a>                        <span class="at">year =</span> <span class="dv">2007</span>,</span>
+<span id="cb37-4"><a></a>                        <span class="at">gdpPercap =</span> <span class="cn">NA</span>)</span>
+<span id="cb37-5"><a></a></span>
+<span id="cb37-6"><a></a>more_info</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  country year gdpPercap
 1 Austria 2007        NA</code></pre>
@@ -805,10 +809,10 @@ David Schweizer
 </div>
 <div id="tabset-4-3">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="co"># now we can just join these two dataframes</span></span>
-<span id="cb37-2"><a></a>gapminder_added <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(gapminder_example, more_info)</span>
-<span id="cb37-3"><a></a></span>
-<span id="cb37-4"><a></a>gapminder_added</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a><span class="co"># now we can just join these two dataframes</span></span>
+<span id="cb39-2"><a></a>gapminder_added <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(gapminder_example, more_info)</span>
+<span id="cb39-3"><a></a></span>
+<span id="cb39-4"><a></a>gapminder_added</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,705 × 6
    country     continent  year lifeExp      pop gdpPercap
@@ -855,17 +859,17 @@ David Schweizer
 <div class="tab-content">
 <div id="tabset-5-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>election <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_delim</span>(<span class="st">"https://www.bundeswahlleiterin.de/bundestagswahlen/2025/ergebnisse/opendata/btw25/csv/kerg2.csv"</span>, </span>
-<span id="cb39-2"><a></a>                       <span class="at">delim =</span> <span class="st">";"</span>, </span>
-<span id="cb39-3"><a></a>                       <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>), </span>
-<span id="cb39-4"><a></a>                       <span class="at">skip =</span> <span class="dv">9</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb39-5"><a></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="at">district_no =</span> Gebietsnummer, <span class="at">district_type =</span> Gebietsart, <span class="at">district_name =</span> Gebietsname,</span>
-<span id="cb39-6"><a></a>                <span class="at">group_type =</span> Gruppenart, <span class="at">group_name =</span> Gruppenname,</span>
-<span id="cb39-7"><a></a>                <span class="at">vote =</span> Stimme, <span class="at">vote_share =</span> Prozent) <span class="sc">%&gt;%</span> </span>
-<span id="cb39-8"><a></a>  <span class="fu">filter</span>(district_type <span class="sc">==</span> <span class="st">"Wahlkreis"</span> <span class="sc">&amp;</span> group_name <span class="sc">==</span> <span class="st">"AfD"</span> <span class="sc">&amp;</span> vote <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb39-9"><a></a>  <span class="fu">mutate</span>(<span class="at">district_no =</span> <span class="fu">as.numeric</span>(district_no))</span>
-<span id="cb39-10"><a></a></span>
-<span id="cb39-11"><a></a><span class="fu">head</span>(election, <span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>election <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_delim</span>(<span class="st">"https://www.bundeswahlleiterin.de/bundestagswahlen/2025/ergebnisse/opendata/btw25/csv/kerg2.csv"</span>, </span>
+<span id="cb41-2"><a></a>                       <span class="at">delim =</span> <span class="st">";"</span>, </span>
+<span id="cb41-3"><a></a>                       <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>), </span>
+<span id="cb41-4"><a></a>                       <span class="at">skip =</span> <span class="dv">9</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb41-5"><a></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="at">district_no =</span> Gebietsnummer, <span class="at">district_type =</span> Gebietsart, <span class="at">district_name =</span> Gebietsname,</span>
+<span id="cb41-6"><a></a>                <span class="at">group_type =</span> Gruppenart, <span class="at">group_name =</span> Gruppenname,</span>
+<span id="cb41-7"><a></a>                <span class="at">vote =</span> Stimme, <span class="at">vote_share =</span> Prozent) <span class="sc">%&gt;%</span> </span>
+<span id="cb41-8"><a></a>  <span class="fu">filter</span>(district_type <span class="sc">==</span> <span class="st">"Wahlkreis"</span> <span class="sc">&amp;</span> group_name <span class="sc">==</span> <span class="st">"AfD"</span> <span class="sc">&amp;</span> vote <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb41-9"><a></a>  <span class="fu">mutate</span>(<span class="at">district_no =</span> <span class="fu">as.numeric</span>(district_no))</span>
+<span id="cb41-10"><a></a></span>
+<span id="cb41-11"><a></a><span class="fu">head</span>(election, <span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 7
   district_no district_type district_name group_type group_name  vote vote_share
@@ -878,17 +882,17 @@ David Schweizer
 </div>
 <div id="tabset-5-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>structural <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_delim</span>(<span class="st">"https://www.bundeswahlleiterin.de/dam/jcr/181f9e38-38db-4f64-991c-8141dfa0f2cb/btw2025_strukturdaten.csv"</span>, </span>
-<span id="cb41-2"><a></a>                                <span class="at">delim =</span> <span class="st">";"</span>, <span class="at">escape_double =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb41-3"><a></a>                                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>),</span>
-<span id="cb41-4"><a></a>                                <span class="at">trim_ws =</span> <span class="cn">TRUE</span>, <span class="at">skip =</span> <span class="dv">9</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb41-5"><a></a>  <span class="co"># we need quotation marks since the colum names include - and spaces</span></span>
-<span id="cb41-6"><a></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="at">district_no =</span> <span class="st">"Wahlkreis-Nr."</span>,</span>
-<span id="cb41-7"><a></a>                <span class="at">district_name =</span> <span class="st">"Wahlkreis-Name"</span>,</span>
-<span id="cb41-8"><a></a>                <span class="at">unemployment_rate =</span> <span class="st">"Arbeitslosenquote November 2024 - insgesamt"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb41-9"><a></a>  <span class="fu">filter</span>(district_no <span class="sc">&lt;=</span> <span class="dv">299</span>)</span>
-<span id="cb41-10"><a></a></span>
-<span id="cb41-11"><a></a><span class="fu">head</span>(structural)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a>structural <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_delim</span>(<span class="st">"https://www.bundeswahlleiterin.de/dam/jcr/181f9e38-38db-4f64-991c-8141dfa0f2cb/btw2025_strukturdaten.csv"</span>, </span>
+<span id="cb43-2"><a></a>                                <span class="at">delim =</span> <span class="st">";"</span>, <span class="at">escape_double =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb43-3"><a></a>                                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>),</span>
+<span id="cb43-4"><a></a>                                <span class="at">trim_ws =</span> <span class="cn">TRUE</span>, <span class="at">skip =</span> <span class="dv">9</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb43-5"><a></a>  <span class="co"># we need quotation marks since the colum names include - and spaces</span></span>
+<span id="cb43-6"><a></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="at">district_no =</span> <span class="st">"Wahlkreis-Nr."</span>,</span>
+<span id="cb43-7"><a></a>                <span class="at">district_name =</span> <span class="st">"Wahlkreis-Name"</span>,</span>
+<span id="cb43-8"><a></a>                <span class="at">unemployment_rate =</span> <span class="st">"Arbeitslosenquote November 2024 - insgesamt"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb43-9"><a></a>  <span class="fu">filter</span>(district_no <span class="sc">&lt;=</span> <span class="dv">299</span>)</span>
+<span id="cb43-10"><a></a></span>
+<span id="cb43-11"><a></a><span class="fu">head</span>(structural)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
   district_no district_name                     unemployment_rate
@@ -904,13 +908,13 @@ David Schweizer
 </div>
 <div id="tabset-5-3">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a><span class="co"># Think: Could we also use bind_rows() or bind_cols()?</span></span>
-<span id="cb43-2"><a></a>election_structural <span class="ot">&lt;-</span> election <span class="sc">%&gt;%</span> </span>
-<span id="cb43-3"><a></a>  <span class="fu">select</span>(<span class="sc">-</span>district_name) <span class="sc">%&gt;%</span> <span class="co"># remove district name from the election dataframe to avoid doubles after joining</span></span>
-<span id="cb43-4"><a></a>  <span class="fu">left_join</span>(structural, <span class="at">by =</span> <span class="st">"district_no"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb43-5"><a></a>  <span class="fu">select</span>(district_no, district_name, vote_share, unemployment_rate)</span>
-<span id="cb43-6"><a></a></span>
-<span id="cb43-7"><a></a><span class="fu">head</span>(election_structural)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a><span class="co"># Think: Could we also use bind_rows() or bind_cols()?</span></span>
+<span id="cb45-2"><a></a>election_structural <span class="ot">&lt;-</span> election <span class="sc">%&gt;%</span> </span>
+<span id="cb45-3"><a></a>  <span class="fu">select</span>(<span class="sc">-</span>district_name) <span class="sc">%&gt;%</span> <span class="co"># remove district name from the election dataframe to avoid doubles after joining</span></span>
+<span id="cb45-4"><a></a>  <span class="fu">left_join</span>(structural, <span class="at">by =</span> <span class="st">"district_no"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb45-5"><a></a>  <span class="fu">select</span>(district_no, district_name, vote_share, unemployment_rate)</span>
+<span id="cb45-6"><a></a></span>
+<span id="cb45-7"><a></a><span class="fu">head</span>(election_structural)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
   district_no district_name                     vote_share unemployment_rate
@@ -931,14 +935,14 @@ David Schweizer
 <h2>Save your data</h2>
 <p>We can easily save our data frame:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a><span class="fu">save</span>(election_structural,</span>
-<span id="cb45-2"><a></a>     <span class="at">file=</span><span class="st">"election_structural.Rda"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a><span class="fu">save</span>(election_structural,</span>
+<span id="cb47-2"><a></a>     <span class="at">file=</span><span class="st">"election_structural.Rda"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And load it again:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a><span class="co"># make sure that you are in the right working directory!</span></span>
-<span id="cb46-2"><a></a><span class="co"># Session -&gt; Set working directory</span></span>
-<span id="cb46-3"><a></a><span class="fu">load</span>(<span class="st">"election_structural.Rda"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a><span class="co"># make sure that you are in the right working directory!</span></span>
+<span id="cb48-2"><a></a><span class="co"># Session -&gt; Set working directory</span></span>
+<span id="cb48-3"><a></a><span class="fu">load</span>(<span class="st">"election_structural.Rda"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="your-turn" class="title-slide slide level1 center">
@@ -958,8 +962,8 @@ David Schweizer
 <div class="tab-content">
 <div id="tabset-6-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a><span class="co"># Have a look at the first 10 data points:</span></span>
-<span id="cb47-2"><a></a><span class="fu">head</span>(data, <span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a><span class="co"># Have a look at the first 10 data points:</span></span>
+<span id="cb49-2"><a></a><span class="fu">head</span>(data, <span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        V1      V2
 1  55.3846 97.1795
@@ -978,18 +982,18 @@ David Schweizer
 </div>
 <div id="tabset-6-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a><span class="co"># Inspect mean of V1</span></span>
-<span id="cb49-2"><a></a><span class="fu">mean</span>(data<span class="sc">$</span>V1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a><span class="co"># Inspect mean of V1</span></span>
+<span id="cb51-2"><a></a><span class="fu">mean</span>(data<span class="sc">$</span>V1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 54.26327</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a><span class="co"># Inspect mean of V2</span></span>
-<span id="cb51-2"><a></a><span class="fu">mean</span>(data<span class="sc">$</span>V2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a></a><span class="co"># Inspect mean of V2</span></span>
+<span id="cb53-2"><a></a><span class="fu">mean</span>(data<span class="sc">$</span>V2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 47.83225</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a></a><span class="co"># Inspect the correlation between V1 and V2</span></span>
-<span id="cb53-2"><a></a><span class="fu">cor</span>(data<span class="sc">$</span>V1, data<span class="sc">$</span>V2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a></a><span class="co"># Inspect the correlation between V1 and V2</span></span>
+<span id="cb55-2"><a></a><span class="fu">cor</span>(data<span class="sc">$</span>V1, data<span class="sc">$</span>V2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -0.06447185</code></pre>
 </div>
@@ -1050,11 +1054,11 @@ Edward Tufte (1983). <em>The Visual Display of Quantitative Information</em>, p.
 </div>
 <div id="tabset-7-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder,</span>
-<span id="cb55-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap,</span>
-<span id="cb55-3"><a></a>                           <span class="at">y =</span> lifeExp,</span>
-<span id="cb55-4"><a></a>                           <span class="at">color =</span> continent)) <span class="sc">+</span></span>
-<span id="cb55-5"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder,</span>
+<span id="cb57-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap,</span>
+<span id="cb57-3"><a></a>                           <span class="at">y =</span> lifeExp,</span>
+<span id="cb57-4"><a></a>                           <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb57-5"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-7-3">
@@ -1071,18 +1075,18 @@ Edward Tufte (1983). <em>The Visual Display of Quantitative Information</em>, p.
 <div id="tabset-8-1">
 <p>Packages to reproduce the plots:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a></a><span class="co"># library(tidyverse)</span></span>
-<span id="cb56-2"><a></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb56-3"><a></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb56-4"><a></a><span class="fu">library</span>(gapminder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a></a><span class="co"># library(tidyverse)</span></span>
+<span id="cb58-2"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb58-3"><a></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb58-4"><a></a><span class="fu">library</span>(gapminder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-8-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
-<span id="cb57-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, </span>
-<span id="cb57-3"><a></a>      <span class="at">y =</span> lifeExp,</span>
-<span id="cb57-4"><a></a>  <span class="at">color =</span> continent))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
+<span id="cb59-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, </span>
+<span id="cb59-3"><a></a>      <span class="at">y =</span> lifeExp,</span>
+<span id="cb59-4"><a></a>  <span class="at">color =</span> continent))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-8-3">
@@ -1106,11 +1110,11 @@ Edward Tufte (1983). <em>The Visual Display of Quantitative Information</em>, p.
 <div class="tab-content">
 <div id="tabset-9-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
-<span id="cb58-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, </span>
-<span id="cb58-3"><a></a>      <span class="at">y =</span> lifeExp,</span>
-<span id="cb58-4"><a></a>  <span class="at">color =</span> continent)) <span class="sc">+</span></span>
-<span id="cb58-5"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
+<span id="cb60-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, </span>
+<span id="cb60-3"><a></a>      <span class="at">y =</span> lifeExp,</span>
+<span id="cb60-4"><a></a>  <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb60-5"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-9-2">
@@ -1134,11 +1138,11 @@ Edward Tufte (1983). <em>The Visual Display of Quantitative Information</em>, p.
 <div class="tab-content">
 <div id="tabset-10-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
-<span id="cb59-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp,</span>
-<span id="cb59-3"><a></a>  <span class="at">color =</span> continent)) <span class="sc">+</span></span>
-<span id="cb59-4"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb59-5"><a></a>  <span class="fu">scale_x_log10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
+<span id="cb61-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp,</span>
+<span id="cb61-3"><a></a>  <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb61-4"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb61-5"><a></a>  <span class="fu">scale_x_log10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-10-2">
@@ -1162,12 +1166,12 @@ Edward Tufte (1983). <em>The Visual Display of Quantitative Information</em>, p.
 <div class="tab-content">
 <div id="tabset-11-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
-<span id="cb60-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp,</span>
-<span id="cb60-3"><a></a>  <span class="at">color =</span> continent)) <span class="sc">+</span></span>
-<span id="cb60-4"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb60-5"><a></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
-<span id="cb60-6"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
+<span id="cb62-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp,</span>
+<span id="cb62-3"><a></a>  <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb62-4"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb62-5"><a></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb62-6"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-11-2">
@@ -1191,14 +1195,14 @@ Edward Tufte (1983). <em>The Visual Display of Quantitative Information</em>, p.
 <div class="tab-content">
 <div id="tabset-12-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
-<span id="cb61-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, </span>
-<span id="cb61-3"><a></a>      <span class="at">y =</span> lifeExp,</span>
-<span id="cb61-4"><a></a>  <span class="at">color =</span> continent)) <span class="sc">+</span></span>
-<span id="cb61-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb61-6"><a></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
-<span id="cb61-7"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
-<span id="cb61-8"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
+<span id="cb63-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, </span>
+<span id="cb63-3"><a></a>      <span class="at">y =</span> lifeExp,</span>
+<span id="cb63-4"><a></a>  <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb63-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb63-6"><a></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb63-7"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb63-8"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-12-2">
@@ -1222,15 +1226,15 @@ Edward Tufte (1983). <em>The Visual Display of Quantitative Information</em>, p.
 <div class="tab-content">
 <div id="tabset-13-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
-<span id="cb62-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, </span>
-<span id="cb62-3"><a></a>      <span class="at">y =</span> lifeExp,</span>
-<span id="cb62-4"><a></a>  <span class="at">color =</span> continent)) <span class="sc">+</span></span>
-<span id="cb62-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb62-6"><a></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
-<span id="cb62-7"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
-<span id="cb62-8"><a></a>  <span class="fu">scale_color_viridis_d</span>() <span class="sc">+</span></span>
-<span id="cb62-9"><a></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(continent), <span class="at">ncol =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
+<span id="cb64-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, </span>
+<span id="cb64-3"><a></a>      <span class="at">y =</span> lifeExp,</span>
+<span id="cb64-4"><a></a>  <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb64-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb64-6"><a></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb64-7"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb64-8"><a></a>  <span class="fu">scale_color_viridis_d</span>() <span class="sc">+</span></span>
+<span id="cb64-9"><a></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(continent), <span class="at">ncol =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-13-2">
@@ -1254,21 +1258,21 @@ Edward Tufte (1983). <em>The Visual Display of Quantitative Information</em>, p.
 <div class="tab-content">
 <div id="tabset-14-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
-<span id="cb63-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, </span>
-<span id="cb63-3"><a></a>      <span class="at">y =</span> lifeExp,</span>
-<span id="cb63-4"><a></a>  <span class="at">color =</span> continent)) <span class="sc">+</span></span>
-<span id="cb63-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb63-6"><a></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
-<span id="cb63-7"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
-<span id="cb63-8"><a></a>  <span class="fu">scale_color_viridis_d</span>() <span class="sc">+</span></span>
-<span id="cb63-9"><a></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(continent), <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb63-10"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"GDP per capita"</span>, </span>
-<span id="cb63-11"><a></a>       <span class="at">y =</span> <span class="st">"Life expectancy"</span>,</span>
-<span id="cb63-12"><a></a>       <span class="at">color =</span> <span class="st">"Continent"</span>,</span>
-<span id="cb63-13"><a></a>       <span class="at">title =</span> <span class="st">"Wealth = Health?"</span>,</span>
-<span id="cb63-14"><a></a>       <span class="at">subtitle =</span> <span class="st">"gdpPercap/lifeExp"</span>,</span>
-<span id="cb63-15"><a></a>       <span class="at">caption =</span> <span class="st">"Gapminder dataset"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
+<span id="cb65-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, </span>
+<span id="cb65-3"><a></a>      <span class="at">y =</span> lifeExp,</span>
+<span id="cb65-4"><a></a>  <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb65-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb65-6"><a></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb65-7"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb65-8"><a></a>  <span class="fu">scale_color_viridis_d</span>() <span class="sc">+</span></span>
+<span id="cb65-9"><a></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(continent), <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb65-10"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"GDP per capita"</span>, </span>
+<span id="cb65-11"><a></a>       <span class="at">y =</span> <span class="st">"Life expectancy"</span>,</span>
+<span id="cb65-12"><a></a>       <span class="at">color =</span> <span class="st">"Continent"</span>,</span>
+<span id="cb65-13"><a></a>       <span class="at">title =</span> <span class="st">"Wealth = Health?"</span>,</span>
+<span id="cb65-14"><a></a>       <span class="at">subtitle =</span> <span class="st">"gdpPercap/lifeExp"</span>,</span>
+<span id="cb65-15"><a></a>       <span class="at">caption =</span> <span class="st">"Gapminder dataset"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-14-2">
@@ -1292,14 +1296,14 @@ Edward Tufte (1983). <em>The Visual Display of Quantitative Information</em>, p.
 <div class="tab-content">
 <div id="tabset-15-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">filter</span>(gapminder, year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2007</span>)),</span>
-<span id="cb64-2"><a></a><span class="fu">aes</span>(<span class="at">x =</span> lifeExp,</span>
-<span id="cb64-3"><a></a><span class="at">fill =</span> continent)) <span class="sc">+</span></span>
-<span id="cb64-4"><a></a><span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>,</span>
-<span id="cb64-5"><a></a>               <span class="at">color =</span> <span class="st">"grey"</span>) <span class="sc">+</span></span>
-<span id="cb64-6"><a></a><span class="fu">scale_fill_viridis_d</span>() <span class="sc">+</span></span>
-<span id="cb64-7"><a></a><span class="fu">facet_wrap</span>(<span class="fu">vars</span>(continent), <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb64-8"><a></a><span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">filter</span>(gapminder, year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2007</span>)),</span>
+<span id="cb66-2"><a></a><span class="fu">aes</span>(<span class="at">x =</span> lifeExp,</span>
+<span id="cb66-3"><a></a><span class="at">fill =</span> continent)) <span class="sc">+</span></span>
+<span id="cb66-4"><a></a><span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>,</span>
+<span id="cb66-5"><a></a>               <span class="at">color =</span> <span class="st">"grey"</span>) <span class="sc">+</span></span>
+<span id="cb66-6"><a></a><span class="fu">scale_fill_viridis_d</span>() <span class="sc">+</span></span>
+<span id="cb66-7"><a></a><span class="fu">facet_wrap</span>(<span class="fu">vars</span>(continent), <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb66-8"><a></a><span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-15-2">
@@ -1323,15 +1327,15 @@ Edward Tufte (1983). <em>The Visual Display of Quantitative Information</em>, p.
 <div class="tab-content">
 <div id="tabset-16-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a></a>colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"orange"</span>, <span class="st">"yellow"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>)</span>
-<span id="cb65-2"><a></a></span>
-<span id="cb65-3"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">filter</span>(gapminder, year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2007</span>)),</span>
-<span id="cb65-4"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> continent,</span>
-<span id="cb65-5"><a></a>      <span class="at">y =</span> lifeExp,</span>
-<span id="cb65-6"><a></a>      <span class="at">fill =</span> continent)) <span class="sc">+</span></span>
-<span id="cb65-7"><a></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb65-8"><a></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> colors) <span class="sc">+</span></span>
-<span id="cb65-9"><a></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a></a>colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"orange"</span>, <span class="st">"yellow"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>)</span>
+<span id="cb67-2"><a></a></span>
+<span id="cb67-3"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">filter</span>(gapminder, year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2007</span>)),</span>
+<span id="cb67-4"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> continent,</span>
+<span id="cb67-5"><a></a>      <span class="at">y =</span> lifeExp,</span>
+<span id="cb67-6"><a></a>      <span class="at">fill =</span> continent)) <span class="sc">+</span></span>
+<span id="cb67-7"><a></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb67-8"><a></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> colors) <span class="sc">+</span></span>
+<span id="cb67-9"><a></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-16-2">
@@ -1355,15 +1359,15 @@ Edward Tufte (1983). <em>The Visual Display of Quantitative Information</em>, p.
 <div class="tab-content">
 <div id="tabset-17-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a></a><span class="fu">ggplot</span>(gapminder, <span class="fu">aes</span>(<span class="at">x =</span> year, </span>
-<span id="cb66-2"><a></a>                      <span class="at">y =</span> lifeExp,</span>
-<span id="cb66-3"><a></a>                      <span class="at">group =</span> country)) <span class="sc">+</span></span>
-<span id="cb66-4"><a></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">color=</span><span class="st">"grey"</span>) <span class="sc">+</span></span>
-<span id="cb66-5"><a></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(country <span class="sc">%in%</span> <span class="fu">c</span>(</span>
-<span id="cb66-6"><a></a>    <span class="st">"Germany"</span>,</span>
-<span id="cb66-7"><a></a>    <span class="st">"India"</span>,</span>
-<span id="cb66-8"><a></a>    <span class="st">"Rwanda"</span>)),</span>
-<span id="cb66-9"><a></a>    <span class="at">lwd =</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="co"># thicker line</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a></a><span class="fu">ggplot</span>(gapminder, <span class="fu">aes</span>(<span class="at">x =</span> year, </span>
+<span id="cb68-2"><a></a>                      <span class="at">y =</span> lifeExp,</span>
+<span id="cb68-3"><a></a>                      <span class="at">group =</span> country)) <span class="sc">+</span></span>
+<span id="cb68-4"><a></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">color=</span><span class="st">"grey"</span>) <span class="sc">+</span></span>
+<span id="cb68-5"><a></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(country <span class="sc">%in%</span> <span class="fu">c</span>(</span>
+<span id="cb68-6"><a></a>    <span class="st">"Germany"</span>,</span>
+<span id="cb68-7"><a></a>    <span class="st">"India"</span>,</span>
+<span id="cb68-8"><a></a>    <span class="st">"Rwanda"</span>)),</span>
+<span id="cb68-9"><a></a>    <span class="at">lwd =</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="co"># thicker line</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-17-2">
@@ -1393,30 +1397,30 @@ Edward Tufte (1983). <em>The Visual Display of Quantitative Information</em>, p.
 <section id="hrbrthemes" class="slide level2">
 <h2>hrbrthemes</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
-<span id="cb67-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, <span class="at">color =</span> continent)) <span class="sc">+</span></span>
-<span id="cb67-3"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb67-4"><a></a>  hrbrthemes<span class="sc">::</span><span class="fu">theme_ipsum_ps</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
+<span id="cb69-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb69-3"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb69-4"><a></a>  hrbrthemes<span class="sc">::</span><span class="fu">theme_ipsum_ps</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 <img data-src="04-AmountsAndProportions_files/figure-revealjs/unnamed-chunk-50-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="hrbrthemes-1" class="slide level2">
 <h2>hrbrthemes</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
-<span id="cb68-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, <span class="at">color =</span> continent)) <span class="sc">+</span></span>
-<span id="cb68-3"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb68-4"><a></a>  hrbrthemes<span class="sc">::</span><span class="fu">theme_modern_rc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
+<span id="cb70-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb70-3"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb70-4"><a></a>  hrbrthemes<span class="sc">::</span><span class="fu">theme_modern_rc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 <img data-src="04-AmountsAndProportions_files/figure-revealjs/unnamed-chunk-52-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="ggthemes" class="slide level2">
 <h2>ggthemes</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
-<span id="cb69-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, <span class="at">color =</span> continent)) <span class="sc">+</span></span>
-<span id="cb69-3"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb69-4"><a></a>  ggthemes<span class="sc">::</span><span class="fu">theme_economist</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
+<span id="cb71-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb71-3"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb71-4"><a></a>  ggthemes<span class="sc">::</span><span class="fu">theme_economist</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 <img data-src="04-AmountsAndProportions_files/figure-revealjs/unnamed-chunk-54-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>

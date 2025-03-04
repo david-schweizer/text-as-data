@@ -100,12 +100,14 @@ head(afd, n = 2)
 ## To wide
 
 ```{r, echo=TRUE}
+head(afd, n = 2)
+
 afd_wide <- afd %>%
   pivot_wider(names_from = "vote", 
               names_prefix = "vote_share_",
               values_from = "vote_share")
 
-head(afd)
+head(afd_wide, n = 1)
 ```
 
 ## Mutate
