@@ -1,9 +1,9 @@
 ---
-title: "ggplot: Visualize "
+title: "Intro to Text-as-Data I: Concepts"
 subtitle: "Week 05"
 description: ""
 author: ""
-date: "Mar 12, 2024"
+date: "Mar 11, 2025"
 listing:
   - id: slides
     contents:
@@ -35,6 +35,10 @@ listing:
 tbl-colwidths: [10,50,40]
 ---
 
+# To Do's before our session
+
+Work and revise the exercises of the last sessions. Start working on the first assignment - you can find it on ILIAS (need to pass!).
+
 # Seminar slides
 
 ::: {#slides}
@@ -42,20 +46,4 @@ tbl-colwidths: [10,50,40]
 
 # Materials
 
-You can find the R script and data for today's session [**here**](https://ilias.uni-mannheim.de/goto.php?target=fold_1499282&client_id=ILIAS).
-
-Further, you can find free and great resources on data visualization here:
-
--   [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/)
-
--   [Data Visualization: A Practical Introduction](https://socviz.co/index.html#preface)
-
--   [Cedric Scherer Blog](https://www.cedricscherer.com/top/dataviz/)
-
--   [The R Graph Gallery](https://r-graph-gallery.com/)
-
-# To Do's before our session
-
--   Have a look at [Chapter 1: Visualize](https://r4ds.hadley.nz/data-visualize).
-
--   Think: What visualizations might be appropriate for your data?
+TBA.

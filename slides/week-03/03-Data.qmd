@@ -157,7 +157,7 @@ We can import various formats. For example:
 -   **Stata:** `library("haven")` / `read_dta("file.dta")`.
 
 ::: callout-tip
--    We can import files locally or access them online.
+-   We can import files locally or access them online.
 
 -   Consult the R documentation (e.g. type `?read_csv`) to get an overview about options (e.g. `skip`).
 :::

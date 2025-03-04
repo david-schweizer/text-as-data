@@ -28,7 +28,7 @@
     "href": "material.html",
     "title": "Schedule, slides & materials",
     "section": "",
-    "text": "You can find all course materials below. This includes slides, code, links to readings, etc.\nJust click on the topic of the respective week.\n\n\n\n\n\nWeek\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nFebruary 11, 2025\n\n\n\n\nWeek 02\n\n\nIntro to R\n\n\nFebruary 18, 2025\n\n\n\n\nWeek 03\n\n\nTidyverse I: Import, tidy, and transform\n\n\nFebruary 25, 2025\n\n\n\n\nWeek 04\n\n\nTidyverse II: Transform, and visualize\n\n\nMarch 04, 2025\n\n\n\n\n\nNo matching items",
+    "text": "You can find all course materials below. This includes slides, code, links to readings, etc.\nJust click on the topic of the respective week.\n\n\n\n\n\nWeek\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nFebruary 11, 2025\n\n\n\n\nWeek 02\n\n\nIntro to R\n\n\nFebruary 18, 2025\n\n\n\n\nWeek 03\n\n\nTidyverse I: Import, tidy, and transform\n\n\nFebruary 25, 2025\n\n\n\n\nWeek 04\n\n\nTidyverse II: Transform, and visualize\n\n\nMarch 04, 2025\n\n\n\n\nWeek 05\n\n\nIntro to Text-as-Data I: Concepts\n\n\nMarch 11, 2025\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Schedule, slides & materials"
     ]
@@ -207,14 +207,14 @@
     "href": "weeks/week-04.html",
     "title": "Tidyverse II: Transform, and visualize",
     "section": "",
-    "text": "To Do’s before our session\nTry to apply the learnings from last session! Import your own data set, and wrangle the data.\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nTidyverse II: Transform, and visualize\n\n\nWeek 4\n\n\nMar 4, 2025\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA."
+    "text": "To Do’s before our session\nTry to apply the learnings from last session! Import your own data set, and wrangle the data.\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nTidyverse II: Transform, and visualize\n\n\nWeek 4\n\n\nMar 4, 2025\n\n\n\n\nggplot: Visualize & Quarto\n\n\nWeek 7\n\n\nOct 17, 2024\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nYou can find the R scripts and the respective data for both exercises on ILIAS."
   },
   {
     "objectID": "weeks/week-05.html",
     "href": "weeks/week-05.html",
-    "title": "ggplot: Visualize",
+    "title": "Intro to Text-as-Data I: Concepts",
     "section": "",
-    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nggplot: Visualize\n\n\nWeek 5\n\n\nMar 12, 2023\n\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nYou can find the R script and data for today’s session here.\nFurther, you can find free and great resources on data visualization here:\n\nFundamentals of Data Visualization\nData Visualization: A Practical Introduction\nCedric Scherer Blog\nThe R Graph Gallery\n\n\n\nTo Do’s before our session\n\nHave a look at Chapter 1: Visualize.\nThink: What visualizations might be appropriate for your data?"
+    "text": "To Do’s before our session\nWork and revise the exercises of the last sessions. Start working on the first assignment - you can find it on ILIAS (need to pass!).\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nIntro to Text-as-Data I: Concepts\n\n\nWeek 5\n\n\nMar 11, 2025\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA."
   },
   {
     "objectID": "weeks/week-06.html",
@@ -2962,9 +2962,9 @@
   {
     "objectID": "slides/week-04/04-AmountsAndProportions.html#plan-for-today",
     "href": "slides/week-04/04-AmountsAndProportions.html#plan-for-today",
-    "title": "Tidyverse II: Import, tidy, and transform",
+    "title": "Tidyverse II: Transform, and visualize",
     "section": "Plan for today",
-    "text": "Plan for today\nOrganizational:\n\nassignments\n\nLast week:\n\nimport, select, filter, and mutate data\n\nToday:\n\nreshape, group & summarize, join, and save data"
+    "text": "Plan for today\nOrganizational:\n\nFirst assignment: Online after our session. Deadline: 17.03.25 13:00\n\nLast week:\n\nImport, select, filter, and mutate data\n\nToday:\n\nReshape, group & summarize, join, and visualize"
   },
   {
     "objectID": "slides/week-04/04-AmountsAndProportions.html#reproducibility-why-r",
@@ -5205,9 +5205,9 @@
   {
     "objectID": "slides/week-04/04-AmountsAndProportions.html#our-workflow-so-far",
     "href": "slides/week-04/04-AmountsAndProportions.html#our-workflow-so-far",
-    "title": "Tidyverse II: Import, tidy, and transform",
+    "title": "Tidyverse II: Transform, and visualize",
     "section": "Our workflow so far…",
-    "text": "Our workflow so far…\n\nImportSelect & RenameFilterMutate\n\n\n\n# 2021 German federal election data (.csv)\n\nelection &lt;- readr::read_delim(\"w-btw21_kerg2.csv\", \n                       delim = \";\", \n                       escape_double = FALSE, \n                       locale = locale(decimal_mark = \",\"), \n                       trim_ws = TRUE, \n                       skip = 9)\n\nstr(election) # and/or dim(), head(), names(), ...\n\nspc_tbl_ [18,818 × 18] (S3: spec_tbl_df/tbl_df/tbl/data.frame)\n $ Wahlart           : chr [1:18818] \"BT\" \"BT\" \"BT\" \"BT\" ...\n $ Wahltag           : num [1:18818] 26092021 26092021 26092021 26092021 26092021 ...\n $ Gebietsart        : chr [1:18818] \"Bund\" \"Bund\" \"Bund\" \"Bund\" ...\n $ Gebietsnummer     : chr [1:18818] \"99\" \"99\" \"99\" \"99\" ...\n $ Gebietsname       : chr [1:18818] \"Bundesgebiet\" \"Bundesgebiet\" \"Bundesgebiet\" \"Bundesgebiet\" ...\n $ UegGebietsart     : chr [1:18818] NA NA NA NA ...\n $ UegGebietsnummer  : chr [1:18818] NA NA NA NA ...\n $ Gruppenart        : chr [1:18818] \"System-Gruppe\" \"System-Gruppe\" \"System-Gruppe\" \"System-Gruppe\" ...\n $ Gruppenname       : chr [1:18818] \"Wahlberechtigte\" \"Wählende\" \"Ungültige\" \"Ungültige\" ...\n $ Gruppenreihenfolge: num [1:18818] -4 -3 -2 -2 -1 -1 1 1 2 2 ...\n $ Stimme            : num [1:18818] NA NA 1 2 1 2 1 2 1 2 ...\n $ Anzahl            : num [1:18818] 61172771 46707343 488483 408956 46218860 ...\n $ Prozent           : num [1:18818] NA 76.353 1.046 0.876 98.954 ...\n $ VorpAnzahl        : num [1:18818] 61688485 46976341 586726 460849 46389615 ...\n $ VorpProzent       : num [1:18818] NA 76.151 1.249 0.981 98.751 ...\n $ DiffProzent       : num [1:18818] -0.836 -0.573 -16.744 -11.26 -0.368 ...\n $ DiffProzentPkt    : num [1:18818] NA 0.202 -0.203 -0.105 0.203 ...\n $ Bemerkung         : chr [1:18818] \"Ergebnis der Wiederholungswahl in Teilen Berlins am 11.02.2024.\" \"Ergebnis der Wiederholungswahl in Teilen Berlins am 11.02.2024.\" \"Ergebnis der Wiederholungswahl in Teilen Berlins am 11.02.2024.\" \"Ergebnis der Wiederholungswahl in Teilen Berlins am 11.02.2024.\" ...\n - attr(*, \"spec\")=\n  .. cols(\n  ..   Wahlart = col_character(),\n  ..   Wahltag = col_number(),\n  ..   Gebietsart = col_character(),\n  ..   Gebietsnummer = col_character(),\n  ..   Gebietsname = col_character(),\n  ..   UegGebietsart = col_character(),\n  ..   UegGebietsnummer = col_character(),\n  ..   Gruppenart = col_character(),\n  ..   Gruppenname = col_character(),\n  ..   Gruppenreihenfolge = col_double(),\n  ..   Stimme = col_double(),\n  ..   Anzahl = col_double(),\n  ..   Prozent = col_double(),\n  ..   VorpAnzahl = col_double(),\n  ..   VorpProzent = col_double(),\n  ..   DiffProzent = col_double(),\n  ..   DiffProzentPkt = col_double(),\n  ..   Bemerkung = col_character()\n  .. )\n - attr(*, \"problems\")=&lt;externalptr&gt; \n\n\n\n\n\nelection &lt;- election %&gt;% \n  dplyr::select(area_no = Gebietsnummer,\n                area_type = Gebietsart,\n                area_name = Gebietsname,\n                group_type = Gruppenart,\n                group_name = Gruppenname,\n                vote = Stimme,\n                vote_share = Prozent)\n\nnames(election)\n\n[1] \"area_no\"    \"area_type\"  \"area_name\"  \"group_type\" \"group_name\"\n[6] \"vote\"       \"vote_share\"\n\n\n\n\n\n# keep vote shares of the AfD on the district level\nafd &lt;- election %&gt;% \n  filter(area_type == \"Wahlkreis\") %&gt;% \n  filter(group_name == \"AfD\")\n\n# we can achieve the same in one line\nafd &lt;- election %&gt;% \n  filter(area_type == \"Wahlkreis\" & group_name == \"AfD\")\n\n\n\n\n# calculate the difference between the first and second vote\nafd_diff &lt;- afd %&gt;%\n  pivot_wider(names_from = \"vote\", \n              values_from = \"vote_share\") %&gt;% \n  mutate(diff = `1` - `2`) %&gt;% \n  pivot_longer(cols = !c(area_no:group_name), \n               names_to = \"vote\", \n               values_to = \"vote_share\")"
+    "text": "Our workflow so far…\n\nImportSelect & RenameFilterMutate\n\n\n\n# 2021 German federal election data (.csv)\n\nelection &lt;- readr::read_delim(\"https://www.bundeswahlleiterin.de/bundestagswahlen/2025/ergebnisse/opendata/btw25/csv/kerg2.csv\", \n                       delim = \";\", \n                       escape_double = FALSE, \n                       locale = locale(decimal_mark = \",\"), \n                       trim_ws = TRUE, \n                       skip = 9)\n\nnames(election) # and/or dim(), head(), str(), ...\n\n [1] \"Wahlart\"            \"Wahltag\"            \"Gebietsart\"        \n [4] \"Gebietsnummer\"      \"Gebietsname\"        \"UegGebietsart\"     \n [7] \"UegGebietsnummer\"   \"Gruppenart\"         \"Gruppenname\"       \n[10] \"Gruppenreihenfolge\" \"Stimme\"             \"Anzahl\"            \n[13] \"Prozent\"            \"VorpAnzahl\"         \"VorpProzent\"       \n[16] \"DiffProzent\"        \"DiffProzentPkt\"     \"Bemerkung\"         \n[19] \"Gewählt\"           \n\n\n\n\n\nelection &lt;- election %&gt;% \n  dplyr::select(district_no = Gebietsnummer,\n                district_type = Gebietsart,\n                district_name = Gebietsname,\n                group_type = Gruppenart,\n                group_name = Gruppenname,\n                vote = Stimme,\n                vote_share = Prozent)\n\nhead(election, n=2)\n\n# A tibble: 2 × 7\n  district_no district_type district_name group_type group_name  vote vote_share\n  &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt;\n1 99          Bund          Bundesgebiet  System-Gr… Wahlberec…    NA       NA  \n2 99          Bund          Bundesgebiet  System-Gr… Wählende      NA       82.5\n\n\n\n\n\n# keep vote shares of the AfD on the district level\nafd &lt;- election %&gt;% \n  filter(district_type == \"Wahlkreis\") %&gt;% \n  filter(group_name == \"AfD\")\n\n# we can achieve the same in one line\nafd &lt;- election %&gt;% \n  filter(district_type == \"Wahlkreis\" & group_name == \"AfD\")\n\nhead(afd, n = 2)\n\n# A tibble: 2 × 7\n  district_no district_type district_name group_type group_name  vote vote_share\n  &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt;\n1 001         Wahlkreis     Flensburg – … Partei     AfD            1       15.0\n2 001         Wahlkreis     Flensburg – … Partei     AfD            2       15.3\n\n\n\n\nHow to easily calculate the difference between the AfDs first and second vote?\n\nhead(afd, n = 2)\n\n# A tibble: 2 × 7\n  district_no district_type district_name group_type group_name  vote vote_share\n  &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt;\n1 001         Wahlkreis     Flensburg – … Partei     AfD            1       15.0\n2 001         Wahlkreis     Flensburg – … Partei     AfD            2       15.3"
   },
   {
     "objectID": "slides/week-04/04-AmountsAndProportions.html#exkurs-reshape-data",
@@ -5219,58 +5219,58 @@
   {
     "objectID": "slides/week-04/04-AmountsAndProportions.html#next-group-summarize",
     "href": "slides/week-04/04-AmountsAndProportions.html#next-group-summarize",
-    "title": "Tidyverse II: Import, tidy, and transform",
+    "title": "Tidyverse II: Transform, and visualize",
     "section": "Next: Group & summarize",
     "text": "Next: Group & summarize\nSo far:\n\nWe can generate new variables using mutate() keeping the structure of the data the same\n\nWith summarize():\n\nwe change the structure of our data frame;\nany computations using summarize() collapses rows to summary statistics (e.g., mean, standard deviation);\nand removes all variables irrelevant for computing the summary statistics."
   },
   {
     "objectID": "slides/week-04/04-AmountsAndProportions.html#example-summary-statistics---mutate",
     "href": "slides/week-04/04-AmountsAndProportions.html#example-summary-statistics---mutate",
-    "title": "Tidyverse II: Import, tidy, and transform",
+    "title": "Tidyverse II: Transform, and visualize",
     "section": "Example: Summary statistics - mutate()",
-    "text": "Example: Summary statistics - mutate()\n\nafd_mean &lt;- afd %&gt;% \n  filter(vote == 2) %&gt;% \n  mutate(mean = mean(vote_share))\n\ndim(afd)\n\n[1] 598   7\n\ndim(afd_mean)\n\n[1] 299   8"
+    "text": "Example: Summary statistics - mutate()\n\nafd_mean &lt;- afd %&gt;% \n  filter(vote == 2) %&gt;% \n  mutate(mean = mean(vote_share))\n\ndim(afd)\n\n[1] 598   7\n\ndim(afd_mean)\n\n[1] 299   8\n\nhead(afd_mean)\n\n# A tibble: 6 × 8\n  district_no district_type district_name group_type group_name  vote vote_share\n  &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt;\n1 001         Wahlkreis     Flensburg – … Partei     AfD            2       15.3\n2 002         Wahlkreis     Nordfrieslan… Partei     AfD            2       16.1\n3 003         Wahlkreis     Steinburg – … Partei     AfD            2       20.4\n4 004         Wahlkreis     Rendsburg-Ec… Partei     AfD            2       16.0\n5 005         Wahlkreis     Kiel          Partei     AfD            2       10.8\n6 006         Wahlkreis     Plön – Neumü… Partei     AfD            2       18.0\n# ℹ 1 more variable: mean &lt;dbl&gt;"
   },
   {
     "objectID": "slides/week-04/04-AmountsAndProportions.html#summarize",
     "href": "slides/week-04/04-AmountsAndProportions.html#summarize",
-    "title": "Tidyverse II: Import, tidy, and transform",
+    "title": "Tidyverse II: Transform, and visualize",
     "section": "Summarize()",
-    "text": "Summarize()\n\nafd_mean &lt;- afd %&gt;% \n  filter(vote == 2) %&gt;% \n  summarize(mean = mean(vote_share)) # option: \"na.rm = TRUE\"\n\nafd_mean\n\n# A tibble: 1 × 1\n   mean\n  &lt;dbl&gt;\n1  10.6"
+    "text": "Summarize()\n\nafd_mean &lt;- afd %&gt;% \n  filter(vote == 2) %&gt;% \n  summarize(mean = mean(vote_share)) # option: \"na.rm = TRUE\"\n\nafd_mean\n\n# A tibble: 1 × 1\n   mean\n  &lt;dbl&gt;\n1  21.1"
   },
   {
     "objectID": "slides/week-04/04-AmountsAndProportions.html#summarize-1",
     "href": "slides/week-04/04-AmountsAndProportions.html#summarize-1",
-    "title": "Tidyverse II: Import, tidy, and transform",
+    "title": "Tidyverse II: Transform, and visualize",
     "section": "Summarize()",
-    "text": "Summarize()\n\nafd_statistics &lt;- afd %&gt;% \n  filter(vote == 2) %&gt;% \n  summarize(mean = mean(vote_share),      # option: \"na.rm = TRUE\"\n            median = median(vote_share),\n            minimum = min(vote_share),\n            maximum = max(vote_share),\n            sd = sd(vote_share)) \n\nafd_statistics\n\n# A tibble: 1 × 5\n   mean median minimum maximum    sd\n  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;\n1  10.6   8.86    2.87    32.5  5.88"
+    "text": "Summarize()\n\nafd_statistics &lt;- afd %&gt;% \n  filter(vote == 2) %&gt;% \n  summarize(mean = mean(vote_share),      # option: \"na.rm = TRUE\"\n            median = median(vote_share),\n            minimum = min(vote_share),\n            maximum = max(vote_share),\n            sd = sd(vote_share)) \n\nafd_statistics\n\n# A tibble: 1 × 5\n   mean median minimum maximum    sd\n  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;\n1  21.1   19.4    6.28    46.7  8.50"
   },
   {
     "objectID": "slides/week-04/04-AmountsAndProportions.html#group-and-summarize",
     "href": "slides/week-04/04-AmountsAndProportions.html#group-and-summarize",
-    "title": "Tidyverse II: Import, tidy, and transform",
+    "title": "Tidyverse II: Transform, and visualize",
     "section": "Group and summarize",
-    "text": "Group and summarize\nWe can use group_by() to calculate summary statistics for different groups:\n\nstatistics_group &lt;- election %&gt;% \n  filter(area_type == \"Wahlkreis\") %&gt;% \n  filter(vote == 2) %&gt;% \n  filter(group_name %in% c(\"SPD\", \"CDU\")) %&gt;% \n  group_by(group_name) %&gt;%  # do not forget to ungroup()\n  summarize(mean = mean(vote_share,\n                        na.rm = TRUE))\n\nstatistics_group\n\n# A tibble: 2 × 2\n  group_name  mean\n  &lt;chr&gt;      &lt;dbl&gt;\n1 CDU         22.6\n2 SPD         25.9"
+    "text": "Group and summarize\nWe can use group_by() to calculate summary statistics for different groups:\n\nstatistics_group &lt;- election %&gt;% \n  filter(district_type == \"Wahlkreis\") %&gt;% \n  filter(vote == 2) %&gt;% \n  # this is the same as: filter(group_name == \"SPD\" | group_name == \"CDU\")\n  filter(group_name %in% c(\"SPD\", \"CDU\")) %&gt;% \n  group_by(group_name) %&gt;%  # do not forget to ungroup()\n  summarize(mean = mean(vote_share,\n                        na.rm = TRUE)) %&gt;% \n  ungroup() # ungroup after\n\nstatistics_group\n\n# A tibble: 2 × 2\n  group_name  mean\n  &lt;chr&gt;      &lt;dbl&gt;\n1 CDU         26.8\n2 SPD         16.5"
   },
   {
     "objectID": "slides/week-04/04-AmountsAndProportions.html#join-data",
     "href": "slides/week-04/04-AmountsAndProportions.html#join-data",
-    "title": "Tidyverse II: Import, tidy, and transform",
+    "title": "Tidyverse II: Transform, and visualize",
     "section": "Join data",
     "text": "Join data\nIn applied research, we oftentimes need to combine multiple data sets (e.g., multiple survey waves, election statistics, …).\n\nWe can use bind_cols() if two (or more) data frames have different variables (columns) but same cases (rows).\nWe can use bind_rows() if two (or more) data frames have the same variables (columns) but different cases (rows).\n\nWe can also use join operators from the dplyr package. These allow us to combine data frames based on a (shared) key."
   },
   {
     "objectID": "slides/week-04/04-AmountsAndProportions.html#binding-columns",
     "href": "slides/week-04/04-AmountsAndProportions.html#binding-columns",
-    "title": "Tidyverse II: Import, tidy, and transform",
+    "title": "Tidyverse II: Transform, and visualize",
     "section": "Binding columns",
-    "text": "Binding columns\n\nData 1Data 2bind_cols\n\n\n\n# Let's use our gapminder_example data\nhead(gapminder_example)\n\n# A tibble: 6 × 3\n  country  year gdpPercap\n  &lt;fct&gt;   &lt;int&gt;     &lt;dbl&gt;\n1 France   1997    25890.\n2 France   2002    28926.\n3 France   2007    30470.\n4 Germany  1997    27789.\n5 Germany  2002    30036.\n6 Germany  2007    32170.\n\n\n\n\n\n# and add this dataframe\nrandom &lt;- data.frame(r1 = c(1:9))\n\nrandom\n\n  r1\n1  1\n2  2\n3  3\n4  4\n5  5\n6  6\n7  7\n8  8\n9  9\n\n\n\n\n\n# now we can just join these two dataframes\nnew &lt;- bind_cols(gapminder_example, random)\n\nnew\n\n# A tibble: 9 × 4\n  country         year gdpPercap    r1\n  &lt;fct&gt;          &lt;int&gt;     &lt;dbl&gt; &lt;int&gt;\n1 France          1997    25890.     1\n2 France          2002    28926.     2\n3 France          2007    30470.     3\n4 Germany         1997    27789.     4\n5 Germany         2002    30036.     5\n6 Germany         2007    32170.     6\n7 United Kingdom  1997    26075.     7\n8 United Kingdom  2002    29479.     8\n9 United Kingdom  2007    33203.     9"
+    "text": "Binding columns\n\nData 1Data 2bind_cols\n\n\n\n# Let's use our gapminder_example data\nlibrary(gapminder)\n\ngapminder_example &lt;- gapminder \n\nhead(gapminder_example)\n\n# A tibble: 6 × 6\n  country     continent  year lifeExp      pop gdpPercap\n  &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;\n1 Afghanistan Asia       1952    28.8  8425333      779.\n2 Afghanistan Asia       1957    30.3  9240934      821.\n3 Afghanistan Asia       1962    32.0 10267083      853.\n4 Afghanistan Asia       1967    34.0 11537966      836.\n5 Afghanistan Asia       1972    36.1 13079460      740.\n6 Afghanistan Asia       1977    38.4 14880372      786.\n\n\n\n\n\n# and add this dataframe\nrandom &lt;- data.frame(r1 = c(1:1704))\n\nhead(random)\n\n  r1\n1  1\n2  2\n3  3\n4  4\n5  5\n6  6\n\n\n\n\n\n# now we can just join these two dataframes\nnew &lt;- bind_cols(gapminder_example, random)\n\nnew\n\n# A tibble: 1,704 × 7\n   country     continent  year lifeExp      pop gdpPercap    r1\n   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt; &lt;int&gt;\n 1 Afghanistan Asia       1952    28.8  8425333      779.     1\n 2 Afghanistan Asia       1957    30.3  9240934      821.     2\n 3 Afghanistan Asia       1962    32.0 10267083      853.     3\n 4 Afghanistan Asia       1967    34.0 11537966      836.     4\n 5 Afghanistan Asia       1972    36.1 13079460      740.     5\n 6 Afghanistan Asia       1977    38.4 14880372      786.     6\n 7 Afghanistan Asia       1982    39.9 12881816      978.     7\n 8 Afghanistan Asia       1987    40.8 13867957      852.     8\n 9 Afghanistan Asia       1992    41.7 16317921      649.     9\n10 Afghanistan Asia       1997    41.8 22227415      635.    10\n# ℹ 1,694 more rows"
   },
   {
     "objectID": "slides/week-04/04-AmountsAndProportions.html#binding-rows",
     "href": "slides/week-04/04-AmountsAndProportions.html#binding-rows",
-    "title": "Tidyverse II: Import, tidy, and transform",
+    "title": "Tidyverse II: Transform, and visualize",
     "section": "Binding rows",
-    "text": "Binding rows\n\nData 1Data 2bind_rows\n\n\n\n# Let's use our gapminder_example data\nhead(gapminder_example)\n\n# A tibble: 6 × 3\n  country  year gdpPercap\n  &lt;fct&gt;   &lt;int&gt;     &lt;dbl&gt;\n1 France   1997    25890.\n2 France   2002    28926.\n3 France   2007    30470.\n4 Germany  1997    27789.\n5 Germany  2002    30036.\n6 Germany  2007    32170.\n\n\n\n\n\n# and add this dataframe\nmore_info &lt;- data.frame(country = \"Austria\",\n                        year = 2007,\n                        gdpPercap = NA)\n\nmore_info\n\n  country year gdpPercap\n1 Austria 2007        NA\n\n\n\n\n\n# now we can just join these two dataframes\ngapminder_added &lt;- bind_rows(gapminder_example, more_info)\n\ngapminder_added\n\n# A tibble: 10 × 3\n   country         year gdpPercap\n   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;\n 1 France          1997    25890.\n 2 France          2002    28926.\n 3 France          2007    30470.\n 4 Germany         1997    27789.\n 5 Germany         2002    30036.\n 6 Germany         2007    32170.\n 7 United Kingdom  1997    26075.\n 8 United Kingdom  2002    29479.\n 9 United Kingdom  2007    33203.\n10 Austria         2007       NA"
+    "text": "Binding rows\n\nData 1Data 2bind_rows\n\n\n\n# Let's use our gapminder_example data\nhead(gapminder_example)\n\n# A tibble: 6 × 6\n  country     continent  year lifeExp      pop gdpPercap\n  &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;\n1 Afghanistan Asia       1952    28.8  8425333      779.\n2 Afghanistan Asia       1957    30.3  9240934      821.\n3 Afghanistan Asia       1962    32.0 10267083      853.\n4 Afghanistan Asia       1967    34.0 11537966      836.\n5 Afghanistan Asia       1972    36.1 13079460      740.\n6 Afghanistan Asia       1977    38.4 14880372      786.\n\n\n\n\n\n# and add this dataframe\nmore_info &lt;- data.frame(country = \"Austria\",\n                        year = 2007,\n                        gdpPercap = NA)\n\nmore_info\n\n  country year gdpPercap\n1 Austria 2007        NA\n\n\n\n\n\n# now we can just join these two dataframes\ngapminder_added &lt;- bind_rows(gapminder_example, more_info)\n\ngapminder_added\n\n# A tibble: 1,705 × 6\n   country     continent  year lifeExp      pop gdpPercap\n   &lt;chr&gt;       &lt;fct&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;\n 1 Afghanistan Asia       1952    28.8  8425333      779.\n 2 Afghanistan Asia       1957    30.3  9240934      821.\n 3 Afghanistan Asia       1962    32.0 10267083      853.\n 4 Afghanistan Asia       1967    34.0 11537966      836.\n 5 Afghanistan Asia       1972    36.1 13079460      740.\n 6 Afghanistan Asia       1977    38.4 14880372      786.\n 7 Afghanistan Asia       1982    39.9 12881816      978.\n 8 Afghanistan Asia       1987    40.8 13867957      852.\n 9 Afghanistan Asia       1992    41.7 16317921      649.\n10 Afghanistan Asia       1997    41.8 22227415      635.\n# ℹ 1,695 more rows"
   },
   {
     "objectID": "slides/week-04/04-AmountsAndProportions.html#join-data-frames",
@@ -5282,23 +5282,23 @@
   {
     "objectID": "slides/week-04/04-AmountsAndProportions.html#save-your-data",
     "href": "slides/week-04/04-AmountsAndProportions.html#save-your-data",
-    "title": "Tidyverse II: Import, tidy, and transform",
+    "title": "Tidyverse II: Transform, and visualize",
     "section": "Save your data",
     "text": "Save your data\nWe can easily save our data frame:\n\nsave(election_structural,\n     file=\"election_structural.Rda\")\n\nAnd load it again:\n\n# make sure that you are in the right working directory!\n# Session -&gt; Set working directory\nload(\"election_structural.Rda\")"
   },
   {
     "objectID": "slides/week-04/04-AmountsAndProportions.html#join-data-frames-left_join",
     "href": "slides/week-04/04-AmountsAndProportions.html#join-data-frames-left_join",
-    "title": "Tidyverse II: Import, tidy, and transform",
+    "title": "Tidyverse II: Transform, and visualize",
     "section": "Join data frames: left_join()",
-    "text": "Join data frames: left_join()\nOther joins: https://github.com/gadenbuie/tidyexplain"
+    "text": "Join data frames: left_join()\nOther joins: https://github.com/gadenbuie/tidyexplain\n\n\n\n\n\n\n\n\n\n\n1, 2, 3, and 4 are unique identifiers in this case. What might be unique identifiers in our 2025 election results data set?"
   },
   {
     "objectID": "slides/week-04/04-AmountsAndProportions.html#example-left_join",
     "href": "slides/week-04/04-AmountsAndProportions.html#example-left_join",
-    "title": "Tidyverse II: Import, tidy, and transform",
+    "title": "Tidyverse II: Transform, and visualize",
     "section": "Example: left_join()",
-    "text": "Example: left_join()\n\nElectionStructuralJoin\n\n\n\nelection &lt;- readr::read_delim(\"w-btw21_kerg2.csv\", \n                       delim = \";\", escape_double = FALSE, \n                       locale = locale(decimal_mark = \",\"), \n                       trim_ws = TRUE, skip = 9) %&gt;% \n  dplyr::select(area_no = Gebietsnummer,\n                area_type = Gebietsart,\n                area_name = Gebietsname,\n                group_type = Gruppenart,\n                group_name = Gruppenname,\n                vote = Stimme,\n                vote_share = Prozent) %&gt;% \n  filter(area_type == \"Wahlkreis\" & group_name == \"AfD\" & vote == 2)\n\n\n\n\nstructural &lt;- readr::read_delim(\"btw21_strukturdaten.csv\", \n                                delim = \";\", escape_double = FALSE,\n                                locale = locale(decimal_mark = \",\"),\n                                trim_ws = TRUE, skip = 8) %&gt;% \n  dplyr::select(area_no = `Wahlkreis-Nr.`,\n                unemployment_rate = `Arbeitslosenquote Februar 2021 - insgesamt`) %&gt;% \n  filter(area_no &lt;= 299)\n\n\n\n\nelection_structural &lt;- election %&gt;% \n  left_join(structural, by = \"area_no\") %&gt;% \n  select(area_no, area_name, vote_share, unemployment_rate)\n\nhead(election_structural)\n\n# A tibble: 6 × 4\n  area_no area_name                         vote_share unemployment_rate\n  &lt;chr&gt;   &lt;chr&gt;                                  &lt;dbl&gt;             &lt;dbl&gt;\n1 001     Flensburg – Schleswig                   5.78               7  \n2 002     Nordfriesland – Dithmarschen Nord       6.10               6.5\n3 003     Steinburg – Dithmarschen Süd            8.37               6.4\n4 004     Rendsburg-Eckernförde                   6.56               4.8\n5 005     Kiel                                    4.94               8.4\n6 006     Plön – Neumünster                       7.35               6.7"
+    "text": "Example: left_join()\n\nElectionStructuralJoin\n\n\n\nelection &lt;- readr::read_delim(\"https://www.bundeswahlleiterin.de/bundestagswahlen/2025/ergebnisse/opendata/btw25/csv/kerg2.csv\", \n                       delim = \";\", \n                       locale = locale(decimal_mark = \",\"), \n                       skip = 9) %&gt;% \n  dplyr::select(district_no = Gebietsnummer, district_type = Gebietsart, district_name = Gebietsname,\n                group_type = Gruppenart, group_name = Gruppenname,\n                vote = Stimme, vote_share = Prozent) %&gt;% \n  filter(district_type == \"Wahlkreis\" & group_name == \"AfD\" & vote == 2) %&gt;% \n  mutate(district_no = as.numeric(district_no))\n\nhead(election, n = 3)\n\n# A tibble: 3 × 7\n  district_no district_type district_name group_type group_name  vote vote_share\n        &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt;\n1           1 Wahlkreis     Flensburg – … Partei     AfD            2       15.3\n2           2 Wahlkreis     Nordfrieslan… Partei     AfD            2       16.1\n3           3 Wahlkreis     Steinburg – … Partei     AfD            2       20.4\n\n\n\n\n\nstructural &lt;- readr::read_delim(\"https://www.bundeswahlleiterin.de/dam/jcr/181f9e38-38db-4f64-991c-8141dfa0f2cb/btw2025_strukturdaten.csv\", \n                                delim = \";\", escape_double = FALSE,\n                                locale = locale(decimal_mark = \",\"),\n                                trim_ws = TRUE, skip = 9) %&gt;% \n  # we need quotation marks since the colum names include - and spaces\n  dplyr::select(district_no = \"Wahlkreis-Nr.\",\n                district_name = \"Wahlkreis-Name\",\n                unemployment_rate = \"Arbeitslosenquote November 2024 - insgesamt\") %&gt;% \n  filter(district_no &lt;= 299)\n\nhead(structural)\n\n# A tibble: 6 × 3\n  district_no district_name                     unemployment_rate\n        &lt;dbl&gt; &lt;chr&gt;                                         &lt;dbl&gt;\n1           1 Flensburg – Schleswig                           6.3\n2           2 Nordfriesland – Dithmarschen Nord               5.3\n3           3 Steinburg – Dithmarschen Süd                    5.7\n4           4 Rendsburg-Eckernförde                           4.6\n5           5 Kiel                                            7.6\n6           6 Plön – Neumünster                               5.8\n\n\n\n\n\n# Think: Could we also use bind_rows() or bind_cols()?\nelection_structural &lt;- election %&gt;% \n  select(-district_name) %&gt;% # remove district name from the election dataframe to avoid doubles after joining\n  left_join(structural, by = \"district_no\") %&gt;% \n  select(district_no, district_name, vote_share, unemployment_rate)\n\nhead(election_structural)\n\n# A tibble: 6 × 4\n  district_no district_name                     vote_share unemployment_rate\n        &lt;dbl&gt; &lt;chr&gt;                                  &lt;dbl&gt;             &lt;dbl&gt;\n1           1 Flensburg – Schleswig                   15.3               6.3\n2           2 Nordfriesland – Dithmarschen Nord       16.1               5.3\n3           3 Steinburg – Dithmarschen Süd            20.4               5.7\n4           4 Rendsburg-Eckernförde                   16.0               4.6\n5           5 Kiel                                    10.8               7.6\n6           6 Plön – Neumünster                       18.0               5.8"
   },
   {
     "objectID": "slides/week-05/05-Themes.html#look-at-your-data",
@@ -7924,5 +7924,194 @@
     "title": "Intro Session",
     "section": "Why text-as-data?",
     "text": "Why text-as-data?\n\nDataAcademia I …… IIReporting\n\n\nWe can tap into (new) data:\n\nPolitical actors (speeches, press releases, social media, manifestos)\nSociety (surveys, social media)\nNews\n…\n\nEverything that is published as text (or can be transcribed)!"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#reshape-the-data",
+    "href": "slides/week-04/04-AmountsAndProportions.html#reshape-the-data",
+    "title": "Tidyverse II: Transform, and visualize",
+    "section": "Reshape the data!",
+    "text": "Reshape the data!\n\nOverviewTo wideMutateTo long\n\n\n\n\n\n\nafd_wide &lt;- afd %&gt;%\n  pivot_wider(names_from = \"vote\", \n              names_prefix = \"vote_share_\",\n              values_from = \"vote_share\")\n\nhead(afd)\n\n# A tibble: 6 × 7\n  district_no district_type district_name group_type group_name  vote vote_share\n  &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt;\n1 001         Wahlkreis     Flensburg – … Partei     AfD            1       15.0\n2 001         Wahlkreis     Flensburg – … Partei     AfD            2       15.3\n3 002         Wahlkreis     Nordfrieslan… Partei     AfD            1       16.0\n4 002         Wahlkreis     Nordfrieslan… Partei     AfD            2       16.1\n5 003         Wahlkreis     Steinburg – … Partei     AfD            1       20.4\n6 003         Wahlkreis     Steinburg – … Partei     AfD            2       20.4\n\n\n\n\n\nafd_wide &lt;- afd_wide %&gt;% \n  mutate(Vote_share_diff = vote_share_1 - vote_share_2)\n\nhead(afd)\n\n# A tibble: 6 × 7\n  district_no district_type district_name group_type group_name  vote vote_share\n  &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt;\n1 001         Wahlkreis     Flensburg – … Partei     AfD            1       15.0\n2 001         Wahlkreis     Flensburg – … Partei     AfD            2       15.3\n3 002         Wahlkreis     Nordfrieslan… Partei     AfD            1       16.0\n4 002         Wahlkreis     Nordfrieslan… Partei     AfD            2       16.1\n5 003         Wahlkreis     Steinburg – … Partei     AfD            1       20.4\n6 003         Wahlkreis     Steinburg – … Partei     AfD            2       20.4\n\n\n\n\n\nafd_diff &lt;- afd %&gt;%\n  pivot_longer(cols = !c(district_no:group_name), \n               names_to = \"vote\", \n               names_prefix = \"vote_share_\",\n               values_to = \"vote_share\")\n\nhead(afd_diff,)\n\n# A tibble: 6 × 7\n  district_no district_type district_name group_type group_name vote  vote_share\n  &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;\n1 001         Wahlkreis     Flensburg – … Partei     AfD        vote         1  \n2 001         Wahlkreis     Flensburg – … Partei     AfD        vote…       15.0\n3 001         Wahlkreis     Flensburg – … Partei     AfD        vote         2  \n4 001         Wahlkreis     Flensburg – … Partei     AfD        vote…       15.3\n5 002         Wahlkreis     Nordfrieslan… Partei     AfD        vote         1  \n6 002         Wahlkreis     Nordfrieslan… Partei     AfD        vote…       16.0"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#look-at-your-data",
+    "href": "slides/week-04/04-AmountsAndProportions.html#look-at-your-data",
+    "title": "Tidyverse II: Transform, and visualize",
+    "section": "Look at your data!",
+    "text": "Look at your data!\n\nThe dataSummary statisticsVisual inspection\n\n\n\n# Have a look at the first 10 data points:\nhead(data, n = 10)\n\n        V1      V2\n1  55.3846 97.1795\n2  51.5385 96.0256\n3  46.1538 94.4872\n4  42.8205 91.4103\n5  40.7692 88.3333\n6  38.7179 84.8718\n7  35.6410 79.8718\n8  33.0769 77.5641\n9  28.9744 74.4872\n10 26.1538 71.4103\n\n\nFor a deep dive, have a look at this blog post by Autodesk, this post by Alberto Cairo, or this R package.\n\n\n\n# Inspect mean of V1\nmean(data$V1)\n\n[1] 54.26327\n\n# Inspect mean of V2\nmean(data$V2)\n\n[1] 47.83225\n\n# Inspect the correlation between V1 and V2\ncor(data$V1, data$V2)\n\n[1] -0.06447185"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#the-datasaurus-dozen",
+    "href": "slides/week-04/04-AmountsAndProportions.html#the-datasaurus-dozen",
+    "title": "Tidyverse II: Transform, and visualize",
+    "section": "The datasaurus dozen",
+    "text": "The datasaurus dozen"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#what-makes-a-great-visualization",
+    "href": "slides/week-04/04-AmountsAndProportions.html#what-makes-a-great-visualization",
+    "title": "Tidyverse II: Transform, and visualize",
+    "section": "What makes a great visualization?",
+    "text": "What makes a great visualization?\nGraphical excellence is the well-designed presentation of interesting data—a matter of substance, of statistics, and of design … [It] consists of complex ideas communicated with clarity, precision, and efficiency. … [It] is that which gives to the viewer the greatest number of ideas in the shortest time with the least ink in the smallest space … [It] is nearly always multivariate … And graphical excellence requires telling the truth about the data. \n\nEdward Tufte (1983). The Visual Display of Quantitative Information, p. 51."
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#maximize-data-ink-ratio",
+    "href": "slides/week-04/04-AmountsAndProportions.html#maximize-data-ink-ratio",
+    "title": "Tidyverse II: Transform, and visualize",
+    "section": "Maximize Data-Ink Ratio",
+    "text": "Maximize Data-Ink Ratio\n\nBray, Tim. http://www.tbray.org/ongoing/data-ink/di1"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#remove-grid",
+    "href": "slides/week-04/04-AmountsAndProportions.html#remove-grid",
+    "title": "Tidyverse II: Transform, and visualize",
+    "section": "Remove Grid",
+    "text": "Remove Grid\n\nBray, Tim. http://www.tbray.org/ongoing/data-ink/di2"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#remove-background",
+    "href": "slides/week-04/04-AmountsAndProportions.html#remove-background",
+    "title": "Tidyverse II: Transform, and visualize",
+    "section": "Remove Background",
+    "text": "Remove Background\n\nBray, Tim. http://www.tbray.org/ongoing/data-ink/di3"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#remove-box",
+    "href": "slides/week-04/04-AmountsAndProportions.html#remove-box",
+    "title": "Tidyverse II: Transform, and visualize",
+    "section": "Remove Box",
+    "text": "Remove Box\n\nBray, Tim. http://www.tbray.org/ongoing/data-ink/di4"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#add-horizontal-line",
+    "href": "slides/week-04/04-AmountsAndProportions.html#add-horizontal-line",
+    "title": "Tidyverse II: Transform, and visualize",
+    "section": "Add horizontal “line”",
+    "text": "Add horizontal “line”\n\nBray, Tim. http://www.tbray.org/ongoing/data-ink/di5"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#remove-axis-line-and-ticks",
+    "href": "slides/week-04/04-AmountsAndProportions.html#remove-axis-line-and-ticks",
+    "title": "Tidyverse II: Transform, and visualize",
+    "section": "Remove axis line and ticks",
+    "text": "Remove axis line and ticks\n\nBray, Tim. http://www.tbray.org/ongoing/data-ink/di6"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#grammatical-layers",
+    "href": "slides/week-04/04-AmountsAndProportions.html#grammatical-layers",
+    "title": "Tidyverse II: Transform, and visualize",
+    "section": "Grammatical Layers",
+    "text": "Grammatical Layers\n\nFoundationalCodeAdditional\n\n\n\n\n\n\nggplot(data = gapminder,\n       mapping = aes(x = gdpPercap,\n                           y = lifeExp,\n                           color = continent)) +\n  geom_point()"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#building-a-ggplot-step-by-step",
+    "href": "slides/week-04/04-AmountsAndProportions.html#building-a-ggplot-step-by-step",
+    "title": "Tidyverse II: Transform, and visualize",
+    "section": "Building a ggplot step-by-step",
+    "text": "Building a ggplot step-by-step\n\nPackagesCodePlot\n\n\nPackages to reproduce the plots:\n\n# library(tidyverse)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(gapminder)\n\n\n\n\nggplot(data = gapminder %&gt;% filter(year==2007),\n  aes(x = gdpPercap, \n      y = lifeExp,\n  color = continent))"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#adding-a-geometry-geom_point",
+    "href": "slides/week-04/04-AmountsAndProportions.html#adding-a-geometry-geom_point",
+    "title": "Tidyverse II: Transform, and visualize",
+    "section": "Adding a geometry: geom_point()",
+    "text": "Adding a geometry: geom_point()\n\nCodePlot\n\n\n\nggplot(data = gapminder %&gt;% filter(year==2007),\n  aes(x = gdpPercap, \n      y = lifeExp,\n  color = continent)) +\n  geom_point()"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#adding-a-scale",
+    "href": "slides/week-04/04-AmountsAndProportions.html#adding-a-scale",
+    "title": "Tidyverse II: Transform, and visualize",
+    "section": "Adding a scale",
+    "text": "Adding a scale\n\nCodePlot\n\n\n\nggplot(data = gapminder %&gt;% filter(year==2007),\n  aes(x = gdpPercap, y = lifeExp,\n  color = continent)) +\n  geom_point() +\n  scale_x_log10()"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#adding-further-geometries",
+    "href": "slides/week-04/04-AmountsAndProportions.html#adding-further-geometries",
+    "title": "Tidyverse II: Transform, and visualize",
+    "section": "Adding further geometries",
+    "text": "Adding further geometries\n\nCodePlot\n\n\n\nggplot(data = gapminder %&gt;% filter(year==2007),\n  aes(x = gdpPercap, y = lifeExp,\n  color = continent)) +\n  geom_point() +\n  scale_x_log10() +\n  geom_smooth(method = \"lm\")"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#add-different-color-scale",
+    "href": "slides/week-04/04-AmountsAndProportions.html#add-different-color-scale",
+    "title": "Tidyverse II: Transform, and visualize",
+    "section": "Add different color scale",
+    "text": "Add different color scale\n\nCodePlot\n\n\n\nggplot(data = gapminder %&gt;% filter(year==2007),\n  aes(x = gdpPercap, \n      y = lifeExp,\n  color = continent)) +\n  geom_point() +\n  scale_x_log10() +\n  geom_smooth(method = \"lm\") +\n  scale_color_viridis_d()"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#use-facets",
+    "href": "slides/week-04/04-AmountsAndProportions.html#use-facets",
+    "title": "Tidyverse II: Transform, and visualize",
+    "section": "Use facets",
+    "text": "Use facets\n\nCodePlot\n\n\n\nggplot(data = gapminder %&gt;% filter(year==2007),\n  aes(x = gdpPercap, \n      y = lifeExp,\n  color = continent)) +\n  geom_point() +\n  scale_x_log10() +\n  geom_smooth(method = \"lm\") +\n  scale_color_viridis_d() +\n  facet_wrap(vars(continent), ncol = 2)"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#add-titles-subtitles-etc.",
+    "href": "slides/week-04/04-AmountsAndProportions.html#add-titles-subtitles-etc.",
+    "title": "Tidyverse II: Transform, and visualize",
+    "section": "Add titles, subtitles, etc.",
+    "text": "Add titles, subtitles, etc.\n\nCodePlot\n\n\n\nggplot(data = gapminder %&gt;% filter(year==2007),\n  aes(x = gdpPercap, \n      y = lifeExp,\n  color = continent)) +\n  geom_point() +\n  scale_x_log10() +\n  geom_smooth(method = \"lm\") +\n  scale_color_viridis_d() +\n  facet_wrap(vars(continent), ncol = 2) +\n  labs(x = \"GDP per capita\", \n       y = \"Life expectancy\",\n       color = \"Continent\",\n       title = \"Wealth = Health?\",\n       subtitle = \"gdpPercap/lifeExp\",\n       caption = \"Gapminder dataset\")"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#more-geometries",
+    "href": "slides/week-04/04-AmountsAndProportions.html#more-geometries",
+    "title": "Tidyverse II: Transform, and visualize",
+    "section": "More geometries",
+    "text": "More geometries\n\nCodePlot\n\n\n\nggplot(data = filter(gapminder, year %in% c(2007)),\naes(x = lifeExp,\nfill = continent)) +\ngeom_histogram(binwidth = 5,\n               color = \"grey\") +\nscale_fill_viridis_d() +\nfacet_wrap(vars(continent), ncol = 2) +\nguides(fill = \"none\")"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#more-geometries-1",
+    "href": "slides/week-04/04-AmountsAndProportions.html#more-geometries-1",
+    "title": "Tidyverse II: Transform, and visualize",
+    "section": "More geometries",
+    "text": "More geometries\n\nCodePlot\n\n\n\ncolors &lt;- c(\"red\", \"orange\", \"yellow\", \"green\", \"blue\")\n\nggplot(data = filter(gapminder, year %in% c(2007)),\n  aes(x = continent,\n      y = lifeExp,\n      fill = continent)) +\n  geom_boxplot(alpha = 0.5) +\n  scale_fill_manual(values = colors) +\n  guides(fill = \"none\")"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#more-geometries-2",
+    "href": "slides/week-04/04-AmountsAndProportions.html#more-geometries-2",
+    "title": "Tidyverse II: Transform, and visualize",
+    "section": "More geometries",
+    "text": "More geometries\n\nCodePlot\n\n\n\nggplot(gapminder, aes(x = year, \n                      y = lifeExp,\n                      group = country)) +\n  geom_line(alpha = 0.2, color=\"grey\") +\n  geom_line(data = gapminder %&gt;% filter(country %in% c(\n    \"Germany\",\n    \"India\",\n    \"Rwanda\")),\n    lwd = 1) + # thicker line"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#themes",
+    "href": "slides/week-04/04-AmountsAndProportions.html#themes",
+    "title": "Tidyverse II: Transform, and visualize",
+    "section": "Themes",
+    "text": "Themes\nMake use of existing themes:\n\nhrbrthemes\nggthemes\n…\n\nThere are many more! And you can even create your own theme!"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#hrbrthemes",
+    "href": "slides/week-04/04-AmountsAndProportions.html#hrbrthemes",
+    "title": "Tidyverse II: Transform, and visualize",
+    "section": "hrbrthemes",
+    "text": "hrbrthemes\n\nggplot(data = gapminder %&gt;% filter(year==2007),\n  aes(x = gdpPercap, y = lifeExp, color = continent)) +\n  geom_point() +\n  hrbrthemes::theme_ipsum_ps()"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#hrbrthemes-1",
+    "href": "slides/week-04/04-AmountsAndProportions.html#hrbrthemes-1",
+    "title": "Tidyverse II: Transform, and visualize",
+    "section": "hrbrthemes",
+    "text": "hrbrthemes\n\nggplot(data = gapminder %&gt;% filter(year==2007),\n  aes(x = gdpPercap, y = lifeExp, color = continent)) +\n  geom_point() +\n  hrbrthemes::theme_modern_rc()"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#ggthemes",
+    "href": "slides/week-04/04-AmountsAndProportions.html#ggthemes",
+    "title": "Tidyverse II: Transform, and visualize",
+    "section": "ggthemes",
+    "text": "ggthemes\n\nggplot(data = gapminder %&gt;% filter(year==2007),\n  aes(x = gdpPercap, y = lifeExp, color = continent)) +\n  geom_point() +\n  ggthemes::theme_economist()"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#theme",
+    "href": "slides/week-04/04-AmountsAndProportions.html#theme",
+    "title": "Tidyverse II: Transform, and visualize",
+    "section": "theme()",
+    "text": "theme()"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#how-to-learn-theme-arguments",
+    "href": "slides/week-04/04-AmountsAndProportions.html#how-to-learn-theme-arguments",
+    "title": "Tidyverse II: Transform, and visualize",
+    "section": "How to learn theme() arguments?",
+    "text": "How to learn theme() arguments?\n\nThere are 94 possible arguments for the theme() function\nMany of them are very specific. E.g., axis.ticks.length.x.top\nBest way: Trial and error. Practice makes (almost) perfect\nTry the ggThemeAssist package\nDocumentation: Modify components of a theme and ggplot complete themes"
   }
 ]

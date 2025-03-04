@@ -30,6 +30,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -343,8 +408,1035 @@ David Schweizer
 
   <p class="date">March 4, 2025</p>
 </section>
-<section id="tba" class="title-slide slide level1 center">
-<h1>TBA</h1>
+<section id="plan-for-today" class="slide level2">
+<h2>Plan for today</h2>
+<p>Organizational:</p>
+<ul>
+<li>First assignment: Online after our session. Deadline: 17.03.25 13:00</li>
+</ul>
+<p>Last week:</p>
+<ul>
+<li>Import, select, filter, and mutate data</li>
+</ul>
+<p>Today:</p>
+<ul>
+<li>Reshape, group &amp; summarize, join, and visualize</li>
+</ul>
+</section>
+<section id="our-workflow-so-far" class="slide level2">
+<h2>Our workflow so far…</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Import</a></li><li><a href="#tabset-1-2">Select &amp; Rename</a></li><li><a href="#tabset-1-3">Filter</a></li><li><a href="#tabset-1-4">Mutate</a></li><li><a href="#tabset-1-5"></a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># 2021 German federal election data (.csv)</span></span>
+<span id="cb1-2"><a></a></span>
+<span id="cb1-3"><a></a>election <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_delim</span>(<span class="st">"https://www.bundeswahlleiterin.de/bundestagswahlen/2025/ergebnisse/opendata/btw25/csv/kerg2.csv"</span>, </span>
+<span id="cb1-4"><a></a>                       <span class="at">delim =</span> <span class="st">";"</span>, </span>
+<span id="cb1-5"><a></a>                       <span class="at">escape_double =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb1-6"><a></a>                       <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>), </span>
+<span id="cb1-7"><a></a>                       <span class="at">trim_ws =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb1-8"><a></a>                       <span class="at">skip =</span> <span class="dv">9</span>)</span>
+<span id="cb1-9"><a></a></span>
+<span id="cb1-10"><a></a><span class="fu">names</span>(election) <span class="co"># and/or dim(), head(), str(), ...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Wahlart"            "Wahltag"            "Gebietsart"        
+ [4] "Gebietsnummer"      "Gebietsname"        "UegGebietsart"     
+ [7] "UegGebietsnummer"   "Gruppenart"         "Gruppenname"       
+[10] "Gruppenreihenfolge" "Stimme"             "Anzahl"            
+[13] "Prozent"            "VorpAnzahl"         "VorpProzent"       
+[16] "DiffProzent"        "DiffProzentPkt"     "Bemerkung"         
+[19] "Gewählt"           </code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>election <span class="ot">&lt;-</span> election <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="at">district_no =</span> Gebietsnummer,</span>
+<span id="cb3-3"><a></a>                <span class="at">district_type =</span> Gebietsart,</span>
+<span id="cb3-4"><a></a>                <span class="at">district_name =</span> Gebietsname,</span>
+<span id="cb3-5"><a></a>                <span class="at">group_type =</span> Gruppenart,</span>
+<span id="cb3-6"><a></a>                <span class="at">group_name =</span> Gruppenname,</span>
+<span id="cb3-7"><a></a>                <span class="at">vote =</span> Stimme,</span>
+<span id="cb3-8"><a></a>                <span class="at">vote_share =</span> Prozent)</span>
+<span id="cb3-9"><a></a></span>
+<span id="cb3-10"><a></a><span class="fu">head</span>(election, <span class="at">n=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 7
+  district_no district_type district_name group_type group_name  vote vote_share
+  &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt;
+1 99          Bund          Bundesgebiet  System-Gr… Wahlberec…    NA       NA  
+2 99          Bund          Bundesgebiet  System-Gr… Wählende      NA       82.5</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-3">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># keep vote shares of the AfD on the district level</span></span>
+<span id="cb5-2"><a></a>afd <span class="ot">&lt;-</span> election <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a></a>  <span class="fu">filter</span>(district_type <span class="sc">==</span> <span class="st">"Wahlkreis"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-4"><a></a>  <span class="fu">filter</span>(group_name <span class="sc">==</span> <span class="st">"AfD"</span>)</span>
+<span id="cb5-5"><a></a></span>
+<span id="cb5-6"><a></a><span class="co"># we can achieve the same in one line</span></span>
+<span id="cb5-7"><a></a>afd <span class="ot">&lt;-</span> election <span class="sc">%&gt;%</span> </span>
+<span id="cb5-8"><a></a>  <span class="fu">filter</span>(district_type <span class="sc">==</span> <span class="st">"Wahlkreis"</span> <span class="sc">&amp;</span> group_name <span class="sc">==</span> <span class="st">"AfD"</span>)</span>
+<span id="cb5-9"><a></a></span>
+<span id="cb5-10"><a></a><span class="fu">head</span>(afd, <span class="at">n =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 7
+  district_no district_type district_name group_type group_name  vote vote_share
+  &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt;
+1 001         Wahlkreis     Flensburg – … Partei     AfD            1       15.0
+2 001         Wahlkreis     Flensburg – … Partei     AfD            2       15.3</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-4">
+<p>How to easily calculate the difference between the AfDs first and second vote?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">head</span>(afd, <span class="at">n =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 7
+  district_no district_type district_name group_type group_name  vote vote_share
+  &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt;
+1 001         Wahlkreis     Flensburg – … Partei     AfD            1       15.0
+2 001         Wahlkreis     Flensburg – … Partei     AfD            2       15.3</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-5">
+
+</div>
+</div>
+</div>
+</section>
+<section id="reshape-the-data" class="slide level2">
+<h2>Reshape the data!</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Overview</a></li><li><a href="#tabset-2-2">To wide</a></li><li><a href="#tabset-2-3">Mutate</a></li><li><a href="#tabset-2-4">To long</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<p><img data-src="reshape.png"></p>
+</div>
+<div id="tabset-2-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>afd_wide <span class="ot">&lt;-</span> afd <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">"vote"</span>, </span>
+<span id="cb9-3"><a></a>              <span class="at">names_prefix =</span> <span class="st">"vote_share_"</span>,</span>
+<span id="cb9-4"><a></a>              <span class="at">values_from =</span> <span class="st">"vote_share"</span>)</span>
+<span id="cb9-5"><a></a></span>
+<span id="cb9-6"><a></a><span class="fu">head</span>(afd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 7
+  district_no district_type district_name group_type group_name  vote vote_share
+  &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt;
+1 001         Wahlkreis     Flensburg – … Partei     AfD            1       15.0
+2 001         Wahlkreis     Flensburg – … Partei     AfD            2       15.3
+3 002         Wahlkreis     Nordfrieslan… Partei     AfD            1       16.0
+4 002         Wahlkreis     Nordfrieslan… Partei     AfD            2       16.1
+5 003         Wahlkreis     Steinburg – … Partei     AfD            1       20.4
+6 003         Wahlkreis     Steinburg – … Partei     AfD            2       20.4</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-2-3">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>afd_wide <span class="ot">&lt;-</span> afd_wide <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a></a>  <span class="fu">mutate</span>(<span class="at">Vote_share_diff =</span> vote_share_1 <span class="sc">-</span> vote_share_2)</span>
+<span id="cb11-3"><a></a></span>
+<span id="cb11-4"><a></a><span class="fu">head</span>(afd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 7
+  district_no district_type district_name group_type group_name  vote vote_share
+  &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt;
+1 001         Wahlkreis     Flensburg – … Partei     AfD            1       15.0
+2 001         Wahlkreis     Flensburg – … Partei     AfD            2       15.3
+3 002         Wahlkreis     Nordfrieslan… Partei     AfD            1       16.0
+4 002         Wahlkreis     Nordfrieslan… Partei     AfD            2       16.1
+5 003         Wahlkreis     Steinburg – … Partei     AfD            1       20.4
+6 003         Wahlkreis     Steinburg – … Partei     AfD            2       20.4</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-2-4">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>afd_diff <span class="ot">&lt;-</span> afd <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">!</span><span class="fu">c</span>(district_no<span class="sc">:</span>group_name), </span>
+<span id="cb13-3"><a></a>               <span class="at">names_to =</span> <span class="st">"vote"</span>, </span>
+<span id="cb13-4"><a></a>               <span class="at">names_prefix =</span> <span class="st">"vote_share_"</span>,</span>
+<span id="cb13-5"><a></a>               <span class="at">values_to =</span> <span class="st">"vote_share"</span>)</span>
+<span id="cb13-6"><a></a></span>
+<span id="cb13-7"><a></a><span class="fu">head</span>(afd_diff,)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 7
+  district_no district_type district_name group_type group_name vote  vote_share
+  &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;
+1 001         Wahlkreis     Flensburg – … Partei     AfD        vote         1  
+2 001         Wahlkreis     Flensburg – … Partei     AfD        vote…       15.0
+3 001         Wahlkreis     Flensburg – … Partei     AfD        vote         2  
+4 001         Wahlkreis     Flensburg – … Partei     AfD        vote…       15.3
+5 002         Wahlkreis     Nordfrieslan… Partei     AfD        vote         1  
+6 002         Wahlkreis     Nordfrieslan… Partei     AfD        vote…       16.0</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="next-group-summarize" class="slide level2">
+<h2>Next: Group &amp; summarize</h2>
+<p>So far:</p>
+<ul>
+<li>We can generate new variables using <em>mutate()</em> keeping the structure of the data the same</li>
+</ul>
+<p>With <em>summarize():</em></p>
+<ul>
+<li><p>we change the structure of our data frame;</p></li>
+<li><p>any computations using <em>summarize()</em> collapses rows to summary statistics (e.g., mean, standard deviation);</p></li>
+<li><p>and removes all variables irrelevant for computing the summary statistics.</p></li>
+</ul>
+</section>
+<section id="example-summary-statistics---mutate" class="slide level2">
+<h2>Example: Summary statistics - mutate()</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>afd_mean <span class="ot">&lt;-</span> afd <span class="sc">%&gt;%</span> </span>
+<span id="cb15-2"><a></a>  <span class="fu">filter</span>(vote <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-3"><a></a>  <span class="fu">mutate</span>(<span class="at">mean =</span> <span class="fu">mean</span>(vote_share))</span>
+<span id="cb15-4"><a></a></span>
+<span id="cb15-5"><a></a><span class="fu">dim</span>(afd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 598   7</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">dim</span>(afd_mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 299   8</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">head</span>(afd_mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 8
+  district_no district_type district_name group_type group_name  vote vote_share
+  &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt;
+1 001         Wahlkreis     Flensburg – … Partei     AfD            2       15.3
+2 002         Wahlkreis     Nordfrieslan… Partei     AfD            2       16.1
+3 003         Wahlkreis     Steinburg – … Partei     AfD            2       20.4
+4 004         Wahlkreis     Rendsburg-Ec… Partei     AfD            2       16.0
+5 005         Wahlkreis     Kiel          Partei     AfD            2       10.8
+6 006         Wahlkreis     Plön – Neumü… Partei     AfD            2       18.0
+# ℹ 1 more variable: mean &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="summarize" class="slide level2">
+<h2>Summarize()</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>afd_mean <span class="ot">&lt;-</span> afd <span class="sc">%&gt;%</span> </span>
+<span id="cb21-2"><a></a>  <span class="fu">filter</span>(vote <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-3"><a></a>  <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(vote_share)) <span class="co"># option: "na.rm = TRUE"</span></span>
+<span id="cb21-4"><a></a></span>
+<span id="cb21-5"><a></a>afd_mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+   mean
+  &lt;dbl&gt;
+1  21.1</code></pre>
+</div>
+</div>
+</section>
+<section id="summarize-1" class="slide level2">
+<h2>Summarize()</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>afd_statistics <span class="ot">&lt;-</span> afd <span class="sc">%&gt;%</span> </span>
+<span id="cb23-2"><a></a>  <span class="fu">filter</span>(vote <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-3"><a></a>  <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(vote_share),      <span class="co"># option: "na.rm = TRUE"</span></span>
+<span id="cb23-4"><a></a>            <span class="at">median =</span> <span class="fu">median</span>(vote_share),</span>
+<span id="cb23-5"><a></a>            <span class="at">minimum =</span> <span class="fu">min</span>(vote_share),</span>
+<span id="cb23-6"><a></a>            <span class="at">maximum =</span> <span class="fu">max</span>(vote_share),</span>
+<span id="cb23-7"><a></a>            <span class="at">sd =</span> <span class="fu">sd</span>(vote_share)) </span>
+<span id="cb23-8"><a></a></span>
+<span id="cb23-9"><a></a>afd_statistics</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 5
+   mean median minimum maximum    sd
+  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
+1  21.1   19.4    6.28    46.7  8.50</code></pre>
+</div>
+</div>
+</section>
+<section id="group-and-summarize" class="slide level2">
+<h2>Group and summarize</h2>
+<p>We can use <em>group_by()</em> to calculate summary statistics for different groups:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>statistics_group <span class="ot">&lt;-</span> election <span class="sc">%&gt;%</span> </span>
+<span id="cb25-2"><a></a>  <span class="fu">filter</span>(district_type <span class="sc">==</span> <span class="st">"Wahlkreis"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-3"><a></a>  <span class="fu">filter</span>(vote <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-4"><a></a>  <span class="co"># this is the same as: filter(group_name == "SPD" | group_name == "CDU")</span></span>
+<span id="cb25-5"><a></a>  <span class="fu">filter</span>(group_name <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"SPD"</span>, <span class="st">"CDU"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-6"><a></a>  <span class="fu">group_by</span>(group_name) <span class="sc">%&gt;%</span>  <span class="co"># do not forget to ungroup()</span></span>
+<span id="cb25-7"><a></a>  <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(vote_share,</span>
+<span id="cb25-8"><a></a>                        <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-9"><a></a>  <span class="fu">ungroup</span>() <span class="co"># ungroup after</span></span>
+<span id="cb25-10"><a></a></span>
+<span id="cb25-11"><a></a>statistics_group</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  group_name  mean
+  &lt;chr&gt;      &lt;dbl&gt;
+1 CDU         26.8
+2 SPD         16.5</code></pre>
+</div>
+</div>
+</section>
+<section id="join-data" class="slide level2">
+<h2>Join data</h2>
+<p>In applied research, we oftentimes need to combine multiple data sets (e.g., multiple survey waves, election statistics, …).</p>
+<ul>
+<li><p>We can use <em>bind_cols()</em> if two (or more) data frames have different variables (columns) but same cases (rows).</p></li>
+<li><p>We can use <em>bind_rows()</em> if two (or more) data frames have the same variables (columns) but different cases (rows).</p></li>
+</ul>
+<p>We can also use <em>join</em> operators from the dplyr package. These allow us to combine data frames based on a (shared) <em>key</em>.</p>
+</section>
+<section id="binding-columns" class="slide level2">
+<h2>Binding columns</h2>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Data 1</a></li><li><a href="#tabset-3-2">Data 2</a></li><li><a href="#tabset-3-3">bind_cols</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="co"># Let's use our gapminder_example data</span></span>
+<span id="cb27-2"><a></a><span class="fu">library</span>(gapminder)</span>
+<span id="cb27-3"><a></a></span>
+<span id="cb27-4"><a></a>gapminder_example <span class="ot">&lt;-</span> gapminder </span>
+<span id="cb27-5"><a></a></span>
+<span id="cb27-6"><a></a><span class="fu">head</span>(gapminder_example)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 6
+  country     continent  year lifeExp      pop gdpPercap
+  &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+1 Afghanistan Asia       1952    28.8  8425333      779.
+2 Afghanistan Asia       1957    30.3  9240934      821.
+3 Afghanistan Asia       1962    32.0 10267083      853.
+4 Afghanistan Asia       1967    34.0 11537966      836.
+5 Afghanistan Asia       1972    36.1 13079460      740.
+6 Afghanistan Asia       1977    38.4 14880372      786.</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-3-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="co"># and add this dataframe</span></span>
+<span id="cb29-2"><a></a>random <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">r1 =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1704</span>))</span>
+<span id="cb29-3"><a></a></span>
+<span id="cb29-4"><a></a><span class="fu">head</span>(random)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  r1
+1  1
+2  2
+3  3
+4  4
+5  5
+6  6</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-3-3">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="co"># now we can just join these two dataframes</span></span>
+<span id="cb31-2"><a></a>new <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(gapminder_example, random)</span>
+<span id="cb31-3"><a></a></span>
+<span id="cb31-4"><a></a>new</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,704 × 7
+   country     continent  year lifeExp      pop gdpPercap    r1
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt; &lt;int&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.     1
+ 2 Afghanistan Asia       1957    30.3  9240934      821.     2
+ 3 Afghanistan Asia       1962    32.0 10267083      853.     3
+ 4 Afghanistan Asia       1967    34.0 11537966      836.     4
+ 5 Afghanistan Asia       1972    36.1 13079460      740.     5
+ 6 Afghanistan Asia       1977    38.4 14880372      786.     6
+ 7 Afghanistan Asia       1982    39.9 12881816      978.     7
+ 8 Afghanistan Asia       1987    40.8 13867957      852.     8
+ 9 Afghanistan Asia       1992    41.7 16317921      649.     9
+10 Afghanistan Asia       1997    41.8 22227415      635.    10
+# ℹ 1,694 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="binding-rows" class="slide level2">
+<h2>Binding rows</h2>
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Data 1</a></li><li><a href="#tabset-4-2">Data 2</a></li><li><a href="#tabset-4-3">bind_rows</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="co"># Let's use our gapminder_example data</span></span>
+<span id="cb33-2"><a></a><span class="fu">head</span>(gapminder_example)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 6
+  country     continent  year lifeExp      pop gdpPercap
+  &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+1 Afghanistan Asia       1952    28.8  8425333      779.
+2 Afghanistan Asia       1957    30.3  9240934      821.
+3 Afghanistan Asia       1962    32.0 10267083      853.
+4 Afghanistan Asia       1967    34.0 11537966      836.
+5 Afghanistan Asia       1972    36.1 13079460      740.
+6 Afghanistan Asia       1977    38.4 14880372      786.</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-4-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a><span class="co"># and add this dataframe</span></span>
+<span id="cb35-2"><a></a>more_info <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">country =</span> <span class="st">"Austria"</span>,</span>
+<span id="cb35-3"><a></a>                        <span class="at">year =</span> <span class="dv">2007</span>,</span>
+<span id="cb35-4"><a></a>                        <span class="at">gdpPercap =</span> <span class="cn">NA</span>)</span>
+<span id="cb35-5"><a></a></span>
+<span id="cb35-6"><a></a>more_info</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  country year gdpPercap
+1 Austria 2007        NA</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-4-3">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="co"># now we can just join these two dataframes</span></span>
+<span id="cb37-2"><a></a>gapminder_added <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(gapminder_example, more_info)</span>
+<span id="cb37-3"><a></a></span>
+<span id="cb37-4"><a></a>gapminder_added</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,705 × 6
+   country     continent  year lifeExp      pop gdpPercap
+   &lt;chr&gt;       &lt;fct&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.
+ 2 Afghanistan Asia       1957    30.3  9240934      821.
+ 3 Afghanistan Asia       1962    32.0 10267083      853.
+ 4 Afghanistan Asia       1967    34.0 11537966      836.
+ 5 Afghanistan Asia       1972    36.1 13079460      740.
+ 6 Afghanistan Asia       1977    38.4 14880372      786.
+ 7 Afghanistan Asia       1982    39.9 12881816      978.
+ 8 Afghanistan Asia       1987    40.8 13867957      852.
+ 9 Afghanistan Asia       1992    41.7 16317921      649.
+10 Afghanistan Asia       1997    41.8 22227415      635.
+# ℹ 1,695 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="join-data-frames-left_join" class="slide level2">
+<h2>Join data frames: left_join()</h2>
+<p>Other joins: <a href="https://github.com/gadenbuie/tidyexplain" class="uri">https://github.com/gadenbuie/tidyexplain</a></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="left-join.gif"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="full-join.gif"></p>
+</div>
+</div>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>1, 2, 3, and 4 are unique identifiers in this case. What might be unique identifiers in our 2025 election results data set?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="example-left_join" class="slide level2">
+<h2>Example: left_join()</h2>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Election</a></li><li><a href="#tabset-5-2">Structural</a></li><li><a href="#tabset-5-3">Join</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>election <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_delim</span>(<span class="st">"https://www.bundeswahlleiterin.de/bundestagswahlen/2025/ergebnisse/opendata/btw25/csv/kerg2.csv"</span>, </span>
+<span id="cb39-2"><a></a>                       <span class="at">delim =</span> <span class="st">";"</span>, </span>
+<span id="cb39-3"><a></a>                       <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>), </span>
+<span id="cb39-4"><a></a>                       <span class="at">skip =</span> <span class="dv">9</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-5"><a></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="at">district_no =</span> Gebietsnummer, <span class="at">district_type =</span> Gebietsart, <span class="at">district_name =</span> Gebietsname,</span>
+<span id="cb39-6"><a></a>                <span class="at">group_type =</span> Gruppenart, <span class="at">group_name =</span> Gruppenname,</span>
+<span id="cb39-7"><a></a>                <span class="at">vote =</span> Stimme, <span class="at">vote_share =</span> Prozent) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-8"><a></a>  <span class="fu">filter</span>(district_type <span class="sc">==</span> <span class="st">"Wahlkreis"</span> <span class="sc">&amp;</span> group_name <span class="sc">==</span> <span class="st">"AfD"</span> <span class="sc">&amp;</span> vote <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-9"><a></a>  <span class="fu">mutate</span>(<span class="at">district_no =</span> <span class="fu">as.numeric</span>(district_no))</span>
+<span id="cb39-10"><a></a></span>
+<span id="cb39-11"><a></a><span class="fu">head</span>(election, <span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 7
+  district_no district_type district_name group_type group_name  vote vote_share
+        &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt;
+1           1 Wahlkreis     Flensburg – … Partei     AfD            2       15.3
+2           2 Wahlkreis     Nordfrieslan… Partei     AfD            2       16.1
+3           3 Wahlkreis     Steinburg – … Partei     AfD            2       20.4</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-5-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>structural <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_delim</span>(<span class="st">"https://www.bundeswahlleiterin.de/dam/jcr/181f9e38-38db-4f64-991c-8141dfa0f2cb/btw2025_strukturdaten.csv"</span>, </span>
+<span id="cb41-2"><a></a>                                <span class="at">delim =</span> <span class="st">";"</span>, <span class="at">escape_double =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb41-3"><a></a>                                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>),</span>
+<span id="cb41-4"><a></a>                                <span class="at">trim_ws =</span> <span class="cn">TRUE</span>, <span class="at">skip =</span> <span class="dv">9</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb41-5"><a></a>  <span class="co"># we need quotation marks since the colum names include - and spaces</span></span>
+<span id="cb41-6"><a></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="at">district_no =</span> <span class="st">"Wahlkreis-Nr."</span>,</span>
+<span id="cb41-7"><a></a>                <span class="at">district_name =</span> <span class="st">"Wahlkreis-Name"</span>,</span>
+<span id="cb41-8"><a></a>                <span class="at">unemployment_rate =</span> <span class="st">"Arbeitslosenquote November 2024 - insgesamt"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb41-9"><a></a>  <span class="fu">filter</span>(district_no <span class="sc">&lt;=</span> <span class="dv">299</span>)</span>
+<span id="cb41-10"><a></a></span>
+<span id="cb41-11"><a></a><span class="fu">head</span>(structural)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  district_no district_name                     unemployment_rate
+        &lt;dbl&gt; &lt;chr&gt;                                         &lt;dbl&gt;
+1           1 Flensburg – Schleswig                           6.3
+2           2 Nordfriesland – Dithmarschen Nord               5.3
+3           3 Steinburg – Dithmarschen Süd                    5.7
+4           4 Rendsburg-Eckernförde                           4.6
+5           5 Kiel                                            7.6
+6           6 Plön – Neumünster                               5.8</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-5-3">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a><span class="co"># Think: Could we also use bind_rows() or bind_cols()?</span></span>
+<span id="cb43-2"><a></a>election_structural <span class="ot">&lt;-</span> election <span class="sc">%&gt;%</span> </span>
+<span id="cb43-3"><a></a>  <span class="fu">select</span>(<span class="sc">-</span>district_name) <span class="sc">%&gt;%</span> <span class="co"># remove district name from the election dataframe to avoid doubles after joining</span></span>
+<span id="cb43-4"><a></a>  <span class="fu">left_join</span>(structural, <span class="at">by =</span> <span class="st">"district_no"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb43-5"><a></a>  <span class="fu">select</span>(district_no, district_name, vote_share, unemployment_rate)</span>
+<span id="cb43-6"><a></a></span>
+<span id="cb43-7"><a></a><span class="fu">head</span>(election_structural)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  district_no district_name                     vote_share unemployment_rate
+        &lt;dbl&gt; &lt;chr&gt;                                  &lt;dbl&gt;             &lt;dbl&gt;
+1           1 Flensburg – Schleswig                   15.3               6.3
+2           2 Nordfriesland – Dithmarschen Nord       16.1               5.3
+3           3 Steinburg – Dithmarschen Süd            20.4               5.7
+4           4 Rendsburg-Eckernförde                   16.0               4.6
+5           5 Kiel                                    10.8               7.6
+6           6 Plön – Neumünster                       18.0               5.8</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="save-your-data" class="slide level2">
+<h2>Save your data</h2>
+<p>We can easily save our data frame:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a><span class="fu">save</span>(election_structural,</span>
+<span id="cb45-2"><a></a>     <span class="at">file=</span><span class="st">"election_structural.Rda"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And load it again:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a><span class="co"># make sure that you are in the right working directory!</span></span>
+<span id="cb46-2"><a></a><span class="co"># Session -&gt; Set working directory</span></span>
+<span id="cb46-3"><a></a><span class="fu">load</span>(<span class="st">"election_structural.Rda"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="your-turn" class="title-slide slide level1 center">
+<h1>Your turn!</h1>
+<p>You find the first exercise on ILIAS or on the course website.</p>
+</section>
+
+<section>
+<section id="visualize-data" class="title-slide slide level1 center">
+<h1>Visualize data</h1>
+
+</section>
+<section id="look-at-your-data" class="slide level2">
+<h2>Look at your data!</h2>
+<div class="panel-tabset">
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">The data</a></li><li><a href="#tabset-6-2">Summary statistics</a></li><li><a href="#tabset-6-3">Visual inspection</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a><span class="co"># Have a look at the first 10 data points:</span></span>
+<span id="cb47-2"><a></a><span class="fu">head</span>(data, <span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        V1      V2
+1  55.3846 97.1795
+2  51.5385 96.0256
+3  46.1538 94.4872
+4  42.8205 91.4103
+5  40.7692 88.3333
+6  38.7179 84.8718
+7  35.6410 79.8718
+8  33.0769 77.5641
+9  28.9744 74.4872
+10 26.1538 71.4103</code></pre>
+</div>
+</div>
+<p>For a deep dive, have a look at <a href="https://www.research.autodesk.com/publications/same-stats-different-graphs/">this blog post by Autodesk</a>, <a href="http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html">this post by Alberto Cairo</a>, or <a href="https://cran.r-project.org/web/packages/datasauRus/vignettes/Datasaurus.html">this R package</a>.</p>
+</div>
+<div id="tabset-6-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a><span class="co"># Inspect mean of V1</span></span>
+<span id="cb49-2"><a></a><span class="fu">mean</span>(data<span class="sc">$</span>V1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 54.26327</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a><span class="co"># Inspect mean of V2</span></span>
+<span id="cb51-2"><a></a><span class="fu">mean</span>(data<span class="sc">$</span>V2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 47.83225</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a></a><span class="co"># Inspect the correlation between V1 and V2</span></span>
+<span id="cb53-2"><a></a><span class="fu">cor</span>(data<span class="sc">$</span>V1, data<span class="sc">$</span>V2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.06447185</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-6-3">
+<p><a href="http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html"><img data-src="datasaurus.png" width="695"></a></p>
+</div>
+</div>
+</div>
+</section>
+<section id="the-datasaurus-dozen" class="slide level2">
+<h2>The datasaurus dozen</h2>
+<p><a href="https://www.research.autodesk.com/publications/same-stats-different-graphs/"><img data-src="DinoSequentialSmaller.gif"></a></p>
+</section>
+<section id="what-makes-a-great-visualization" class="slide level2">
+<h2>What makes a great visualization?</h2>
+<p>Graphical excellence is the <strong>well-designed presentation</strong> of <strong>interesting data</strong>—a matter of substance, of statistics, and of design … [It] consists of complex ideas communicated with clarity, precision, and efficiency. … [It] is that which gives to the viewer the <strong>greatest number of ideas in the shortest time with the least ink in the smallest space</strong> … [It] is nearly always multivariate … And graphical excellence requires <strong>telling the truth</strong> about the data.&nbsp;</p>
+<p><br>
+Edward Tufte (1983). <em>The Visual Display of Quantitative Information</em>, p.&nbsp;51.</p>
+</section>
+<section id="maximize-data-ink-ratio" class="slide level2">
+<h2>Maximize Data-Ink Ratio</h2>
+
+<img data-src="ink1.png" class="r-stretch quarto-figure-center"><p class="caption">Bray, Tim. <a href="http://www.tbray.org/ongoing/data-ink/di1" class="uri">http://www.tbray.org/ongoing/data-ink/di1</a></p></section>
+<section id="remove-grid" class="slide level2">
+<h2>Remove Grid</h2>
+
+<img data-src="ink2.png" class="r-stretch quarto-figure-center"><p class="caption">Bray, Tim. <a href="http://www.tbray.org/ongoing/data-ink/di2" class="uri">http://www.tbray.org/ongoing/data-ink/di2</a></p></section>
+<section id="remove-background" class="slide level2">
+<h2>Remove Background</h2>
+
+<img data-src="ink3.png" class="r-stretch quarto-figure-center"><p class="caption">Bray, Tim. <a href="http://www.tbray.org/ongoing/data-ink/di3" class="uri">http://www.tbray.org/ongoing/data-ink/di3</a></p></section>
+<section id="remove-box" class="slide level2">
+<h2>Remove Box</h2>
+
+<img data-src="ink4.png" class="r-stretch quarto-figure-center"><p class="caption">Bray, Tim. <a href="http://www.tbray.org/ongoing/data-ink/di4" class="uri">http://www.tbray.org/ongoing/data-ink/di4</a></p></section>
+<section id="add-horizontal-line" class="slide level2">
+<h2>Add horizontal “line”</h2>
+
+<img data-src="ink5.png" class="r-stretch quarto-figure-center"><p class="caption">Bray, Tim. <a href="http://www.tbray.org/ongoing/data-ink/di5" class="uri">http://www.tbray.org/ongoing/data-ink/di5</a></p></section>
+<section id="remove-axis-line-and-ticks" class="slide level2">
+<h2>Remove axis line and ticks</h2>
+
+<img data-src="ink6.png" class="r-stretch quarto-figure-center"><p class="caption">Bray, Tim. <a href="http://www.tbray.org/ongoing/data-ink/di6" class="uri">http://www.tbray.org/ongoing/data-ink/di6</a></p></section></section>
+<section>
+<section id="grammar-of-graphics" class="title-slide slide level1 center">
+<h1>Grammar of graphics</h1>
+
+</section>
+<section id="grammatical-layers" class="slide level2">
+<h2>Grammatical Layers</h2>
+<div class="panel-tabset">
+<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Foundational</a></li><li><a href="#tabset-7-2">Code</a></li><li><a href="#tabset-7-3">Additional</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1">
+<p><img data-src="ggplot-layers-short@4x.png" width="798"></p>
+</div>
+<div id="tabset-7-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder,</span>
+<span id="cb55-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap,</span>
+<span id="cb55-3"><a></a>                           <span class="at">y =</span> lifeExp,</span>
+<span id="cb55-4"><a></a>                           <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb55-5"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-7-3">
+<p><img data-src="ggplot-layers@4x.png" width="425"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="building-a-ggplot-step-by-step" class="slide level2">
+<h2>Building a ggplot step-by-step</h2>
+<div class="panel-tabset">
+<ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1">Packages</a></li><li><a href="#tabset-8-2">Code</a></li><li><a href="#tabset-8-3">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1">
+<p>Packages to reproduce the plots:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a></a><span class="co"># library(tidyverse)</span></span>
+<span id="cb56-2"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb56-3"><a></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb56-4"><a></a><span class="fu">library</span>(gapminder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-8-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
+<span id="cb57-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, </span>
+<span id="cb57-3"><a></a>      <span class="at">y =</span> lifeExp,</span>
+<span id="cb57-4"><a></a>  <span class="at">color =</span> continent))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-8-3">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="04-AmountsAndProportions_files/figure-revealjs/unnamed-chunk-30-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-a-geometry-geom_point" class="slide level2">
+<h2>Adding a geometry: geom_point()</h2>
+<div class="panel-tabset">
+<ul id="tabset-9" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-9-1">Code</a></li><li><a href="#tabset-9-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-9-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
+<span id="cb58-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, </span>
+<span id="cb58-3"><a></a>      <span class="at">y =</span> lifeExp,</span>
+<span id="cb58-4"><a></a>  <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb58-5"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-9-2">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="04-AmountsAndProportions_files/figure-revealjs/unnamed-chunk-32-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-a-scale" class="slide level2">
+<h2>Adding a scale</h2>
+<div class="panel-tabset">
+<ul id="tabset-10" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-10-1">Code</a></li><li><a href="#tabset-10-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-10-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
+<span id="cb59-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp,</span>
+<span id="cb59-3"><a></a>  <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb59-4"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb59-5"><a></a>  <span class="fu">scale_x_log10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-10-2">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="04-AmountsAndProportions_files/figure-revealjs/unnamed-chunk-34-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-further-geometries" class="slide level2">
+<h2>Adding further geometries</h2>
+<div class="panel-tabset">
+<ul id="tabset-11" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-11-1">Code</a></li><li><a href="#tabset-11-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-11-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
+<span id="cb60-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp,</span>
+<span id="cb60-3"><a></a>  <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb60-4"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb60-5"><a></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb60-6"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-11-2">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="04-AmountsAndProportions_files/figure-revealjs/unnamed-chunk-36-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="add-different-color-scale" class="slide level2">
+<h2>Add different color scale</h2>
+<div class="panel-tabset">
+<ul id="tabset-12" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-12-1">Code</a></li><li><a href="#tabset-12-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-12-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
+<span id="cb61-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, </span>
+<span id="cb61-3"><a></a>      <span class="at">y =</span> lifeExp,</span>
+<span id="cb61-4"><a></a>  <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb61-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb61-6"><a></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb61-7"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb61-8"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-12-2">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="04-AmountsAndProportions_files/figure-revealjs/unnamed-chunk-38-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="use-facets" class="slide level2">
+<h2>Use facets</h2>
+<div class="panel-tabset">
+<ul id="tabset-13" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-13-1">Code</a></li><li><a href="#tabset-13-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-13-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
+<span id="cb62-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, </span>
+<span id="cb62-3"><a></a>      <span class="at">y =</span> lifeExp,</span>
+<span id="cb62-4"><a></a>  <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb62-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb62-6"><a></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb62-7"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb62-8"><a></a>  <span class="fu">scale_color_viridis_d</span>() <span class="sc">+</span></span>
+<span id="cb62-9"><a></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(continent), <span class="at">ncol =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-13-2">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="04-AmountsAndProportions_files/figure-revealjs/unnamed-chunk-40-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="add-titles-subtitles-etc." class="slide level2">
+<h2>Add titles, subtitles, etc.</h2>
+<div class="panel-tabset">
+<ul id="tabset-14" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-14-1">Code</a></li><li><a href="#tabset-14-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-14-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
+<span id="cb63-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, </span>
+<span id="cb63-3"><a></a>      <span class="at">y =</span> lifeExp,</span>
+<span id="cb63-4"><a></a>  <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb63-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb63-6"><a></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb63-7"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb63-8"><a></a>  <span class="fu">scale_color_viridis_d</span>() <span class="sc">+</span></span>
+<span id="cb63-9"><a></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(continent), <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb63-10"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"GDP per capita"</span>, </span>
+<span id="cb63-11"><a></a>       <span class="at">y =</span> <span class="st">"Life expectancy"</span>,</span>
+<span id="cb63-12"><a></a>       <span class="at">color =</span> <span class="st">"Continent"</span>,</span>
+<span id="cb63-13"><a></a>       <span class="at">title =</span> <span class="st">"Wealth = Health?"</span>,</span>
+<span id="cb63-14"><a></a>       <span class="at">subtitle =</span> <span class="st">"gdpPercap/lifeExp"</span>,</span>
+<span id="cb63-15"><a></a>       <span class="at">caption =</span> <span class="st">"Gapminder dataset"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-14-2">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="04-AmountsAndProportions_files/figure-revealjs/unnamed-chunk-42-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="more-geometries" class="slide level2">
+<h2>More geometries</h2>
+<div class="panel-tabset">
+<ul id="tabset-15" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-15-1">Code</a></li><li><a href="#tabset-15-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-15-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">filter</span>(gapminder, year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2007</span>)),</span>
+<span id="cb64-2"><a></a><span class="fu">aes</span>(<span class="at">x =</span> lifeExp,</span>
+<span id="cb64-3"><a></a><span class="at">fill =</span> continent)) <span class="sc">+</span></span>
+<span id="cb64-4"><a></a><span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>,</span>
+<span id="cb64-5"><a></a>               <span class="at">color =</span> <span class="st">"grey"</span>) <span class="sc">+</span></span>
+<span id="cb64-6"><a></a><span class="fu">scale_fill_viridis_d</span>() <span class="sc">+</span></span>
+<span id="cb64-7"><a></a><span class="fu">facet_wrap</span>(<span class="fu">vars</span>(continent), <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb64-8"><a></a><span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-15-2">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="04-AmountsAndProportions_files/figure-revealjs/unnamed-chunk-44-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="more-geometries-1" class="slide level2">
+<h2>More geometries</h2>
+<div class="panel-tabset">
+<ul id="tabset-16" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-16-1">Code</a></li><li><a href="#tabset-16-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-16-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a></a>colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"orange"</span>, <span class="st">"yellow"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>)</span>
+<span id="cb65-2"><a></a></span>
+<span id="cb65-3"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">filter</span>(gapminder, year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2007</span>)),</span>
+<span id="cb65-4"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> continent,</span>
+<span id="cb65-5"><a></a>      <span class="at">y =</span> lifeExp,</span>
+<span id="cb65-6"><a></a>      <span class="at">fill =</span> continent)) <span class="sc">+</span></span>
+<span id="cb65-7"><a></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb65-8"><a></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> colors) <span class="sc">+</span></span>
+<span id="cb65-9"><a></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-16-2">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="04-AmountsAndProportions_files/figure-revealjs/unnamed-chunk-46-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="more-geometries-2" class="slide level2">
+<h2>More geometries</h2>
+<div class="panel-tabset">
+<ul id="tabset-17" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-17-1">Code</a></li><li><a href="#tabset-17-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-17-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a></a><span class="fu">ggplot</span>(gapminder, <span class="fu">aes</span>(<span class="at">x =</span> year, </span>
+<span id="cb66-2"><a></a>                      <span class="at">y =</span> lifeExp,</span>
+<span id="cb66-3"><a></a>                      <span class="at">group =</span> country)) <span class="sc">+</span></span>
+<span id="cb66-4"><a></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">color=</span><span class="st">"grey"</span>) <span class="sc">+</span></span>
+<span id="cb66-5"><a></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(country <span class="sc">%in%</span> <span class="fu">c</span>(</span>
+<span id="cb66-6"><a></a>    <span class="st">"Germany"</span>,</span>
+<span id="cb66-7"><a></a>    <span class="st">"India"</span>,</span>
+<span id="cb66-8"><a></a>    <span class="st">"Rwanda"</span>)),</span>
+<span id="cb66-9"><a></a>    <span class="at">lwd =</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="co"># thicker line</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-17-2">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="04-AmountsAndProportions_files/figure-revealjs/unnamed-chunk-48-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="themes" class="slide level2">
+<h2>Themes</h2>
+<p>Make use of existing themes:</p>
+<ul>
+<li><p><a href="https://github.com/hrbrmstr/hrbrthemes">hrbrthemes</a></p></li>
+<li><p><a href="https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/">ggthemes</a></p></li>
+<li><p>…</p></li>
+</ul>
+<p>There are many more! And you can even create your own theme!</p>
+</section>
+<section id="hrbrthemes" class="slide level2">
+<h2>hrbrthemes</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
+<span id="cb67-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb67-3"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb67-4"><a></a>  hrbrthemes<span class="sc">::</span><span class="fu">theme_ipsum_ps</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<img data-src="04-AmountsAndProportions_files/figure-revealjs/unnamed-chunk-50-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="hrbrthemes-1" class="slide level2">
+<h2>hrbrthemes</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
+<span id="cb68-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb68-3"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb68-4"><a></a>  hrbrthemes<span class="sc">::</span><span class="fu">theme_modern_rc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<img data-src="04-AmountsAndProportions_files/figure-revealjs/unnamed-chunk-52-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="ggthemes" class="slide level2">
+<h2>ggthemes</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
+<span id="cb69-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb69-3"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb69-4"><a></a>  ggthemes<span class="sc">::</span><span class="fu">theme_economist</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<img data-src="04-AmountsAndProportions_files/figure-revealjs/unnamed-chunk-54-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="theme" class="slide level2">
+<h2>theme()</h2>
+<p><a href="https://henrywang.nl/ggplot2-theme-elements-demonstration/"><img data-src="theme_elements.png"></a></p>
+</section>
+<section id="how-to-learn-theme-arguments" class="slide level2">
+<h2>How to learn theme() arguments?</h2>
+<ul>
+<li><p>There are <strong>94</strong> possible arguments for the <em>theme()</em> function</p></li>
+<li><p>Many of them are very specific. E.g., <em>axis.ticks.length.x.top</em></p></li>
+<li><p>Best way: Trial and error. Practice makes (almost) perfect</p></li>
+<li><p>Try the <strong>ggThemeAssist</strong> <strong>package</strong></p></li>
+<li><p>Documentation: <a href="https://ggplot2.tidyverse.org/reference/theme.html">Modify components of a theme</a> and <a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">ggplot complete themes</a></p></li>
+</ul>
+</section></section>
+<section id="your-turn-1" class="title-slide slide level1 center">
+<h1>Your turn!</h1>
+<p>You find the second exercise on ILIAS or on the course website.</p>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
@@ -562,6 +1654,82 @@ David Schweizer
         ]
       });
     </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

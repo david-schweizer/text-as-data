@@ -5,7 +5,8 @@
       "/weeks/week-01.html",
       "/weeks/week-02.html",
       "/weeks/week-03.html",
-      "/weeks/week-04.html"
+      "/weeks/week-04.html",
+      "/weeks/week-05.html"
     ]
   },
   {
@@ -33,7 +34,8 @@
   {
     "listing": "/weeks/week-04.html",
     "items": [
-      "/slides/week-04/04-AmountsAndProportions.html"
+      "/slides/week-04/04-AmountsAndProportions.html",
+      "/slides/week-04/05-Themes.html"
     ]
   },
   {

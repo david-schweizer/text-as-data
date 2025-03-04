@@ -12,4 +12,836 @@ format:
     footer: "Text-as-Data in R | Spring 2025 | University of Mannheim"
 editor: visual
 ---
-# TBA
+
+```{r}
+library(tidyverse)
+```
+
+## Plan for today
+
+Organizational:
+
+-   First assignment: Online after our session. Deadline: 17.03.25 13:00
+
+Last week:
+
+-   Import, select, filter, and mutate data
+
+Today:
+
+-   Reshape, group & summarize, join, and visualize
+
+## Our workflow so far...
+
+::: panel-tabset
+## Import
+
+```{r, echo=TRUE}
+# 2021 German federal election data (.csv)
+
+election <- readr::read_delim("https://www.bundeswahlleiterin.de/bundestagswahlen/2025/ergebnisse/opendata/btw25/csv/kerg2.csv", 
+                       delim = ";", 
+                       escape_double = FALSE, 
+                       locale = locale(decimal_mark = ","), 
+                       trim_ws = TRUE, 
+                       skip = 9)
+
+names(election) # and/or dim(), head(), str(), ...
+```
+
+## Select & Rename
+
+```{r, echo=TRUE}
+election <- election %>% 
+  dplyr::select(district_no = Gebietsnummer,
+                district_type = Gebietsart,
+                district_name = Gebietsname,
+                group_type = Gruppenart,
+                group_name = Gruppenname,
+                vote = Stimme,
+                vote_share = Prozent)
+
+head(election, n=2)
+```
+
+## Filter
+
+```{r, echo=TRUE}
+# keep vote shares of the AfD on the district level
+afd <- election %>% 
+  filter(district_type == "Wahlkreis") %>% 
+  filter(group_name == "AfD")
+
+# we can achieve the same in one line
+afd <- election %>% 
+  filter(district_type == "Wahlkreis" & group_name == "AfD")
+
+head(afd, n = 2)
+```
+
+## Mutate
+
+How to easily calculate the difference between the AfDs first and second vote?
+
+```{r, echo=TRUE}
+head(afd, n = 2)
+```
+
+## 
+:::
+
+## Reshape the data!
+
+::: panel-tabset
+## Overview
+
+![](reshape.png)
+
+## To wide
+
+```{r, echo=TRUE}
+afd_wide <- afd %>%
+  pivot_wider(names_from = "vote", 
+              names_prefix = "vote_share_",
+              values_from = "vote_share")
+
+head(afd)
+```
+
+## Mutate
+
+```{r, echo=TRUE}
+afd_wide <- afd_wide %>% 
+  mutate(Vote_share_diff = vote_share_1 - vote_share_2)
+
+head(afd)
+```
+
+## To long
+
+```{r, echo=TRUE}
+afd_diff <- afd %>%
+  pivot_longer(cols = !c(district_no:group_name), 
+               names_to = "vote", 
+               names_prefix = "vote_share_",
+               values_to = "vote_share")
+
+head(afd_diff,)
+```
+:::
+
+## Next: Group & summarize
+
+So far:
+
+-   We can generate new variables using *mutate()* keeping the structure of the data the same
+
+With *summarize():*
+
+-   we change the structure of our data frame;
+
+-   any computations using *summarize()* collapses rows to summary statistics (e.g., mean, standard deviation);
+
+-   and removes all variables irrelevant for computing the summary statistics.
+
+## Example: Summary statistics - mutate()
+
+```{r, echo=TRUE}
+afd_mean <- afd %>% 
+  filter(vote == 2) %>% 
+  mutate(mean = mean(vote_share))
+
+dim(afd)
+dim(afd_mean)
+
+head(afd_mean)
+```
+
+## Summarize()
+
+```{r, echo=TRUE}
+afd_mean <- afd %>% 
+  filter(vote == 2) %>% 
+  summarize(mean = mean(vote_share)) # option: "na.rm = TRUE"
+
+afd_mean
+```
+
+## Summarize()
+
+```{r, echo=TRUE}
+afd_statistics <- afd %>% 
+  filter(vote == 2) %>% 
+  summarize(mean = mean(vote_share),      # option: "na.rm = TRUE"
+            median = median(vote_share),
+            minimum = min(vote_share),
+            maximum = max(vote_share),
+            sd = sd(vote_share)) 
+
+afd_statistics
+```
+
+## Group and summarize
+
+We can use *group_by()* to calculate summary statistics for different groups:
+
+```{r, echo=TRUE}
+statistics_group <- election %>% 
+  filter(district_type == "Wahlkreis") %>% 
+  filter(vote == 2) %>% 
+  # this is the same as: filter(group_name == "SPD" | group_name == "CDU")
+  filter(group_name %in% c("SPD", "CDU")) %>% 
+  group_by(group_name) %>%  # do not forget to ungroup()
+  summarize(mean = mean(vote_share,
+                        na.rm = TRUE)) %>% 
+  ungroup() # ungroup after
+
+statistics_group
+```
+
+## Join data
+
+In applied research, we oftentimes need to combine multiple data sets (e.g., multiple survey waves, election statistics, ...).
+
+-   We can use *bind_cols()* if two (or more) data frames have different variables (columns) but same cases (rows).
+
+-   We can use *bind_rows()* if two (or more) data frames have the same variables (columns) but different cases (rows).
+
+We can also use *join* operators from the dplyr package. These allow us to combine data frames based on a (shared) *key*.
+
+## Binding columns
+
+::: panel-tabset
+## Data 1
+
+```{r, echo=TRUE}
+# Let's use our gapminder_example data
+library(gapminder)
+
+gapminder_example <- gapminder 
+
+head(gapminder_example)
+
+```
+
+## Data 2
+
+```{r, echo=TRUE}
+# and add this dataframe
+random <- data.frame(r1 = c(1:1704))
+
+head(random)
+```
+
+## bind_cols
+
+```{r, echo=TRUE}
+# now we can just join these two dataframes
+new <- bind_cols(gapminder_example, random)
+
+new
+```
+:::
+
+## Binding rows
+
+::: panel-tabset
+## Data 1
+
+```{r, echo = TRUE}
+# Let's use our gapminder_example data
+head(gapminder_example)
+
+```
+
+## Data 2
+
+```{r, echo=TRUE}
+# and add this dataframe
+more_info <- data.frame(country = "Austria",
+                        year = 2007,
+                        gdpPercap = NA)
+
+more_info
+```
+
+## bind_rows
+
+```{r, echo=TRUE}
+# now we can just join these two dataframes
+gapminder_added <- bind_rows(gapminder_example, more_info)
+
+gapminder_added
+```
+:::
+
+## Join data frames: left_join()
+
+Other joins: <https://github.com/gadenbuie/tidyexplain>
+
+::: columns
+::: {.column width="50%"}
+![](left-join.gif)
+:::
+
+::: {.column width="50%"}
+![](full-join.gif)
+:::
+:::
+
+::: {.callout-tip appearance="simple" icon="false"}
+1, 2, 3, and 4 are unique identifiers in this case. What might be unique identifiers in our 2025 election results data set?
+:::
+
+## Example: left_join()
+
+::: panel-tabset
+## Election
+
+```{r, echo=TRUE}
+election <- readr::read_delim("https://www.bundeswahlleiterin.de/bundestagswahlen/2025/ergebnisse/opendata/btw25/csv/kerg2.csv", 
+                       delim = ";", 
+                       locale = locale(decimal_mark = ","), 
+                       skip = 9) %>% 
+  dplyr::select(district_no = Gebietsnummer, district_type = Gebietsart, district_name = Gebietsname,
+                group_type = Gruppenart, group_name = Gruppenname,
+                vote = Stimme, vote_share = Prozent) %>% 
+  filter(district_type == "Wahlkreis" & group_name == "AfD" & vote == 2) %>% 
+  mutate(district_no = as.numeric(district_no))
+
+head(election, n = 3)
+```
+
+## Structural
+
+```{r, echo=TRUE}
+structural <- readr::read_delim("https://www.bundeswahlleiterin.de/dam/jcr/181f9e38-38db-4f64-991c-8141dfa0f2cb/btw2025_strukturdaten.csv", 
+                                delim = ";", escape_double = FALSE,
+                                locale = locale(decimal_mark = ","),
+                                trim_ws = TRUE, skip = 9) %>% 
+  # we need quotation marks since the colum names include - and spaces
+  dplyr::select(district_no = "Wahlkreis-Nr.",
+                district_name = "Wahlkreis-Name",
+                unemployment_rate = "Arbeitslosenquote November 2024 - insgesamt") %>% 
+  filter(district_no <= 299)
+
+head(structural)
+```
+
+## Join
+
+```{r, echo=TRUE}
+# Think: Could we also use bind_rows() or bind_cols()?
+election_structural <- election %>% 
+  select(-district_name) %>% # remove district name from the election dataframe to avoid doubles after joining
+  left_join(structural, by = "district_no") %>% 
+  select(district_no, district_name, vote_share, unemployment_rate)
+
+head(election_structural)
+```
+:::
+
+## Save your data
+
+We can easily save our data frame:
+
+```{r, echo=TRUE, eval=FALSE}
+save(election_structural,
+     file="election_structural.Rda")
+```
+
+And load it again:
+
+```{r, echo=TRUE, eval=FALSE}
+# make sure that you are in the right working directory!
+# Session -> Set working directory
+load("election_structural.Rda")
+```
+
+# Your turn!
+
+You find the first exercise on ILIAS or on the course website.
+
+# Visualize data
+
+## Look at your data!
+
+::: panel-tabset
+## The data
+
+```{r, include=FALSE}
+data <- read.csv("Datasaurus_data.csv", header=FALSE)
+
+```
+
+```{r, echo=TRUE}
+# Have a look at the first 10 data points:
+head(data, n = 10)
+```
+
+For a deep dive, have a look at [this blog post by Autodesk](https://www.research.autodesk.com/publications/same-stats-different-graphs/), [this post by Alberto Cairo](http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html), or [this R package](https://cran.r-project.org/web/packages/datasauRus/vignettes/Datasaurus.html).
+
+## Summary statistics
+
+```{r, echo=TRUE}
+# Inspect mean of V1
+mean(data$V1)
+
+# Inspect mean of V2
+mean(data$V2)
+
+# Inspect the correlation between V1 and V2
+cor(data$V1, data$V2)
+
+```
+
+## Visual inspection
+
+[![](datasaurus.png){width="695"}](http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html)
+:::
+
+## The datasaurus dozen
+
+[![](DinoSequentialSmaller.gif)](https://www.research.autodesk.com/publications/same-stats-different-graphs/)
+
+## What makes a great visualization?
+
+Graphical excellence is the **well-designed presentation** of **interesting data**---a matter of substance, of statistics, and of design ... \[It\] consists of complex ideas communicated with clarity, precision, and efficiency. ... \[It\] is that which gives to the viewer the **greatest number of ideas in the shortest time with the least ink in the smallest space** ... \[It\] is nearly always multivariate ... And graphical excellence requires **telling the truth** about the data. 
+
+\
+Edward Tufte (1983). *The Visual Display of Quantitative Information*, p. 51.
+
+## Maximize Data-Ink Ratio
+
+![Bray, Tim. <http://www.tbray.org/ongoing/data-ink/di1>](ink1.png)
+
+## Remove Grid
+
+![Bray, Tim. <http://www.tbray.org/ongoing/data-ink/di2>](ink2.png)
+
+## Remove Background
+
+![Bray, Tim. <http://www.tbray.org/ongoing/data-ink/di3>](ink3.png)
+
+## Remove Box
+
+![Bray, Tim. <http://www.tbray.org/ongoing/data-ink/di4>](ink4.png)
+
+## Add horizontal "line"
+
+![Bray, Tim. <http://www.tbray.org/ongoing/data-ink/di5>](ink5.png)
+
+## Remove axis line and ticks
+
+![Bray, Tim. <http://www.tbray.org/ongoing/data-ink/di6>](ink6.png)
+
+# Grammar of graphics
+
+## Grammatical Layers
+
+::: panel-tabset
+## Foundational
+
+![](ggplot-layers-short@4x.png){width="798"}
+
+## Code
+
+```{r, echo=TRUE, eval=FALSE}
+ggplot(data = gapminder,
+       mapping = aes(x = gdpPercap,
+                           y = lifeExp,
+                           color = continent)) +
+  geom_point()
+```
+
+## Additional
+
+![](ggplot-layers@4x.png){width="425"}
+:::
+
+## Building a ggplot step-by-step
+
+::: panel-tabset
+## Packages
+
+Packages to reproduce the plots:
+
+```{r, echo=T, eval=F}
+# library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(gapminder)
+```
+
+## Code
+
+```{r, echo=T, eval=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, 
+      y = lifeExp,
+  color = continent))
+```
+
+## Plot
+
+```{r, echo=FALSE}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, 
+      y = lifeExp,
+  color = continent))
+```
+:::
+
+## Adding a geometry: geom_point()
+
+::: panel-tabset
+## Code
+
+```{r, echo=T, eval=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, 
+      y = lifeExp,
+  color = continent)) +
+  geom_point()
+```
+
+## Plot
+
+```{r, echo=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, 
+      y = lifeExp,
+  color = continent)) +
+  geom_point()
+```
+:::
+
+## Adding a scale
+
+::: panel-tabset
+## Code
+
+```{r, echo=T, eval=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, y = lifeExp,
+  color = continent)) +
+  geom_point() +
+  scale_x_log10()
+```
+
+## Plot
+
+```{r, echo=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, y = lifeExp,
+  color = continent)) +
+  geom_point() +
+  scale_x_log10()
+```
+:::
+
+## Adding further geometries
+
+::: panel-tabset
+## Code
+
+```{r, echo=T, eval=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, y = lifeExp,
+  color = continent)) +
+  geom_point() +
+  scale_x_log10() +
+  geom_smooth(method = "lm")
+```
+
+## Plot
+
+```{r, echo=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, y = lifeExp,
+  color = continent)) +
+  geom_point() +
+  scale_x_log10() +
+  geom_smooth(method = "lm")
+```
+:::
+
+## Add different color scale
+
+::: panel-tabset
+## Code
+
+```{r, echo=T, eval=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, 
+      y = lifeExp,
+  color = continent)) +
+  geom_point() +
+  scale_x_log10() +
+  geom_smooth(method = "lm") +
+  scale_color_viridis_d()
+```
+
+## Plot
+
+```{r, echo=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, 
+      y = lifeExp,
+  color = continent)) +
+  geom_point() +
+  scale_x_log10() +
+  geom_smooth(method = "lm") +
+  scale_color_viridis_d()
+```
+:::
+
+## Use facets
+
+::: panel-tabset
+## Code
+
+```{r, echo=T, eval=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, 
+      y = lifeExp,
+  color = continent)) +
+  geom_point() +
+  scale_x_log10() +
+  geom_smooth(method = "lm") +
+  scale_color_viridis_d() +
+  facet_wrap(vars(continent), ncol = 2)
+```
+
+## Plot
+
+```{r, echo=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, 
+      y = lifeExp,
+  color = continent)) +
+  geom_point() +
+  scale_x_log10() +
+  geom_smooth(method = "lm") +
+  scale_color_viridis_d() +
+  facet_wrap(vars(continent), ncol = 2)
+```
+:::
+
+## Add titles, subtitles, etc.
+
+::: panel-tabset
+## Code
+
+```{r, echo=T, eval=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, 
+      y = lifeExp,
+  color = continent)) +
+  geom_point() +
+  scale_x_log10() +
+  geom_smooth(method = "lm") +
+  scale_color_viridis_d() +
+  facet_wrap(vars(continent), ncol = 2) +
+  labs(x = "GDP per capita", 
+       y = "Life expectancy",
+       color = "Continent",
+       title = "Wealth = Health?",
+       subtitle = "gdpPercap/lifeExp",
+       caption = "Gapminder dataset")
+```
+
+## Plot
+
+```{r, echo=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, 
+      y = lifeExp,
+  color = continent)) +
+  geom_point() +
+  scale_x_log10() +
+  geom_smooth(method = "lm") +
+  scale_color_viridis_d() +
+  facet_wrap(vars(continent), ncol = 2) +
+  labs(x = "GDP per capita", 
+       y = "Life expectancy",
+       color = "Continent",
+       title = "Wealth = Health?",
+       subtitle = "gdpPercap/lifeExp",
+       caption = "Gapminder dataset")
+```
+:::
+
+## More geometries
+
+::: panel-tabset
+## Code
+
+```{r, echo=T, eval=F}
+ggplot(data = filter(gapminder, year %in% c(2007)),
+aes(x = lifeExp,
+fill = continent)) +
+geom_histogram(binwidth = 5,
+               color = "grey") +
+scale_fill_viridis_d() +
+facet_wrap(vars(continent), ncol = 2) +
+guides(fill = "none") 
+```
+
+## Plot
+
+```{r, echo=F}
+ggplot(data = filter(gapminder, year %in% c(2007)),
+aes(x = lifeExp,
+fill = continent)) +
+geom_histogram(binwidth = 5,
+               color = "grey") +
+scale_fill_viridis_d() +
+facet_wrap(vars(continent), ncol = 2) +
+guides(fill = "none") 
+```
+:::
+
+## More geometries
+
+::: panel-tabset
+## Code
+
+```{r, echo=T, eval=F}
+colors <- c("red", "orange", "yellow", "green", "blue")
+
+ggplot(data = filter(gapminder, year %in% c(2007)),
+  aes(x = continent,
+      y = lifeExp,
+      fill = continent)) +
+  geom_boxplot(alpha = 0.5) +
+  scale_fill_manual(values = colors) +
+  guides(fill = "none")
+```
+
+## Plot
+
+```{r, echo=F}
+colors <- c("red", "orange", "yellow", "green", "blue")
+
+ggplot(data = filter(gapminder, year %in% c(2007)),
+  aes(x = continent,
+      y = lifeExp,
+      fill = continent)) +
+  geom_boxplot(alpha = 0.5) +
+  scale_fill_manual(values = colors) +
+  guides(fill = "none")
+```
+:::
+
+## More geometries
+
+::: panel-tabset
+## Code
+
+```{r, echo=T, eval=F}
+ggplot(gapminder, aes(x = year, 
+                      y = lifeExp,
+                      group = country)) +
+  geom_line(alpha = 0.2, color="grey") +
+  geom_line(data = gapminder %>% filter(country %in% c(
+    "Germany",
+    "India",
+    "Rwanda")),
+    lwd = 1) + # thicker line
+```
+
+## Plot
+
+```{r, echo=F}
+ggplot(gapminder, aes(x = year, y = lifeExp,
+  group = country)) +
+  geom_line(alpha = 0.2, color="grey") +
+  geom_line(data = gapminder %>%
+    filter(country %in% c(
+    "Germany",
+    "India",
+    "Rwanda")),
+    lwd = 1) # thicker line
+```
+:::
+
+## Themes
+
+Make use of existing themes:
+
+-   [hrbrthemes](https://github.com/hrbrmstr/hrbrthemes)
+
+-   [ggthemes](https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/)
+
+-   ...
+
+There are many more! And you can even create your own theme!
+
+## hrbrthemes
+
+```{r, eval=FALSE, echo=TRUE}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, y = lifeExp, color = continent)) +
+  geom_point() +
+  hrbrthemes::theme_ipsum_ps()
+```
+
+```{r, echo=FALSE, fig.align='center'}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, y = lifeExp, color = continent)) +
+  geom_point() +
+  hrbrthemes::theme_ipsum_ps()
+```
+
+## hrbrthemes
+
+```{r, eval=FALSE, echo=TRUE}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, y = lifeExp, color = continent)) +
+  geom_point() +
+  hrbrthemes::theme_modern_rc()
+```
+
+```{r, echo=FALSE, fig.align='center'}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, y = lifeExp, color = continent)) +
+  geom_point() +
+  hrbrthemes::theme_modern_rc()
+```
+
+## ggthemes
+
+```{r, eval=FALSE, echo=TRUE}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, y = lifeExp, color = continent)) +
+  geom_point() +
+  ggthemes::theme_economist()
+```
+
+```{r, echo=FALSE, fig.align='center'}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, y = lifeExp, color = continent)) +
+  geom_point() +
+  ggthemes::theme_economist()
+```
+
+## theme()
+
+[![](theme_elements.png)](https://henrywang.nl/ggplot2-theme-elements-demonstration/)
+
+## How to learn theme() arguments?
+
+-   There are **94** possible arguments for the *theme()* function
+
+-   Many of them are very specific. E.g., *axis.ticks.length.x.top*
+
+-   Best way: Trial and error. Practice makes (almost) perfect
+
+-   Try the **ggThemeAssist** **package**
+
+-   Documentation: [Modify components of a theme](https://ggplot2.tidyverse.org/reference/theme.html) and [ggplot complete themes](https://ggplot2.tidyverse.org/reference/ggtheme.html)
+
+# Your turn!
+
+You find the second exercise on ILIAS or on the course website.

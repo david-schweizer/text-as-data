@@ -46,4 +46,4 @@ Try to apply the learnings from last session! Import your own data set, and wran
 
 # Materials
 
-TBA.
+You can find the R scripts and the respective data for both exercises on ILIAS.
