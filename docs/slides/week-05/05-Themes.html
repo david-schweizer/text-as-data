@@ -343,8 +343,334 @@ David Schweizer
 
   <p class="date">March 11, 2025</p>
 </section>
-<section id="tba" class="title-slide slide level1 center">
-<h1>TBA</h1>
+<section id="plan-for-today" class="slide level2">
+<h2>Plan for today</h2>
+<ul>
+<li>Practice: Coding on your own or in groups up to three</li>
+<li>Input: Text-as-Data concepts</li>
+<li>Group work: Brainstorming research questions &amp; suitable data (sources)</li>
+</ul>
+</section>
+<section>
+<section id="coding" class="title-slide slide level1 center">
+<h1>Coding</h1>
+
+</section>
+<section id="practice-coding" class="slide level2">
+<h2>Practice: Coding</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Import &amp; Wrangle</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>Use the data on ILIAS: “btw_2025.rds”.</p></li>
+<li><p>Create an East-West variable (0 if the election district is in Western Germany, 1 if in Eastern Germany). Hint: Use if_else() or case_when().</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Visualize</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>1) Scatterplot:</strong> Show the relationship between the unemployment rate and AfD vote share at the district level. <strong>2)</strong> <strong>Add color:</strong> The dots representing East and West German districts should have different colors. <strong>3)</strong> <strong>Appearance:</strong> Add a title, change the theme, label the axes, … <strong>4)</strong> <strong>Bonus:</strong> Can you plot this for each party, but keep it in one plot? <em>Hint: Use facet_wrap()</em></p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="text-as-data" class="title-slide slide level1 center">
+<h1>Text-as-Data</h1>
+
+</section>
+<section id="text-everywhere" class="slide level2">
+<h2>Text everywhere?</h2>
+<p>Many of our social and political interactions are textual:</p>
+<ul>
+<li>Political positions and laws are written down 📝</li>
+<li>(Political) Events are discussed 📰</li>
+<li>On- and offline communication 📣</li>
+<li>History is recorded 📚</li>
+</ul>
+<p>These interaction generare huge amounts of data. Analysis at scale has become viable only relatively recently.</p>
+</section>
+<section id="the-rise-of-quantitative-text-analysis-qta" class="slide level2">
+<h2>The rise of Quantitative Text Analysis (QTA)</h2>
+<p>So what has changed?</p>
+<ul>
+<li><p>Text is and has become available in a digitized way.</p></li>
+<li><p>Powerful and easy-to-use methods have been developed to analyze this digitized text.</p></li>
+</ul>
+<p>➡️ Researchers can address research questions in social sciences with new and (possibly) better data.</p>
+</section>
+<section id="qta-applications" class="slide level2">
+<h2>QTA applications</h2>
+
+<img data-src="example_1.jpg" class="r-stretch"></section>
+<section id="qta-applications-1" class="slide level2">
+<h2>QTA applications</h2>
+
+<img data-src="example2.jpg" class="r-stretch"></section>
+<section id="qta-definition" class="slide level2">
+<h2>QTA definition</h2>
+<blockquote>
+<p>“Systematic, objective, quantitative analysis of message characteristics”. - <em>Kimberly A. Neuendorf, The Content Analysis Guidebook</em></p>
+</blockquote>
+<p><strong>Text analysis spectrum:</strong></p>
+<p>Fully manual ⬅️ …. ➡️ Fully automated</p>
+<p>We focus on automated analysis with varying degrees of human input!</p>
+</section>
+<section id="qualitative-vs.-quantitative" class="slide level2">
+<h2>Qualitative vs.&nbsp;Quantitative</h2>
+<ul>
+<li><p>All reading of text is qualitative!</p></li>
+<li><p>But there is just so much text a human can read! Quantitative analysis user computer-assisted methods to make sense of large amounts of text.</p></li>
+<li><p>Not mutually exclusive! We often combine both approaches.</p></li>
+</ul>
+</section>
+<section id="qualitative-vs.-quantitative-1" class="slide level2">
+<h2>Qualitative vs.&nbsp;Quantitative</h2>
+<p><a href="https://manifesto-project.wzb.eu/"><img data-src="manifesto.jpg"></a></p>
+</section>
+<section id="qualitative-vs.-quantitative-2" class="slide level2">
+<h2>Qualitative vs.&nbsp;Quantitative</h2>
+<p>But what if political text is published much more frequently?</p>
+<ul>
+<li><p>Parliamentary speeches (<a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/L4OAKN">ParlSpeech</a>)</p></li>
+<li><p>Press releases</p></li>
+<li><p>Social media data</p></li>
+</ul>
+</section>
+<section id="basic-assumptions" class="slide level2">
+<h2>Basic assumptions</h2>
+<p>We assume, that …</p>
+<ul>
+<li><p>… texts represent an observable implication of some underlying characteristic of interest (an attribute of the author, position, tone, …)</p></li>
+<li><p>… texts can be represented through extracting their features, e.g.&nbsp;words.</p></li>
+<li><p>… we can analyze the frequency of features with quantitative methods to measure these underlying characteristics</p></li>
+</ul>
+</section>
+<section id="bag-of-word" class="slide level2">
+<h2>Bag-of-word</h2>
+<ul>
+<li>The simplest possible way of describing a corpus is by counting words. For each text, we record how many times each word appears and we ignore everything else.</li>
+</ul>
+<p><strong>Assumptions:</strong></p>
+<ul>
+<li><p>Words in a document have a meaning.</p></li>
+<li><p>Word order does not matter.</p></li>
+<li><p>Word combinations or grammar do not matter.</p></li>
+<li><p>Words are the only relevant features (no punctuation, etc.)</p></li>
+</ul>
+</section>
+<section id="bag-of-words-assumption" class="slide level2">
+<h2>Bag of words assumption</h2>
+<ol type="1">
+<li>“War is good, peace is bad”</li>
+<li>“Peace is good, war is bad”</li>
+</ol>
+<table class="caption-top">
+<tbody>
+<tr class="odd">
+<td></td>
+<td>War</td>
+<td>is</td>
+<td>good</td>
+<td>peace</td>
+<td>is</td>
+<td>bad</td>
+</tr>
+<tr class="even">
+<td>Sentence 1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Sentence 2</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Both sentences are exactly the same text for many text-as-data approaches!</p>
+</section>
+<section id="principles-of-qta" class="slide level2">
+<h2>Principles of QTA</h2>
+<p><strong>1) “All language models are wrong but some are useful”</strong></p>
+<ul>
+<li><p>Statistical models attempt to describe the ways in which data is generated.</p></li>
+<li><p>This data-generation process is super complex for language (text)!</p></li>
+<li><p>We need to make simplifying assumptions. Therefore, we fail to accurately describe the data-generation process.</p></li>
+<li><p><strong>Trade-off:</strong> Complexity vs.&nbsp;tractability.</p></li>
+</ul>
+</section>
+<section id="principles-of-qta-1" class="slide level2">
+<h2>Principles of QTA</h2>
+<p><strong>1) “All language models are wrong but some are useful”</strong></p>
+<div class="callout callout-tip no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Example: Sentiment analysis</strong></p>
+</div>
+<div class="callout-content">
+<p>Customer review 1: “The customer service was terrible. I waited on hold for an hour and still got no help.”</p>
+<p>Customer review 2: “Oh great, another vacuum that barely picks up dust. Just what I needed.”</p>
+<p>Customer review 3: “This phone has an amazing battery life and a fantastic camera. I love it.”</p>
+<p><strong>Model output:</strong> Negative, Positive, Positive.</p>
+<p>Wrong, but useful?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="principles-of-qta-2" class="slide level2">
+<h2>Principles of QTA</h2>
+<p><strong>2) We need domain-specific validation</strong></p>
+<ul>
+<li><p>Methods are easy-to-use , fast, and work at scale.</p></li>
+<li><p>But: Depending on the domain, they might lead to misleading or wrong results!</p></li>
+<li><p>We need to validate our methods in the particular setting we are studying.</p></li>
+<li><p>There are various ways of validation. We will get to know more about this in the coming weeks!</p></li>
+</ul>
+</section>
+<section id="principles-of-qta-3" class="slide level2">
+<h2>Principles of QTA</h2>
+<p><strong>2) We need domain-specific validation</strong></p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Validity discussion</strong></p>
+</div>
+<div class="callout-content">
+<p>Let’s say we have developed a method to measure climate change related content in parliamentary speeches at the sentence level. We get a binary measure, that is, the sentence is climate change related or it is not.</p>
+<p>How could we validate our results?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="principles-of-qta-4" class="slide level2">
+<h2>Principles of QTA</h2>
+<p><strong>3) Visualization is central to understanding high dimensional data</strong></p>
+<ul>
+<li><p>Text data is multidimensional!</p></li>
+<li><p>One main goal of text analysis is to reduce this complexity into a lower-dimensional representation of the text while preserving the meaning.</p></li>
+<li><p>Visualizing the output of text models is important to see whether we have extracted the “right” meaning.</p></li>
+</ul>
+</section>
+<section id="principles-of-qta-5" class="slide level2">
+<h2>Principles of QTA</h2>
+<p><strong>3) QTA still requires qualitative interpretation</strong></p>
+<ul>
+<li><p>QTA differs from qualitative approaches:</p>
+<ul>
+<li><p>Analysis at scale of many texts. We do not read every document in detail.</p></li>
+<li><p>Interpretation of quantitative summaries of text, rather than direct interpretation of text.</p></li>
+</ul></li>
+<li><p>But: We need to make a qualitative judgement about the output of our models!</p></li>
+</ul>
+</section>
+<section id="terminology" class="slide level2">
+<h2>Terminology</h2>
+<ul>
+<li><p><strong>Document:</strong> The basic unit (text) of analysis.</p></li>
+<li><p><strong>Corpus:</strong> A structured set of documents for analysis.</p></li>
+<li><p><strong>Type:</strong> A unique feature in the corpus. For example, a specific word or N-grams. A bigram (2-gram) is a pair of consecutive words such as “climate change”.</p></li>
+<li><p><strong>Token:</strong> An instance of a type in a document. E.g., the occurrence of the word in a given document.</p></li>
+</ul>
+</section>
+<section id="documents" class="slide level2">
+<h2>“Documents”</h2>
+<p>A document is the typical unit of analysis. What is a document?</p>
+<div class="fragment">
+<ul>
+<li><p>Full speech</p></li>
+<li><p>Paragraphs of a press release</p></li>
+<li><p>Tweets</p></li>
+<li><p>…</p></li>
+</ul>
+<p>➡️ Depends on research question and design!</p>
+</div>
+</section>
+<section id="features" class="slide level2">
+<h2>“Features”</h2>
+<p>How to define “features”?</p>
+<ul>
+<li><p>Words</p></li>
+<li><p>N-grams</p></li>
+<li><p>Parts of speech (nouns, pronouns, verbse, …)</p></li>
+<li><p>Named entities (locations, organisations, …)</p></li>
+</ul>
+<p>Why might “climate change” be a better feature than “climate”? Has “climate” a unique meaning? Think about the bag of words assumptions!</p>
+</section>
+<section id="there-is-no-one-size-fits-all-aproach" class="slide level2">
+<h2>There is no one-size-fits-all aproach!</h2>
+<p>Which documents and features of text would be most helpful for the following research questions?</p>
+<ul>
+<li><p>Predicting whether the author of a text was young or old.</p></li>
+<li><p>Measuring the financial content of news coverage.</p></li>
+<li><p>Assessing the relationship between political parties.</p></li>
+</ul>
+<div class="fragment">
+<p>➡️ Selection of documents and features depends on your research question!</p>
+</div>
+</section>
+<section id="what-makes-a-good-measurement" class="slide level2">
+<h2>What makes a good measurement?</h2>
+<ul>
+<li><p>Bias, Accuracy, &amp; Validity:</p>
+<ul>
+<li><p>Am I measuring what I think I am measuring?</p></li>
+<li><p>Challenging: We need to validate our measures!</p></li>
+</ul></li>
+<li><p>Variance, Precision, Reliability:</p>
+<ul>
+<li><p>If I measure this again, will I get the same answer?</p></li>
+<li><p>QTA is usually good at the this when the underlying text is the same. Be aware of changes to the underlying text!</p></li>
+</ul></li>
+<li><p>This is also a challenge for qualitative approaches: See the <a href="https://manifesto-project.wzb.eu/down/papers/handbook_2021_version_5.pdf">Manifesto project</a>.</p></li>
+</ul>
+</section>
+<section id="coding-example" class="slide level2">
+<h2>Coding example</h2>
+<p>Based on the <a href="https://manifesto-project.wzb.eu/down/papers/handbook_2021_version_5.pdf">Manifesto project</a> coding scheme, could you classify these sentences?</p>
+<ul>
+<li><p>We will ensure that all the people of our country can follow the path that leads to a good future.</p></li>
+<li><p>We will make sure that even tenants with a tight budget can have a modern heating system and improved insulation.</p></li>
+<li><p>We will ensure that access to electric mobility makes transportation more comfortable and affordable—whether by bus, train, or electric car.</p></li>
+</ul>
+</section></section>
+<section>
+<section id="group-work" class="title-slide slide level1 center">
+<h1>Group work</h1>
+
+</section>
+<section id="group-work-1" class="slide level2">
+<h2>Group work</h2>
+<p>Up to 4 students:</p>
+<ul>
+<li><p>Brainstorm 2-3 research questions</p></li>
+<li><p>How can you operationalize your variables?</p></li>
+<li><p>What might be suitable data to study these questions?</p></li>
+<li><p>Data sources?</p></li>
+</ul>
+<p>Insert your notes <a href="https://docs.google.com/document/d/1Krda6W7aNVbIQdxSz46u5uI1PN5aBIyhVhKK2HN-nE4/edit?usp=sharing">in this Google Doc</a>.</p>
+</section></section>
+<section id="lets-discuss" class="title-slide slide level1 center">
+<h1>Let’s discuss!</h1>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">

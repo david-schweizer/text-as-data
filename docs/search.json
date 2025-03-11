@@ -214,7 +214,7 @@
     "href": "weeks/week-05.html",
     "title": "Intro to Text-as-Data I: Concepts",
     "section": "",
-    "text": "To Do’s before our session\nWork and revise the exercises of the last sessions. Start working on the first assignment - you can find it on ILIAS (need to pass!).\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nIntro to Text-as-Data I: Concepts\n\n\nWeek 5\n\n\nMar 11, 2025\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA."
+    "text": "To Do’s before our session\nWork and revise the exercises of the last sessions. Start working on the first assignment - you can find it on ILIAS (need to pass!).\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nIntro to Text-as-Data I: Concepts\n\n\nWeek 5\n\n\nMar 11, 2025\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nYou can find the file “btw_2025.rds” on ILIAS."
   },
   {
     "objectID": "weeks/week-06.html",
@@ -3193,9 +3193,9 @@
   {
     "objectID": "slides/week-05/05-Themes.html#plan-for-today",
     "href": "slides/week-05/05-Themes.html#plan-for-today",
-    "title": "ggplot: Visualize",
+    "title": "Intro to Text-as-Data I: Concepts",
     "section": "Plan for today",
-    "text": "Plan for today\nInput:\n\nWhy do we need visualizations? What makes a great visualization?\nBuilding a (gg)plot step by step\nMaps\n\nCoding:\n\nYour very first plot or take it to the next level"
+    "text": "Plan for today\n\nPractice: Coding on your own or in groups up to three\nInput: Text-as-Data concepts\nGroup work: Brainstorming research questions & suitable data (sources)"
   },
   {
     "objectID": "slides/week-05/05-Themes.html#crap-and-ggplot",
@@ -8113,5 +8113,208 @@
     "title": "Tidyverse II: Transform, and visualize",
     "section": "How to learn theme() arguments?",
     "text": "How to learn theme() arguments?\n\nThere are 94 possible arguments for the theme() function\nMany of them are very specific. E.g., axis.ticks.length.x.top\nBest way: Trial and error. Practice makes (almost) perfect\nTry the ggThemeAssist package\nDocumentation: Modify components of a theme and ggplot complete themes"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#coding",
+    "href": "slides/week-05/05-Themes.html#coding",
+    "title": "Intro to Text-as-Data I: Concepts",
+    "section": "Coding",
+    "text": "Coding\n\n\n\nImport & Wrangle\n\n\n\nUse the data on ILIAS: “btw_2025.rds”.\nCreate an East-West variable (0 if the election district is in Western Germany, 1 if in Eastern Germany). Hint: Use if_else() or case_when().\n\n\n\n\n\n\n\nVisualize\n\n\n1) Scatterplot: Show the relationship between the unemployment rate and AfD vote share at the district level. 2) Add color: The dots representing East and West German districts should have different colors. 3) Appearance: Add a title, change the theme, label the axes, … 4) Bonus: Can you plot this for each party, but keep it in one plot? Hint: Use facet_wrap()\n\n\n\n\n\n\nText-as-Data in R | Spring 2025 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#practice-coding",
+    "href": "slides/week-05/05-Themes.html#practice-coding",
+    "title": "Intro to Text-as-Data I: Concepts",
+    "section": "Practice: Coding",
+    "text": "Practice: Coding\n\n\n\nImport & Wrangle\n\n\n\nUse the data on ILIAS: “btw_2025.rds”.\nCreate an East-West variable (0 if the election district is in Western Germany, 1 if in Eastern Germany). Hint: Use if_else() or case_when().\n\n\n\n\n\n\n\nVisualize\n\n\n1) Scatterplot: Show the relationship between the unemployment rate and AfD vote share at the district level. 2) Add color: The dots representing East and West German districts should have different colors. 3) Appearance: Add a title, change the theme, label the axes, … 4) Bonus: Can you plot this for each party, but keep it in one plot? Hint: Use facet_wrap()"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#text-everywhere",
+    "href": "slides/week-05/05-Themes.html#text-everywhere",
+    "title": "Intro to Text-as-Data I: Concepts",
+    "section": "Text everywhere?",
+    "text": "Text everywhere?\nMany of our social and political interactions are textual:\n\nPolitical positions and laws are written down 📝\n(Political) Events are discussed 📰\nOn- and offline communication 📣\nHistory is recorded 📚\n\nThese interaction generare huge amounts of data. Analysis at scale has become viable only relatively recently."
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#group-work-1",
+    "href": "slides/week-05/05-Themes.html#group-work-1",
+    "title": "Intro to Text-as-Data I: Concepts",
+    "section": "Group work",
+    "text": "Group work\nUp to 4 students:\n\nBrainstorm 2-3 research questions\nHow can you operationalize your variables?\nWhat might be suitable data to study these questions?\nData sources?\n\nInsert your notes in this Google Doc."
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#the-rise-of-quantitative-text-analysis",
+    "href": "slides/week-05/05-Themes.html#the-rise-of-quantitative-text-analysis",
+    "title": "Intro to Text-as-Data I: Concepts",
+    "section": "The rise of Quantitative Text Analysis",
+    "text": "The rise of Quantitative Text Analysis"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#the-rise-of-quantitative-text-analysis-qta",
+    "href": "slides/week-05/05-Themes.html#the-rise-of-quantitative-text-analysis-qta",
+    "title": "Intro to Text-as-Data I: Concepts",
+    "section": "The rise of Quantitative Text Analysis (QTA)",
+    "text": "The rise of Quantitative Text Analysis (QTA)\nSo what has changed?\n\nText is and has become available in a digitized way.\nPowerful and easy-to-use methods have been developed to analyze this digitized text.\n\n➡️ Researchers can address research questions in social sciences with new and (possibly) better data."
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#qta-definition",
+    "href": "slides/week-05/05-Themes.html#qta-definition",
+    "title": "Intro to Text-as-Data I: Concepts",
+    "section": "QTA definition",
+    "text": "QTA definition\n\n“Systematic, objective, quantitative analysis of message characteristics”. - Kimberly A. Neuendorf, The Content Analysis Guidebook\n\nText analysis spectrum:\nFully manual ⬅️ …. ➡️ Fully automated\nWe focus on automated analysis with varying degrees of human input!"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#qta-applications",
+    "href": "slides/week-05/05-Themes.html#qta-applications",
+    "title": "Intro to Text-as-Data I: Concepts",
+    "section": "QTA applications",
+    "text": "QTA applications"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#principles-of-qta",
+    "href": "slides/week-05/05-Themes.html#principles-of-qta",
+    "title": "Intro to Text-as-Data I: Concepts",
+    "section": "Principles of QTA",
+    "text": "Principles of QTA\n1) “All language models are wrong but some are useful”\n\nStatistical models attempt to describe the ways in which data is generated.\nThis data-generation process is super complex for language (text)!\nWe need to make simplifying assumptions. Therefore, we fail to accurately describe the data-generation process.\nTrade-off: Complexity vs. tractability."
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#terminology",
+    "href": "slides/week-05/05-Themes.html#terminology",
+    "title": "Intro to Text-as-Data I: Concepts",
+    "section": "Terminology",
+    "text": "Terminology\n\nDocument: The basic unit (text) of analysis.\nCorpus: A structured set of documents for analysis.\nType: A unique feature in the corpus. For example, a specific word or N-grams. A bigram (2-gram) is a pair of consecutive words such as “climate change”.\nToken: An instance of a type in a document. E.g., the occurrence of the word in a given document."
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#documents",
+    "href": "slides/week-05/05-Themes.html#documents",
+    "title": "Intro to Text-as-Data I: Concepts",
+    "section": "“Documents”",
+    "text": "“Documents”\nA document is the typical unit of analysis. What is a document?\n\n\nFull speech\nParagraphs of a press release\nTweets\n…\n\n➡️ Depends on research question and design!"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#features",
+    "href": "slides/week-05/05-Themes.html#features",
+    "title": "Intro to Text-as-Data I: Concepts",
+    "section": "“Features”",
+    "text": "“Features”\nHow to define “features”?\n\nWords\nN-grams\nParts of speech (nouns, pronouns, verbse, …)\nNamed entities (locations, organisations, …)\n\nWhy might “climate change” be a better feature than “climate”? Has “climate” a unique meaning? Think about the bag of words assumptions!"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#there-is-no-one-size-fits-all-aproach",
+    "href": "slides/week-05/05-Themes.html#there-is-no-one-size-fits-all-aproach",
+    "title": "Intro to Text-as-Data I: Concepts",
+    "section": "There is no one-size-fits-all aproach!",
+    "text": "There is no one-size-fits-all aproach!\nWhich documents and features of text would be most helpful for the following research questions?\n\nPredicting whether the author of a text was young or old.\nMeasuring the financial content of news coverage.\nAssessing the relationship between political parties.\n\n\n➡️ Selection of documents and features depends on your research question!"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#types-of-text-analysis",
+    "href": "slides/week-05/05-Themes.html#types-of-text-analysis",
+    "title": "Intro to Text-as-Data I: Concepts",
+    "section": "Types of text analysis",
+    "text": "Types of text analysis"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#validation",
+    "href": "slides/week-05/05-Themes.html#validation",
+    "title": "Intro to Text-as-Data I: Concepts",
+    "section": "Validation",
+    "text": "Validation"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#principles-of-qta-1",
+    "href": "slides/week-05/05-Themes.html#principles-of-qta-1",
+    "title": "Intro to Text-as-Data I: Concepts",
+    "section": "Principles of QTA",
+    "text": "Principles of QTA\n1) “All language models are wrong but some are useful”\n\n\n\nExample: Sentiment analysis\n\n\nCustomer review 1: “The customer service was terrible. I waited on hold for an hour and still got no help.”\nCustomer review 2: “Oh great, another vacuum that barely picks up dust. Just what I needed.”\nCustomer review 3: “This phone has an amazing battery life and a fantastic camera. I love it.”\nModel output: Negative, Positive, Positive.\nWrong, but useful?"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#principles-of-qta-2",
+    "href": "slides/week-05/05-Themes.html#principles-of-qta-2",
+    "title": "Intro to Text-as-Data I: Concepts",
+    "section": "Principles of QTA",
+    "text": "Principles of QTA\n2) We need domain-specific validation\n\nMethods are easy-to-use , fast, and work at scale.\nBut: Depending on the domain, they might lead to misleading or wrong results!\nWe need to validate our methods in the particular setting we are studying.\nThere are various ways of validation. We will get to know more about this in the coming weeks!"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#principles-of-qta-3",
+    "href": "slides/week-05/05-Themes.html#principles-of-qta-3",
+    "title": "Intro to Text-as-Data I: Concepts",
+    "section": "Principles of QTA",
+    "text": "Principles of QTA\n2) We need domain-specific validation\n\n\n\n\n\n\nValidity discussion\n\n\nLet’s say we have developed a method to measure climate change related content in parliamentary speeches at the sentence level. We get a binary measure, that is, the sentence is climate change related or it is not.\nHow could we validate our results?"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#principles-of-qta-4",
+    "href": "slides/week-05/05-Themes.html#principles-of-qta-4",
+    "title": "Intro to Text-as-Data I: Concepts",
+    "section": "Principles of QTA",
+    "text": "Principles of QTA\n3) Visualization is central to understanding high dimensional data\n\nText data is multidimensional!\nOne main goal of text analysis is to reduce this complexity into a lower-dimensional representation of the text while preserving the meaning.\nVisualizing the output of text models is important to see whether we have extracted the “right” meaning."
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#principles-of-qta-5",
+    "href": "slides/week-05/05-Themes.html#principles-of-qta-5",
+    "title": "Intro to Text-as-Data I: Concepts",
+    "section": "Principles of QTA",
+    "text": "Principles of QTA\n3) QTA still requires qualitative interpretation\n\nQTA differs from qualitative approaches:\n\nAnalysis at scale of many texts. We do not read every document in detail.\nInterpretation of quantitative summaries of text, rather than direct interpretation of text.\n\nBut: We need to make a qualitative judgement about the output of our models!"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#what-makes-a-good-measurement",
+    "href": "slides/week-05/05-Themes.html#what-makes-a-good-measurement",
+    "title": "Intro to Text-as-Data I: Concepts",
+    "section": "What makes a good measurement?",
+    "text": "What makes a good measurement?\n\nBias, Accuracy, & Validity:\n\nAm I measuring what I think I am measuring?\nChallenging: We need to validate our measures!\n\nVariance, Precision, Reliability:\n\nIf I measure this again, will I get the same answer?\nQTA is usually good at the this when the underlying text is the same. Be aware of changes to the underlying text!\n\nThis is also a challenge for qualitative approaches: See the Manifesto project."
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#basic-assumptions",
+    "href": "slides/week-05/05-Themes.html#basic-assumptions",
+    "title": "Intro to Text-as-Data I: Concepts",
+    "section": "Basic assumptions",
+    "text": "Basic assumptions\nWe assume, that …\n\n… texts represent an observable implication of some underlying characteristic of interest (an attribute of the author, position, tone, …)\n… texts can be represented through extracting their features, e.g. words.\n… we can analyze the frequency of features with quantitative methods to measure these underlying characteristics"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#qualitative-vs.-quantitative",
+    "href": "slides/week-05/05-Themes.html#qualitative-vs.-quantitative",
+    "title": "Intro to Text-as-Data I: Concepts",
+    "section": "Qualitative vs. Quantitative",
+    "text": "Qualitative vs. Quantitative\n\nAll reading of text is qualitative!\nBut there is just so much text a human can read! Quantitative analysis user computer-assisted methods to make sense of large amounts of text.\nNot mutually exclusive! We often combine both approaches."
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#qualitative-vs.-quantitative-1",
+    "href": "slides/week-05/05-Themes.html#qualitative-vs.-quantitative-1",
+    "title": "Intro to Text-as-Data I: Concepts",
+    "section": "Qualitative vs. Quantitative",
+    "text": "Qualitative vs. Quantitative"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#qualitative-vs.-quantitative-2",
+    "href": "slides/week-05/05-Themes.html#qualitative-vs.-quantitative-2",
+    "title": "Intro to Text-as-Data I: Concepts",
+    "section": "Qualitative vs. Quantitative",
+    "text": "Qualitative vs. Quantitative\nBut what if political text is published much more frequently?\n\nParliamentary speeches (ParlSpeech)\nPress releases\nSocial media data"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#bag-of-word",
+    "href": "slides/week-05/05-Themes.html#bag-of-word",
+    "title": "Intro to Text-as-Data I: Concepts",
+    "section": "Bag-of-word",
+    "text": "Bag-of-word\n\nThe simplest possible way of describing a corpus is by counting words. For each text, we record how many times each word appears and we ignore everything else.\n\nAssumptions:\n\nWords in a document have a meaning.\nWord order does not matter.\nWord combinations or grammar do not matter.\nWords are the only relevant features (no punctuation, etc.)"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#bag-of-words-assumption",
+    "href": "slides/week-05/05-Themes.html#bag-of-words-assumption",
+    "title": "Intro to Text-as-Data I: Concepts",
+    "section": "Bag of words assumption",
+    "text": "Bag of words assumption\n\n“War is good, peace is bad”\n“Peace is good, war is bad”\n\n\n\n\n\nWar\nis\ngood\npeace\nis\nbad\n\n\nSentence 1\n1\n1\n1\n1\n1\n1\n\n\nSentence 2\n1\n1\n1\n1\n1\n1\n\n\n\nBoth sentences are exactly the same text for many text-as-data approaches!"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#qta-applications-1",
+    "href": "slides/week-05/05-Themes.html#qta-applications-1",
+    "title": "Intro to Text-as-Data I: Concepts",
+    "section": "QTA applications",
+    "text": "QTA applications"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#coding-example",
+    "href": "slides/week-05/05-Themes.html#coding-example",
+    "title": "Intro to Text-as-Data I: Concepts",
+    "section": "Coding example",
+    "text": "Coding example\nBased on the Manifesto project coding scheme, could you classify these sentences?\n\nWe will ensure that all the people of our country can follow the path that leads to a good future.\nWe will make sure that even tenants with a tight budget can have a modern heating system and improved insulation.\nWe will ensure that access to electric mobility makes transportation more comfortable and affordable—whether by bus, train, or electric car."
   }
 ]

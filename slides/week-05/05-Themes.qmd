@@ -12,4 +12,301 @@ format:
     footer: "Text-as-Data in R | Spring 2025 | University of Mannheim"
 editor: visual
 ---
-# TBA
+
+## Plan for today
+
+-   Practice: Coding on your own or in groups up to three
+-   Input: Text-as-Data concepts
+-   Group work: Brainstorming research questions & suitable data (sources)
+
+# Coding
+
+## Practice: Coding
+
+::: {.callout-note appearance="minimal" icon="false"}
+## Import & Wrangle
+
+-   Use the data on ILIAS: "btw_2025.rds".
+
+-   Create an East-West variable (0 if the election district is in Western Germany, 1 if in Eastern Germany). Hint: Use if_else() or case_when().
+:::
+
+::: {.callout-note appearance="minimal"}
+## Visualize
+
+**1) Scatterplot:** Show the relationship between the unemployment rate and AfD vote share at the district level. **2)** **Add color:** The dots representing East and West German districts should have different colors. **3)** **Appearance:** Add a title, change the theme, label the axes, ... **4)** **Bonus:** Can you plot this for each party, but keep it in one plot? *Hint: Use facet_wrap()*
+:::
+
+# Text-as-Data
+
+## Text everywhere?
+
+Many of our social and political interactions are textual:
+
+-   Political positions and laws are written down 📝
+-   (Political) Events are discussed 📰
+-   On- and offline communication 📣
+-   History is recorded 📚
+
+These interaction generare huge amounts of data. Analysis at scale has become viable only relatively recently.
+
+## The rise of Quantitative Text Analysis (QTA)
+
+So what has changed?
+
+-   Text is and has become available in a digitized way.
+
+-   Powerful and easy-to-use methods have been developed to analyze this digitized text.
+
+➡️ Researchers can address research questions in social sciences with new and (possibly) better data.
+
+## QTA applications
+
+![](example_1.jpg)
+
+## QTA applications
+
+![](example2.jpg)
+
+## QTA definition
+
+> "Systematic, objective, quantitative analysis of message characteristics". - *Kimberly A. Neuendorf, The Content Analysis Guidebook*
+
+**Text analysis spectrum:**
+
+Fully manual ⬅️ .... ➡️ Fully automated
+
+We focus on automated analysis with varying degrees of human input!
+
+## Qualitative vs. Quantitative
+
+-   All reading of text is qualitative!
+
+-   But there is just so much text a human can read! Quantitative analysis user computer-assisted methods to make sense of large amounts of text.
+
+-   Not mutually exclusive! We often combine both approaches.
+
+## Qualitative vs. Quantitative
+
+[![](manifesto.jpg)](https://manifesto-project.wzb.eu/)
+
+## Qualitative vs. Quantitative
+
+But what if political text is published much more frequently?
+
+-   Parliamentary speeches ([ParlSpeech](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/L4OAKN))
+
+-   Press releases
+
+-   Social media data
+
+## Basic assumptions
+
+We assume, that ...
+
+-   ... texts represent an observable implication of some underlying characteristic of interest (an attribute of the author, position, tone, ...)
+
+-   ... texts can be represented through extracting their features, e.g. words.
+
+-   ... we can analyze the frequency of features with quantitative methods to measure these underlying characteristics
+
+## Bag-of-word
+
+-   The simplest possible way of describing a corpus is by counting words. For each text, we record how many times each word appears and we ignore everything else.
+
+**Assumptions:**
+
+-   Words in a document have a meaning.
+
+-   Word order does not matter.
+
+-   Word combinations or grammar do not matter.
+
+-   Words are the only relevant features (no punctuation, etc.)
+
+## Bag of words assumption
+
+1.  "War is good, peace is bad”
+2.  “Peace is good, war is bad”
+
+|            |     |     |      |       |     |     |
+|------------|-----|-----|------|-------|-----|-----|
+|            | War | is  | good | peace | is  | bad |
+| Sentence 1 | 1   | 1   | 1    | 1     | 1   | 1   |
+| Sentence 2 | 1   | 1   | 1    | 1     | 1   | 1   |
+
+Both sentences are exactly the same text for many text-as-data approaches!
+
+## Principles of QTA
+
+**1) "All language models are wrong but some are useful"**
+
+-   Statistical models attempt to describe the ways in which data is generated.
+
+-   This data-generation process is super complex for language (text)!
+
+-   We need to make simplifying assumptions. Therefore, we fail to accurately describe the data-generation process.
+
+-   **Trade-off:** Complexity vs. tractability.
+
+## Principles of QTA
+
+**1) "All language models are wrong but some are useful"**
+
+::: {.callout-tip appearance="minimal"}
+## Example: Sentiment analysis
+
+Customer review 1: "The customer service was terrible. I waited on hold for an hour and still got no help."
+
+Customer review 2: "Oh great, another vacuum that barely picks up dust. Just what I needed."
+
+Customer review 3: "This phone has an amazing battery life and a fantastic camera. I love it."
+
+**Model output:** Negative, Positive, Positive.
+
+Wrong, but useful?
+:::
+
+## Principles of QTA
+
+**2) We need domain-specific validation**
+
+-   Methods are easy-to-use , fast, and work at scale.
+
+-   But: Depending on the domain, they might lead to misleading or wrong results!
+
+-   We need to validate our methods in the particular setting we are studying.
+
+-   There are various ways of validation. We will get to know more about this in the coming weeks!
+
+## Principles of QTA
+
+**2) We need domain-specific validation**
+
+::: callout-tip
+## Validity discussion
+
+Let's say we have developed a method to measure climate change related content in parliamentary speeches at the sentence level. We get a binary measure, that is, the sentence is climate change related or it is not.
+
+How could we validate our results?
+:::
+
+## Principles of QTA
+
+**3) Visualization is central to understanding high dimensional data**
+
+-   Text data is multidimensional!
+
+-   One main goal of text analysis is to reduce this complexity into a lower-dimensional representation of the text while preserving the meaning.
+
+-   Visualizing the output of text models is important to see whether we have extracted the "right" meaning.
+
+## Principles of QTA
+
+**3) QTA still requires qualitative interpretation**
+
+-   QTA differs from qualitative approaches:
+
+    -   Analysis at scale of many texts. We do not read every document in detail.
+
+    -   Interpretation of quantitative summaries of text, rather than direct interpretation of text.
+
+-   But: We need to make a qualitative judgement about the output of our models!
+
+## Terminology
+
+-   **Document:** The basic unit (text) of analysis.
+
+-   **Corpus:** A structured set of documents for analysis.
+
+-   **Type:** A unique feature in the corpus. For example, a specific word or N-grams. A bigram (2-gram) is a pair of consecutive words such as "climate change".
+
+-   **Token:** An instance of a type in a document. E.g., the occurrence of the word in a given document.
+
+## "Documents"
+
+A document is the typical unit of analysis. What is a document?
+
+. . .
+
+-   Full speech
+
+-   Paragraphs of a press release
+
+-   Tweets
+
+-   ...
+
+➡️ Depends on research question and design!
+
+## "Features"
+
+How to define "features"?
+
+-   Words
+
+-   N-grams
+
+-   Parts of speech (nouns, pronouns, verbse, ...)
+
+-   Named entities (locations, organisations, ...)
+
+Why might "climate change" be a better feature than "climate"? Has "climate" a unique meaning? Think about the bag of words assumptions!
+
+## There is no one-size-fits-all aproach!
+
+Which documents and features of text would be most helpful for the following research questions?
+
+-   Predicting whether the author of a text was young or old.
+
+-   Measuring the financial content of news coverage.
+
+-   Assessing the relationship between political parties.
+
+. . .
+
+➡️ Selection of documents and features depends on your research question!
+
+## What makes a good measurement?
+
+-   Bias, Accuracy, & Validity:
+
+    -   Am I measuring what I think I am measuring?
+
+    -   Challenging: We need to validate our measures!
+
+-   Variance, Precision, Reliability:
+
+    -   If I measure this again, will I get the same answer?
+
+    -   QTA is usually good at the this when the underlying text is the same. Be aware of changes to the underlying text!
+
+-   This is also a challenge for qualitative approaches: See the [Manifesto project](https://manifesto-project.wzb.eu/down/papers/handbook_2021_version_5.pdf).
+
+## Coding example
+
+Based on the [Manifesto project](https://manifesto-project.wzb.eu/down/papers/handbook_2021_version_5.pdf) coding scheme, could you classify these sentences?
+
+-   We will ensure that all the people of our country can follow the path that leads to a good future.
+
+-   We will make sure that even tenants with a tight budget can have a modern heating system and improved insulation.
+
+-   We will ensure that access to electric mobility makes transportation more comfortable and affordable—whether by bus, train, or electric car.
+
+# Group work
+
+## Group work
+
+Up to 4 students:
+
+-   Brainstorm 2-3 research questions
+
+-   How can you operationalize your variables?
+
+-   What might be suitable data to study these questions?
+
+-   Data sources?
+
+Insert your notes [in this Google Doc](https://docs.google.com/document/d/1Krda6W7aNVbIQdxSz46u5uI1PN5aBIyhVhKK2HN-nE4/edit?usp=sharing).
+
+# Let's discuss!
