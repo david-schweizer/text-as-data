@@ -26,7 +26,7 @@ editor: visual
 ::: {.callout-note appearance="minimal" icon="false"}
 ## Import & Wrangle
 
--   Use the data on ILIAS: "btw_2025.rds".
+-   Use the data on ILIAS: "btw_2025.rda".
 
 -   Create an East-West variable (0 if the election district is in Western Germany, 1 if in Eastern Germany). Hint: Use if_else() or case_when().
 :::

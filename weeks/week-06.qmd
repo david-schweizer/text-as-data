@@ -1,9 +1,9 @@
 ---
-title: " R Markdown / Quarto"
+title: "Intro to Text-as-Data II: Workflow"
 subtitle: "Week 06"
 description: ""
 author: ""
-date: "Mar 19, 2024"
+date: "Mar 18, 2025"
 listing:
   - id: slides
     contents:
@@ -35,6 +35,16 @@ listing:
 tbl-colwidths: [10,50,40]
 ---
 
+# To Do's before our session
+
+-   Remember to work on the **first assignment**. The **deadline is 17.03.2025 13:00**. You should submit the assignment via ILIAS.
+-   Revise the coding exercise from last session (and the sessions before). Can you:
+    -   create new variables?
+    -   filter dataframes?
+    -   use if_else() or case_when()?
+    -   create a ggplot?
+-   Have a look at this nice overview article on [Text as Data: The Promise and Pitfalls of Automatic Content Analysis Methods for Political Texts](https://www.cambridge.org/core/journals/political-analysis/article/text-as-data-the-promise-and-pitfalls-of-automatic-content-analysis-methods-for-political-texts/F7AAC8B2909441603FEB25C156448F20). You can focus more on the concepts.
+
 # Seminar slides
 
 ::: {#slides}
@@ -42,9 +52,4 @@ tbl-colwidths: [10,50,40]
 
 # Materials
 
-You can find the Quarto document [**here**](https://ilias.uni-mannheim.de/goto.php?target=file_1502227_download&client_id=ILIAS).
-
-# To Do's before our session
-
--   Work on the **first assignment**. The **deadline is 19.03.2024 15:00**. You should submit the assignment via ILIAS. You can download the assignment and data [**here**](https://ilias.uni-mannheim.de/goto.php?target=fold_1499286&client_id=ILIAS).
--   Have a look at [chapter 28](https://r4ds.hadley.nz/quarto) and [29](https://r4ds.hadley.nz/quarto-formats) in R for Data Science.
+TBA.

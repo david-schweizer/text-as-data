@@ -46,4 +46,4 @@ Work and revise the exercises of the last sessions. Start working on the first a
 
 # Materials
 
-You can find the file "btw_2025.rds" on ILIAS.
+You can find the file "btw_2025.rds" as well as the solutions to the practice exercise on ILIAS. 
