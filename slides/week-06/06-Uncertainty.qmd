@@ -13,4 +13,386 @@ format:
 editor: visual
 ---
 
-# TBA
+```{r, include = FALSE}
+library(quanteda)
+library(tidyverse)
+```
+
+## Plan for today
+
+-   **Organizational:** Feedback for the first assignment during this week.
+
+-   **Input:** Text-as-Data workflow
+
+-   **Coding:** Creating a corpus, dfm, and some exploration
+
+-   **Group work:** Brainstorming research questions & suitable data (sources)
+
+## Short reminder
+
+-   What is a token?
+
+-   What is a document?
+
+-   What is a corpus?
+
+## Basic assumptions
+
+We assume, that ...
+
+-   ... texts represent an observable implication of some underlying characteristic of interest (an attribute of the author, position, tone, ...)
+
+-   ... texts can be represented through extracting their features, e.g. words.
+
+-   ... we can analyze the frequency of features with quantitative methods to measure these underlying characteristics
+
+## Bag-of-word
+
+-   The simplest possible way of describing a corpus is by counting words. For each text, we record how many times each word appears and we ignore everything else.
+
+**Assumptions:**
+
+-   Words in a document have a meaning.
+
+-   Word order does not matter.
+
+-   Word combinations or grammar do not matter.
+
+-   Words are the only relevant features (no punctuation, etc.)
+
+# Word-Frequency Analysis
+
+## Word-Frequency Analysis
+
+There are four major steps required:
+
+1.  What is the unit of analysis
+2.  Tokenization
+3.  Preprocessing
+4.  Create a document-feature- matrix (dfm)
+5.  Counting words over space and time
+6.  Denominating by totals
+
+## 1. Unit of analysis
+
+-   When analyzing text, we always need to determine our unit of analysis first.
+
+-   Imagine we want to analyze a corpus of press releases. What would be a good unit of analysis?
+
+    -   Full press release?
+
+    -   Headers only?
+
+    -   Paragraphs?
+
+## 1. Unit of analysis
+
+Let's have a look at a few examples:
+
+-   [Press releases by the Greens](https://www.gruene-bundestag.de/presse/default-4ef65d4fb6/sondervermoegen-und-schuldenbremse/)
+-   [Press releases by the SPD](https://www.spdfraktion.de/presse/pressemitteilungen?page=1)
+
+## 1. Unit of analysis
+
+-   Can have practical reasons (i.e., not possible to split in paragraphs).
+
+-   But your most important consideration should be your research question!
+
+-   Before starting any data exploration or analysis, take some time to think about the best way to address your research questions!
+
+    -   What hypotheses do you want to test?
+
+    -   What behavior or phenomenon do you wan to model?
+
+## 2. Tokenization
+
+```{r, echo = TRUE}
+library(quanteda)
+
+text <- "What we need to protect in 2025: the climate, the economy, and Europe."
+
+tokens(text)
+```
+
+```{r, echo = TRUE}
+tweet <- "TOGETHER! Donate 1$ #climate"
+
+tokens(tweet)
+```
+
+## 3. Preprocessing
+
+Next to tokenization, we can reduce complexity:
+
+-   Remove punctuation
+
+-   Remove numbers and symbols
+
+-   Lowercase
+
+-   Remove stop words
+
+-   Stem words
+
+-   Filter by frequency
+
+## 1. Remove punctuation
+
+```{r, echo=TRUE}
+text <- "What we need to protect in 2025: the climate, the economy, and Europe and the European Union."
+print(text)
+```
+
+\
+
+```{r, echo = TRUE, `code-line-numbers`="2"}
+text %>% 
+  tokens(remove_punct = TRUE)
+```
+
+## 2. Remove numbers
+
+```{r, echo=TRUE}
+text <- "What we need to protect in 2025: the climate, the economy, and Europe and the European Union."
+print(text)
+```
+
+\
+
+```{r, echo = TRUE, `code-line-numbers`="3"}
+text %>% 
+  tokens(remove_punct = TRUE,
+         remove_numbers = TRUE)
+```
+
+## 3. To lowercase
+
+```{r, echo=TRUE}
+text <- "What we need to protect in 2025: the climate, the economy, and Europe and the European Union."
+print(text)
+```
+
+\
+
+```{r, echo = TRUE, `code-line-numbers`="4"}
+text %>% 
+  tokens(remove_punct = TRUE,
+         remove_numbers = TRUE) %>% 
+  tokens_tolower()
+```
+
+## 4. Remove stopwords
+
+```{r, echo=TRUE}
+# English stopwords
+head(stopwords("en"), 20)
+```
+
+\
+
+```{r, echo=TRUE}
+# German stopwords
+head(stopwords("de"), 20)
+```
+
+## 4. Remove stopwords
+
+```{r, echo=TRUE}
+text <- "What we need to protect in 2025: the climate, the economy, and Europe and the European Union."
+print(text)
+```
+
+\
+
+```{r, echo = TRUE, `code-line-numbers`="5"}
+text %>% 
+  tokens(remove_punct = TRUE,
+         remove_numbers = TRUE) %>% 
+  tokens_tolower() %>% 
+  tokens_remove(pattern = stopwords("en"))  
+```
+
+## 4. Remove stopwords
+
+```{r, echo=TRUE}
+text <- "What we need to protect in 2025: the climate, the economy, and Europe and the European Union."
+print(text)
+```
+
+\
+
+```{r, echo = TRUE, `code-line-numbers`="6"}
+text %>% 
+  tokens(remove_punct = TRUE,
+         remove_numbers = TRUE) %>% 
+  tokens_tolower() %>% 
+  # Let's also remove "protect" as an example
+  tokens_remove(pattern = c(stopwords("en"), "protect")) 
+```
+
+## 5. Stem words
+
+```{r, echo=TRUE}
+text <- "What we need to protect in 2025: the climate, the economy, and Europe and the European Union."
+print(text)
+```
+
+\
+
+```{r, echo = TRUE, `code-line-numbers`="6"}
+text %>% 
+  tokens(remove_punct = TRUE,
+         remove_numbers = TRUE) %>% 
+  tokens_tolower() %>% 
+  tokens_remove(pattern = stopwords("en")) %>% 
+  tokens_wordstem(language = "en")
+```
+
+## 6. Compound words
+
+```{r, echo=TRUE}
+text <- "What we need to protect in 2025: the climate, the economy, and Europe and the European Union."
+print(text)
+```
+
+\
+
+```{r, echo = TRUE, `code-line-numbers`="4"}
+text %>% 
+  tokens(remove_punct = TRUE,
+         remove_numbers = TRUE) %>% 
+  tokens_compound(pattern = phrase("European Union")) %>% 
+  tokens_tolower() %>% 
+  tokens_remove(pattern = stopwords("en"))
+```
+
+## Document-feature matrix - Step 1
+
+```{r, echo=TRUE}
+library(quanteda)
+load("manifestos_2021.rda")
+
+# Convert the data.frame into a corpus
+manifestos_corpus <- corpus(manifestos, 
+                            text_field = "text")
+
+summary(manifestos_corpus)
+```
+
+## Document-feature matrix - Step 2
+
+```{r, echo=TRUE}
+# Take the corpus 
+manifesto_dfm <- manifestos_corpus%>% 
+           # Tokenize (split) the corpus into individual words
+           tokens() %>% 
+           # Construct a document-feature matrix
+           dfm()
+
+# Print the dfm
+manifesto_dfm
+```
+
+## Document-feature matrix - Frequency
+
+```{r, echo=TRUE}
+# Take the corpus 
+manifesto_dfm <- manifestos_corpus%>% 
+           # Tokenize (split) the corpus into individual words
+           tokens() %>% 
+           # Construct a document-feature matrix
+           dfm() %>% 
+           # Remove all words that appear fewer than 3 times
+           dfm_trim(min_termfreq = 3)
+
+# Print the dfm
+manifesto_dfm
+```
+
+## Choosing between representations
+
+-   How should we select between these representations?
+
+-   There is no single “best” dfm
+
+-   The optimal representation of a corpus will depend on the particular research task
+
+-   For example: Would you want to discard rare words when calculating linguistic complexity?
+
+## Exploring the DFM
+
+```{r, echo=TRUE}
+library(quanteda.textstats)
+
+freq <- textstat_frequency(manifesto_dfm) 
+
+head(freq, 20)
+```
+
+## Exploring the DFM by group
+
+```{r, echo=TRUE}
+library(quanteda.textstats)
+
+freq <- textstat_frequency(manifesto_dfm,
+                           groups = partyname) %>% 
+  filter(rank <= 5)
+
+head(freq, 20)
+```
+
+## Exploring the DFM
+
+```{r, echo=TRUE}
+library(quanteda.textplots)
+
+textplot_wordcloud(manifesto_dfm, max_words = 50)
+```
+
+## 6. Denominate by totals
+
+Why is this important? What could go wrong?
+
+![](graph.png){fig-align="center"}
+
+## 6. Denominate by totals
+
+Why is this important? What could go wrong?
+
+![](graph2.png){fig-align="center"}
+
+## Denominate by totals
+
+```{r, echo=TRUE}
+library(quanteda.textstats)
+
+freq <- textstat_frequency(manifesto_dfm) %>% 
+  mutate(rel_frequency = frequency / sum(frequency)) 
+
+head(freq, 20)
+```
+
+# Coding
+
+-   Use the R-Script on ILIAS and the file "Germany_Corpus.csv" for manifesto coverage between 1972 and 2021. The data source is the [ManifestoVault V1.0](https://dataverse.nl/dataset.xhtml?persistentId=doi:10.34894/VKQSPO). Alternatively, you can work with the 2021 manifestos stored in "manifestos_2021.rda".
+-   Create a corpus as well as a document-feature matrix.
+-   Pre-process the data.
+-   Explore the data.
+
+# Group work
+
+## Group work
+
+Up to 4 students:
+
+-   Brainstorm 2-3 research questions
+
+-   How can you operationalize your variables?
+
+-   What might be suitable data to study these questions?
+
+-   Data sources?
+
+Insert your notes [in this Google Doc](https://docs.google.com/document/d/1Krda6W7aNVbIQdxSz46u5uI1PN5aBIyhVhKK2HN-nE4/edit?usp=sharing).
+
+# Let's discuss!

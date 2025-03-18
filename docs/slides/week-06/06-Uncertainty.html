@@ -30,6 +30,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -343,8 +408,601 @@ David Schweizer
 
   <p class="date">March 18, 2025</p>
 </section>
-<section id="tba" class="title-slide slide level1 center">
-<h1>TBA</h1>
+<section id="plan-for-today" class="slide level2">
+<h2>Plan for today</h2>
+<ul>
+<li><p><strong>Organizational:</strong> Feedback for the first assignment during this week.</p></li>
+<li><p><strong>Input:</strong> Text-as-Data workflow</p></li>
+<li><p><strong>Coding:</strong> Creating a corpus, dfm, and some exploration</p></li>
+<li><p><strong>Group work:</strong> Brainstorming research questions &amp; suitable data (sources)</p></li>
+</ul>
+</section>
+<section id="short-reminder" class="slide level2">
+<h2>Short reminder</h2>
+<ul>
+<li><p>What is a token?</p></li>
+<li><p>What is a document?</p></li>
+<li><p>What is a corpus?</p></li>
+</ul>
+</section>
+<section id="basic-assumptions" class="slide level2">
+<h2>Basic assumptions</h2>
+<p>We assume, that …</p>
+<ul>
+<li><p>… texts represent an observable implication of some underlying characteristic of interest (an attribute of the author, position, tone, …)</p></li>
+<li><p>… texts can be represented through extracting their features, e.g.&nbsp;words.</p></li>
+<li><p>… we can analyze the frequency of features with quantitative methods to measure these underlying characteristics</p></li>
+</ul>
+</section>
+<section id="bag-of-word" class="slide level2">
+<h2>Bag-of-word</h2>
+<ul>
+<li>The simplest possible way of describing a corpus is by counting words. For each text, we record how many times each word appears and we ignore everything else.</li>
+</ul>
+<p><strong>Assumptions:</strong></p>
+<ul>
+<li><p>Words in a document have a meaning.</p></li>
+<li><p>Word order does not matter.</p></li>
+<li><p>Word combinations or grammar do not matter.</p></li>
+<li><p>Words are the only relevant features (no punctuation, etc.)</p></li>
+</ul>
+</section>
+<section>
+<section id="word-frequency-analysis" class="title-slide slide level1 center">
+<h1>Word-Frequency Analysis</h1>
+
+</section>
+<section id="word-frequency-analysis-1" class="slide level2">
+<h2>Word-Frequency Analysis</h2>
+<p>There are four major steps required:</p>
+<ol type="1">
+<li>What is the unit of analysis</li>
+<li>Tokenization</li>
+<li>Preprocessing</li>
+<li>Create a document-feature- matrix (dfm)</li>
+<li>Counting words over space and time</li>
+<li>Denominating by totals</li>
+</ol>
+</section>
+<section id="unit-of-analysis" class="slide level2">
+<h2>1. Unit of analysis</h2>
+<ul>
+<li><p>When analyzing text, we always need to determine our unit of analysis first.</p></li>
+<li><p>Imagine we want to analyze a corpus of press releases. What would be a good unit of analysis?</p>
+<ul>
+<li><p>Full press release?</p></li>
+<li><p>Headers only?</p></li>
+<li><p>Paragraphs?</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="unit-of-analysis-1" class="slide level2">
+<h2>1. Unit of analysis</h2>
+<p>Let’s have a look at a few examples:</p>
+<ul>
+<li><a href="https://www.gruene-bundestag.de/presse/default-4ef65d4fb6/sondervermoegen-und-schuldenbremse/">Press releases by the Greens</a></li>
+<li><a href="https://www.spdfraktion.de/presse/pressemitteilungen?page=1">Press releases by the SPD</a></li>
+</ul>
+</section>
+<section id="unit-of-analysis-2" class="slide level2">
+<h2>1. Unit of analysis</h2>
+<ul>
+<li><p>Can have practical reasons (i.e., not possible to split in paragraphs).</p></li>
+<li><p>But your most important consideration should be your research question!</p></li>
+<li><p>Before starting any data exploration or analysis, take some time to think about the best way to address your research questions!</p>
+<ul>
+<li><p>What hypotheses do you want to test?</p></li>
+<li><p>What behavior or phenomenon do you wan to model?</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="tokenization" class="slide level2">
+<h2>2. Tokenization</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(quanteda)</span>
+<span id="cb1-2"><a></a></span>
+<span id="cb1-3"><a></a>text <span class="ot">&lt;-</span> <span class="st">"What we need to protect in 2025: the climate, the economy, and Europe."</span></span>
+<span id="cb1-4"><a></a></span>
+<span id="cb1-5"><a></a><span class="fu">tokens</span>(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Tokens consisting of 1 document.
+text1 :
+ [1] "What"    "we"      "need"    "to"      "protect" "in"      "2025"   
+ [8] ":"       "the"     "climate" ","       "the"    
+[ ... and 5 more ]</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>tweet <span class="ot">&lt;-</span> <span class="st">"TOGETHER! Donate 1$ #climate"</span></span>
+<span id="cb3-2"><a></a></span>
+<span id="cb3-3"><a></a><span class="fu">tokens</span>(tweet)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Tokens consisting of 1 document.
+text1 :
+[1] "TOGETHER" "!"        "Donate"   "1"        "$"        "#climate"</code></pre>
+</div>
+</div>
+</section>
+<section id="preprocessing" class="slide level2">
+<h2>3. Preprocessing</h2>
+<p>Next to tokenization, we can reduce complexity:</p>
+<ul>
+<li><p>Remove punctuation</p></li>
+<li><p>Remove numbers and symbols</p></li>
+<li><p>Lowercase</p></li>
+<li><p>Remove stop words</p></li>
+<li><p>Stem words</p></li>
+<li><p>Filter by frequency</p></li>
+</ul>
+</section>
+<section id="remove-punctuation" class="slide level2">
+<h2>1. Remove punctuation</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>text <span class="ot">&lt;-</span> <span class="st">"What we need to protect in 2025: the climate, the economy, and Europe and the European Union."</span></span>
+<span id="cb5-2"><a></a><span class="fu">print</span>(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "What we need to protect in 2025: the climate, the economy, and Europe and the European Union."</code></pre>
+</div>
+</div>
+<p><br>
+</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>text <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a></a>  <span class="fu">tokens</span>(<span class="at">remove_punct =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Tokens consisting of 1 document.
+text1 :
+ [1] "What"    "we"      "need"    "to"      "protect" "in"      "2025"   
+ [8] "the"     "climate" "the"     "economy" "and"    
+[ ... and 5 more ]</code></pre>
+</div>
+</div>
+</section>
+<section id="remove-numbers" class="slide level2">
+<h2>2. Remove numbers</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>text <span class="ot">&lt;-</span> <span class="st">"What we need to protect in 2025: the climate, the economy, and Europe and the European Union."</span></span>
+<span id="cb9-2"><a></a><span class="fu">print</span>(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "What we need to protect in 2025: the climate, the economy, and Europe and the European Union."</code></pre>
+</div>
+</div>
+<p><br>
+</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>text <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a></a>  <span class="fu">tokens</span>(<span class="at">remove_punct =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb11-3"><a></a>         <span class="at">remove_numbers =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Tokens consisting of 1 document.
+text1 :
+ [1] "What"    "we"      "need"    "to"      "protect" "in"      "the"    
+ [8] "climate" "the"     "economy" "and"     "Europe" 
+[ ... and 4 more ]</code></pre>
+</div>
+</div>
+</section>
+<section id="to-lowercase" class="slide level2">
+<h2>3. To lowercase</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>text <span class="ot">&lt;-</span> <span class="st">"What we need to protect in 2025: the climate, the economy, and Europe and the European Union."</span></span>
+<span id="cb13-2"><a></a><span class="fu">print</span>(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "What we need to protect in 2025: the climate, the economy, and Europe and the European Union."</code></pre>
+</div>
+</div>
+<p><br>
+</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>text <span class="sc">%&gt;%</span> </span>
+<span id="cb15-2"><a></a>  <span class="fu">tokens</span>(<span class="at">remove_punct =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb15-3"><a></a>         <span class="at">remove_numbers =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-4"><a></a>  <span class="fu">tokens_tolower</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Tokens consisting of 1 document.
+text1 :
+ [1] "what"    "we"      "need"    "to"      "protect" "in"      "the"    
+ [8] "climate" "the"     "economy" "and"     "europe" 
+[ ... and 4 more ]</code></pre>
+</div>
+</div>
+</section>
+<section id="remove-stopwords" class="slide level2">
+<h2>4. Remove stopwords</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="co"># English stopwords</span></span>
+<span id="cb17-2"><a></a><span class="fu">head</span>(<span class="fu">stopwords</span>(<span class="st">"en"</span>), <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "i"          "me"         "my"         "myself"     "we"        
+ [6] "our"        "ours"       "ourselves"  "you"        "your"      
+[11] "yours"      "yourself"   "yourselves" "he"         "him"       
+[16] "his"        "himself"    "she"        "her"        "hers"      </code></pre>
+</div>
+</div>
+<p><br>
+</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="co"># German stopwords</span></span>
+<span id="cb19-2"><a></a><span class="fu">head</span>(<span class="fu">stopwords</span>(<span class="st">"de"</span>), <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "aber"    "alle"    "allem"   "allen"   "aller"   "alles"   "als"    
+ [8] "also"    "am"      "an"      "ander"   "andere"  "anderem" "anderen"
+[15] "anderer" "anderes" "anderm"  "andern"  "anderr"  "anders" </code></pre>
+</div>
+</div>
+</section>
+<section id="remove-stopwords-1" class="slide level2">
+<h2>4. Remove stopwords</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>text <span class="ot">&lt;-</span> <span class="st">"What we need to protect in 2025: the climate, the economy, and Europe and the European Union."</span></span>
+<span id="cb21-2"><a></a><span class="fu">print</span>(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "What we need to protect in 2025: the climate, the economy, and Europe and the European Union."</code></pre>
+</div>
+</div>
+<p><br>
+</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>text <span class="sc">%&gt;%</span> </span>
+<span id="cb23-2"><a></a>  <span class="fu">tokens</span>(<span class="at">remove_punct =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb23-3"><a></a>         <span class="at">remove_numbers =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-4"><a></a>  <span class="fu">tokens_tolower</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb23-5"><a></a>  <span class="fu">tokens_remove</span>(<span class="at">pattern =</span> <span class="fu">stopwords</span>(<span class="st">"en"</span>))  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Tokens consisting of 1 document.
+text1 :
+[1] "need"     "protect"  "climate"  "economy"  "europe"   "european" "union"   </code></pre>
+</div>
+</div>
+</section>
+<section id="remove-stopwords-2" class="slide level2">
+<h2>4. Remove stopwords</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>text <span class="ot">&lt;-</span> <span class="st">"What we need to protect in 2025: the climate, the economy, and Europe and the European Union."</span></span>
+<span id="cb25-2"><a></a><span class="fu">print</span>(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "What we need to protect in 2025: the climate, the economy, and Europe and the European Union."</code></pre>
+</div>
+</div>
+<p><br>
+</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>text <span class="sc">%&gt;%</span> </span>
+<span id="cb27-2"><a></a>  <span class="fu">tokens</span>(<span class="at">remove_punct =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb27-3"><a></a>         <span class="at">remove_numbers =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-4"><a></a>  <span class="fu">tokens_tolower</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb27-5"><a></a>  <span class="co"># Let's also remove "protect" as an example</span></span>
+<span id="cb27-6"><a></a>  <span class="fu">tokens_remove</span>(<span class="at">pattern =</span> <span class="fu">c</span>(<span class="fu">stopwords</span>(<span class="st">"en"</span>), <span class="st">"protect"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Tokens consisting of 1 document.
+text1 :
+[1] "need"     "climate"  "economy"  "europe"   "european" "union"   </code></pre>
+</div>
+</div>
+</section>
+<section id="stem-words" class="slide level2">
+<h2>5. Stem words</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>text <span class="ot">&lt;-</span> <span class="st">"What we need to protect in 2025: the climate, the economy, and Europe and the European Union."</span></span>
+<span id="cb29-2"><a></a><span class="fu">print</span>(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "What we need to protect in 2025: the climate, the economy, and Europe and the European Union."</code></pre>
+</div>
+</div>
+<p><br>
+</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>text <span class="sc">%&gt;%</span> </span>
+<span id="cb31-2"><a></a>  <span class="fu">tokens</span>(<span class="at">remove_punct =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb31-3"><a></a>         <span class="at">remove_numbers =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb31-4"><a></a>  <span class="fu">tokens_tolower</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb31-5"><a></a>  <span class="fu">tokens_remove</span>(<span class="at">pattern =</span> <span class="fu">stopwords</span>(<span class="st">"en"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb31-6"><a></a>  <span class="fu">tokens_wordstem</span>(<span class="at">language =</span> <span class="st">"en"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Tokens consisting of 1 document.
+text1 :
+[1] "need"     "protect"  "climat"   "economi"  "europ"    "european" "union"   </code></pre>
+</div>
+</div>
+</section>
+<section id="compound-words" class="slide level2">
+<h2>6. Compound words</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>text <span class="ot">&lt;-</span> <span class="st">"What we need to protect in 2025: the climate, the economy, and Europe and the European Union."</span></span>
+<span id="cb33-2"><a></a><span class="fu">print</span>(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "What we need to protect in 2025: the climate, the economy, and Europe and the European Union."</code></pre>
+</div>
+</div>
+<p><br>
+</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>text <span class="sc">%&gt;%</span> </span>
+<span id="cb35-2"><a></a>  <span class="fu">tokens</span>(<span class="at">remove_punct =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb35-3"><a></a>         <span class="at">remove_numbers =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb35-4"><a></a>  <span class="fu">tokens_compound</span>(<span class="at">pattern =</span> <span class="fu">phrase</span>(<span class="st">"European Union"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb35-5"><a></a>  <span class="fu">tokens_tolower</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb35-6"><a></a>  <span class="fu">tokens_remove</span>(<span class="at">pattern =</span> <span class="fu">stopwords</span>(<span class="st">"en"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Tokens consisting of 1 document.
+text1 :
+[1] "need"           "protect"        "climate"        "economy"       
+[5] "europe"         "european_union"</code></pre>
+</div>
+</div>
+</section>
+<section id="document-feature-matrix---step-1" class="slide level2">
+<h2>Document-feature matrix - Step 1</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="fu">library</span>(quanteda)</span>
+<span id="cb37-2"><a></a><span class="fu">load</span>(<span class="st">"manifestos_2021.rda"</span>)</span>
+<span id="cb37-3"><a></a></span>
+<span id="cb37-4"><a></a><span class="co"># Convert the data.frame into a corpus</span></span>
+<span id="cb37-5"><a></a>manifestos_corpus <span class="ot">&lt;-</span> <span class="fu">corpus</span>(manifestos, </span>
+<span id="cb37-6"><a></a>                            <span class="at">text_field =</span> <span class="st">"text"</span>)</span>
+<span id="cb37-7"><a></a></span>
+<span id="cb37-8"><a></a><span class="fu">summary</span>(manifestos_corpus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Corpus consisting of 6 documents, showing 6 documents:
+
+  Text Types Tokens Sentences   date party
+ text1 12566  77230      3681 202109 41113
+ text2 12610  79296      4608 202109 41223
+ text3  5915  26951      1496 202109 41320
+ text4  8239  40181      2416 202109 41420
+ text5  8891  48665      2686 202109 41521
+ text6  7171  26619      1431 202109 41953
+                                           partyname
+                                              Greens
+                                            The Left
+                  Social Democratic Party of Germany
+                               Free Democratic Party
+ Democratic Christian Union / Christian Social Union
+                             Alternative for Germany</code></pre>
+</div>
+</div>
+</section>
+<section id="document-feature-matrix---step-2" class="slide level2">
+<h2>Document-feature matrix - Step 2</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a><span class="co"># Take the corpus </span></span>
+<span id="cb39-2"><a></a>manifesto_dfm <span class="ot">&lt;-</span> manifestos_corpus<span class="sc">%&gt;%</span> </span>
+<span id="cb39-3"><a></a>           <span class="co"># Tokenize (split) the corpus into individual words</span></span>
+<span id="cb39-4"><a></a>           <span class="fu">tokens</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb39-5"><a></a>           <span class="co"># Construct a document-feature matrix</span></span>
+<span id="cb39-6"><a></a>           <span class="fu">dfm</span>()</span>
+<span id="cb39-7"><a></a></span>
+<span id="cb39-8"><a></a><span class="co"># Print the dfm</span></span>
+<span id="cb39-9"><a></a>manifesto_dfm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Document-feature matrix of: 6 documents, 28,880 features (69.38% sparse) and 3 docvars.
+       features
+docs    deutschland    . alles drin bundestagswahlprogramm 2021 bereit    ,
+  text1         136 3696    11    1                      1    3      5 3878
+  text2          86 4487     6    0                      0    7      5 3321
+  text3          50 1493     2    0                      0    1      0 1213
+  text4         107 2414     3    0                      0    2      2 1340
+  text5         156 2697     9    0                      0    2      5 2019
+  text6          95 1464     5    0                      0    3      1  983
+       features
+docs    weil ihr
+  text1   29  26
+  text2   30  15
+  text3   10   8
+  text4   12  12
+  text5    9  12
+  text6    3  11
+[ reached max_nfeat ... 28,870 more features ]</code></pre>
+</div>
+</div>
+</section>
+<section id="document-feature-matrix---frequency" class="slide level2">
+<h2>Document-feature matrix - Frequency</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a><span class="co"># Take the corpus </span></span>
+<span id="cb41-2"><a></a>manifesto_dfm <span class="ot">&lt;-</span> manifestos_corpus<span class="sc">%&gt;%</span> </span>
+<span id="cb41-3"><a></a>           <span class="co"># Tokenize (split) the corpus into individual words</span></span>
+<span id="cb41-4"><a></a>           <span class="fu">tokens</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb41-5"><a></a>           <span class="co"># Construct a document-feature matrix</span></span>
+<span id="cb41-6"><a></a>           <span class="fu">dfm</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb41-7"><a></a>           <span class="co"># Remove all words that appear fewer than 3 times</span></span>
+<span id="cb41-8"><a></a>           <span class="fu">dfm_trim</span>(<span class="at">min_termfreq =</span> <span class="dv">3</span>)</span>
+<span id="cb41-9"><a></a></span>
+<span id="cb41-10"><a></a><span class="co"># Print the dfm</span></span>
+<span id="cb41-11"><a></a>manifesto_dfm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Document-feature matrix of: 6 documents, 8,335 features (40.37% sparse) and 3 docvars.
+       features
+docs    deutschland    . alles 2021 bereit    , weil ihr  es eine
+  text1         136 3696    11    3      5 3878   29  26 325  712
+  text2          86 4487     6    7      5 3321   30  15 328  615
+  text3          50 1493     2    1      0 1213   10   8  95  261
+  text4         107 2414     3    2      2 1340   12  12 129  388
+  text5         156 2697     9    2      5 2019    9  12 153  387
+  text6          95 1464     5    3      1  983    3  11  72  249
+[ reached max_nfeat ... 8,325 more features ]</code></pre>
+</div>
+</div>
+</section>
+<section id="choosing-between-representations" class="slide level2">
+<h2>Choosing between representations</h2>
+<ul>
+<li><p>How should we select between these representations?</p></li>
+<li><p>There is no single “best” dfm</p></li>
+<li><p>The optimal representation of a corpus will depend on the particular research task</p></li>
+<li><p>For example: Would you want to discard rare words when calculating linguistic complexity?</p></li>
+</ul>
+</section>
+<section id="exploring-the-dfm" class="slide level2">
+<h2>Exploring the DFM</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a><span class="fu">library</span>(quanteda.textstats)</span>
+<span id="cb43-2"><a></a></span>
+<span id="cb43-3"><a></a>freq <span class="ot">&lt;-</span> <span class="fu">textstat_frequency</span>(manifesto_dfm) </span>
+<span id="cb43-4"><a></a></span>
+<span id="cb43-5"><a></a><span class="fu">head</span>(freq, <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   feature frequency rank docfreq group
+1        .     16251    1       6   all
+2      und     13544    2       6   all
+3        ,     12754    3       6   all
+4      die      9905    4       6   all
+5      der      7504    5       6   all
+6      wir      6383    6       6   all
+7      für      4525    7       6   all
+8       in      4416    8       6   all
+9   werden      3667    9       6   all
+10     von      3036   10       6   all
+11      zu      2991   11       6   all
+12     den      2969   12       6   all
+13  wollen      2647   13       6   all
+14    eine      2612   14       6   all
+15     mit      2166   15       6   all
+16     das      2042   16       6   all
+17     auf      2006   17       6   all
+18     ein      1857   18       6   all
+19       -      1837   19       6   all
+20    auch      1729   20       6   all</code></pre>
+</div>
+</div>
+</section>
+<section id="exploring-the-dfm-by-group" class="slide level2">
+<h2>Exploring the DFM by group</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a><span class="fu">library</span>(quanteda.textstats)</span>
+<span id="cb45-2"><a></a></span>
+<span id="cb45-3"><a></a>freq <span class="ot">&lt;-</span> <span class="fu">textstat_frequency</span>(manifesto_dfm,</span>
+<span id="cb45-4"><a></a>                           <span class="at">groups =</span> partyname) <span class="sc">%&gt;%</span> </span>
+<span id="cb45-5"><a></a>  <span class="fu">filter</span>(rank <span class="sc">&lt;=</span> <span class="dv">5</span>)</span>
+<span id="cb45-6"><a></a></span>
+<span id="cb45-7"><a></a><span class="fu">head</span>(freq, <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      feature frequency rank docfreq
+1           .      1464    1       1
+2         die      1101    2       1
+3           ,       983    3       1
+4         und       957    4       1
+5         der       906    5       1
+3923        .      2697    1       1
+3924      und      2362    2       1
+3925        ,      2019    3       1
+3926      die      1457    4       1
+3927      wir      1409    5       1
+8867        .      2414    1       1
+8868      und      1716    2       1
+8869        ,      1340    3       1
+8870      die      1285    4       1
+8871      der      1065    5       1
+13588       ,      3878    1       1
+13589     und      3794    2       1
+13590       .      3696    3       1
+13591     die      2409    4       1
+13592     wir      1720    5       1
+                                                    group
+1                                 Alternative for Germany
+2                                 Alternative for Germany
+3                                 Alternative for Germany
+4                                 Alternative for Germany
+5                                 Alternative for Germany
+3923  Democratic Christian Union / Christian Social Union
+3924  Democratic Christian Union / Christian Social Union
+3925  Democratic Christian Union / Christian Social Union
+3926  Democratic Christian Union / Christian Social Union
+3927  Democratic Christian Union / Christian Social Union
+8867                                Free Democratic Party
+8868                                Free Democratic Party
+8869                                Free Democratic Party
+8870                                Free Democratic Party
+8871                                Free Democratic Party
+13588                                              Greens
+13589                                              Greens
+13590                                              Greens
+13591                                              Greens
+13592                                              Greens</code></pre>
+</div>
+</div>
+</section>
+<section id="exploring-the-dfm-1" class="slide level2">
+<h2>Exploring the DFM</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a><span class="fu">library</span>(quanteda.textplots)</span>
+<span id="cb47-2"><a></a></span>
+<span id="cb47-3"><a></a><span class="fu">textplot_wordcloud</span>(manifesto_dfm, <span class="at">max_words =</span> <span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="06-Uncertainty_files/figure-revealjs/unnamed-chunk-25-1.png" width="960" class="r-stretch"></section>
+<section id="denominate-by-totals" class="slide level2">
+<h2>6. Denominate by totals</h2>
+<p>Why is this important? What could go wrong?</p>
+
+<img data-src="graph.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="denominate-by-totals-1" class="slide level2">
+<h2>6. Denominate by totals</h2>
+<p>Why is this important? What could go wrong?</p>
+
+<img data-src="graph2.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="denominate-by-totals-2" class="slide level2">
+<h2>Denominate by totals</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a><span class="fu">library</span>(quanteda.textstats)</span>
+<span id="cb48-2"><a></a></span>
+<span id="cb48-3"><a></a>freq <span class="ot">&lt;-</span> <span class="fu">textstat_frequency</span>(manifesto_dfm) <span class="sc">%&gt;%</span> </span>
+<span id="cb48-4"><a></a>  <span class="fu">mutate</span>(<span class="at">rel_frequency =</span> frequency <span class="sc">/</span> <span class="fu">sum</span>(frequency)) </span>
+<span id="cb48-5"><a></a></span>
+<span id="cb48-6"><a></a><span class="fu">head</span>(freq, <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   feature frequency rank docfreq group rel_frequency
+1        .     16251    1       6   all   0.059285769
+2      und     13544    2       6   all   0.049410280
+3        ,     12754    3       6   all   0.046528257
+4      die      9905    4       6   all   0.036134733
+5      der      7504    5       6   all   0.027375571
+6      wir      6383    6       6   all   0.023286017
+7      für      4525    7       6   all   0.016507791
+8       in      4416    8       6   all   0.016110144
+9   werden      3667    9       6   all   0.013377695
+10     von      3036   10       6   all   0.011075724
+11      zu      2991   11       6   all   0.010911558
+12     den      2969   12       6   all   0.010831300
+13  wollen      2647   13       6   all   0.009656601
+14    eine      2612   14       6   all   0.009528917
+15     mit      2166   15       6   all   0.007901851
+16     das      2042   16       6   all   0.007449483
+17     auf      2006   17       6   all   0.007318150
+18     ein      1857   18       6   all   0.006774578
+19       -      1837   19       6   all   0.006701616
+20    auch      1729   20       6   all   0.006307618</code></pre>
+</div>
+</div>
+</section></section>
+<section id="coding" class="title-slide slide level1 center">
+<h1>Coding</h1>
+<ul>
+<li>Use the R-Script on ILIAS and the file “Germany_Corpus.csv” for manifesto coverage between 1972 and 2021. The data source is the <a href="https://dataverse.nl/dataset.xhtml?persistentId=doi:10.34894/VKQSPO">ManifestoVault V1.0</a>. Alternatively, you can work with the 2021 manifestos stored in “manifestos_2021.rda”.</li>
+<li>Create a corpus as well as a document-feature matrix.</li>
+<li>Pre-process the data.</li>
+<li>Explore the data.</li>
+</ul>
+</section>
+
+<section>
+<section id="group-work" class="title-slide slide level1 center">
+<h1>Group work</h1>
+
+</section>
+<section id="group-work-1" class="slide level2">
+<h2>Group work</h2>
+<p>Up to 4 students:</p>
+<ul>
+<li><p>Brainstorm 2-3 research questions</p></li>
+<li><p>How can you operationalize your variables?</p></li>
+<li><p>What might be suitable data to study these questions?</p></li>
+<li><p>Data sources?</p></li>
+</ul>
+<p>Insert your notes <a href="https://docs.google.com/document/d/1Krda6W7aNVbIQdxSz46u5uI1PN5aBIyhVhKK2HN-nE4/edit?usp=sharing">in this Google Doc</a>.</p>
+</section></section>
+<section id="lets-discuss" class="title-slide slide level1 center">
+<h1>Let’s discuss!</h1>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
@@ -562,6 +1220,82 @@ David Schweizer
         ]
       });
     </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

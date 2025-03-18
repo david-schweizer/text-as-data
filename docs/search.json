@@ -28,7 +28,7 @@
     "href": "material.html",
     "title": "Schedule, slides & materials",
     "section": "",
-    "text": "You can find all course materials below. This includes slides, code, links to readings, etc.\nJust click on the topic of the respective week.\n\n\n\n\n\nWeek\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nFebruary 11, 2025\n\n\n\n\nWeek 02\n\n\nIntro to R\n\n\nFebruary 18, 2025\n\n\n\n\nWeek 03\n\n\nTidyverse I: Import, tidy, and transform\n\n\nFebruary 25, 2025\n\n\n\n\nWeek 04\n\n\nTidyverse II: Transform, and visualize\n\n\nMarch 04, 2025\n\n\n\n\nWeek 05\n\n\nIntro to Text-as-Data I: Concepts\n\n\nMarch 11, 2025\n\n\n\n\nWeek 06\n\n\nIntro to Text-as-Data II: Workflow\n\n\nMarch 18, 2025\n\n\n\n\n\nNo matching items",
+    "text": "You can find all course materials below. This includes slides, code, links to readings, etc.\nJust click on the topic of the respective week.\n\n\n\n\n\nWeek\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nFebruary 11, 2025\n\n\n\n\nWeek 02\n\n\nIntro to R\n\n\nFebruary 18, 2025\n\n\n\n\nWeek 03\n\n\nTidyverse I: Import, tidy, and transform\n\n\nFebruary 25, 2025\n\n\n\n\nWeek 04\n\n\nTidyverse II: Transform, and visualize\n\n\nMarch 04, 2025\n\n\n\n\nWeek 05\n\n\nIntro to Text-as-Data I: Concepts\n\n\nMarch 11, 2025\n\n\n\n\nWeek 06\n\n\nIntro to Text-as-Data II: Workflow\n\n\nMarch 18, 2025\n\n\n\n\nWeek 07\n\n\nDictionary and Sentiment\n\n\nMarch 25, 2025\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Schedule, slides & materials"
     ]
@@ -221,14 +221,14 @@
     "href": "weeks/week-06.html",
     "title": "Intro to Text-as-Data II: Workflow",
     "section": "",
-    "text": "To Do’s before our session\n\nRemember to work on the first assignment. The deadline is 17.03.2025 13:00. You should submit the assignment via ILIAS.\nRevise the coding exercise from last session (and the sessions before). Can you:\n\ncreate new variables?\nfilter dataframes?\nuse if_else() or case_when()?\ncreate a ggplot?\n\nHave a look at this nice overview article on Text as Data: The Promise and Pitfalls of Automatic Content Analysis Methods for Political Texts. You can focus more on the concepts.\n\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nIntro to Text-as-Data II: Workflow\n\n\nWeek 6\n\n\nMar 18, 2025\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA."
+    "text": "To Do’s before our session\n\nRemember to work on the first assignment. The deadline is 17.03.2025 13:00. You should submit the assignment via ILIAS.\nRevise the coding exercise from last session (and the sessions before). Can you:\n\ncreate new variables?\nfilter dataframes?\nuse if_else() or case_when()?\ncreate a ggplot?\n\nHave a look at this nice overview article on Text as Data: The Promise and Pitfalls of Automatic Content Analysis Methods for Political Texts. You can focus more on the concepts.\n\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nIntro to Text-as-Data II: Workflow\n\n\nWeek 6\n\n\nMar 18, 2025\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nYou can find the materials on ILIAS under session_06."
   },
   {
     "objectID": "weeks/week-07.html",
     "href": "weeks/week-07.html",
-    "title": "Version control (Github)",
+    "title": "Dictionary and Sentiment",
     "section": "",
-    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nVersion control (Github)\n\n\nWeek 9\n\n\nApr 9, 2024\n\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nThere are not additional materials for this week.\n\n\nTo Do’s before our session\n\nWork on the mid-term assignment. The deadline is 09.04.2024 15:00. You should submit the assignment via ILIAS. You can download the assignment and data here.\nCreate a Github account and install GitHub Desktop."
+    "text": "To Do’s before our session\n\nHave a look at Multilingual Sentiment Analysis: A New Approach to Measuring Conflict in Legislative Speeches\n\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nDictionary and Sentiment\n\n\nWeek 7\n\n\nMar 25, 2025\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA."
   },
   {
     "objectID": "weeks/week-09.html",
@@ -3389,9 +3389,9 @@
   {
     "objectID": "slides/week-06/06-Uncertainty.html#plan-for-today",
     "href": "slides/week-06/06-Uncertainty.html#plan-for-today",
-    "title": "Quarto",
+    "title": "Intro to Text-as-Data II: Workflow",
     "section": "Plan for today",
-    "text": "Plan for today\nInput\n\nReproducibility, R Markdown & Quarto\n\nCoding Session\n\nDrafting your first Quarto documents"
+    "text": "Plan for today\n\nOrganizational: Feedback for the first assignment during this week.\nInput: Text-as-Data workflow\nCoding: Creating a corpus, dfm, and some exploration\nGroup work: Brainstorming research questions & suitable data (sources)"
   },
   {
     "objectID": "slides/week-06/06-Uncertainty.html#misperceptions-of-probability-chance",
@@ -8316,5 +8316,243 @@
     "title": "Intro to Text-as-Data I: Concepts",
     "section": "Coding example",
     "text": "Coding example\nBased on the Manifesto project coding scheme, could you classify these sentences?\n\nWe will ensure that all the people of our country can follow the path that leads to a good future.\nWe will make sure that even tenants with a tight budget can have a modern heating system and improved insulation.\nWe will ensure that access to electric mobility makes transportation more comfortable and affordable—whether by bus, train, or electric car."
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#short-reminder",
+    "href": "slides/week-06/06-Uncertainty.html#short-reminder",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "Short reminder",
+    "text": "Short reminder\n\nWhat is a token?\nWhat is a document?\nWhat is a corpus?"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#basic-assumptions",
+    "href": "slides/week-06/06-Uncertainty.html#basic-assumptions",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "Basic assumptions",
+    "text": "Basic assumptions\nWe assume, that …\n\n… texts represent an observable implication of some underlying characteristic of interest (an attribute of the author, position, tone, …)\n… texts can be represented through extracting their features, e.g. words.\n… we can analyze the frequency of features with quantitative methods to measure these underlying characteristics"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#bag-of-word",
+    "href": "slides/week-06/06-Uncertainty.html#bag-of-word",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "Bag-of-word",
+    "text": "Bag-of-word\n\nThe simplest possible way of describing a corpus is by counting words. For each text, we record how many times each word appears and we ignore everything else.\n\nAssumptions:\n\nWords in a document have a meaning.\nWord order does not matter.\nWord combinations or grammar do not matter.\nWords are the only relevant features (no punctuation, etc.)"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#word-frequency-analysis-1",
+    "href": "slides/week-06/06-Uncertainty.html#word-frequency-analysis-1",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "Word-Frequency Analysis",
+    "text": "Word-Frequency Analysis\nThere are four major steps required:\n\nWhat is the unit of analysis\nTokenization\nPreprocessing\nCreate a document-feature- matrix (dfm)\nCounting words over space and time\nDenominating by totals"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#unit-of-analysis",
+    "href": "slides/week-06/06-Uncertainty.html#unit-of-analysis",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "1. Unit of analysis",
+    "text": "1. Unit of analysis\n\nWhen analyzing text, we always need to determine our unit of analysis first.\nImagine we want to analyze a corpus of press releases. What would be a good unit of analysis?\n\nFull press release?\nHeaders only?\nParagraphs?"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#unit-of-analysis-1",
+    "href": "slides/week-06/06-Uncertainty.html#unit-of-analysis-1",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "1. Unit of analysis",
+    "text": "1. Unit of analysis\nLet’s have a look at a few examples:\n\nPress releases by the Greens\nPress releases by the SPD"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#unit-of-analysis-2",
+    "href": "slides/week-06/06-Uncertainty.html#unit-of-analysis-2",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "1. Unit of analysis",
+    "text": "1. Unit of analysis\n\nCan have practical reasons (i.e., not possible to split in paragraphs).\nBut your most important consideration should be your research question!\nBefore starting any data exploration or analysis, take some time to think about the best way to address your research questions!\n\nWhat hypotheses do you want to test?\nWhat behavior or phenomenon do you wan to model?"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#tokenization",
+    "href": "slides/week-06/06-Uncertainty.html#tokenization",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "2. Tokenization",
+    "text": "2. Tokenization\n\nlibrary(quanteda)\n\ntext &lt;- \"What we need to protect in 2025: the climate, the economy, and Europe.\"\n\ntokens(text)\n\nTokens consisting of 1 document.\ntext1 :\n [1] \"What\"    \"we\"      \"need\"    \"to\"      \"protect\" \"in\"      \"2025\"   \n [8] \":\"       \"the\"     \"climate\" \",\"       \"the\"    \n[ ... and 5 more ]\n\n\n\ntweet &lt;- \"TOGETHER! Donate 1$ #climate\"\n\ntokens(tweet)\n\nTokens consisting of 1 document.\ntext1 :\n[1] \"TOGETHER\" \"!\"        \"Donate\"   \"1\"        \"$\"        \"#climate\""
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#preprocessing",
+    "href": "slides/week-06/06-Uncertainty.html#preprocessing",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "3. Preprocessing",
+    "text": "3. Preprocessing\nNext to tokenization, we can reduce complexity:\n\nRemove punctuation\nRemove numbers and symbols\nLowercase\nRemove stop words\nStem words\nFilter by frequency"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#document-feature-matrix",
+    "href": "slides/week-06/06-Uncertainty.html#document-feature-matrix",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "Document-feature matrix",
+    "text": "Document-feature matrix\n\nlibrary(quanteda)\nload(\"manifestos_2021.rda\")\n\n# Convert the data.frame into a corpus\nmanifestos_corpus &lt;- corpus(manifestos, \n                            text_field = \"text\")\n\n# Take the corpus \nmanifesto_dfm &lt;- manifestos_corpus%&gt;% \n           # Tokenize (split) the corpus into individual words\n           tokens() %&gt;% \n           # Construct a document-feature matrix\n           dfm()\n\n# Print the dfm\nmanifesto_dfm\n\nDocument-feature matrix of: 6 documents, 28,880 features (69.38% sparse) and 3 docvars.\n       features\ndocs    deutschland    . alles drin bundestagswahlprogramm 2021 bereit    ,\n  text1         136 3696    11    1                      1    3      5 3878\n  text2          86 4487     6    0                      0    7      5 3321\n  text3          50 1493     2    0                      0    1      0 1213\n  text4         107 2414     3    0                      0    2      2 1340\n  text5         156 2697     9    0                      0    2      5 2019\n  text6          95 1464     5    0                      0    3      1  983\n       features\ndocs    weil ihr\n  text1   29  26\n  text2   30  15\n  text3   10   8\n  text4   12  12\n  text5    9  12\n  text6    3  11\n[ reached max_nfeat ... 28,870 more features ]"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#counting-words",
+    "href": "slides/week-06/06-Uncertainty.html#counting-words",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "5. Counting words",
+    "text": "5. Counting words"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#denominate-by-totals",
+    "href": "slides/week-06/06-Uncertainty.html#denominate-by-totals",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "6. Denominate by totals",
+    "text": "6. Denominate by totals\nWhy is this important? What could go wrong?"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#group-work-1",
+    "href": "slides/week-06/06-Uncertainty.html#group-work-1",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "Group work",
+    "text": "Group work\nUp to 4 students:\n\nBrainstorm 2-3 research questions\nHow can you operationalize your variables?\nWhat might be suitable data to study these questions?\nData sources?\n\nInsert your notes in this Google Doc."
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#preprocessing-1",
+    "href": "slides/week-06/06-Uncertainty.html#preprocessing-1",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "3. Preprocessing",
+    "text": "3. Preprocessing\n\nlibrary(quanteda)\n\ntext &lt;- \"What we need to protect in 2025: the climate, the economy, and Europe and the European Union.\"\n\ntext %&gt;% \n  tokens(remove_punct = TRUE, \n         remove_numbers = TRUE) %&gt;% \n  tokens_tolower() %&gt;% \n  tokens_remove(pattern = stopwords(\"en\")) %&gt;% \n  tokens_wordstem()\n\nTokens consisting of 1 document.\ntext1 :\n[1] \"need\"     \"protect\"  \"climat\"   \"economi\"  \"europ\"    \"european\" \"union\""
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#remove-punctuation",
+    "href": "slides/week-06/06-Uncertainty.html#remove-punctuation",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "1. Remove punctuation",
+    "text": "1. Remove punctuation\n\ntext &lt;- \"What we need to protect in 2025: the climate, the economy, and Europe and the European Union.\"\nprint(text)\n\n[1] \"What we need to protect in 2025: the climate, the economy, and Europe and the European Union.\"\n\n\n\n\n\ntext %&gt;% \n  tokens(remove_punct = TRUE)\n\nTokens consisting of 1 document.\ntext1 :\n [1] \"What\"    \"we\"      \"need\"    \"to\"      \"protect\" \"in\"      \"2025\"   \n [8] \"the\"     \"climate\" \"the\"     \"economy\" \"and\"    \n[ ... and 5 more ]"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#remove-punctuation-1",
+    "href": "slides/week-06/06-Uncertainty.html#remove-punctuation-1",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "3. Remove punctuation",
+    "text": "3. Remove punctuation\n\nlibrary(quanteda)\n\ntext &lt;- \"What we need to protect in 2025: the climate, the economy, and Europe and the European Union.\"\n\ntext %&gt;% \n  tokens(remove_punct = TRUE, \n         remove_numbers = TRUE) %&gt;% \n  tokens_tolower() %&gt;% \n  tokens_remove(pattern = stopwords(\"en\")) %&gt;% \n  tokens_wordstem()\n\nTokens consisting of 1 document.\ntext1 :\n[1] \"need\"     \"protect\"  \"climat\"   \"economi\"  \"europ\"    \"european\" \"union\""
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#remove-numbers",
+    "href": "slides/week-06/06-Uncertainty.html#remove-numbers",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "2. Remove numbers",
+    "text": "2. Remove numbers\n\ntext &lt;- \"What we need to protect in 2025: the climate, the economy, and Europe and the European Union.\"\nprint(text)\n\n[1] \"What we need to protect in 2025: the climate, the economy, and Europe and the European Union.\"\n\n\n\n\n\ntext %&gt;% \n  tokens(remove_punct = TRUE,\n         remove_numbers = TRUE)\n\nTokens consisting of 1 document.\ntext1 :\n [1] \"What\"    \"we\"      \"need\"    \"to\"      \"protect\" \"in\"      \"the\"    \n [8] \"climate\" \"the\"     \"economy\" \"and\"     \"Europe\" \n[ ... and 4 more ]"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#to-lowercase",
+    "href": "slides/week-06/06-Uncertainty.html#to-lowercase",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "3. To lowercase",
+    "text": "3. To lowercase\n\ntext &lt;- \"What we need to protect in 2025: the climate, the economy, and Europe and the European Union.\"\nprint(text)\n\n[1] \"What we need to protect in 2025: the climate, the economy, and Europe and the European Union.\"\n\n\n\n\n\ntext %&gt;% \n  tokens(remove_punct = TRUE,\n         remove_numbers = TRUE) %&gt;% \n  tokens_tolower()\n\nTokens consisting of 1 document.\ntext1 :\n [1] \"what\"    \"we\"      \"need\"    \"to\"      \"protect\" \"in\"      \"the\"    \n [8] \"climate\" \"the\"     \"economy\" \"and\"     \"europe\" \n[ ... and 4 more ]"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#remove-stopwords",
+    "href": "slides/week-06/06-Uncertainty.html#remove-stopwords",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "4. Remove stopwords",
+    "text": "4. Remove stopwords\n\n# English stopwords\nhead(stopwords(\"en\"), 20)\n\n [1] \"i\"          \"me\"         \"my\"         \"myself\"     \"we\"        \n [6] \"our\"        \"ours\"       \"ourselves\"  \"you\"        \"your\"      \n[11] \"yours\"      \"yourself\"   \"yourselves\" \"he\"         \"him\"       \n[16] \"his\"        \"himself\"    \"she\"        \"her\"        \"hers\"      \n\n\n\n\n\n# German stopwords\nhead(stopwords(\"de\"), 20)\n\n [1] \"aber\"    \"alle\"    \"allem\"   \"allen\"   \"aller\"   \"alles\"   \"als\"    \n [8] \"also\"    \"am\"      \"an\"      \"ander\"   \"andere\"  \"anderem\" \"anderen\"\n[15] \"anderer\" \"anderes\" \"anderm\"  \"andern\"  \"anderr\"  \"anders\""
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#remove-stopwords-1",
+    "href": "slides/week-06/06-Uncertainty.html#remove-stopwords-1",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "4. Remove stopwords",
+    "text": "4. Remove stopwords\n\ntext &lt;- \"What we need to protect in 2025: the climate, the economy, and Europe and the European Union.\"\nprint(text)\n\n[1] \"What we need to protect in 2025: the climate, the economy, and Europe and the European Union.\"\n\n\n\n\n\ntext %&gt;% \n  tokens(remove_punct = TRUE,\n         remove_numbers = TRUE) %&gt;% \n  tokens_tolower() %&gt;% \n  tokens_remove(pattern = stopwords(\"en\"))  \n\nTokens consisting of 1 document.\ntext1 :\n[1] \"need\"     \"protect\"  \"climate\"  \"economy\"  \"europe\"   \"european\" \"union\""
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#remove-stopwords-2",
+    "href": "slides/week-06/06-Uncertainty.html#remove-stopwords-2",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "4. Remove stopwords",
+    "text": "4. Remove stopwords\n\ntext &lt;- \"What we need to protect in 2025: the climate, the economy, and Europe and the European Union.\"\nprint(text)\n\n[1] \"What we need to protect in 2025: the climate, the economy, and Europe and the European Union.\"\n\n\n\n\n\ntext %&gt;% \n  tokens(remove_punct = TRUE,\n         remove_numbers = TRUE) %&gt;% \n  tokens_tolower() %&gt;% \n  # Let's also remove \"protect\" as an example\n  tokens_remove(pattern = c(stopwords(\"en\"), \"protect\")) \n\nTokens consisting of 1 document.\ntext1 :\n[1] \"need\"     \"climate\"  \"economy\"  \"europe\"   \"european\" \"union\""
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#stem-words",
+    "href": "slides/week-06/06-Uncertainty.html#stem-words",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "5. Stem words",
+    "text": "5. Stem words\n\ntext &lt;- \"What we need to protect in 2025: the climate, the economy, and Europe and the European Union.\"\nprint(text)\n\n[1] \"What we need to protect in 2025: the climate, the economy, and Europe and the European Union.\"\n\n\n\n\n\ntext %&gt;% \n  tokens(remove_punct = TRUE,\n         remove_numbers = TRUE) %&gt;% \n  tokens_tolower() %&gt;% \n  tokens_remove(pattern = stopwords(\"en\")) %&gt;% \n  tokens_wordstem(language = \"en\")\n\nTokens consisting of 1 document.\ntext1 :\n[1] \"need\"     \"protect\"  \"climat\"   \"economi\"  \"europ\"    \"european\" \"union\""
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#compund-words",
+    "href": "slides/week-06/06-Uncertainty.html#compund-words",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "6. Compund words",
+    "text": "6. Compund words\n\ntext &lt;- \"What we need to protect in 2025: the climate, the economy, and Europe and the European Union.\"\nprint(text)\n\n[1] \"What we need to protect in 2025: the climate, the economy, and Europe and the European Union.\"\n\n\n\n\n\ntext %&gt;% \n  tokens(remove_punct = TRUE,\n         remove_numbers = TRUE) %&gt;% \n  tokens_compound(pattern = phrase(\"European Union\")) %&gt;% \n  tokens_tolower() %&gt;% \n  tokens_remove(pattern = stopwords(\"en\"))\n\nTokens consisting of 1 document.\ntext1 :\n[1] \"need\"           \"protect\"        \"climate\"        \"economy\"       \n[5] \"europe\"         \"european_union\""
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#document-feature-matrix-1",
+    "href": "slides/week-06/06-Uncertainty.html#document-feature-matrix-1",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "Document-feature matrix",
+    "text": "Document-feature matrix\n\n# Take the corpus \nmanifesto_dfm &lt;- manifestos_corpus%&gt;% \n           # Tokenize (split) the corpus into individual words\n           tokens() %&gt;% \n           # Construct a document-feature matrix\n           dfm() %&gt;% \n           # Remove all words that appear fewer than 3 times\n           dfm_trim(min_termfreq = 3)\n\n# Print the dfm\nmanifesto_dfm\n\nDocument-feature matrix of: 6 documents, 8,335 features (40.37% sparse) and 3 docvars.\n       features\ndocs    deutschland    . alles 2021 bereit    , weil ihr  es eine\n  text1         136 3696    11    3      5 3878   29  26 325  712\n  text2          86 4487     6    7      5 3321   30  15 328  615\n  text3          50 1493     2    1      0 1213   10   8  95  261\n  text4         107 2414     3    2      2 1340   12  12 129  388\n  text5         156 2697     9    2      5 2019    9  12 153  387\n  text6          95 1464     5    3      1  983    3  11  72  249\n[ reached max_nfeat ... 8,325 more features ]"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#choosing-between-representations",
+    "href": "slides/week-06/06-Uncertainty.html#choosing-between-representations",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "Choosing between representations",
+    "text": "Choosing between representations\n\nHow should we select between these representations?\nThere is no single “best” dfm\nThe optimal representation of a corpus will depend on the particular research task\nFor example: Would you want to discard rare words when calculating linguistic complexity?"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#exploring-the-dfm",
+    "href": "slides/week-06/06-Uncertainty.html#exploring-the-dfm",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "Exploring the DFM",
+    "text": "Exploring the DFM\n\nlibrary(quanteda.textstats)\n\nfreq &lt;- textstat_frequency(manifesto_dfm) \n\nhead(freq, 20)\n\n   feature frequency rank docfreq group\n1        .     16251    1       6   all\n2      und     13544    2       6   all\n3        ,     12754    3       6   all\n4      die      9905    4       6   all\n5      der      7504    5       6   all\n6      wir      6383    6       6   all\n7      für      4525    7       6   all\n8       in      4416    8       6   all\n9   werden      3667    9       6   all\n10     von      3036   10       6   all\n11      zu      2991   11       6   all\n12     den      2969   12       6   all\n13  wollen      2647   13       6   all\n14    eine      2612   14       6   all\n15     mit      2166   15       6   all\n16     das      2042   16       6   all\n17     auf      2006   17       6   all\n18     ein      1857   18       6   all\n19       -      1837   19       6   all\n20    auch      1729   20       6   all"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#exploring-the-dfm-1",
+    "href": "slides/week-06/06-Uncertainty.html#exploring-the-dfm-1",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "Exploring the DFM",
+    "text": "Exploring the DFM\n\nlibrary(quanteda.textplots)\n\ntextplot_wordcloud(manifesto_dfm, max_words = 50)"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#denominate-by-totals-1",
+    "href": "slides/week-06/06-Uncertainty.html#denominate-by-totals-1",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "6. Denominate by totals",
+    "text": "6. Denominate by totals\nWhy is this important? What could go wrong?"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#denominate-by-totals-2",
+    "href": "slides/week-06/06-Uncertainty.html#denominate-by-totals-2",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "Denominate by totals",
+    "text": "Denominate by totals\n\nlibrary(quanteda.textstats)\n\nfreq &lt;- textstat_frequency(manifesto_dfm) %&gt;% \n  mutate(rel_frequency = frequency / sum(frequency)) \n\nhead(freq, 20)\n\n   feature frequency rank docfreq group rel_frequency\n1        .     16251    1       6   all   0.059285769\n2      und     13544    2       6   all   0.049410280\n3        ,     12754    3       6   all   0.046528257\n4      die      9905    4       6   all   0.036134733\n5      der      7504    5       6   all   0.027375571\n6      wir      6383    6       6   all   0.023286017\n7      für      4525    7       6   all   0.016507791\n8       in      4416    8       6   all   0.016110144\n9   werden      3667    9       6   all   0.013377695\n10     von      3036   10       6   all   0.011075724\n11      zu      2991   11       6   all   0.010911558\n12     den      2969   12       6   all   0.010831300\n13  wollen      2647   13       6   all   0.009656601\n14    eine      2612   14       6   all   0.009528917\n15     mit      2166   15       6   all   0.007901851\n16     das      2042   16       6   all   0.007449483\n17     auf      2006   17       6   all   0.007318150\n18     ein      1857   18       6   all   0.006774578\n19       -      1837   19       6   all   0.006701616\n20    auch      1729   20       6   all   0.006307618"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#compound-words",
+    "href": "slides/week-06/06-Uncertainty.html#compound-words",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "6. Compound words",
+    "text": "6. Compound words\n\ntext &lt;- \"What we need to protect in 2025: the climate, the economy, and Europe and the European Union.\"\nprint(text)\n\n[1] \"What we need to protect in 2025: the climate, the economy, and Europe and the European Union.\"\n\n\n\n\n\ntext %&gt;% \n  tokens(remove_punct = TRUE,\n         remove_numbers = TRUE) %&gt;% \n  tokens_compound(pattern = phrase(\"European Union\")) %&gt;% \n  tokens_tolower() %&gt;% \n  tokens_remove(pattern = stopwords(\"en\"))\n\nTokens consisting of 1 document.\ntext1 :\n[1] \"need\"           \"protect\"        \"climate\"        \"economy\"       \n[5] \"europe\"         \"european_union\""
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#document-feature-matrix---step-1",
+    "href": "slides/week-06/06-Uncertainty.html#document-feature-matrix---step-1",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "Document-feature matrix - Step 1",
+    "text": "Document-feature matrix - Step 1\n\nlibrary(quanteda)\nload(\"manifestos_2021.rda\")\n\n# Convert the data.frame into a corpus\nmanifestos_corpus &lt;- corpus(manifestos, \n                            text_field = \"text\")\n\nsummary(manifestos_corpus)\n\nCorpus consisting of 6 documents, showing 6 documents:\n\n  Text Types Tokens Sentences   date party\n text1 12566  77230      3681 202109 41113\n text2 12610  79296      4608 202109 41223\n text3  5915  26951      1496 202109 41320\n text4  8239  40181      2416 202109 41420\n text5  8891  48665      2686 202109 41521\n text6  7171  26619      1431 202109 41953\n                                           partyname\n                                              Greens\n                                            The Left\n                  Social Democratic Party of Germany\n                               Free Democratic Party\n Democratic Christian Union / Christian Social Union\n                             Alternative for Germany"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#document-feature-matrix---step-2",
+    "href": "slides/week-06/06-Uncertainty.html#document-feature-matrix---step-2",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "Document-feature matrix - Step 2",
+    "text": "Document-feature matrix - Step 2\n\n# Take the corpus \nmanifesto_dfm &lt;- manifestos_corpus%&gt;% \n           # Tokenize (split) the corpus into individual words\n           tokens() %&gt;% \n           # Construct a document-feature matrix\n           dfm()\n\n# Print the dfm\nmanifesto_dfm\n\nDocument-feature matrix of: 6 documents, 28,880 features (69.38% sparse) and 3 docvars.\n       features\ndocs    deutschland    . alles drin bundestagswahlprogramm 2021 bereit    ,\n  text1         136 3696    11    1                      1    3      5 3878\n  text2          86 4487     6    0                      0    7      5 3321\n  text3          50 1493     2    0                      0    1      0 1213\n  text4         107 2414     3    0                      0    2      2 1340\n  text5         156 2697     9    0                      0    2      5 2019\n  text6          95 1464     5    0                      0    3      1  983\n       features\ndocs    weil ihr\n  text1   29  26\n  text2   30  15\n  text3   10   8\n  text4   12  12\n  text5    9  12\n  text6    3  11\n[ reached max_nfeat ... 28,870 more features ]"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#document-feature-matrix---frequency",
+    "href": "slides/week-06/06-Uncertainty.html#document-feature-matrix---frequency",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "Document-feature matrix - Frequency",
+    "text": "Document-feature matrix - Frequency\n\n# Take the corpus \nmanifesto_dfm &lt;- manifestos_corpus%&gt;% \n           # Tokenize (split) the corpus into individual words\n           tokens() %&gt;% \n           # Construct a document-feature matrix\n           dfm() %&gt;% \n           # Remove all words that appear fewer than 3 times\n           dfm_trim(min_termfreq = 3)\n\n# Print the dfm\nmanifesto_dfm\n\nDocument-feature matrix of: 6 documents, 8,335 features (40.37% sparse) and 3 docvars.\n       features\ndocs    deutschland    . alles 2021 bereit    , weil ihr  es eine\n  text1         136 3696    11    3      5 3878   29  26 325  712\n  text2          86 4487     6    7      5 3321   30  15 328  615\n  text3          50 1493     2    1      0 1213   10   8  95  261\n  text4         107 2414     3    2      2 1340   12  12 129  388\n  text5         156 2697     9    2      5 2019    9  12 153  387\n  text6          95 1464     5    3      1  983    3  11  72  249\n[ reached max_nfeat ... 8,325 more features ]"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#exploring-the-dfm-by-group",
+    "href": "slides/week-06/06-Uncertainty.html#exploring-the-dfm-by-group",
+    "title": "Intro to Text-as-Data II: Workflow",
+    "section": "Exploring the DFM by group",
+    "text": "Exploring the DFM by group\n\nlibrary(quanteda.textstats)\n\nfreq &lt;- textstat_frequency(manifesto_dfm,\n                           groups = partyname) %&gt;% \n  filter(rank &lt;= 5)\n\nhead(freq, 20)\n\n      feature frequency rank docfreq\n1           .      1464    1       1\n2         die      1101    2       1\n3           ,       983    3       1\n4         und       957    4       1\n5         der       906    5       1\n3923        .      2697    1       1\n3924      und      2362    2       1\n3925        ,      2019    3       1\n3926      die      1457    4       1\n3927      wir      1409    5       1\n8867        .      2414    1       1\n8868      und      1716    2       1\n8869        ,      1340    3       1\n8870      die      1285    4       1\n8871      der      1065    5       1\n13588       ,      3878    1       1\n13589     und      3794    2       1\n13590       .      3696    3       1\n13591     die      2409    4       1\n13592     wir      1720    5       1\n                                                    group\n1                                 Alternative for Germany\n2                                 Alternative for Germany\n3                                 Alternative for Germany\n4                                 Alternative for Germany\n5                                 Alternative for Germany\n3923  Democratic Christian Union / Christian Social Union\n3924  Democratic Christian Union / Christian Social Union\n3925  Democratic Christian Union / Christian Social Union\n3926  Democratic Christian Union / Christian Social Union\n3927  Democratic Christian Union / Christian Social Union\n8867                                Free Democratic Party\n8868                                Free Democratic Party\n8869                                Free Democratic Party\n8870                                Free Democratic Party\n8871                                Free Democratic Party\n13588                                              Greens\n13589                                              Greens\n13590                                              Greens\n13591                                              Greens\n13592                                              Greens"
   }
 ]
