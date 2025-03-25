@@ -12,7 +12,7 @@
 
   <meta name="author" content="David Schweizer">
   <meta name="dcterms.date" content="2025-03-25">
-  <title>Text-as-Data - Course Website - Dictionary and Sentiment</title>
+  <title>Text-as-Data - Course Website - Dictionaries and Sentiment</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -30,6 +30,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -327,7 +392,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Dictionary and Sentiment</h1>
+  <h1 class="title">Dictionaries and Sentiment</h1>
   <p class="subtitle">Week 7</p>
 
 <div class="quarto-title-authors">
@@ -343,15 +408,569 @@ David Schweizer
 
   <p class="date">March 25, 2025</p>
 </section>
-<section id="tba" class="title-slide slide level1 center">
-<h1>TBA</h1>
+<section id="todays-plan" class="slide level2">
+<h2>Today’s plan</h2>
+<p>Last session: How to approach text, creating a document-feature matrix and counting words.</p>
+<p>Input: Finding / Counting <em>specific</em> words</p>
+<ul>
+<li><p>Dictionaries</p></li>
+<li><p>Sentiment</p></li>
+</ul>
+<p>Coding:</p>
+<ul>
+<li>Applying a dictionary or sentiment approach to real data</li>
+</ul>
+</section>
+<section id="short-recap-first-assignment" class="slide level2">
+<h2>Short Recap: First Assignment</h2>
+<ul>
+<li><p>Overall very good!</p></li>
+<li><p>Many ways to achieve the same results</p></li>
+<li><p>Be cautious when importing data! Inspect the data</p></li>
+<li><p>Structure your code</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Task 1 ---------------------</span></span>
+<span id="cb1-2"><a></a><span class="do">## Task 1.1. -----------------</span></span>
+<span id="cb1-3"><a></a><span class="co"># Task 2 ---------------------</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p>Naming the R-Script! E.g., Assignment_01_Schweizer.R</p></li>
+<li><p>You can find my exemplary solution on ILIAS.</p></li>
+</ul>
+</section>
+<section id="motivating-examples" class="slide level2">
+<h2>Motivating examples</h2>
+
+<img data-src="articles.png" class="r-stretch"></section>
+<section id="dictionaries" class="slide level2">
+<h2>Dictionaries</h2>
+<ul>
+<li><p>A dictionary is a list of words (m = 1, …, M) that is related to a common concept. It has two components:</p>
+<ul>
+<li><p><strong>key:</strong> the label for the equivalence class of the concept.</p></li>
+<li><p><strong>values:</strong> (multiple) terms or patters that are declared equivalent occurences of the key.</p></li>
+</ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Examples</strong></p>
+</div>
+<div class="callout-content">
+<p>Keys: Climate change — Positive sentiment</p>
+<p>Values: “Climate change”, “global warming” — “great”, “fantastic”</p>
+<p>More values neccessary?</p>
+</div>
+</div>
+</div></li>
+</ul>
+</section>
+<section id="approaches" class="slide level2">
+<h2>Approaches</h2>
+<p>With dictionaries, we might want to achieve different goals:</p>
+<ul>
+<li>Check for the <strong>presence</strong> of some concept [Binary]: Does a party mention climate change in their manifesto?</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Check for the <strong>salience</strong> of some concept [Continuous]: How important is climate change compared to other topics?</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><strong>Aggregate values</strong>, e.g.&nbsp;sentiment analysis [Continuous]: Is climate change discussed in a positive, neutral, or negative tone?</li>
+</ul>
+</div>
+</section>
+<section id="when-counting-words" class="slide level2">
+<h2>When counting words</h2>
+<ul>
+<li><p>To apply a dictionary to a corpus of texts, we simply need to count the number of times each word occurs in each text and sum them.</p></li>
+<li><p>If <span class="math inline">\(Wim\)</span> is the number of times word <span class="math inline">\(m\)</span> appears in text <span class="math inline">\(i\)</span>, then the dictionary score for document <span class="math inline">\(i\)</span> is:</p></li>
+</ul>
+<p><span class="math inline">\(d_i = \frac{\sum_{m=1}^{M} W_{im}}{N_i}\)</span></p>
+<ul>
+<li>We normalize by <span class="math inline">\(N_i\)</span> so that longer texts are not biased towards higher scores.</li>
+</ul>
+</section>
+<section id="when-counting-words-1" class="slide level2">
+<h2>When counting words</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Example - Positive sentiment</strong></p>
+</div>
+<div class="callout-content">
+<p>“The movie is <strong>great</strong>. The actors are <strong>fantastic</strong>. The plot is <strong>good</strong>.</p>
+</div>
+</div>
+</div>
+<p><span class="math inline">\(d_i = \frac{\sum_{m=1}^{M} W_{im}}{N_i} = \frac{1+1+1}{12}\)</span></p>
+<p><br>
+</p>
+<p>⚠️ We assume that each word should be weighted the same. This is not necessarily correct. (Re-)Weighting might be useful depending on the task: fantastic &gt; great &gt; good? But by how much?</p>
+</section>
+<section id="many-existing-dictionaries" class="slide level2">
+<h2>Many existing dictionaries</h2>
+<ul>
+<li><p><a href="https://www.snsoroka.com/data-lexicoder/">Lexicoder Sentiment Dictionary</a>: 2,858 “negative” sentiment words and 1,709 “positive” sentiment words designed for the automated coding of sentiment in news coverage, legislative speech and other text</p></li>
+<li><p><a href="https://www.tandfonline.com/doi/full/10.1080/19331681.2018.1485608">Rauh’s German Political Sentiment Dictionary</a>: Dictionary developed for German “political” language.</p></li>
+<li><p>And many tailored dictionaries from published articles. Usually described in the appendix, supporting information, or replication files!</p></li>
+</ul>
+</section>
+<section id="off-the-shelf-dictionaries-and-context" class="slide level2">
+<h2>Off-the-Shelf Dictionaries and Context</h2>
+<p>Applying off-the-shelf dictionaries can be problematic: <strong>Multiple meanings.</strong> For example: “state”.</p>
+<ul>
+<li><p><strong>Political context:</strong> <em>“The state should provide better healthcare services.”</em> → <em>State</em> refers to a <strong>government or political entity</strong>.</p></li>
+<li><p><strong>Geographical context:</strong> <em>“Texas is the second-largest state in the U.S.”</em> → <em>State</em> refers to a <strong>regional division within a country</strong>.</p></li>
+<li><p><strong>Condition context:</strong> <em>“The economy is in a bad state.”</em> → <em>State</em> refers to a <strong>condition or situation</strong>, not a government.</p></li>
+</ul>
+</section>
+<section id="off-the-shelf-dictionaries-and-context-1" class="slide level2">
+<h2>Off-the-Shelf Dictionaries and Context</h2>
+<p>Applying off-the-shelf dictionaries can be problematic: <strong>Lack of important words in a given context.</strong> For example: Climate policy debate. We might miss words such as</p>
+<ul>
+<li><p>carbon tax,</p></li>
+<li><p>green new deal,</p></li>
+<li><p>or net zero.</p></li>
+</ul>
+<p>Also highly dependent on time and space!</p>
+</section>
+<section id="disadvantages-of-dictionaries" class="slide level2">
+<h2>Disadvantages of dictionaries</h2>
+<ul>
+<li><p>May miss words important to the concept.</p></li>
+<li><p>Do usually not capture modifiers (or negators): “very good” and “not good”.</p></li>
+<li><p>Often fail to capture all synonyms: E.g., “Misconception” &amp; “lie”.</p></li>
+<li><p>May not capture the relevant concept.</p></li>
+</ul>
+</section>
+<section id="application" class="slide level2">
+<h2>Application</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(quanteda)</span>
+<span id="cb2-2"><a></a></span>
+<span id="cb2-3"><a></a><span class="fu">load</span>(<span class="st">"manifestos_2021.rda"</span>)</span>
+<span id="cb2-4"><a></a></span>
+<span id="cb2-5"><a></a><span class="co"># Convert the data.frame into a corpus</span></span>
+<span id="cb2-6"><a></a>manifestos_dfm <span class="ot">&lt;-</span> <span class="fu">corpus</span>(manifestos, </span>
+<span id="cb2-7"><a></a>                            <span class="at">text_field =</span> <span class="st">"text"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-8"><a></a>  <span class="co"># Tokenize (split) the corpus into individual words</span></span>
+<span id="cb2-9"><a></a>  <span class="fu">tokens</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb2-10"><a></a>  <span class="co"># Lowercase</span></span>
+<span id="cb2-11"><a></a>  <span class="fu">tokens_tolower</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb2-12"><a></a>  <span class="co"># Construct a document-feature matrix</span></span>
+<span id="cb2-13"><a></a>  <span class="fu">dfm</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="applying-dictionaries-in-quanteda" class="slide level2">
+<h2>Applying dictionaries in quanteda</h2>
+<p>We rely on the keywords used by <a href="https://www.cambridge.org/core/journals/british-journal-of-political-science/article/when-do-political-parties-moralize-a-crossnational-study-of-the-use-of-moral-language-in-political-communication-on-immigration/ACFEDBCD015BDEEA277CE689D3816E96">Simonsen and Widman (2025)</a> to detect immigration.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(quanteda)</span>
+<span id="cb3-2"><a></a></span>
+<span id="cb3-3"><a></a>immigration_SW <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"immigr*"</span>, <span class="st">"migrat*"</span>, <span class="st">"migrant*"</span>, <span class="st">"migrier*"</span>, </span>
+<span id="cb3-4"><a></a>                            <span class="st">"einwander*"</span>, <span class="st">"zuwander*"</span>, <span class="st">"zugewander*"</span>, </span>
+<span id="cb3-5"><a></a>                            <span class="st">"eingewander*"</span>, <span class="st">"asyl*"</span>, <span class="st">"flüchtling*"</span>, </span>
+<span id="cb3-6"><a></a>                            <span class="st">"geflücht*"</span>, <span class="st">"ausländ*"</span>, <span class="st">"gastarbeit*"</span>)</span>
+<span id="cb3-7"><a></a></span>
+<span id="cb3-8"><a></a><span class="fu">print</span>(immigration_SW)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "immigr*"      "migrat*"      "migrant*"     "migrier*"     "einwander*"  
+ [6] "zuwander*"    "zugewander*"  "eingewander*" "asyl*"        "flüchtling*" 
+[11] "geflücht*"    "ausländ*"     "gastarbeit*" </code></pre>
+</div>
+</div>
+<p>The&nbsp;<code>*</code>&nbsp;picks up anything after the respective string. E.g., “immigrant”, “immigration”.</p>
+</section>
+<section id="applying-dictionaries-in-quanteda-1" class="slide level2">
+<h2>Applying dictionaries in quanteda</h2>
+<p>Of couse, there are more aprroaches: E.g., <a href="https://www.cambridge.org/core/journals/political-science-research-and-methods/article/how-the-refugee-crisis-and-radical-right-parties-shape-party-competition-on-immigration/ACFDD7C29E6EB431BCADF194FE114DE4#supplementary-materials">Gessler and Hunger (2022)</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">library</span>(quanteda)</span>
+<span id="cb5-2"><a></a></span>
+<span id="cb5-3"><a></a><span class="co"># ? is matching any single character: fl?chtling -&gt; flüchtling or fluchtling.</span></span>
+<span id="cb5-4"><a></a>immigration_GH <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"immigr*"</span>, <span class="st">"*migrat*"</span>, <span class="st">"*migrant*"</span>, <span class="st">"migrier*"</span>, </span>
+<span id="cb5-5"><a></a>                            <span class="st">"*einwander*"</span>, <span class="st">"zuwander*"</span>, <span class="st">"zugewander*"</span>,</span>
+<span id="cb5-6"><a></a>                            <span class="st">"eingewander*"</span>, <span class="st">"*fl?chtling*"</span>, <span class="st">"asyl*"</span>, <span class="st">"gefl?cht*"</span>, </span>
+<span id="cb5-7"><a></a>                            <span class="st">"obergrenz*"</span>, <span class="st">"drittstaat*"</span>, <span class="st">"sans-papiers"</span>,</span>
+<span id="cb5-8"><a></a>                            <span class="st">"integrationspolit*"</span>, <span class="st">"integrationsgesetz*"</span>, </span>
+<span id="cb5-9"><a></a>                            <span class="st">"integrationspotenzial*"</span>, <span class="st">"staatsb?rgerschaft*"</span>,</span>
+<span id="cb5-10"><a></a>                            <span class="st">"*einb?rger*"</span>, <span class="st">"ausschaff*"</span>, <span class="st">"ausl?nder*"</span>, <span class="st">"inl?nder*"</span>, </span>
+<span id="cb5-11"><a></a>                            <span class="st">"?berfremd*"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="applying-dictionaries-in-quanteda-2" class="slide level2">
+<h2>Applying dictionaries in quanteda</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># Creating the dictionary</span></span>
+<span id="cb6-2"><a></a>immigration_dictionary <span class="ot">&lt;-</span> <span class="fu">dictionary</span>(<span class="fu">list</span>(<span class="at">immigration_SW =</span> immigration_SW,</span>
+<span id="cb6-3"><a></a>                                          <span class="at">immigration_GH =</span> immigration_GH))</span>
+<span id="cb6-4"><a></a></span>
+<span id="cb6-5"><a></a><span class="co"># Applying the dictionary to the dfm using the dfm_lookup function:</span></span>
+<span id="cb6-6"><a></a>immigration_dfm <span class="ot">&lt;-</span> <span class="fu">dfm_lookup</span>(manifestos_dfm,</span>
+<span id="cb6-7"><a></a>                              <span class="at">dictionary =</span> immigration_dictionary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="applying-dictionaries-in-quanteda-3" class="slide level2">
+<h2>Applying dictionaries in quanteda</h2>
+<p><code>immigration_dfm</code>&nbsp;is a document-feature matrix, where the only “feature” is the dictionary counts</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">print</span>(immigration_dfm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Document-feature matrix of: 6 documents, 2 features (0.00% sparse) and 3 docvars.
+       features
+docs    immigration_SW immigration_GH
+  text1            116            128
+  text2            109            117
+  text3             22             24
+  text4             38             48
+  text5             54             62
+  text6            102            111</code></pre>
+</div>
+</div>
+</section>
+<section id="applying-dictionaries-in-quanteda-4" class="slide level2">
+<h2>Applying dictionaries in quanteda</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>manifestos<span class="sc">$</span>proportions_SW <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(immigration_dfm[,<span class="dv">1</span>]) <span class="sc">/</span><span class="fu">ntoken</span>(manifestos_dfm)</span>
+<span id="cb9-2"><a></a>manifestos<span class="sc">$</span>proportions_GH <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(immigration_dfm[,<span class="dv">2</span>]) <span class="sc">/</span><span class="fu">ntoken</span>(manifestos_dfm)</span>
+<span id="cb9-3"><a></a></span>
+<span id="cb9-4"><a></a>manifestos <span class="sc">%&gt;%</span> </span>
+<span id="cb9-5"><a></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb9-6"><a></a>  <span class="fu">select</span>(partyname, proportions_SW, proportions_GH)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  partyname                                        proportions_SW proportions_GH
+  &lt;chr&gt;                                                     &lt;dbl&gt;          &lt;dbl&gt;
+1 Greens                                                 0.00150        0.00166 
+2 The Left                                               0.00137        0.00148 
+3 Social Democratic Party of Germany                     0.000816       0.000891
+4 Free Democratic Party                                  0.000946       0.00119 
+5 Democratic Christian Union / Christian Social U…       0.00111        0.00127 
+6 Alternative for Germany                                0.00383        0.00417 </code></pre>
+</div>
+</div>
+</section>
+<section id="validity" class="slide level2">
+<h2>Validity</h2>
+<ul>
+<li>Face validity: Basic sanity checks.</li>
+<li>Concurrent validity: Correlates with a previously validated measure for the same concept?</li>
+<li>Convergent / Discriminant validity: Positively / No or negatively correlates with different target concept</li>
+<li>Predictive validity: Correlates with some covariate of interest</li>
+</ul>
+<p>Core idea: are the texts that are flagged by the dictionary more representative of the relevant concept than other texts?</p>
+</section>
+<section id="face-validity" class="slide level2">
+<h2>Face validity</h2>
+<p>We would expect the highest proportion for the radical-right AfD:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  partyname                                        proportions_SW proportions_GH
+  &lt;chr&gt;                                                     &lt;dbl&gt;          &lt;dbl&gt;
+1 Greens                                                 0.00150        0.00166 
+2 The Left                                               0.00137        0.00148 
+3 Social Democratic Party of Germany                     0.000816       0.000891
+4 Free Democratic Party                                  0.000946       0.00119 
+5 Democratic Christian Union / Christian Social U…       0.00111        0.00127 
+6 Alternative for Germany                                0.00383        0.00417 </code></pre>
+</div>
+</div>
+</section>
+<section id="face-validity-1" class="slide level2">
+<h2>Face validity</h2>
+<p>Keyword-in-context (kwic).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">library</span>(quanteda)</span>
+<span id="cb12-2"><a></a></span>
+<span id="cb12-3"><a></a>manifestos_tokens <span class="ot">&lt;-</span> <span class="fu">corpus</span>(manifestos, </span>
+<span id="cb12-4"><a></a>                            <span class="at">text_field =</span> <span class="st">"text"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-5"><a></a>  <span class="fu">tokens</span>() <span class="sc">%&gt;%</span> <span class="co"># can also be applied to the corpus</span></span>
+<span id="cb12-6"><a></a>  <span class="fu">tokens_tolower</span>() </span>
+<span id="cb12-7"><a></a></span>
+<span id="cb12-8"><a></a>manifestos_kwic <span class="ot">&lt;-</span> <span class="fu">kwic</span>(manifestos_tokens, <span class="at">pattern =</span> <span class="st">"asyl*"</span>, </span>
+<span id="cb12-9"><a></a>                        <span class="at">valuetype =</span> <span class="st">"glob"</span>, <span class="co"># this allows to use * in the pattern</span></span>
+<span id="cb12-10"><a></a>                        <span class="at">window =</span> <span class="dv">2</span>) <span class="co"># two tokens before and after pattern</span></span>
+<span id="cb12-11"><a></a></span>
+<span id="cb12-12"><a></a><span class="fu">head</span>(manifestos_kwic, <span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Keyword-in-context with 5 matches.                                                                              
+ [text1, 51301] herkunftsländern in |  asylverfahren   | und bei              
+ [text1, 51306]         der prüfung | asylunabhängiger | bleiberechte stärkere
+ [text1, 55010]           absenken. |  asylverfahren   | fair und             
+ [text1, 55018]              , dass |  asylverfahren   | in deutschland       
+ [text1, 55058]         beratung im |  asylverfahren   | sind zu              </code></pre>
+</div>
+</div>
+</section>
+<section id="concurrent-validity---manifesto-project" class="slide level2">
+<h2>Concurrent validity - Manifesto Project</h2>
+<p><a href="https://visuals.manifesto-project.wzb.eu/mpdb-shiny/cmp_dashboard_selectable/"><img data-src="marpor.jpg"></a></p>
+</section>
+<section id="concurrent-validity---ches-2019" class="slide level2">
+<h2>Concurrent validity - CHES 2019</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">library</span>(haven)</span>
+<span id="cb14-2"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb14-3"><a></a></span>
+<span id="cb14-4"><a></a><span class="co"># Link to data:https://www.chesdata.eu/ches-europe "2019 Chapel Hill expert survey"</span></span>
+<span id="cb14-5"><a></a>CHES2019V3_Germany <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">"C:/Users/David/Downloads/CHES2019V3.dta"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-6"><a></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-7"><a></a>  <span class="fu">select</span>(party, immigrate_salience, multicult_salience)</span>
+<span id="cb14-8"><a></a></span>
+<span id="cb14-9"><a></a><span class="fu">head</span>(CHES2019V3_Germany, <span class="at">n =</span> <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 3
+  party  immigrate_salience multicult_salience
+  &lt;chr&gt;               &lt;dbl&gt;              &lt;dbl&gt;
+1 CDU                  6.90               7.10
+2 SPD                  5.40               5.75
+3 FDP                  5.05               4.72
+4 GRUNEN               7.95               7   
+5 LINKE                6.15               5.11
+6 CSU                  8.10               8.25
+7 AfD                  9.80               9.10</code></pre>
+</div>
+</div>
+</section>
+<section id="comparison-to-human-judgement" class="slide level2">
+<h2>Comparison to human judgement</h2>
+<ul>
+<li><p>We can compare our dictionary to how humans would code text.</p></li>
+<li><p>Artificial example of a random sample. Good?</p></li>
+</ul>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>human</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>dictionary</strong></td>
+<td>TRUE</td>
+<td>FALSE</td>
+</tr>
+<tr class="even">
+<td>TRUE</td>
+<td>800</td>
+<td>100</td>
+</tr>
+<tr class="odd">
+<td>FALSE</td>
+<td>25</td>
+<td>75</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="accuracy" class="slide level2">
+<h2>Accuracy</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li><p><span class="math inline">\(= \frac{True Positives + True Negatives}{Total Predictions}\)</span></p></li>
+<li><p>Measures the overall proportion of correct predictions out of all predictions</p></li>
+<li><p>Can be misleading if the classes are imbalanced! E.g., 95% of the data is “negative” and our model always predicts “negative” -&gt; Good accuracy, but useless for positive cases.</p></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>human</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>dict</strong></td>
+<td>TRUE</td>
+<td>FALSE</td>
+</tr>
+<tr class="even">
+<td>TRUE</td>
+<td><strong>800</strong></td>
+<td>100</td>
+</tr>
+<tr class="odd">
+<td>FALSE</td>
+<td>25</td>
+<td><strong>75</strong></td>
+</tr>
+</tbody>
+</table>
+<p><br>
+</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>(<span class="dv">800</span> <span class="sc">+</span> <span class="dv">75</span>) <span class="sc">/</span> <span class="dv">1000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.875</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="sensitivity-recall" class="slide level2">
+<h2>Sensitivity (Recall)</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li><p><span class="math inline">\(= \frac{True Positives}{True Positives + False Negatives}\)</span></p></li>
+<li><p>How well the model detects the positive class (i.e., it calculates the proportion of actual positives that are correctly identified).</p></li>
+<li><p>High sensitivity -&gt; Few false negatives</p></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>human</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>dict</strong></td>
+<td>TRUE</td>
+<td>FALSE</td>
+</tr>
+<tr class="even">
+<td>TRUE</td>
+<td><strong>800</strong></td>
+<td>100</td>
+</tr>
+<tr class="odd">
+<td>FALSE</td>
+<td><strong>25</strong></td>
+<td>75</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="dv">800</span> <span class="sc">/</span> (<span class="dv">800</span> <span class="sc">+</span> <span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.969697</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="specificity" class="slide level2">
+<h2>Specificity</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li><p><span class="math inline">\(= \frac{True Negatives}{True Negatives + False Positives}\)</span></p></li>
+<li><p>How well the model detects the negative class (i.e., it calculates the proportion of actual negatives that are correctly identified).</p></li>
+<li><p>High specificity means fewer false positives</p></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>human</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>dict</strong></td>
+<td>TRUE</td>
+<td>FALSE</td>
+</tr>
+<tr class="even">
+<td>TRUE</td>
+<td>800</td>
+<td><strong>100</strong></td>
+</tr>
+<tr class="odd">
+<td>FALSE</td>
+<td>25</td>
+<td><strong>75</strong></td>
+</tr>
+</tbody>
+</table>
+<p><br>
+</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="dv">75</span> <span class="sc">/</span> (<span class="dv">75</span> <span class="sc">+</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.4285714</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="which-errors-should-we-minimize" class="slide level2">
+<h2>Which errors should we minimize?</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Actual Positive</strong></th>
+<th><strong>Actual Negative</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Predicted Positive</strong></td>
+<td>True Positive (TP)</td>
+<td>False Positive (FP)</td>
+</tr>
+<tr class="even">
+<td><strong>Predicted Negative</strong></td>
+<td>False Negative (FN)</td>
+<td>True Negative (TN)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>Judicial decision: Guilty of murder? Innocent person in jail or let a guilty one go free?</p></li>
+<li><p>Banking transaction: Fraud detection? Flag too many correct transactions vs.&nbsp;missing criminal transactions</p></li>
+</ul>
+</section>
+<section id="in-our-applications" class="slide level2">
+<h2>In our applications</h2>
+<ul>
+<li>In many (political science) dictionary applications, the false positive rate is lower than the false negative rate.</li>
+<li>That is, we often miss some true positives.</li>
+<li>In these cases, we read more texts, change our dictionary, and try again. And repeat.</li>
+</ul>
+</section>
+<section>
+<section id="coding" class="title-slide slide level1 center">
+<h1>Coding</h1>
+
+</section>
+<section id="coding-task" class="slide level2">
+<h2>Coding task</h2>
+<ul>
+<li>Transform the speeches of the 19th legislative period in the German Bundestag to a document-feature matrix [See ILIAS]</li>
+<li>Apply one of the immigration dictionaries. [See slides]</li>
+<li>Speeches should be classified as immigration, if there are more than three keywords included.</li>
+<li>Calculate the sentiment in these speeches using the dictionary by Proksch et al.&nbsp;[See ILIAS]</li>
+<li>Which speech on immigration is the most negative?</li>
+</ul>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p>Text-as-Data in R | Spring 2025 | University of Mannheim</p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -562,6 +1181,82 @@ David Schweizer
         ]
       });
     </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

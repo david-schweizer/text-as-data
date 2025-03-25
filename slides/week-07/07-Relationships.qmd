@@ -1,5 +1,5 @@
 ---
-title: "Dictionary and Sentiment"
+title: "Dictionaries and Sentiment"
 subtitle: "Week 7"
 author: "David Schweizer"
 date: "March 25, 2025"
@@ -13,4 +13,396 @@ format:
 editor: visual
 ---
 
-# TBA
+```{r, include = FALSE}
+library(dplyr)
+```
+
+## Today's plan
+
+Last session: How to approach text, creating a document-feature matrix and counting words.
+
+Input: Finding / Counting *specific* words
+
+-   Dictionaries
+
+-   Sentiment
+
+Coding:
+
+-   Applying a dictionary or sentiment approach to real data
+
+## Short Recap: First Assignment
+
+-   Overall very good!
+
+-   Many ways to achieve the same results
+
+-   Be cautious when importing data! Inspect the data
+
+-   Structure your code
+
+    ```{r, echo=TRUE}
+    # Task 1 ---------------------
+    ## Task 1.1. -----------------
+    # Task 2 ---------------------
+    ```
+
+-   Naming the R-Script! E.g., Assignment_01_Schweizer.R
+
+-   You can find my exemplary solution on ILIAS.
+
+## Motivating examples
+
+![](articles.png)
+
+## Dictionaries
+
+-   A dictionary is a list of words (m = 1, ..., M) that is related to a common concept. It has two components:
+
+    -   **key:** the label for the equivalence class of the concept.
+
+    -   **values:** (multiple) terms or patters that are declared equivalent occurences of the key.
+
+    ::: callout-tip
+    ## Examples
+
+    Keys: Climate change — Positive sentiment
+
+    Values: "Climate change", "global warming" — "great", "fantastic"
+
+    More values neccessary?
+    :::
+
+## Approaches
+
+With dictionaries, we might want to achieve different goals:
+
+-   Check for the **presence** of some concept \[Binary\]: Does a party mention climate change in their manifesto?
+
+. . .
+
+-   Check for the **salience** of some concept \[Continuous\]: How important is climate change compared to other topics?
+
+. . .
+
+-   **Aggregate values**, e.g. sentiment analysis \[Continuous\]: Is climate change discussed in a positive, neutral, or negative tone?
+
+## When counting words
+
+-   To apply a dictionary to a corpus of texts, we simply need to count the number of times each word occurs in each text and sum them.
+
+-   If $Wim$ is the number of times word $m$ appears in text $i$, then the dictionary score for document $i$ is:
+
+$d_i = \frac{\sum_{m=1}^{M} W_{im}}{N_i}$
+
+-   We normalize by $N_i$ so that longer texts are not biased towards higher scores.
+
+## When counting words
+
+::: callout-note
+## Example - Positive sentiment
+
+"The movie is **great**. The actors are **fantastic**. The plot is **good**.
+:::
+
+$d_i = \frac{\sum_{m=1}^{M} W_{im}}{N_i} = \frac{1+1+1}{12}$
+
+\
+
+⚠️ We assume that each word should be weighted the same. This is not necessarily correct. (Re-)Weighting might be useful depending on the task: fantastic \> great \> good? But by how much?
+
+## Many existing dictionaries
+
+-   [Lexicoder Sentiment Dictionary](https://www.snsoroka.com/data-lexicoder/): 2,858 “negative” sentiment words and 1,709 “positive” sentiment words designed for the automated coding of sentiment in news coverage, legislative speech and other text
+
+-   [Rauh’s German Political Sentiment Dictionary](https://www.tandfonline.com/doi/full/10.1080/19331681.2018.1485608): Dictionary developed for German "political" language.
+
+-   And many tailored dictionaries from published articles. Usually described in the appendix, supporting information, or replication files!
+
+## Off-the-Shelf Dictionaries and Context
+
+Applying off-the-shelf dictionaries can be problematic: **Multiple meanings.** For example: "state".
+
+-   **Political context:** *"The state should provide better healthcare services."* → *State* refers to a **government or political entity**.
+
+-   **Geographical context:** *"Texas is the second-largest state in the U.S."* → *State* refers to a **regional division within a country**.
+
+-   **Condition context:** *"The economy is in a bad state."* → *State* refers to a **condition or situation**, not a government.
+
+## Off-the-Shelf Dictionaries and Context
+
+Applying off-the-shelf dictionaries can be problematic: **Lack of important words in a given context.** For example: Climate policy debate. We might miss words such as
+
+-   carbon tax,
+
+-   green new deal,
+
+-   or net zero.
+
+Also highly dependent on time and space!
+
+## Disadvantages of dictionaries
+
+-   May miss words important to the concept.
+
+-   Do usually not capture modifiers (or negators): "very good" and "not good".
+
+-   Often fail to capture all synonyms: E.g., "Misconception" & "lie".
+
+-   May not capture the relevant concept.
+
+## Application
+
+```{r, echo = TRUE}
+library(quanteda)
+
+load("manifestos_2021.rda")
+
+# Convert the data.frame into a corpus
+manifestos_dfm <- corpus(manifestos, 
+                            text_field = "text") %>% 
+  # Tokenize (split) the corpus into individual words
+  tokens() %>% 
+  # Lowercase
+  tokens_tolower() %>% 
+  # Construct a document-feature matrix
+  dfm()
+```
+
+## Applying dictionaries in quanteda
+
+We rely on the keywords used by [Simonsen and Widman (2025)](https://www.cambridge.org/core/journals/british-journal-of-political-science/article/when-do-political-parties-moralize-a-crossnational-study-of-the-use-of-moral-language-in-political-communication-on-immigration/ACFEDBCD015BDEEA277CE689D3816E96) to detect immigration.
+
+```{r, echo=TRUE}
+library(quanteda)
+
+immigration_SW <- c("immigr*", "migrat*", "migrant*", "migrier*", 
+                            "einwander*", "zuwander*", "zugewander*", 
+                            "eingewander*", "asyl*", "flüchtling*", 
+                            "geflücht*", "ausländ*", "gastarbeit*")
+
+print(immigration_SW)
+```
+
+The `*` picks up anything after the respective string. E.g., "immigrant", "immigration".
+
+## Applying dictionaries in quanteda
+
+Of couse, there are more aprroaches: E.g., [Gessler and Hunger (2022)](https://www.cambridge.org/core/journals/political-science-research-and-methods/article/how-the-refugee-crisis-and-radical-right-parties-shape-party-competition-on-immigration/ACFDD7C29E6EB431BCADF194FE114DE4#supplementary-materials).
+
+```{r, echo=TRUE}
+library(quanteda)
+
+# ? is matching any single character: fl?chtling -> flüchtling or fluchtling.
+immigration_GH <- c("immigr*", "*migrat*", "*migrant*", "migrier*", 
+                            "*einwander*", "zuwander*", "zugewander*",
+                            "eingewander*", "*fl?chtling*", "asyl*", "gefl?cht*", 
+                            "obergrenz*", "drittstaat*", "sans-papiers",
+                            "integrationspolit*", "integrationsgesetz*", 
+                            "integrationspotenzial*", "staatsb?rgerschaft*",
+                            "*einb?rger*", "ausschaff*", "ausl?nder*", "inl?nder*", 
+                            "?berfremd*")
+```
+
+## Applying dictionaries in quanteda
+
+```{r, echo = TRUE}
+# Creating the dictionary
+immigration_dictionary <- dictionary(list(immigration_SW = immigration_SW,
+                                          immigration_GH = immigration_GH))
+
+# Applying the dictionary to the dfm using the dfm_lookup function:
+immigration_dfm <- dfm_lookup(manifestos_dfm,
+                              dictionary = immigration_dictionary)
+```
+
+## Applying dictionaries in quanteda
+
+`immigration_dfm` is a document-feature matrix, where the only “feature” is the dictionary counts
+
+```{r, echo=TRUE}
+print(immigration_dfm)
+```
+## Applying dictionaries in quanteda
+
+```{r, echo=TRUE}
+manifestos$proportions_SW <- as.numeric(immigration_dfm[,1]) /ntoken(manifestos_dfm)
+manifestos$proportions_GH <- as.numeric(immigration_dfm[,2]) /ntoken(manifestos_dfm)
+
+manifestos %>% 
+  ungroup() %>% 
+  select(partyname, proportions_SW, proportions_GH)
+```
+
+## Validity
+
+-   Face validity: Basic sanity checks.
+-   Concurrent validity: Correlates with a previously validated measure for the same concept?
+-   Convergent / Discriminant validity: Positively / No or negatively correlates with different target concept
+-   Predictive validity: Correlates with some covariate of interest
+
+Core idea: are the texts that are flagged by the dictionary more representative of the relevant concept than other texts?
+
+## Face validity
+
+We would expect the highest proportion for the radical-right AfD:
+
+```{r, echo=FALSE}
+manifestos %>% 
+  ungroup() %>% 
+  select(partyname, proportions_SW, proportions_GH)
+```
+
+## Face validity
+
+Keyword-in-context (kwic).
+
+```{r, echo=TRUE}
+library(quanteda)
+
+manifestos_tokens <- corpus(manifestos, 
+                            text_field = "text") %>% 
+  tokens() %>% # can also be applied to the corpus
+  tokens_tolower() 
+
+manifestos_kwic <- kwic(manifestos_tokens, pattern = "asyl*", 
+                        valuetype = "glob", # this allows to use * in the pattern
+                        window = 2) # two tokens before and after pattern
+
+head(manifestos_kwic, n = 5)
+```
+
+## Concurrent validity - Manifesto Project
+
+[![](marpor.jpg)](https://visuals.manifesto-project.wzb.eu/mpdb-shiny/cmp_dashboard_selectable/)
+
+## Concurrent validity - CHES 2019
+
+```{r, echo=TRUE}
+library(haven)
+library(dplyr)
+
+# Link to data:https://www.chesdata.eu/ches-europe "2019 Chapel Hill expert survey"
+CHES2019V3_Germany <- read_dta("C:/Users/David/Downloads/CHES2019V3.dta") %>% 
+  filter(country == 3) %>% 
+  select(party, immigrate_salience, multicult_salience)
+
+head(CHES2019V3_Germany, n = 7)
+```
+
+## Comparison to human judgement
+
+-   We can compare our dictionary to how humans would code text.
+
+-   Artificial example of a random sample. Good?
+
+|                | human |       |
+|----------------|-------|-------|
+| **dictionary** | TRUE  | FALSE |
+| TRUE           | 800   | 100   |
+| FALSE          | 25    | 75    |
+
+## Accuracy
+
+::: columns
+::: {.column width="60%"}
+-   $= \frac{True Positives + True Negatives}{Total Predictions}$
+
+-   Measures the overall proportion of correct predictions out of all predictions
+
+-   Can be misleading if the classes are imbalanced! E.g., 95% of the data is "negative" and our model always predicts "negative" -\> Good accuracy, but useless for positive cases.
+:::
+
+::: {.column width="40%"}
+|          | human   |        |
+|----------|---------|--------|
+| **dict** | TRUE    | FALSE  |
+| TRUE     | **800** | 100    |
+| FALSE    | 25      | **75** |
+
+\
+
+```{r, echo=TRUE}
+(800 + 75) / 1000
+```
+:::
+:::
+
+## Sensitivity (Recall)
+
+::: columns
+::: {.column width="60%"}
+-   $= \frac{True Positives}{True Positives + False Negatives}$
+
+-   How well the model detects the positive class (i.e., it calculates the proportion of actual positives that are correctly identified).
+
+-   High sensitivity -\> Few false negatives
+:::
+
+::: {.column width="40%"}
+|          | human   |       |
+|----------|---------|-------|
+| **dict** | TRUE    | FALSE |
+| TRUE     | **800** | 100   |
+| FALSE    | **25**  | 75    |
+
+\
+
+```{r, echo=TRUE}
+800 / (800 + 25)
+```
+:::
+:::
+
+## Specificity
+
+::: columns
+::: {.column width="60%"}
+-   $= \frac{True Negatives}{True Negatives + False Positives}$
+
+-   How well the model detects the negative class (i.e., it calculates the proportion of actual negatives that are correctly identified).
+
+-   High specificity means fewer false positives
+:::
+
+::: {.column width="40%"}
+|          | human |         |
+|----------|-------|---------|
+| **dict** | TRUE  | FALSE   |
+| TRUE     | 800   | **100** |
+| FALSE    | 25    | **75**  |
+
+\
+
+```{r, echo=TRUE}
+75 / (75 + 100)
+```
+:::
+:::
+
+## Which errors should we minimize?
+
+|     | **Actual Positive** | **Actual Negative** |
+|-----|---------------------|---------------------|
+| **Predicted Positive** | True Positive (TP) | False Positive (FP) |
+| **Predicted Negative** | False Negative (FN) | True Negative (TN) |
+
+-   Judicial decision: Guilty of murder? Innocent person in jail or let a guilty one go free?
+
+-   Banking transaction: Fraud detection? Flag too many correct transactions vs. missing criminal transactions
+
+## In our applications
+
+- In many (political science) dictionary applications, the false positive rate is lower than the false negative rate.
+- That is, we often miss some true positives. 
+- In these cases, we read more texts, change our dictionary, and try again. And repeat.
+
+# Coding
+
+## Coding task
+
+- Transform the speeches of the 19th legislative period in the German Bundestag to a document-feature matrix [See ILIAS]
+- Apply one of the immigration dictionaries. [See slides]
+- Speeches should be classified as immigration, if there are more than three keywords included.
+- Calculate the sentiment in these speeches using the dictionary by Proksch et al. [See ILIAS]
+- Which speech on immigration is the most negative?

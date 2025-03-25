@@ -228,7 +228,7 @@
     "href": "weeks/week-07.html",
     "title": "Dictionary and Sentiment",
     "section": "",
-    "text": "To Do’s before our session\n\nHave a look at Multilingual Sentiment Analysis: A New Approach to Measuring Conflict in Legislative Speeches\n\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nDictionary and Sentiment\n\n\nWeek 7\n\n\nMar 25, 2025\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA."
+    "text": "To Do’s before our session\n\nHave a look at Multilingual Sentiment Analysis: A New Approach to Measuring Conflict in Legislative Speeches\n\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nDictionaries and Sentiment\n\n\nWeek 7\n\n\nMar 25, 2025\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nYou can find the materials for the exercise on ILIAS."
   },
   {
     "objectID": "weeks/week-09.html",
@@ -8554,5 +8554,243 @@
     "title": "Intro to Text-as-Data II: Workflow",
     "section": "Exploring the DFM by group",
     "text": "Exploring the DFM by group\n\nlibrary(quanteda.textstats)\n\nfreq &lt;- textstat_frequency(manifesto_dfm,\n                           groups = partyname) %&gt;% \n  filter(rank &lt;= 5)\n\nhead(freq, 20)\n\n      feature frequency rank docfreq\n1           .      1464    1       1\n2         die      1101    2       1\n3           ,       983    3       1\n4         und       957    4       1\n5         der       906    5       1\n3923        .      2697    1       1\n3924      und      2362    2       1\n3925        ,      2019    3       1\n3926      die      1457    4       1\n3927      wir      1409    5       1\n8867        .      2414    1       1\n8868      und      1716    2       1\n8869        ,      1340    3       1\n8870      die      1285    4       1\n8871      der      1065    5       1\n13588       ,      3878    1       1\n13589     und      3794    2       1\n13590       .      3696    3       1\n13591     die      2409    4       1\n13592     wir      1720    5       1\n                                                    group\n1                                 Alternative for Germany\n2                                 Alternative for Germany\n3                                 Alternative for Germany\n4                                 Alternative for Germany\n5                                 Alternative for Germany\n3923  Democratic Christian Union / Christian Social Union\n3924  Democratic Christian Union / Christian Social Union\n3925  Democratic Christian Union / Christian Social Union\n3926  Democratic Christian Union / Christian Social Union\n3927  Democratic Christian Union / Christian Social Union\n8867                                Free Democratic Party\n8868                                Free Democratic Party\n8869                                Free Democratic Party\n8870                                Free Democratic Party\n8871                                Free Democratic Party\n13588                                              Greens\n13589                                              Greens\n13590                                              Greens\n13591                                              Greens\n13592                                              Greens"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#todays-plan",
+    "href": "slides/week-07/07-Relationships.html#todays-plan",
+    "title": "Dictionaries and Sentiment",
+    "section": "Today’s plan",
+    "text": "Today’s plan\nLast session: How to approach text, creating a document-feature matrix and counting words.\nInput: Finding / Counting specific words\n\nDictionaries\nSentiment\n\nCoding:\n\nApplying a dictionary or sentiment approach to real data"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#motivating-examples",
+    "href": "slides/week-07/07-Relationships.html#motivating-examples",
+    "title": "Dictionaries and Sentiment",
+    "section": "Motivating examples",
+    "text": "Motivating examples"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#dictionaries-1",
+    "href": "slides/week-07/07-Relationships.html#dictionaries-1",
+    "title": "Dictionaries and Sentiment",
+    "section": "Dictionaries",
+    "text": "Dictionaries\n\nA dictionary is a list of words (m = 1, …, M) that is related to a common concept. It has two components:\n\nkey: the label for the equivalence class of the concept.\nvalues: (multiple) terms or patters that are declared equivalent occurences of the key.\n\n\n\n\n\n\n\nExamples\n\n\nKeys: Climate change — Positive sentiment.\nValues: “Climate change”, “global warming” — “great”, “fantastic”\nMore values neccessary?"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#again-counting-words",
+    "href": "slides/week-07/07-Relationships.html#again-counting-words",
+    "title": "Dictionaries and Sentiment",
+    "section": "Again: Counting words!",
+    "text": "Again: Counting words!\n\nTo apply a dictionary to a corpus of texts, we simply need to count the number of times each word occurs in each text and sum them.\nIf \\(Wim\\) is the number of times word \\(m\\) appears in text \\(i\\), then the dictionary score for document \\(i\\) is:\n\n\\(d_i = \\frac{\\sum_{m=1}^{M} W_{im}}{N_i}\\)\n\nWe normalize by \\(N_i\\) so that longer texts are not biased towards higher scores.\n\n\n\n\nText-as-Data in R | Spring 2025 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#approaches",
+    "href": "slides/week-07/07-Relationships.html#approaches",
+    "title": "Dictionaries and Sentiment",
+    "section": "Approaches",
+    "text": "Approaches\nWith dictionaries, we might want to achieve different goals:\n\nCheck for the presence of some concept [Binary]: Does a party mention climate change in their manifesto?\n\n\n\nCheck for the salience of some concept [Continuous]: How important is climate change compared to other topics?\n\n\n\n\nAggregate values, e.g. sentiment analysis [Continuous]: Is climate change discussed in a positive, neutral, or negative tone?"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#dictionaries",
+    "href": "slides/week-07/07-Relationships.html#dictionaries",
+    "title": "Dictionaries and Sentiment",
+    "section": "Dictionaries",
+    "text": "Dictionaries\n\nA dictionary is a list of words (m = 1, …, M) that is related to a common concept. It has two components:\n\nkey: the label for the equivalence class of the concept.\nvalues: (multiple) terms or patters that are declared equivalent occurences of the key.\n\n\n\n\n\n\n\nExamples\n\n\nKeys: Climate change — Positive sentiment\nValues: “Climate change”, “global warming” — “great”, “fantastic”\nMore values neccessary?"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#when-counting-words",
+    "href": "slides/week-07/07-Relationships.html#when-counting-words",
+    "title": "Dictionaries and Sentiment",
+    "section": "When counting words",
+    "text": "When counting words\n\nTo apply a dictionary to a corpus of texts, we simply need to count the number of times each word occurs in each text and sum them.\nIf \\(Wim\\) is the number of times word \\(m\\) appears in text \\(i\\), then the dictionary score for document \\(i\\) is:\n\n\\(d_i = \\frac{\\sum_{m=1}^{M} W_{im}}{N_i}\\)\n\nWe normalize by \\(N_i\\) so that longer texts are not biased towards higher scores."
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#when-counting-words-1",
+    "href": "slides/week-07/07-Relationships.html#when-counting-words-1",
+    "title": "Dictionaries and Sentiment",
+    "section": "When counting words",
+    "text": "When counting words\n\n\n\n\n\n\nExample - Positive sentiment\n\n\n“The movie is great. The actors are fantastic. The plot is good.\n\n\n\n\\(d_i = \\frac{\\sum_{m=1}^{M} W_{im}}{N_i} = \\frac{1+1+1}{12}\\)\n\n\n⚠️ We assume that each word should be weighted the same. This is not necessarily correct. (Re-)Weighting might be useful depending on the task: fantastic &gt; great &gt; good? But by how much?"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#many-existing-dictionaries",
+    "href": "slides/week-07/07-Relationships.html#many-existing-dictionaries",
+    "title": "Dictionaries and Sentiment",
+    "section": "Many existing dictionaries",
+    "text": "Many existing dictionaries\n\nLexicoder Sentiment Dictionary: 2,858 “negative” sentiment words and 1,709 “positive” sentiment words designed for the automated coding of sentiment in news coverage, legislative speech and other text\nRauh’s German Political Sentiment Dictionary: Dictionary developed for German “political” language.\nAnd many tailored dictionaries from published articles. Usually described in the appendix, supporting information, or replication files!"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#off-the-shelf-dictionaries-and-context",
+    "href": "slides/week-07/07-Relationships.html#off-the-shelf-dictionaries-and-context",
+    "title": "Dictionaries and Sentiment",
+    "section": "Off-the-Shelf Dictionaries and Context",
+    "text": "Off-the-Shelf Dictionaries and Context\nApplying off-the-shelf dictionaries can be problematic: Multiple meanings. For example: “state”.\n\nPolitical context: “The state should provide better healthcare services.” → State refers to a government or political entity.\nGeographical context: “Texas is the second-largest state in the U.S.” → State refers to a regional division within a country.\nCondition context: “The economy is in a bad state.” → State refers to a condition or situation, not a government."
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#disadvantages-of-dictionaries",
+    "href": "slides/week-07/07-Relationships.html#disadvantages-of-dictionaries",
+    "title": "Dictionaries and Sentiment",
+    "section": "Disadvantages of dictionaries",
+    "text": "Disadvantages of dictionaries\n\nMay miss words important to the concept.\nDo usually not capture modifiers (or negators): “very good” and “not good”.\nOften fail to capture all synonyms: E.g., “Misconception” & “lie”.\nMay not capture the relevant concept."
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#off-the-shelf-dictionaries-and-context-1",
+    "href": "slides/week-07/07-Relationships.html#off-the-shelf-dictionaries-and-context-1",
+    "title": "Dictionaries and Sentiment",
+    "section": "Off-the-Shelf Dictionaries and Context",
+    "text": "Off-the-Shelf Dictionaries and Context\nApplying off-the-shelf dictionaries can be problematic: Lack of important words in a given context. For example: Climate policy debate. We might miss words such as\n\ncarbon tax,\ngreen new deal,\nor net zero.\n\nAlso highly dependent on time and space!"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#application",
+    "href": "slides/week-07/07-Relationships.html#application",
+    "title": "Dictionaries and Sentiment",
+    "section": "Application",
+    "text": "Application\n\nlibrary(quanteda)\n\nload(\"manifestos_2021.rda\")\n\n# Convert the data.frame into a corpus\nmanifestos_dfm &lt;- corpus(manifestos, \n                            text_field = \"text\") %&gt;% \n  # Tokenize (split) the corpus into individual words\n  tokens() %&gt;% \n  # Lowercase\n  tokens_tolower() %&gt;% \n  # Construct a document-feature matrix\n  dfm()"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#applying-dictionaries-in-quanteda",
+    "href": "slides/week-07/07-Relationships.html#applying-dictionaries-in-quanteda",
+    "title": "Dictionaries and Sentiment",
+    "section": "Applying dictionaries in quanteda",
+    "text": "Applying dictionaries in quanteda\nWe rely on the keywords used by Simonsen and Widman (2025) to detect immigration.\n\nlibrary(quanteda)\n\nimmigration_SW &lt;- c(\"immigr*\", \"migrat*\", \"migrant*\", \"migrier*\", \n                            \"einwander*\", \"zuwander*\", \"zugewander*\", \n                            \"eingewander*\", \"asyl*\", \"flüchtling*\", \n                            \"geflücht*\", \"ausländ*\", \"gastarbeit*\")\n\nprint(immigration_SW)\n\n [1] \"immigr*\"      \"migrat*\"      \"migrant*\"     \"migrier*\"     \"einwander*\"  \n [6] \"zuwander*\"    \"zugewander*\"  \"eingewander*\" \"asyl*\"        \"flüchtling*\" \n[11] \"geflücht*\"    \"ausländ*\"     \"gastarbeit*\" \n\n\nThe * picks up anything after the respective string. E.g., “immigrant”, “immigration”."
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#applying-dictionaries-in-quanteda-1",
+    "href": "slides/week-07/07-Relationships.html#applying-dictionaries-in-quanteda-1",
+    "title": "Dictionaries and Sentiment",
+    "section": "Applying dictionaries in quanteda",
+    "text": "Applying dictionaries in quanteda\nOf couse, there are more aprroaches: E.g., Gessler and Hunger (2022).\n\nlibrary(quanteda)\n\n# ? is matching any single character: fl?chtling -&gt; flüchtling or fluchtling.\nimmigration_GH &lt;- c(\"immigr*\", \"*migrat*\", \"*migrant*\", \"migrier*\", \n                            \"*einwander*\", \"zuwander*\", \"zugewander*\",\n                            \"eingewander*\", \"*fl?chtling*\", \"asyl*\", \"gefl?cht*\", \n                            \"obergrenz*\", \"drittstaat*\", \"sans-papiers\",\n                            \"integrationspolit*\", \"integrationsgesetz*\", \n                            \"integrationspotenzial*\", \"staatsb?rgerschaft*\",\n                            \"*einb?rger*\", \"ausschaff*\", \"ausl?nder*\", \"inl?nder*\", \n                            \"?berfremd*\")"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#applying-dictionaries-in-quanteda-2",
+    "href": "slides/week-07/07-Relationships.html#applying-dictionaries-in-quanteda-2",
+    "title": "Dictionaries and Sentiment",
+    "section": "Applying dictionaries in quanteda",
+    "text": "Applying dictionaries in quanteda\n\n# Creating the dictionary\nimmigration_dictionary &lt;- dictionary(list(immigration_SW = immigration_SW,\n                                          immigration_GH = immigration_GH))\n\n# Applying the dictionary to the dfm using the dfm_lookup function:\nimmigration_dfm &lt;- dfm_lookup(manifestos_dfm,\n                              dictionary = immigration_dictionary)"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#applying-dictionaries-in-quanteda-3",
+    "href": "slides/week-07/07-Relationships.html#applying-dictionaries-in-quanteda-3",
+    "title": "Dictionaries and Sentiment",
+    "section": "Applying dictionaries in quanteda",
+    "text": "Applying dictionaries in quanteda\nimmigration_dfm is a document-feature matrix, where the only “feature” is the dictionary counts\n\nprint(immigration_dfm)\n\nDocument-feature matrix of: 6 documents, 2 features (0.00% sparse) and 3 docvars.\n       features\ndocs    immigration_SW immigration_GH\n  text1            116            128\n  text2            109            117\n  text3             22             24\n  text4             38             48\n  text5             54             62\n  text6            102            111"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#short-recap-first-assignment",
+    "href": "slides/week-07/07-Relationships.html#short-recap-first-assignment",
+    "title": "Dictionaries and Sentiment",
+    "section": "Short Recap: First Assignment",
+    "text": "Short Recap: First Assignment\n\nOverall very good!\nMany ways to achieve the same results\nBe cautious when importing data! Inspect the data\nStructure your code\n\n# Task 1 ---------------------\n## Task 1.1. -----------------\n# Task 2 ---------------------\n\nNaming the R-Script! E.g., Assignment_01_Schweizer.R\nYou can find my exemplary solution on ILIAS."
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#validity",
+    "href": "slides/week-07/07-Relationships.html#validity",
+    "title": "Dictionaries and Sentiment",
+    "section": "Validity",
+    "text": "Validity\n\nFace validity: Basic sanity checks.\nConcurrent validity: Correlates with a previously validated measure for the same concept?\nConvergent / Discriminant validity: Positively / No or negatively correlates with different target concept\nPredictive validity: Correlates with some covariate of interest\n\nCore idea: are the texts that are flagged by the dictionary more representative of the relevant concept than other texts?"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#face-validity",
+    "href": "slides/week-07/07-Relationships.html#face-validity",
+    "title": "Dictionaries and Sentiment",
+    "section": "Face validity",
+    "text": "Face validity\nWe would expect the highest proportion for the radical-right AfD:\n\n\n# A tibble: 6 × 3\n  partyname                                        proportions_SW proportions_GH\n  &lt;chr&gt;                                                     &lt;dbl&gt;          &lt;dbl&gt;\n1 Greens                                                 0.00150        0.00166 \n2 The Left                                               0.00137        0.00148 \n3 Social Democratic Party of Germany                     0.000816       0.000891\n4 Free Democratic Party                                  0.000946       0.00119 \n5 Democratic Christian Union / Christian Social U…       0.00111        0.00127 \n6 Alternative for Germany                                0.00383        0.00417"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#face-validity-1",
+    "href": "slides/week-07/07-Relationships.html#face-validity-1",
+    "title": "Dictionaries and Sentiment",
+    "section": "Face validity",
+    "text": "Face validity\nKeyword-in-context (kwic).\n\nlibrary(quanteda)\n\nmanifestos_tokens &lt;- corpus(manifestos, \n                            text_field = \"text\") %&gt;% \n  tokens() %&gt;% # can also be applied to the corpus\n  tokens_tolower() \n\nmanifestos_kwic &lt;- kwic(manifestos_tokens, pattern = \"asyl*\", \n                        valuetype = \"glob\", # this allows to use * in the pattern\n                        window = 2) # two tokens before and after pattern\n\nhead(manifestos_kwic, n = 5)\n\nKeyword-in-context with 5 matches.                                                                              \n [text1, 51301] herkunftsländern in |  asylverfahren   | und bei              \n [text1, 51306]         der prüfung | asylunabhängiger | bleiberechte stärkere\n [text1, 55010]           absenken. |  asylverfahren   | fair und             \n [text1, 55018]              , dass |  asylverfahren   | in deutschland       \n [text1, 55058]         beratung im |  asylverfahren   | sind zu"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#concurrent-validity",
+    "href": "slides/week-07/07-Relationships.html#concurrent-validity",
+    "title": "Dictionaries and Sentiment",
+    "section": "Concurrent validity",
+    "text": "Concurrent validity\n\n\n\n\nText-as-Data in R | Spring 2025 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#concurrent-validity---manifesto-project",
+    "href": "slides/week-07/07-Relationships.html#concurrent-validity---manifesto-project",
+    "title": "Dictionaries and Sentiment",
+    "section": "Concurrent validity - Manifesto Project",
+    "text": "Concurrent validity - Manifesto Project"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#concurrent-validity---ches-2019",
+    "href": "slides/week-07/07-Relationships.html#concurrent-validity---ches-2019",
+    "title": "Dictionaries and Sentiment",
+    "section": "Concurrent validity - CHES 2019",
+    "text": "Concurrent validity - CHES 2019\n\nlibrary(haven)\nlibrary(dplyr)\n\n# Link to data:https://www.chesdata.eu/ches-europe \"2019 Chapel Hill expert survey\"\nCHES2019V3_Germany &lt;- read_dta(\"C:/Users/David/Downloads/CHES2019V3.dta\") %&gt;% \n  filter(country == 3) %&gt;% \n  select(party, immigrate_salience, multicult_salience)\n\nhead(CHES2019V3_Germany, n = 7)\n\n# A tibble: 7 × 3\n  party  immigrate_salience multicult_salience\n  &lt;chr&gt;               &lt;dbl&gt;              &lt;dbl&gt;\n1 CDU                  6.90               7.10\n2 SPD                  5.40               5.75\n3 FDP                  5.05               4.72\n4 GRUNEN               7.95               7   \n5 LINKE                6.15               5.11\n6 CSU                  8.10               8.25\n7 AfD                  9.80               9.10"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#comparison-to-human-judgement",
+    "href": "slides/week-07/07-Relationships.html#comparison-to-human-judgement",
+    "title": "Dictionaries and Sentiment",
+    "section": "Comparison to human judgement",
+    "text": "Comparison to human judgement\n\nWe can compare our dictionary to how humans would code text.\nArtificial example of a random sample. Good?\n\n\n\n\n\nhuman\n\n\n\n\n\ndictionary\nTRUE\nFALSE\n\n\nTRUE\n800\n100\n\n\nFALSE\n25\n75"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#accuracy-sensitivity-and-specificity",
+    "href": "slides/week-07/07-Relationships.html#accuracy-sensitivity-and-specificity",
+    "title": "Dictionaries and Sentiment",
+    "section": "Accuracy, sensitivity, and specificity",
+    "text": "Accuracy, sensitivity, and specificity\n\n\n\n\\(Accuracy = \\frac{True Positives + True Negatives}{Total Predictions}\\)\nMeasures the overall proportion of correct predictions out of all predictions\nCan be misleading if the classes are imbalanced! E.g., 95% of the data is “negative” and our model always predicts “negative” -&gt; Good accuracy, but useless for positive cases.\n\n\n\n\n\n\nhuman\n\n\n\n\n\ndict\nTRUE\nFALSE\n\n\nTRUE\n800\n100\n\n\nFALSE\n25\n75\n\n\n\n\n\n\n\n\nText-as-Data in R | Spring 2025 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#accuracy",
+    "href": "slides/week-07/07-Relationships.html#accuracy",
+    "title": "Dictionaries and Sentiment",
+    "section": "Accuracy",
+    "text": "Accuracy\n\n\n\n\\(= \\frac{True Positives + True Negatives}{Total Predictions}\\)\nMeasures the overall proportion of correct predictions out of all predictions\nCan be misleading if the classes are imbalanced! E.g., 95% of the data is “negative” and our model always predicts “negative” -&gt; Good accuracy, but useless for positive cases.\n\n\n\n\n\n\nhuman\n\n\n\n\n\ndict\nTRUE\nFALSE\n\n\nTRUE\n800\n100\n\n\nFALSE\n25\n75\n\n\n\n\n\n\n(800 + 75) / 1000\n\n[1] 0.875"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#sensitivity-recall",
+    "href": "slides/week-07/07-Relationships.html#sensitivity-recall",
+    "title": "Dictionaries and Sentiment",
+    "section": "Sensitivity (Recall)",
+    "text": "Sensitivity (Recall)\n\n\n\n\\(= \\frac{True Positives}{True Positives + False Negatives}\\)\nHow well the model detects the positive class (i.e., it calculates the proportion of actual positives that are correctly identified).\nHigh sensitivity -&gt; Few false negatives\n\n\n\n\n\n\nhuman\n\n\n\n\n\ndict\nTRUE\nFALSE\n\n\nTRUE\n800\n100\n\n\nFALSE\n25\n75\n\n\n\n\n\n\n800 / (800 + 25)\n\n[1] 0.969697"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#specificity",
+    "href": "slides/week-07/07-Relationships.html#specificity",
+    "title": "Dictionaries and Sentiment",
+    "section": "Specificity",
+    "text": "Specificity\n\n\n\n\\(= \\frac{True Negatives}{True Negatives + False Positives}\\)\nHow well the model detects the negative class (i.e., it calculates the proportion of actual negatives that are correctly identified).\nHigh specificity means fewer false positives\n\n\n\n\n\n\nhuman\n\n\n\n\n\ndict\nTRUE\nFALSE\n\n\nTRUE\n800\n100\n\n\nFALSE\n25\n75\n\n\n\n\n\n\n75 / (75 + 100)\n\n[1] 0.4285714"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#types-of-errors",
+    "href": "slides/week-07/07-Relationships.html#types-of-errors",
+    "title": "Dictionaries and Sentiment",
+    "section": "Types of errors",
+    "text": "Types of errors\n\n\n\n\nActual Positive\nActual Negative\n\n\n\n\nPredicted Positive\nTrue Positive (TP)\nFalse Positive (FP)\n\n\nPredicted Negative\nFalse Negative (FN)\nTrue Negative (TN)\n\n\n\nWhich error rate should we minimize?\n\nJudicial decision: Guilty of murder? Innocent person in jail or let a guilty one go free?\nBanking transaction: Fraud detection? Flag too many correct transactions vs. missing criminal transactions\n\n\n\n\nText-as-Data in R | Spring 2025 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#which-errors-should-we-minimize",
+    "href": "slides/week-07/07-Relationships.html#which-errors-should-we-minimize",
+    "title": "Dictionaries and Sentiment",
+    "section": "Which errors should we minimize?",
+    "text": "Which errors should we minimize?\n\n\n\n\nActual Positive\nActual Negative\n\n\n\n\nPredicted Positive\nTrue Positive (TP)\nFalse Positive (FP)\n\n\nPredicted Negative\nFalse Negative (FN)\nTrue Negative (TN)\n\n\n\n\nJudicial decision: Guilty of murder? Innocent person in jail or let a guilty one go free?\nBanking transaction: Fraud detection? Flag too many correct transactions vs. missing criminal transactions"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#in-our-applications",
+    "href": "slides/week-07/07-Relationships.html#in-our-applications",
+    "title": "Dictionaries and Sentiment",
+    "section": "In our applications",
+    "text": "In our applications\n\nIn many (political science) dictionary applications, the false positive rate is lower than the false negative rate.\nThat is, we often miss some true positives.\nIn these cases, we read more texts, change our dictionary, and try again. And repeat."
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#applying-dictionaries-in-quanteda-4",
+    "href": "slides/week-07/07-Relationships.html#applying-dictionaries-in-quanteda-4",
+    "title": "Dictionaries and Sentiment",
+    "section": "Applying dictionaries in quanteda",
+    "text": "Applying dictionaries in quanteda\n\nmanifestos$proportions_SW &lt;- as.numeric(immigration_dfm[,1]) /ntoken(manifestos_dfm)\nmanifestos$proportions_GH &lt;- as.numeric(immigration_dfm[,2]) /ntoken(manifestos_dfm)\n\nmanifestos %&gt;% \n  ungroup() %&gt;% \n  select(partyname, proportions_SW, proportions_GH)\n\n# A tibble: 6 × 3\n  partyname                                        proportions_SW proportions_GH\n  &lt;chr&gt;                                                     &lt;dbl&gt;          &lt;dbl&gt;\n1 Greens                                                 0.00150        0.00166 \n2 The Left                                               0.00137        0.00148 \n3 Social Democratic Party of Germany                     0.000816       0.000891\n4 Free Democratic Party                                  0.000946       0.00119 \n5 Democratic Christian Union / Christian Social U…       0.00111        0.00127 \n6 Alternative for Germany                                0.00383        0.00417"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#coding-task",
+    "href": "slides/week-07/07-Relationships.html#coding-task",
+    "title": "Dictionaries and Sentiment",
+    "section": "Coding task",
+    "text": "Coding task\n\nTransform the speeches of the 19th legislative period in the German Bundestag to a document-feature matrix [See ILIAS]\nApply one of the immigration dictionaries. [See slides]\nSpeeches should be classified as immigration, if there are more than three keywords included.\nCalculate the sentiment in these speeches using the dictionary by Proksch et al. [See ILIAS]\nWhich speech on immigration is the most negative?\n\n\n\n\nText-as-Data in R | Spring 2025 | University of Mannheim"
   }
 ]
