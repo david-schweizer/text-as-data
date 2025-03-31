@@ -28,7 +28,7 @@
     "href": "material.html",
     "title": "Schedule, slides & materials",
     "section": "",
-    "text": "You can find all course materials below. This includes slides, code, links to readings, etc.\nJust click on the topic of the respective week.\n\n\n\n\n\nWeek\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nFebruary 11, 2025\n\n\n\n\nWeek 02\n\n\nIntro to R\n\n\nFebruary 18, 2025\n\n\n\n\nWeek 03\n\n\nTidyverse I: Import, tidy, and transform\n\n\nFebruary 25, 2025\n\n\n\n\nWeek 04\n\n\nTidyverse II: Transform, and visualize\n\n\nMarch 04, 2025\n\n\n\n\nWeek 05\n\n\nIntro to Text-as-Data I: Concepts\n\n\nMarch 11, 2025\n\n\n\n\nWeek 06\n\n\nIntro to Text-as-Data II: Workflow\n\n\nMarch 18, 2025\n\n\n\n\nWeek 07\n\n\nDictionary and Sentiment\n\n\nMarch 25, 2025\n\n\n\n\n\nNo matching items",
+    "text": "You can find all course materials below. This includes slides, code, links to readings, etc.\nJust click on the topic of the respective week.\n\n\n\n\n\nWeek\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nFebruary 11, 2025\n\n\n\n\nWeek 02\n\n\nIntro to R\n\n\nFebruary 18, 2025\n\n\n\n\nWeek 03\n\n\nTidyverse I: Import, tidy, and transform\n\n\nFebruary 25, 2025\n\n\n\n\nWeek 04\n\n\nTidyverse II: Transform, and visualize\n\n\nMarch 04, 2025\n\n\n\n\nWeek 05\n\n\nIntro to Text-as-Data I: Concepts\n\n\nMarch 11, 2025\n\n\n\n\nWeek 06\n\n\nIntro to Text-as-Data II: Workflow\n\n\nMarch 18, 2025\n\n\n\n\nWeek 07\n\n\nDictionary and Sentiment\n\n\nMarch 25, 2025\n\n\n\n\nWeek 08\n\n\nTopic Models\n\n\nApril 01, 2025\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Schedule, slides & materials"
     ]
@@ -366,9 +366,9 @@
   {
     "objectID": "weeks/week-08.html",
     "href": "weeks/week-08.html",
-    "title": "APIs",
+    "title": "Topic Models",
     "section": "",
-    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nAPIs\n\n\nWeek 10\n\n\nApr 16, 2024\n\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nYou can find the Quarto document for today’s session here.\n\n\nTo Do’s before our session\n\nWork on the second assignment. The deadline is 16.04.2024 15:00. You can download the assignment on ILIAS.\nHave a look at APIs for social scientists: A collaborative review. Is one of the mentioned API’s particularly interesting for you? Do you know of any other APIs (also wrapped in R packages) that are relevant for political science?"
+    "text": "To Do’s before our session\n\nFinish the exercise from last session. Try out different dictionaries!\nHave a look at the introduction and the theoretical part of Rebecca Kittel’s paper “Simply Speaking? Language Complexity among (Non-)Populist Actors in Parliamentary Debates”. We will replicate some of the analysis in today’s session.\n\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nAPIs\n\n\nWeek 10\n\n\nApr 16, 2024\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA"
   },
   {
     "objectID": "slides/week-02/02-ScienceOfClimateChange.html#social-and-economic-impacts-of-climate",

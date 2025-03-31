@@ -1,9 +1,9 @@
 ---
-title: "APIs"
-subtitle: "Week 10"
+title: "Topic Models"
+subtitle: "Week 08"
 description: ""
 author: ""
-date: "Apr 16, 2024"
+date: "Apr 01, 2025"
 listing:
   - id: slides
     contents:
@@ -35,6 +35,12 @@ listing:
 tbl-colwidths: [10,50,40]
 ---
 
+# To Do's before our session
+
+-   Finish the exercise from last session. Try out different dictionaries!
+
+-   Have a look at the introduction and the theoretical part of Rebecca Kittel's paper "[Simply Speaking? Language Complexity among (Non-)Populist Actors in Parliamentary Debates](https://www.cambridge.org/core/journals/government-and-opposition/article/simply-speaking-language-complexity-among-nonpopulist-actors-in-parliamentary-debates/30B241C0182677F07A6ABD31BC519831)". We will replicate some of the analysis in today's session.
+
 # Seminar slides
 
 ::: {#slides}
@@ -42,9 +48,4 @@ tbl-colwidths: [10,50,40]
 
 # Materials
 
-You can find the Quarto document for today's session [**here**](https://ilias.uni-mannheim.de/goto.php?target=file_1509080_download&client_id=ILIAS).
-
-# To Do's before our session
-
--   Work on the **second assignment**. The **deadline is 16.04.2024 15:00**. You can download the assignment on ILIAS.
--   Have a look at [**APIs for social scientists: A collaborative review**](https://bookdown.org/paul/apis_for_social_scientists/). Is one of the mentioned API's particularly interesting for you? Do you know of any other APIs (also wrapped in R packages) that are relevant for political science?
+TBA
