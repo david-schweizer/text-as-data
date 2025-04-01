@@ -368,7 +368,7 @@
     "href": "weeks/week-08.html",
     "title": "Topic Models",
     "section": "",
-    "text": "To Do’s before our session\n\nFinish the exercise from last session. Try out different dictionaries!\nHave a look at the introduction and the theoretical part of Rebecca Kittel’s paper “Simply Speaking? Language Complexity among (Non-)Populist Actors in Parliamentary Debates”. We will replicate some of the analysis in today’s session.\n\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nAPIs\n\n\nWeek 10\n\n\nApr 16, 2024\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA"
+    "text": "To Do’s before our session\n\nFinish the exercise from last session. Try out different dictionaries!\nHave a look at the introduction and the theoretical part of Rebecca Kittel’s paper “Simply Speaking? Language Complexity among (Non-)Populist Actors in Parliamentary Debates”. We will replicate some of the analysis in today’s session.\n\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nTopic Models\n\n\nWeek 08\n\n\nApr 1, 2025\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA"
   },
   {
     "objectID": "slides/week-02/02-ScienceOfClimateChange.html#social-and-economic-impacts-of-climate",
@@ -8938,7 +8938,7 @@
     "href": "slides/week-08/08-Comparisons.html#quantitative-evaluation-of-stm",
     "title": "Topic Models",
     "section": "Quantitative Evaluation of STM",
-    "text": "Quantitative Evaluation of STM\nWe can apply many of these metrics across a range of topic models using the searchK function in the stm package.\n\nk_results &lt;- searchK(documents = stm$documents, \n                     vocab = stm$vocab, \n                     data = stm$meta, \n                     max.em.its = 25, # maximum number of EM iterations\n                     K = c(5, 10, 15, 20),  # Try different K values\n                     prevalence = ~party, \n                     seed = 123)\n\n\nsave(k_results, file = \"k_results.Rda\")"
+    "text": "Quantitative Evaluation of STM\nUsing the searchK function in the stm package.\n\nk_results &lt;- searchK(documents = stm$documents, \n                     vocab = stm$vocab, \n                     data = stm$meta, \n                     max.em.its = 25, # maximum number of EM iterations\n                     K = c(5, 10, 15, 20),  # Try different K values\n                     prevalence = ~party, \n                     seed = 123)\n\n\nsave(k_results, file = \"k_results.Rda\")"
   },
   {
     "objectID": "slides/week-08/08-Comparisons.html#semantic-validity-chang-et-al.-2009",

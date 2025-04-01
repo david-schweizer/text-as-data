@@ -579,7 +579,7 @@ plot.estimateEffect(topic_effects,
 
 ## Quantitative Evaluation of STM
 
-We can apply many of these metrics across a range of topic models using the `searchK` function in the `stm` package.
+Using the `searchK` function in the `stm` package.
 
 ```{r, echo = TRUE, eval = FALSE}
 k_results <- searchK(documents = stm$documents, 
