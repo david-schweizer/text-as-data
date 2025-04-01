@@ -30,8 +30,74 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="../../styles.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -343,15 +409,796 @@ David Schweizer
 
   <p class="date">April 1, 2025</p>
 </section>
-<section id="tba" class="title-slide slide level1 center">
-<h1>TBA</h1>
+<section id="todays-session" class="slide level2">
+<h2>Today’s session</h2>
+<ul>
+<li><p>Input: Topic models</p></li>
+<li><p>Coding: Replication &amp; Comparison</p></li>
+</ul>
+</section>
+<section id="topic-models" class="slide level2">
+<h2>Topic models</h2>
+<ul>
+<li>Allow us to cluster similar documents in a corpus together.</li>
+<li>Algorithm to find most important ‘topics’ in an unstructured corpus through analyzing co-occurence of words</li>
+</ul>
+<p><strong>Typical use:</strong></p>
+<ul>
+<li><p>to get a first impression of data, e.g., large amounts of text data</p></li>
+<li><p>to study the trajectory of large topics in diverse corpora in scientific journals, twitter data, laws, …</p></li>
+<li><p>to study different frames of the same debate: different aspects highlighted, different words used, …</p></li>
+</ul>
+</section>
+<section id="motivating-example" class="slide level2">
+<h2>Motivating example</h2>
+<ul>
+<li>Data: German Bundestag - <a href="https://www.bundestag.de/services/glossar/glossar/F/fragestunde-245420">“Fragestunden”</a> of the 19th legislative period.</li>
+<li>Further subsetted to speeches delivered by the opposition parties.</li>
+</ul>
+<p><a href="https://htmlpreview.github.io/?https://github.com/david-schweizer/LDAvis/blob/main/LDAvis/index.html">Results from a 15-Topic model</a></p>
+</section>
+<section id="topic-models-1" class="slide level2">
+<h2>Topic models</h2>
+<ul>
+<li><p>Topic models offer an automated procedure for discovering the main “themes” in an unstructured corpus</p></li>
+<li><p>They require no prior information, training set, or labelling of texts before estimation</p></li>
+<li><p>They allow us to automatically organise, understand, and summarise large archives of text data.</p></li>
+<li><p>Latent Dirichlet Allocation (LDA) is the most common approach (Blei et al., 2003), and one that underpins more complex models</p></li>
+<li><p>Topic models are an example of <em>mixture</em> models:</p>
+<ul>
+<li><p>Documents can contain multiple topics</p></li>
+<li><p>Words can belong to multiple topics</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="what-is-a-topic" class="slide level2">
+<h2>What is a topic?</h2>
+<p>A “topic” is a probability distribution over a fixed word vocabulary.</p>
+<ul>
+<li><p>Consider a vocabulary: “diplomacy”, “treaty”, “conflict”, “election”, “policy”, “coalition”</p></li>
+<li><p>When speaking about international relations, you will:</p>
+<ul>
+<li><p><strong>Frequently use</strong> the words “diplomacy”, “treaty”, “conflict”</p></li>
+<li><p><strong>Infrequently use</strong> the words “election”, “policy”, and “coalition”</p></li>
+</ul></li>
+<li><p>When speaking about domestic politics, you will:</p>
+<ul>
+<li><strong>Frequently use</strong> the words “diplomacy”, “treaty”, “conflict”</li>
+<li><strong>Infrequently use</strong> the words “diplomacy”, “treaty”, and “alliance”</li>
+</ul></li>
+</ul>
+</section>
+<section id="what-is-a-document" class="slide level2">
+<h2>What is a “document”?</h2>
+<ul>
+<li><p>In a topic model, each document is described as being composed of a <strong>mixture</strong> of corpus-wide topics</p></li>
+<li><p>For each document, we find the topic proportions that maximize the probability that we would observe the words in that particular document</p></li>
+</ul>
+</section>
+<section id="topic-models-2" class="slide level2">
+<h2>Topic Models</h2>
+<p>A topic model simultaneously estimates two sets of probabilities</p>
+<ol type="1">
+<li><p>The probability of observing each word for each topic</p></li>
+<li><p>The probability of observing each topic in each document</p></li>
+</ol>
+<p>These quantities can then be used to organise documents by topic, assess how topics vary across documents, etc.</p>
+</section>
+<section>
+<section id="lda-latent-dirichlet-allocation" class="title-slide slide level1 center">
+<h1>LDA (Latent Dirichlet Allocation)</h1>
+
+</section>
+<section id="lda" class="slide level2">
+<h2>LDA</h2>
+
+<img data-src="lda.png" class="r-stretch"><ul>
+<li><p>The researcher picks a number of topics, K.</p></li>
+<li><p>Each <em>topic</em> (k) is a distribution over words</p></li>
+<li><p>Each <em>document</em> (d) is a mixture of corpus-wide topics</p></li>
+<li><p>Each <em>word</em> (w) is drawn from one of those topics</p></li>
+</ul>
+</section>
+<section id="lda-1" class="slide level2">
+<h2>LDA</h2>
+
+<img data-src="lda_2.png" class="r-stretch"><ul>
+<li><p>In reality, we only observe the documents</p></li>
+<li><p>The other structure are <strong>hidden variables</strong></p></li>
+<li><p>Our goal is to <strong>infer</strong> the hidden variables</p></li>
+</ul>
+</section>
+<section id="lda-2" class="slide level2">
+<h2>LDA</h2>
+
+<img data-src="lda_2.png" class="r-stretch"><ul>
+<li>Topic modelling allows us to extrapolate backwards from a collection of documents to infer the “topics” that could have generated them.</li>
+</ul>
+</section>
+<section id="lda-3" class="slide level2">
+<h2>LDA</h2>
+<ul>
+<li><p>The LDA model is a <strong>Bayesian mixture model</strong> for discrete data which describes how the documents in a dataset were created</p></li>
+<li><p>The number of topics, K, is selected by the researcher</p></li>
+<li><p>Each of the K <em>topics</em> is a probability distribution over a fixed vocabulary of N words</p>
+<ul>
+<li>Modeled as a Dirichlet distribution</li>
+</ul></li>
+<li><p>Each of the D <em>documents</em> is a probability distribution over the K topics</p>
+<ul>
+<li>Modeled as a Dirichlet distribution</li>
+</ul></li>
+<li><p>Each word in each document is drawn from the topic-specific probability distribution over words</p>
+<ul>
+<li>Modeled as a multinomial distribution</li>
+</ul></li>
+</ul>
+</section>
+<section id="why-does-lda-work" class="slide level2">
+<h2>Why does LDA work?</h2>
+<ul>
+<li><p>LDA trades off two goals.</p>
+<ol type="1">
+<li><p>For each document, allocate its words to as few topics as possible (α)</p></li>
+<li><p>For each topic, assign high probability to as few terms as possible (η)</p></li>
+</ol></li>
+<li><p>These goals are at odds.</p>
+<ol type="1">
+<li><p>Putting a document in a single topic makes (2) hard: All of its words must have probability under that topic.</p></li>
+<li><p>Putting very few words in each topic makes (1) hard: To cover a document’s words, it must assign many topics to it.</p></li>
+</ol></li>
+<li><p>Trading off these goals finds groups of <strong>tightly co-occurring words</strong></p></li>
+</ul>
+</section>
+<section id="lda-example" class="slide level2">
+<h2>LDA example</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Load packages</span></span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a></a><span class="fu">library</span>(quanteda)</span>
+<span id="cb1-4"><a></a><span class="fu">library</span>(topicmodels)</span>
+<span id="cb1-5"><a></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb1-6"><a></a></span>
+<span id="cb1-7"><a></a><span class="co"># Load data</span></span>
+<span id="cb1-8"><a></a><span class="fu">load</span>(<span class="st">"Corpus_speeches_germany_19.rda"</span>)</span>
+<span id="cb1-9"><a></a></span>
+<span id="cb1-10"><a></a><span class="co"># Get "Fragestunden" for opposition paries</span></span>
+<span id="cb1-11"><a></a>data <span class="ot">&lt;-</span> Corpus_speeches_germany_19 <span class="sc">%&gt;%</span> </span>
+<span id="cb1-12"><a></a>  <span class="fu">mutate</span>(<span class="at">Fragestunde_logical =</span> <span class="fu">str_detect</span>(agenda, <span class="st">"Fragestunde"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-13"><a></a>  <span class="fu">filter</span>(Fragestunde_logical <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-14"><a></a>  <span class="fu">filter</span>(party <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"BÜNDNIS 90/DIE GRÜNEN"</span>, <span class="st">"AfD"</span>, <span class="st">"DIE LINKE"</span>, <span class="st">"FDP"</span>))</span>
+<span id="cb1-15"><a></a></span>
+<span id="cb1-16"><a></a><span class="fu">str</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   2498 obs. of  13 variables:
+ $ speaker            : chr  "André Hahn" "André Hahn" "Konstantin von Notz" "André Hahn" ...
+ $ text               : chr  "Vielen Dank, Herr Präsident.&nbsp;– Ich nehme Bezug auf Medienberichte, Herr Staatssekretär. Der Bericht ist leider "| __truncated__ "Die Frage nach den rechtlichen Möglichkeiten des Unabhängigen Gremiums, seinen Anspruch durchzusetzen, ist nich"| __truncated__ "GRÜ- Herr Präsident, vielen Dank.&nbsp;– Herr Staatssekretär, empfinden Sie, ohne dass wir hier jetzt über geheime D"| __truncated__ "Vielen Dank, Herr Präsident.&nbsp;– Herr Staatssekretär, ich habe eine ganz einfache Frage: Haben Sie dem Unabhängig"| __truncated__ ...
+ $ party              : chr  "DIE LINKE" "DIE LINKE" "BÜNDNIS 90/DIE GRÜNEN" "DIE LINKE" ...
+ $ date               : Date, format: "2017-12-13" "2017-12-13" ...
+ $ agenda             : chr  "Tagesordnungspunkt 11:  Fragestunde  Drucksache 19/188/19 " "Tagesordnungspunkt 11:  Fragestunde  Drucksache 19/188/19 " "Tagesordnungspunkt 11:  Fragestunde  Drucksache 19/188/19 " "Tagesordnungspunkt 11:  Fragestunde  Drucksache 19/188/19 " ...
+ $ speechnumber       : int  76 79 82 86 88 90 93 98 103 106 ...
+ $ procedure_ID       : chr  "" "" "" "" ...
+ $ partyfacts_ID      : num  1545 1545 1816 1545 1545 ...
+ $ period             : chr  "19" "19" "19" "19" ...
+ $ chair              : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ minister           : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ chancelor          : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Fragestunde_logical: logi  TRUE TRUE TRUE TRUE TRUE TRUE ...</code></pre>
+</div>
+</div>
+</section>
+<section id="lda-example-1" class="slide level2">
+<h2>LDA example</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># Document feature matrix</span></span>
+<span id="cb3-2"><a></a>dfm <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a></a>  <span class="fu">corpus</span>(<span class="at">text_field =</span> <span class="st">"text"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-4"><a></a>  <span class="fu">tokens</span>(<span class="at">remove_punct =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb3-5"><a></a>         <span class="at">remove_numbers =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb3-6"><a></a>         <span class="at">remove_symbols =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-7"><a></a>  <span class="fu">tokens_tolower</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb3-8"><a></a>  <span class="fu">tokens_remove</span>(<span class="fu">c</span>(<span class="fu">stopwords</span>(<span class="st">"de"</span>), <span class="st">"dass"</span>, </span>
+<span id="cb3-9"><a></a>                  <span class="st">"herr"</span>, <span class="st">"frau"</span>, <span class="st">"geehrte"</span>, <span class="st">"damen"</span>, <span class="st">"herren"</span>, <span class="st">"kollege"</span>, <span class="st">"kollegen"</span>, <span class="st">"kollegin"</span>, <span class="st">"kolleginnen"</span>, <span class="st">"minister"</span>,</span>
+<span id="cb3-10"><a></a>                  <span class="st">"spd"</span>, <span class="st">"fdp"</span>, <span class="st">"cdu"</span>, <span class="st">"csu"</span>, <span class="st">"cdu/csu"</span>, <span class="st">"cducsu"</span>, <span class="st">"union"</span>, <span class="st">"afd"</span>, <span class="st">"die grünen"</span>,  <span class="st">"bündnis90"</span>, <span class="st">"linke"</span>, <span class="st">"fraktion"</span>,</span>
+<span id="cb3-11"><a></a>                  <span class="st">"alternative für deutschland"</span>, <span class="st">"christdemokraten"</span>, <span class="st">"sozialdemokraten"</span>,</span>
+<span id="cb3-12"><a></a>                  <span class="st">"präsident"</span>, <span class="st">"präsidentin"</span>, <span class="st">"staatsekretär"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-13"><a></a>  <span class="fu">tokens_wordstem</span>(<span class="at">language =</span> <span class="st">"german"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-14"><a></a>  <span class="fu">dfm</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb3-15"><a></a>  <span class="co"># keep the top 20% of the most frequent features (min_termfreq = 0.8) </span></span>
+<span id="cb3-16"><a></a>  <span class="co"># in less than 10% of all documents (max_docfreq = 0.1) </span></span>
+<span id="cb3-17"><a></a>  <span class="co"># to focus on common but distinguishing features.</span></span>
+<span id="cb3-18"><a></a>  <span class="fu">dfm_trim</span>(<span class="at">min_termfreq =</span> <span class="fl">0.8</span>, <span class="at">termfreq_type =</span> <span class="st">"quantile"</span>,</span>
+<span id="cb3-19"><a></a>           <span class="at">max_docfreq =</span> <span class="fl">0.1</span>, <span class="at">docfreq_type =</span> <span class="st">"prop"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="lda-example-2" class="slide level2">
+<h2>LDA example</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co"># Convert for usage in 'topicmodels' package</span></span>
+<span id="cb4-2"><a></a>dtm <span class="ot">&lt;-</span> dfm <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a></a>  <span class="fu">convert</span>(<span class="at">to =</span> <span class="st">'topicmodels'</span>)</span>
+<span id="cb4-4"><a></a></span>
+<span id="cb4-5"><a></a>dtm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;&lt;DocumentTermMatrix (documents: 2469, terms: 3230)&gt;&gt;
+Non-/sparse entries: 62328/7912542
+Sparsity           : 99%
+Maximal term length: 30
+Weighting          : term frequency (tf)</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># Run the LDA with 15 topics and set seed for reproducibility</span></span>
+<span id="cb6-2"><a></a>ldaOut <span class="ot">&lt;-</span> <span class="fu">LDA</span>(dtm, </span>
+<span id="cb6-3"><a></a>              <span class="at">k =</span> <span class="dv">15</span>, </span>
+<span id="cb6-4"><a></a>              <span class="at">control =</span> <span class="fu">list</span>(<span class="at">seed =</span> <span class="dv">1234</span>))</span>
+<span id="cb6-5"><a></a></span>
+<span id="cb6-6"><a></a><span class="fu">save</span>(ldaOut, <span class="at">file =</span> <span class="st">"ldaOut.Rda"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="lda-example-3" class="slide level2">
+<h2>LDA example</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># Load data</span></span>
+<span id="cb7-2"><a></a>topic_word_probabilities <span class="ot">&lt;-</span> <span class="fu">tidy</span>(ldaOut, <span class="at">matrix =</span> <span class="st">"beta"</span>)</span>
+<span id="cb7-3"><a></a></span>
+<span id="cb7-4"><a></a><span class="co"># Filter for highest word probabilities per topic</span></span>
+<span id="cb7-5"><a></a>terms <span class="ot">&lt;-</span> topic_word_probabilities  <span class="sc">%&gt;%</span></span>
+<span id="cb7-6"><a></a>  <span class="fu">group_by</span>(topic) <span class="sc">%&gt;%</span></span>
+<span id="cb7-7"><a></a>  <span class="fu">slice_max</span>(beta, <span class="at">n =</span> <span class="dv">7</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-8"><a></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb7-9"><a></a>  <span class="fu">arrange</span>(topic, <span class="sc">-</span>beta)</span>
+<span id="cb7-10"><a></a></span>
+<span id="cb7-11"><a></a><span class="co"># Plot</span></span>
+<span id="cb7-12"><a></a>terms <span class="sc">%&gt;%</span></span>
+<span id="cb7-13"><a></a>  <span class="fu">mutate</span>(<span class="at">term =</span> <span class="fu">reorder_within</span>(term, beta, topic)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-14"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(beta, term, <span class="at">fill =</span> <span class="fu">factor</span>(topic))) <span class="sc">+</span></span>
+<span id="cb7-15"><a></a>  <span class="fu">geom_col</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb7-16"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> topic, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
+<span id="cb7-17"><a></a>  <span class="fu">scale_y_reordered</span>() <span class="sc">+</span> </span>
+<span id="cb7-18"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="lda-example-4" class="slide level2">
+<h2>LDA example</h2>
+
+<img data-src="08-Comparisons_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
+<section id="lda-example-5" class="slide level2">
+<h2>LDA example</h2>
+
+<img data-src="08-Comparisons_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
+<section id="lda-example-6" class="slide level2">
+<h2>LDA example</h2>
+<p>Now let us make use of the following score to visualise the posterior topics:</p>
+<p><span class="math inline">\(\text{term-score}_{k,v} = \hat{\beta}_{k,v} \log \left( \frac{\hat{\beta_{k,v}}}{\left( \prod_{j=1}^{K} \hat{\beta}_{k,v} \right)^{\frac{1}{K}}} \right)\)</span></p>
+<ul>
+<li><p>The first term <span class="math inline">\(\hat{\beta}_{k,v}\)</span> is the probability of term <span class="math inline">\(v\)</span> in topic <span class="math inline">\(k\)</span> and is akin to the term frequency</p></li>
+<li><p>The second term down-weights terms that have high probability under all topics</p></li>
+</ul>
+</section>
+<section id="lda-example-7" class="slide level2">
+<h2>LDA example</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># Calculate term scores</span></span>
+<span id="cb8-2"><a></a>top_terms <span class="ot">&lt;-</span> topic_word_probabilities <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a></a>  <span class="fu">group_by</span>(term) <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a></a>  <span class="fu">mutate</span>(<span class="at">beta_k =</span> <span class="fu">prod</span>(beta)<span class="sc">^</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">15</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb8-6"><a></a>  <span class="co"># Compute the term score with adjusted beta_k to prevent issues with log(0)</span></span>
+<span id="cb8-7"><a></a>  <span class="fu">mutate</span>(<span class="at">term_score =</span> beta <span class="sc">*</span> <span class="fu">log</span>((beta) <span class="sc">/</span> (beta_k <span class="sc">+</span> <span class="fl">1e-10</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb8-8"><a></a>  <span class="fu">group_by</span>(topic) <span class="sc">%&gt;%</span></span>
+<span id="cb8-9"><a></a>  <span class="fu">slice_max</span>(term_score, <span class="at">n =</span> <span class="dv">10</span>)  <span class="co"># Get top 15 terms for each topic</span></span>
+<span id="cb8-10"><a></a></span>
+<span id="cb8-11"><a></a><span class="co"># Extract the terms with the largest scores per topic</span></span>
+<span id="cb8-12"><a></a>top_terms<span class="sc">$</span>term[top_terms<span class="sc">$</span>topic<span class="sc">==</span><span class="dv">8</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "verstand"         "vorschlag"        "ziel"             "kommun"          
+ [5] "position"         "staatssekretarin" "richtig"          "bitt"            
+ [9] "erwart"           "end"             </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>top_terms<span class="sc">$</span>term[top_terms<span class="sc">$</span>topic<span class="sc">==</span><span class="dv">9</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "mensch"  "prozent" "kind"    "arbeit"  "alt"     "zahl"    "sozial" 
+ [8] "uns"     "leut"    "muss"   </code></pre>
+</div>
+</div>
+</section>
+<section id="differences-topic-8-and-topic-9" class="slide level2">
+<h2>Differences topic 8 and topic 9</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>beta_diff <span class="ot">&lt;-</span> topic_word_probabilities <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a></a>  <span class="fu">mutate</span>(<span class="at">topic =</span> <span class="fu">paste0</span>(<span class="st">"topic"</span>, topic)) <span class="sc">%&gt;%</span> <span class="co"># naming</span></span>
+<span id="cb12-3"><a></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> topic, <span class="at">values_from =</span> beta) <span class="sc">%&gt;%</span> <span class="co"># to wide</span></span>
+<span id="cb12-4"><a></a>  <span class="fu">filter</span>(topic8 <span class="sc">&gt;</span> .<span class="dv">001</span> <span class="sc">|</span> topic9 <span class="sc">&gt;</span> .<span class="dv">001</span>) <span class="sc">%&gt;%</span> <span class="co"># filter per-topic-per-word probabilities</span></span>
+<span id="cb12-5"><a></a>  <span class="fu">mutate</span>(<span class="at">log_ratio =</span> <span class="fu">log2</span>(topic9 <span class="sc">/</span> topic8)) <span class="sc">%&gt;%</span> <span class="co"># calculate log ratio: log ratio is useful because it makes the difference symmetrical</span></span>
+<span id="cb12-6"><a></a>  <span class="fu">select</span>(term, log_ratio) </span>
+<span id="cb12-7"><a></a></span>
+<span id="cb12-8"><a></a><span class="co"># Get the largest and smallest differences</span></span>
+<span id="cb12-9"><a></a>beta_diff <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb12-10"><a></a>  beta_diff <span class="sc">%&gt;%</span> <span class="fu">slice_max</span>(<span class="at">order_by =</span> log_ratio, <span class="at">n =</span> <span class="dv">10</span>),  <span class="co"># Top 10</span></span>
+<span id="cb12-11"><a></a>  beta_diff <span class="sc">%&gt;%</span> <span class="fu">slice_min</span>(<span class="at">order_by =</span> log_ratio, <span class="at">n =</span> <span class="dv">10</span>)   <span class="co"># Bottom 10</span></span>
+<span id="cb12-12"><a></a>  )</span>
+<span id="cb12-13"><a></a></span>
+<span id="cb12-14"><a></a><span class="co"># Plot these differences</span></span>
+<span id="cb12-15"><a></a><span class="fu">ggplot</span>(beta_diff, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(term, log_ratio), <span class="at">y =</span> log_ratio)) <span class="sc">+</span></span>
+<span id="cb12-16"><a></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"gray30"</span>) <span class="sc">+</span></span>
+<span id="cb12-17"><a></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span>  <span class="co"># Horizontal bars</span></span>
+<span id="cb12-18"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Log2 ratio of beta in topic 9 / topic 8"</span>) <span class="sc">+</span></span>
+<span id="cb12-19"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="diffences-topic-8-and-topic-9" class="slide level2">
+<h2>Diffences topic 8 and topic 9</h2>
+
+<img data-src="08-Comparisons_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section>
+<section id="document-topic-probabilities" class="slide level2">
+<h2>Document-topic probabilities</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># per-document-per-topic probabilities</span></span>
+<span id="cb13-2"><a></a>doc_topics <span class="ot">&lt;-</span> <span class="fu">tidy</span>(ldaOut, <span class="at">matrix =</span> <span class="st">"gamma"</span>) </span>
+<span id="cb13-3"><a></a></span>
+<span id="cb13-4"><a></a><span class="co"># per-document-per-topic probabilities</span></span>
+<span id="cb13-5"><a></a>doc_topics <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(document) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 15 × 3
+   document topic  gamma
+   &lt;chr&gt;    &lt;int&gt;  &lt;dbl&gt;
+ 1 103632       1 0.0114
+ 2 103632       2 0.104 
+ 3 103632       3 0.0114
+ 4 103632       4 0.0114
+ 5 103632       5 0.0114
+ 6 103632       6 0.0114
+ 7 103632       7 0.0114
+ 8 103632       8 0.0114
+ 9 103632       9 0.0114
+10 103632      10 0.0114
+11 103632      11 0.272 
+12 103632      12 0.0114
+13 103632      13 0.0114
+14 103632      14 0.0114
+15 103632      15 0.488 </code></pre>
+</div>
+</div>
+</section>
+<section id="document-topic-probabilities-1" class="slide level2">
+<h2>Document-topic probabilities</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="co"># per-document-per-topic probabilities</span></span>
+<span id="cb15-2"><a></a>doc_topics <span class="ot">&lt;-</span> <span class="fu">tidy</span>(ldaOut, <span class="at">matrix =</span> <span class="st">"gamma"</span>) </span>
+<span id="cb15-3"><a></a></span>
+<span id="cb15-4"><a></a><span class="co"># per-document-per-topic probabilities sum up to 1</span></span>
+<span id="cb15-5"><a></a>doc_topics <span class="sc">%&gt;%</span> </span>
+<span id="cb15-6"><a></a>  <span class="fu">group_by</span>(document) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-7"><a></a>  <span class="fu">summarise</span>(<span class="at">sum =</span> <span class="fu">sum</span>(gamma)) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-8"><a></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 2
+  document   sum
+  &lt;chr&gt;    &lt;dbl&gt;
+1 103632       1
+2 103672       1
+3 103702       1
+4 103742       1
+5 103792       1
+6 103832       1</code></pre>
+</div>
+</div>
+</section>
+<section id="inspect" class="slide level2">
+<h2>Inspect</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="co"># Highest probabilities, then focus topic 9</span></span>
+<span id="cb17-2"><a></a>doc_topics <span class="sc">%&gt;%</span> </span>
+<span id="cb17-3"><a></a>  <span class="fu">group_by</span>(topic) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-4"><a></a>  <span class="fu">slice_max</span>(gamma, <span class="at">n =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-5"><a></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 15 × 3
+   document topic gamma
+   &lt;chr&gt;    &lt;int&gt; &lt;dbl&gt;
+ 1 69097        1 0.985
+ 2 321962       2 0.977
+ 3 631461       3 0.877
+ 4 564851       4 0.936
+ 5 232332       5 0.967
+ 6 380202       6 0.965
+ 7 232802       7 0.994
+ 8 500422       8 0.968
+ 9 399962       9 0.994
+10 490132      10 0.967
+11 153082      11 0.925
+12 658611      12 0.995
+13 142952      13 0.977
+14 371262      14 0.961
+15 554391      15 0.977</code></pre>
+</div>
+</div>
+</section>
+<section id="inspect-1" class="slide level2">
+<h2>Inspect</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>data<span class="sc">$</span>document <span class="ot">&lt;-</span> <span class="fu">rownames</span>(data) </span>
+<span id="cb19-2"><a></a></span>
+<span id="cb19-3"><a></a><span class="co"># check the corresponding speech</span></span>
+<span id="cb19-4"><a></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb19-5"><a></a>  <span class="fu">filter</span>(document <span class="sc">==</span> <span class="dv">399962</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-6"><a></a>  <span class="fu">select</span>(text) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-7"><a></a>  <span class="fu">as.vector</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$text
+[1] "Sehr geehrter Herr Präsident! Werte Kolleginnen und Kollegen! Sehr geehrte Frau Lehmann, ehemalige Kreistagskollegin, herzlichen Glückwunsch zum Einzug in den Bundestag und auf eine gute gemeinsame Zusammenarbeit für den Heimatwahlkreis!  Ich komme gerade zurück aus Paris.  Es war eine Dienstreise. Ich war bei der Sitzung der Parlamentarischen Versammlung des Europarats. Es ging um Demokratie und Rechtsstaatlichkeit. Ich weiß, da haben gewisse Parteien hier in diesem Haus leider gewisse Berührungsängste.  Ich war der einzige deutsche Abgeordnete dort – leider. Auf jeden Fall: In Paris demonstrieren und streiken die Leute gerade. Sie demonstrieren und streiken gegen genau die Politik, die in Deutschland existiert und die Macron dort einführen will.  Macron will faktisch die deutsche Rente nach Frankreich  kopieren, genauso wie Ursula von der Leyen den Green New Deal von irgendwelchen US-amerikanischen Ökokommunistinnen kopiert und Merkel den Politikstil des Zentralkomitees. Diese Arbeitsattitüde der Großen Koalition bringt niemanden voran.  Die Leute gehen auf die Straße, weil sie sehen: Das bringt uns in Armut. Wenn dieses System kommt, dann bedeutet die Zukunft Armut, und das ist leider die Gegenwart in Deutschland. Insofern danke ich Ihnen von der Linken, dass Sie das Thema heute auf die Tagesordnung gesetzt haben;  denn es ist eine Schande für Deutschland, wenn immer mehr Rentner zur Tafel gehen müssen, um überhaupt überleben zu können.  Das zeigt doch: Es stimmt etwas nicht zwischen Einnahmen und Ausgaben.  Es kommt erstens zu wenig rein, und zweitens steigen die  Ausgaben zu stark. Und das hat natürlich mit dieser makroökonomischen Politik zu tun, die insbesondere von den  regierenden Parteien hier betrieben worden ist und betrieben wird. Ein großes Stichwort heißt „Riester-Dämpfung“. Die Reform, die SPD und Grüne – ich spreche es offen an – damals eingeführt haben: Die Leute werden am Rande alle noch ein bisschen riestern, und dann werden sie letztendlich eine private Vorsorge haben. – Pustekuchen! Ich frage mich schon, wie die Bundesregierung überhaupt  noch die Frechheit besitzen kann, im Rentenversicherungsbericht mit 4 Prozent per annum Verzinsung für die Riester-Rente zu rechnen. Wir wissen alle – das IVFP hat es nachgewiesen –, es kommen zwischen 0 und 2 Prozent Rendite raus, nicht 4 Prozent. Deswegen werden die Leute kaum mehr ausgezahlt bekommen, als sie eingezahlt haben, wenn sie in Rente gehen. Das bedeutet: Dieser private Vorsorgeteil scheitert, die gesetzliche Umlagerente haben Sie im Prinzip nach unten reformiert, auf einen niedrigen Standard reformiert, und dass wir heute Altersarmut zu beklagen haben, ist kein Zufall, sondern das Ergebnis Ihrer Politik. Das haben Sie als Ziel definiert.  Es ist übrigens kein Ausweg, dass die Rentner im Alter einfach weiterarbeiten, Herr Kober. Ich weiß nicht, warum Sie das formulieren. Auch in einem Zeitungsinter-Norbert Kleinwächter view haben Sie das formuliert. Vielleicht betreibt die FDP ja demnächst einen Sarglieferservice für Büros. Ich weiß nicht, was das soll. Menschen haben im Alter ein gutes Auskommen verdient, und dafür müssen wir in der Politik sorgen.  Jetzt kommt die schwere Aufgabe für die Zukunft – viele von Ihnen haben darüber gesprochen –: Wir müssen Löhne anheben, wir müssen für Bildung sorgen usw. Das ist richtig, und das ist wichtig für die nächste Generation.  Aber wir haben schon jetzt ein Altersarmutsproblem bei  den Leuten, die bereits in Rente sind. Und da müssen wir letztendlich mit anderen ökonomischen Mitteln herangehen.  Wir haben zweierlei Lösungskomplexe, die ich Ihnen ganz kurz vorstelle. Das eine ist ganz klar: die Ausgaben zu reduzieren. Wir haben jede Menge Dinge, die die ganz normalen Menschen in unserem Land immer mehr belasten. Ich sage nur: Ökospinnereien aller möglichen Arten, neue Heizungsverpflichtungen, neue Autoverpflichtungen, Erneuerbare-Energien-Gesetz. Das muss weg. Das treibt unseren Strompreis in die Höhe, und diesen Strom zahlen natürlich auch unsere Rentner. Wir sollten die Grundsteuer abschaffen. Wir müssen den Mehrwertsteuersatz senken. Das sind doch alles Dinge, die zu Ausgaben führen. Und vor allem: Wir müssen raus aus diesem Euro; denn der ist die Grundlage der großen Probleme, die wir in Deutschland haben.  Wir haben den Euro mit einer ständigen Geldmengensteigerung. 13 Billionen ist die Geldmenge aktuell. Die EZB druckt jedes Jahr eine halbe Billion nach. Das wird einfach in den Markt gestreut, und zwar nicht an alle, sondern an Investoren. Die investieren wieder in Immobilien, damit werden die Wohnungen teurer, damit werden die Mieten wieder teurer, und diese Mieten müssen natürlich auch unsere Rentner bezahlen. Deswegen sind sie am Ende dann arm. Diese Situation haben wir. Wir haben die Abwertung der Währung, sodass unsere Löhne und unsere Renten tatsächlich immer weniger wert sind.  Das ist natürlich ein Problem, weil das letztendlich unsere Währung billiger macht und Investoren aus dem Ausland anlockt, was dann letztendlich wiederum zu einer Preissteigerung im Sachwertesegment führt.   Und wir haben die Negativzinspolitik, die auch ein  Grund dafür ist, dass Riester nicht funktioniert. Die Leute kriegen keine Zinsen mehr auf ihre Spareinlagen. Die Leute können gar nicht mehr ordentlich fürs Alter vorsorgen. Und am Ende sind sie arm, weil unsere deutschen Rentner im Prinzip für die insolventen Broker aus dem Ausland zahlen. Das ist doch die Wahrheit der Politik, die die Regierung hier an den Tag legt.  Deswegen sagen wir: Runter mit den Ausgaben und raus aus dem Euro.  Das ist die wahre makroökonomische Lösung für das Problem der Altersarmut in Deutschland. Herzlichen Dank."</code></pre>
+</div>
+</div>
+</section>
+<section id="advantages-and-disadvantages-of-lda" class="slide level2">
+<h2>Advantages and Disadvantages of LDA</h2>
+<p><strong>Advantages</strong></p>
+<ul>
+<li><p>Automatically finds substantively interesting collections of words</p></li>
+<li><p>Easily scaled to large corpora (millions of documents)</p></li>
+<li><p>Requires very little prior work (no manual labelling of texts/dictionary construction etc)</p></li>
+</ul>
+<p><strong>Disadvantages</strong></p>
+<ul>
+<li><p>Generated topics may not reflect substantive interest of researcher</p></li>
+<li><p>Many estimated topics may be redundant for research question</p></li>
+<li><p>Requires extensive post-hoc interpretation of topics</p></li>
+<li><p>Sensitivity to number of topics selected (what is the best choice for K?)</p></li>
+</ul>
+</section></section>
+<section>
+<section id="structural-topic-model-stm" class="title-slide slide level1 center">
+<h1>Structural Topic Model (STM)</h1>
+
+</section>
+<section id="lda-extensions" class="slide level2">
+<h2>LDA Extensions</h2>
+<ol type="1">
+<li><p><strong>Correlated Topic Model (CTM)</strong></p>
+<ul>
+<li><p>LDA assumes that topics are uncorrelated across the corpus</p></li>
+<li><p>The correlated topic model allows topics to be correlated: Closer approximation to true document structure</p></li>
+</ul></li>
+<li><p><strong>Dynamic Topic Model (DTM)</strong></p>
+<ul>
+<li><p>LDA assumes that topics are fixed across documents, DTM allows topical content to vary smoothly over time</p></li>
+<li><p>The assumption that topics are fixed may not be sensible!</p></li>
+</ul></li>
+<li><p><strong>Structural Topic Model (STM)</strong></p>
+<ul>
+<li>Social scientists are typically interested in how topics vary with covariates. The structural topic model incorporates covariates into the LDA model</li>
+</ul></li>
+</ol>
+</section></section>
+<section>
+<section id="structural-topic-model" class="title-slide slide level1 center">
+<h1>Structural Topic Model</h1>
+
+</section>
+<section id="structural-topic-model-1" class="slide level2">
+<h2>Structural Topic Model</h2>
+<ul>
+<li><p>Typically, when estimating topic models we are interested in how some covariate is associated with the prevalence of topic usage (Gender, date, political party, etc)</p></li>
+<li><p>The Structural Topic Model (STM) allows for the inclusion of arbitrary covariates of interest into the generative model</p></li>
+<li><p><strong>Topic prevalence</strong> is allowed to vary according to the covariates X</p>
+<ul>
+<li>Each document has its own prior distribution over topics, which is defined by its covariates, rather than sharing a global mean</li>
+</ul></li>
+<li><p><strong>Topical content</strong> can also vary according to the covariates Y</p>
+<ul>
+<li>Word use <em>within</em> a topic can differ for different groups of speakers/writers</li>
+</ul></li>
+</ul>
+</section>
+<section id="structural-topic-model-application" class="slide level2">
+<h2>Structural Topic Model Application</h2>
+<ul>
+<li><p>In the legislative domain, we might be interested in the degree to which MPs from different parties represent distinct interests in their parliamentary questions</p></li>
+<li><p>We can use the STM to analyse how topic prevalence varies by party</p></li>
+</ul>
+</section>
+<section id="structural-topic-model-application-1" class="slide level2">
+<h2>Structural Topic Model Application</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">library</span>(stm)</span>
+<span id="cb21-2"><a></a><span class="co"># We work with the same dfm, convert to stm object</span></span>
+<span id="cb21-3"><a></a>stm <span class="ot">&lt;-</span> dfm <span class="sc">%&gt;%</span> </span>
+<span id="cb21-4"><a></a>  <span class="fu">convert</span>(<span class="at">to =</span> <span class="st">"stm"</span>)</span>
+<span id="cb21-5"><a></a></span>
+<span id="cb21-6"><a></a><span class="fu">summary</span>(stm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          Length Class      Mode     
+documents 2469   -none-     list     
+vocab     3230   -none-     character
+meta        12   data.frame list     </code></pre>
+</div>
+</div>
+</section>
+<section id="estimate-stm" class="slide level2">
+<h2>Estimate STM</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="do">## Estimate STM</span></span>
+<span id="cb23-2"><a></a>stmOut <span class="ot">&lt;-</span> <span class="fu">stm</span>(</span>
+<span id="cb23-3"><a></a>  <span class="at">documents =</span> stm<span class="sc">$</span>documents,</span>
+<span id="cb23-4"><a></a>  <span class="at">vocab =</span> stm<span class="sc">$</span>vocab,</span>
+<span id="cb23-5"><a></a>  <span class="at">data =</span> stm<span class="sc">$</span>meta,</span>
+<span id="cb23-6"><a></a>  <span class="at">init.type =</span> <span class="st">"Spectral"</span>,</span>
+<span id="cb23-7"><a></a>  <span class="at">prevalence =</span> <span class="sc">~</span>party,</span>
+<span id="cb23-8"><a></a>  <span class="at">K =</span> <span class="dv">15</span>,</span>
+<span id="cb23-9"><a></a>  <span class="at">seed =</span> <span class="dv">123</span></span>
+<span id="cb23-10"><a></a>)</span>
+<span id="cb23-11"><a></a></span>
+<span id="cb23-12"><a></a><span class="fu">save</span>(stmOut, <span class="at">file =</span> <span class="st">"stmOut.Rda"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="plot" class="slide level2">
+<h2>Plot</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">load</span>(<span class="st">"stmOut.Rda"</span>)</span>
+<span id="cb24-2"><a></a></span>
+<span id="cb24-3"><a></a><span class="fu">plot</span>(stmOut, <span class="at">type =</span> <span class="st">"summary"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="08-Comparisons_files/figure-revealjs/unnamed-chunk-18-1.png" width="960" class="r-stretch"></section>
+<section id="plot-1" class="slide level2">
+<h2>Plot</h2>
+<ul>
+<li><p>Highest Prob is the raw coefficients</p></li>
+<li><p>Score is the term-score measure we defined before</p></li>
+<li><p>FREX is a measure which combines word-topic frequency with word-topic exclusivity</p></li>
+<li><p>Lift is a normalised version of the word-probabilities</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">labelTopics</span>(stmOut)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Topic 1 Top Words:
+     Highest Prob: gern, europa, sich, eben, vorschlag, geb, position 
+     FREX: position, verhandl, sich, vorschlag, gern, offent, anker-zentr 
+     Lift: bildungspartnerschaft, qualifizier, bahnsteighoh, bundesstrass, ministererlaubnis, naturschutz, radverkehr 
+     Score: gespannt, gern, bundesstrass, position, radweg, verhandl, fusion 
+Topic 2 Top Words:
+     Highest Prob: euro, million, unternehm, prozent, milliard, erreich, ziel 
+     FREX: tonn, erneuerbar, milliard, million, euro, pro, energi 
+     Lift: dumont, nev, e-autos, storung, szenario, tonn, windenergi 
+     Score: euro, million, ferkel, erneuerbar, tonn, energi, milliard 
+Topic 3 Top Words:
+     Highest Prob: gross, seit, wann, kommun, lang, beispiel, bahn 
+     FREX: kraftstoff, bahn, fahrzeug, verkehr, wasserstoff, kommun, bundesumweltministerium 
+     Lift: ausgenomm, eingebaut, kriterium, moratorium, plattform, strommeng, asylbewerberleistungsgesetz 
+     Score: planungssich, bahn, wasserstoff, kraftstoff, lenkungswirk, fahrzeug, asylbewerberleistungsgesetz 
+Topic 4 Top Words:
+     Highest Prob: studi, gegeb, unterschied, aufgrund, beispiel, ergebnis, fall 
+     FREX: frau, studi, unterschied, gegeb, bundespolizei, arbeitsgrupp, auftrag 
+     Lift: thesenpapi, geschlecht, pflegebedurft, pflegedien, professor, alleinerzieh, ambulant 
+     Score: angeleg, studi, frau, alleinerzieh, pflegebedurft, geschlecht, arbeitsgrupp 
+Topic 5 Top Words:
+     Highest Prob: erkenntnis, neu, schul, darub, angebot, gab, natur 
+     FREX: schul, angebot, erkenntnis, roll, digital, quell, novemb 
+     Lift: einsatzbereitschaft, luftungsanlag, schulerinn, fertig, grenzkontroll, maskenpflicht, nordrhein-westfal 
+     Score: nordrhein-westfal, schul, angebot, maskenpflicht, digital, vergabeverfahr, erkenntnis 
+Topic 6 Top Words:
+     Highest Prob: verfahr, zwei, ministerium, burg, bevolker, zweit, funf 
+     FREX: verfahr, bmz, schiedsgericht, afrikan, lokal, entwurf, bevolker 
+     Lift: bonpflicht, europarechtswidr, kfw, prami, radfahr, schiedsgericht, traurig 
+     Score: traurig, verfahr, schiedsgericht, bmz, schulenberg, barrierefrei, entwurf 
+Topic 7 Top Words:
+     Highest Prob: hatt, kurz, zahl, aussag, warum, ziel, herrn 
+     FREX: jugend, paris, umweltministerium, fair, eu-kommission, kommission, arzt 
+     Lift: hypothet, arztinn, au-pair, eu-klimaziel, gott, treibhausgasemission, wilk 
+     Score: gott, jugend, umweltministerium, klimaschutzabkomm, arzt, eu-kommission, kommission 
+Topic 8 Top Words:
+     Highest Prob: beantwort, zahl, gestellt, genannt, davon, fall, bitt 
+     FREX: beantwort, gestellt, schriftlich, off, marz, anfrag, versuch 
+     Lift: bestandteil, bundesverteidigungsministerium, maass, militarseelsorg, muslim, seelsorg, plenum 
+     Score: bestandteil, rechnung, marz, bundeswehr, schriftlich, anfrag, beantwort 
+Topic 9 Top Words:
+     Highest Prob: moglich, landwirtschaft, wirklich, betrieb, hilf, imm, massnahm 
+     FREX: landwirtschaft, landwirt, betrieb, gesichert, grundsteu, leist, hilf 
+     Lift: ausub, shar, heckl, vorlag, kreuz, ungarn, wwf 
+     Score: vorlag, landwirtschaft, grundsteu, landwirt, heckl, bundesrat, hilf 
+Topic 10 Top Words:
+     Highest Prob: deshalb, zulass, initiativ, wissenschaft, wirklich, eben, europa 
+     FREX: taiwan, wald, glyphosat, regeln, zulass, franzos, china 
+     Lift: abwag, adil, demirci, eingelad, glyphosat-zulass, nachgeh, weiterkomm 
+     Score: nachgeh, taiwan, sicherheitsrat, who, glyphosat, beobachterstatus, zulass 
+Topic 11 Top Words:
+     Highest Prob: gas, uns, lass, eigent, europa, nord, zusammenarbeit 
+     FREX: gas, nord, ukrain, stream, abhang, kohl, fossil 
+     Lift: bundesschienenwegeausbaugesetz, flussiggas, geschaftsfuhr, szczepanski, infektion, operation, pipelin 
+     Score: geschaftsfuhr, gas, stream, nord, fossil, ukrain, kohl 
+Topic 12 Top Words:
+     Highest Prob: mensch, muss, imm, natur, alt, prozent, gesetz 
+     FREX: alt, altersarmut, grundsicher, mensch, arm, absatz, miet 
+     Lift: eingezahlt, grundsicher, teilgenomm, deutschlandtakt, elektrifiziert, mindestlohn, rent 
+     Score: teilgenomm, altersarmut, mensch, grundsicher, rentn, tafeln, alt 
+Topic 13 Top Words:
+     Highest Prob: teil, deshalb, staatssekretarin, einschatz, seh, sei, gern 
+     FREX: brasili, anwes, atomkraftwerk, mess, nachweis, method, ausweichstreck 
+     Lift: gemeinnutz, leopoldina, rechtsextremist, reprasentativ, rheintalbahn, umlagefah, amadeu-antonio-stift 
+     Score: erzahl, ausweichstreck, extremismus, nationalversamml, amadeu-antonio-stift, atomkraftwerk, endlag 
+Topic 14 Top Words:
+     Highest Prob: staatsminist, staat, polit, syri, regier, turkei, seit 
+     FREX: liby, turkisch, militar, syri, menschenrecht, turkei, saudi-arabi 
+     Lift: bombardier, endverbleib, freilass, joint, patrouillenboot, regenwald, rustungsgut 
+     Score: syri, defini, turkei, turkisch, staatsminist, waff, liby 
+Topic 15 Top Words:
+     Highest Prob: mensch, polizei, fluchtling, bereit, rahm, abschieb, umsetz 
+     FREX: polizei, inseln, griechisch, fluchtling, abschieb, gefluchtet, rassismus 
+     Lift: asylantrag, extremist, kabinettsausschuss, lesbos, polizei, inseln, kolumbi 
+     Score: ruf, polizei, inseln, griechisch, fluchtling, rechtsextremismus, rassismus </code></pre>
+</div>
+</div>
+</section>
+<section id="plot-2" class="slide level2">
+<h2>Plot</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">plot</span>(stmOut, <span class="at">labeltype =</span> <span class="st">"frex"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="08-Comparisons_files/figure-revealjs/unnamed-chunk-20-1.png" width="960" class="r-stretch"></section>
+<section id="plot-3" class="slide level2">
+<h2>Plot</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="fu">cloud</span>(stmOut, <span class="at">topic =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="08-Comparisons_files/figure-revealjs/unnamed-chunk-21-1.png" width="960" class="r-stretch"></section>
+<section id="plot-4" class="slide level2">
+<h2>Plot</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>topic_effects <span class="ot">&lt;-</span> <span class="fu">estimateEffect</span>(<span class="fu">c</span>(<span class="dv">15</span>) <span class="sc">~</span> party, stmOut, <span class="at">meta =</span> stm<span class="sc">$</span>meta)</span>
+<span id="cb29-2"><a></a></span>
+<span id="cb29-3"><a></a><span class="fu">plot.estimateEffect</span>(topic_effects,</span>
+<span id="cb29-4"><a></a>                    <span class="at">covariate =</span> <span class="st">"party"</span>,</span>
+<span id="cb29-5"><a></a>                    <span class="at">method =</span> <span class="st">"pointestimate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="08-Comparisons_files/figure-revealjs/unnamed-chunk-22-1.png" width="960" class="r-stretch"></section></section>
+<section>
+<section id="validating-topic-models" class="title-slide slide level1 center">
+<h1>Validating Topic Models</h1>
+
+</section>
+<section id="validating-topic-models-1" class="slide level2">
+<h2>Validating Topic Models</h2>
+<ul>
+<li><p>LDA, and topic models more generally, require the researcher to make several implementation decisions</p></li>
+<li><p>In particular, we must select a value for K, the number of topics</p></li>
+<li><p>How can we select between different values of K? How can we tell how well a given topic model is performing?</p></li>
+</ul>
+</section>
+<section id="validating-topic-models-2" class="slide level2">
+<h2>Validating Topic Models</h2>
+<ul>
+<li><p><strong>Predictive metric: Held-out likelihood</strong></p>
+<ul>
+<li><p>Ask which words the model believes will be in a given document and comparing this to the document’s actual word composition (i.e.&nbsp;calculate the held-out likelihood)</p></li>
+<li><p>E.g. Splitting texts in half, train a topic model on one half, calculate the held-out likelihood for the other half</p></li>
+</ul></li>
+<li><p><strong>Interpretational metrics</strong></p>
+<ul>
+<li><p><em>Semantic coherence</em></p>
+<ul>
+<li>Do the most common words from a topic also co-occur together frequently in the same documents?</li>
+</ul></li>
+<li><p><em>Exclusivity</em></p>
+<ul>
+<li>Do words with high probability in one topic have low probabilities in others?</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="quantitative-evaluation-of-stm" class="slide level2">
+<h2>Quantitative Evaluation of STM</h2>
+<p>We can apply many of these metrics across a range of topic models using the <code>searchK</code> function in the <code>stm</code> package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>k_results <span class="ot">&lt;-</span> <span class="fu">searchK</span>(<span class="at">documents =</span> stm<span class="sc">$</span>documents, </span>
+<span id="cb30-2"><a></a>                     <span class="at">vocab =</span> stm<span class="sc">$</span>vocab, </span>
+<span id="cb30-3"><a></a>                     <span class="at">data =</span> stm<span class="sc">$</span>meta, </span>
+<span id="cb30-4"><a></a>                     <span class="at">max.em.its =</span> <span class="dv">25</span>, <span class="co"># maximum number of EM iterations</span></span>
+<span id="cb30-5"><a></a>                     <span class="at">K =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>),  <span class="co"># Try different K values</span></span>
+<span id="cb30-6"><a></a>                     <span class="at">prevalence =</span> <span class="sc">~</span>party, </span>
+<span id="cb30-7"><a></a>                     <span class="at">seed =</span> <span class="dv">123</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="fu">save</span>(k_results, <span class="at">file =</span> <span class="st">"k_results.Rda"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="quantitative-evaluation-of-stm-1" class="slide level2">
+<h2>Quantitative Evaluation of STM</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a><span class="fu">load</span>(<span class="st">"k_results.Rda"</span>)</span>
+<span id="cb32-2"><a></a></span>
+<span id="cb32-3"><a></a><span class="fu">plot</span>(k_results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="08-Comparisons_files/figure-revealjs/unnamed-chunk-25-1.png" width="960" class="r-stretch"></section>
+<section id="semantic-validity-chang-et-al.-2009" class="slide level2">
+<h2>Semantic validity (<a href="http://users.umiacs.umd.edu/~jbg/docs/nips2009-rtl.pdf">Chang et al.&nbsp;2009</a>)</h2>
+<p><em>Word intrusion:</em> Test if topics have semantic coherence by asking humans identify a spurious word inserted into a topic.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Topic</strong></th>
+<th style="text-align: center;">w1</th>
+<th style="text-align: center;">w2</th>
+<th style="text-align: center;">w3</th>
+<th style="text-align: center;">w4</th>
+<th style="text-align: center;">w5</th>
+<th style="text-align: center;">w6</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">bank</td>
+<td style="text-align: center;">financ</td>
+<td style="text-align: center;">terror</td>
+<td style="text-align: center;">england</td>
+<td style="text-align: center;">fiscal</td>
+<td style="text-align: center;">market</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">europe</td>
+<td style="text-align: center;">union</td>
+<td style="text-align: center;">eu</td>
+<td style="text-align: center;">referendum</td>
+<td style="text-align: center;">vote</td>
+<td style="text-align: center;">school</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">war</td>
+<td style="text-align: center;">deliv</td>
+<td style="text-align: center;">nhs</td>
+<td style="text-align: center;">prison</td>
+<td style="text-align: center;">mr</td>
+<td style="text-align: center;">right</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Assumption:</strong> When humans find it easy to locate the “intruding” <em>word</em>, the topics are more coherent.</p>
+</section>
+<section id="validating-topic-models-substantive-approaches" class="slide level2">
+<h2>Validating Topic Models – Substantive approaches</h2>
+<ul>
+<li><p><em>Semantic validity</em></p>
+<ul>
+<li><p>Does a topic contain coherent groups of words?</p></li>
+<li><p>Does a topic identify a coherent groups of texts that are internally homogenous but distinctive from other topics?</p></li>
+</ul></li>
+<li><p><em>Predictive validity</em></p>
+<ul>
+<li>How well does variation in topic usage correspond to known events?</li>
+</ul></li>
+</ul>
+<p><strong>Implication</strong>: All these approaches require careful human reading of texts and topics, and comparison with sensible metadata.</p>
+</section></section>
+<section>
+<section id="coding" class="title-slide slide level1 center">
+<h1>Coding</h1>
+
+</section>
+<section id="coding-1" class="slide level2">
+<h2>Coding</h2>
+<ul>
+<li><p>Create your own data based on the parliamentary speeches dataset on ILIAS or other text data. Be creative!</p></li>
+<li><p>Try out to run a LDA and a STM. Inspect the models.</p></li>
+<li><p>BONUS: Try to “replicate” <a href="https://www.cambridge.org/core/journals/government-and-opposition/article/simply-speaking-language-complexity-among-nonpopulist-actors-in-parliamentary-debates/30B241C0182677F07A6ABD31BC519831">this paper</a>.</p>
+<ul>
+<li><p>Use LDA (similar topics?) instead of seeded LDA. But you can try both of course!</p></li>
+<li><p>The replication files for the analysis are available on OSF Registries at&nbsp;<a href="https://doi.org/10.17605/OSF.IO/93DQY" class="uri">https://doi.org/10.17605/OSF.IO/93DQY</a>.</p></li>
+</ul></li>
+</ul>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p>Text-as-Data in R | Spring 2025 | University of Mannheim</p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -562,6 +1409,82 @@ David Schweizer
         ]
       });
     </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

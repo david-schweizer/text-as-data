@@ -8792,5 +8792,404 @@
     "title": "Dictionaries and Sentiment",
     "section": "Coding task",
     "text": "Coding task\n\nTransform the speeches of the 19th legislative period in the German Bundestag to a document-feature matrix [See ILIAS]\nApply one of the immigration dictionaries. [See slides]\nSpeeches should be classified as immigration, if there are more than three keywords included.\nCalculate the sentiment in these speeches using the dictionary by Proksch et al. [See ILIAS]\nWhich speech on immigration is the most negative?\n\n\n\n\nText-as-Data in R | Spring 2025 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#todays-session",
+    "href": "slides/week-08/08-Comparisons.html#todays-session",
+    "title": "Topic Models",
+    "section": "Today’s session",
+    "text": "Today’s session\n\nInput: Topic models\nCoding: Replication & Comparison"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#topic-models",
+    "href": "slides/week-08/08-Comparisons.html#topic-models",
+    "title": "Topic Models",
+    "section": "Topic models",
+    "text": "Topic models\n\nAllow us to cluster similar documents in a corpus together.\nAlgorithm to find most important ‘topics’ in an unstructured corpus through analyzing co-occurence of words\n\nTypical use:\n\nto get a first impression of data, e.g., large amounts of text data\nto study the trajectory of large topics in diverse corpora in scientific journals, twitter data, laws, …\nto study different frames of the same debate: different aspects highlighted, different words used, …"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#test",
+    "href": "slides/week-08/08-Comparisons.html#test",
+    "title": "Topic Models",
+    "section": "Test",
+    "text": "Test\n\ntest\n\nTypical use:\n\nto get a first impression of data, e.g., large amounts of text data\nto study the trajectory of large topics in diverse corpora in scientific journals, twitter data, laws, …\nto study different frames of the same debate: different aspects highlighted, different words used, …\n\n\n\n\nText-as-Data in R | Spring 2025 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#header",
+    "href": "slides/week-08/08-Comparisons.html#header",
+    "title": "Topic Models",
+    "section": "Header",
+    "text": "Header\n\nalgorithm to find most important ‘topics’ in an unstructured corpus through analyzing co-occurence of words\n\nTypical use:\n\nto get a first impression of data, e.g., large amounts of text data\nto study the trajectory of large topics in diverse corpora in scientific journals, twitter data, laws, …\nto study different frames of the same debate: different aspects highlighted, different words used, …\n\n\n\n\nText-as-Data in R | Spring 2025 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#topic-models-1",
+    "href": "slides/week-08/08-Comparisons.html#topic-models-1",
+    "title": "Topic Models",
+    "section": "Topic models",
+    "text": "Topic models\n\nTopic models offer an automated procedure for discovering the main “themes” in an unstructured corpus\nThey require no prior information, training set, or labelling of texts before estimation\nThey allow us to automatically organise, understand, and summarise large archives of text data.\nLatent Dirichlet Allocation (LDA) is the most common approach (Blei et al., 2003), and one that underpins more complex models\nTopic models are an example of mixture models:\n\nDocuments can contain multiple topics\nWords can belong to multiple topics"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#what-is-a-topic",
+    "href": "slides/week-08/08-Comparisons.html#what-is-a-topic",
+    "title": "Topic Models",
+    "section": "What is a topic?",
+    "text": "What is a topic?\nA “topic” is a probability distribution over a fixed word vocabulary.\n\nConsider a vocabulary: “diplomacy”, “treaty”, “conflict”, “election”, “policy”, “coalition”\nWhen speaking about international relations, you will:\n\nFrequently use the words “diplomacy”, “treaty”, “conflict”\nInfrequently use the words “election”, “policy”, and “coalition”\n\nWhen speaking about domestic politics, you will:\n\nFrequently use the words “diplomacy”, “treaty”, “conflict”\nInfrequently use the words “diplomacy”, “treaty”, and “alliance”"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#motivating-example",
+    "href": "slides/week-08/08-Comparisons.html#motivating-example",
+    "title": "Topic Models",
+    "section": "Motivating example",
+    "text": "Motivating example\n\nData: German Bundestag - “Fragestunden” of the 19th legislative period.\nFurther subsetted to speeches delivered by the opposition parties.\n\nResults from a 15-Topic model"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#what-is-a-document",
+    "href": "slides/week-08/08-Comparisons.html#what-is-a-document",
+    "title": "Topic Models",
+    "section": "What is a “document”?",
+    "text": "What is a “document”?\n\nIn a topic model, each document is described as being composed of a mixture of corpus-wide topics\nFor each document, we find the topic proportions that maximize the probability that we would observe the words in that particular document"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#topic-models-2",
+    "href": "slides/week-08/08-Comparisons.html#topic-models-2",
+    "title": "Topic Models",
+    "section": "Topic Models",
+    "text": "Topic Models\nA topic model simultaneously estimates two sets of probabilities\n\nThe probability of observing each word for each topic\nThe probability of observing each topic in each document\n\nThese quantities can then be used to organise documents by topic, assess how topics vary across documents, etc."
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#lda-1",
+    "href": "slides/week-08/08-Comparisons.html#lda-1",
+    "title": "Topic Models",
+    "section": "LDA",
+    "text": "LDA\n\n\nIn reality, we only observe the documents\nThe other structure are hidden variables\nOur goal is to infer the hidden variables"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#lda-2",
+    "href": "slides/week-08/08-Comparisons.html#lda-2",
+    "title": "Topic Models",
+    "section": "LDA",
+    "text": "LDA\n\n\nTopic modelling allows us to extrapolate backwards from a collection of documents to infer the “topics” that could have generated them."
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#lda-3",
+    "href": "slides/week-08/08-Comparisons.html#lda-3",
+    "title": "Topic Models",
+    "section": "LDA",
+    "text": "LDA\n\nThe LDA model is a Bayesian mixture model for discrete data which describes how the documents in a dataset were created\nThe number of topics, K, is selected by the researcher\nEach of the K topics is a probability distribution over a fixed vocabulary of N words\n\nModeled as a Dirichlet distribution\n\nEach of the D documents is a probability distribution over the K topics\n\nModeled as a Dirichlet distribution\n\nEach word in each document is drawn from the topic-specific probability distribution over words\n\nModeled as a multinomial distribution"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#why-does-lda-work",
+    "href": "slides/week-08/08-Comparisons.html#why-does-lda-work",
+    "title": "Topic Models",
+    "section": "Why does LDA work?",
+    "text": "Why does LDA work?\n\nLDA trades off two goals.\n\nFor each document, allocate its words to as few topics as possible (α)\nFor each topic, assign high probability to as few terms as possible (η)\n\nThese goals are at odds.\n\nPutting a document in a single topic makes (2) hard: All of its words must have probability under that topic.\nPutting very few words in each topic makes (1) hard: To cover a document’s words, it must assign many topics to it.\n\nTrading off these goals finds groups of tightly co-occurring words"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#lda-example",
+    "href": "slides/week-08/08-Comparisons.html#lda-example",
+    "title": "Topic Models",
+    "section": "LDA example",
+    "text": "LDA example\n\n# Load packages\nlibrary(tidyverse)\nlibrary(quanteda)\nlibrary(topicmodels)\nlibrary(tidytext)\n\n# Load data\nload(\"Corpus_speeches_germany_19.rda\")\n\n# Get \"Fragestunden\" for opposition paries\ndata &lt;- Corpus_speeches_germany_19 %&gt;% \n  mutate(Fragestunde_logical = str_detect(agenda, \"Fragestunde\")) %&gt;% \n  filter(Fragestunde_logical == TRUE) %&gt;% \n  filter(party %in% c(\"BÜNDNIS 90/DIE GRÜNEN\", \"AfD\", \"DIE LINKE\", \"FDP\"))\n\nstr(data)\n\n'data.frame':   2498 obs. of  13 variables:\n $ speaker            : chr  \"André Hahn\" \"André Hahn\" \"Konstantin von Notz\" \"André Hahn\" ...\n $ text               : chr  \"Vielen Dank, Herr Präsident. – Ich nehme Bezug auf Medienberichte, Herr Staatssekretär. Der Bericht ist leider \"| __truncated__ \"Die Frage nach den rechtlichen Möglichkeiten des Unabhängigen Gremiums, seinen Anspruch durchzusetzen, ist nich\"| __truncated__ \"GRÜ- Herr Präsident, vielen Dank. – Herr Staatssekretär, empfinden Sie, ohne dass wir hier jetzt über geheime D\"| __truncated__ \"Vielen Dank, Herr Präsident. – Herr Staatssekretär, ich habe eine ganz einfache Frage: Haben Sie dem Unabhängig\"| __truncated__ ...\n $ party              : chr  \"DIE LINKE\" \"DIE LINKE\" \"BÜNDNIS 90/DIE GRÜNEN\" \"DIE LINKE\" ...\n $ date               : Date, format: \"2017-12-13\" \"2017-12-13\" ...\n $ agenda             : chr  \"Tagesordnungspunkt 11:  Fragestunde  Drucksache 19/188/19 \" \"Tagesordnungspunkt 11:  Fragestunde  Drucksache 19/188/19 \" \"Tagesordnungspunkt 11:  Fragestunde  Drucksache 19/188/19 \" \"Tagesordnungspunkt 11:  Fragestunde  Drucksache 19/188/19 \" ...\n $ speechnumber       : int  76 79 82 86 88 90 93 98 103 106 ...\n $ procedure_ID       : chr  \"\" \"\" \"\" \"\" ...\n $ partyfacts_ID      : num  1545 1545 1816 1545 1545 ...\n $ period             : chr  \"19\" \"19\" \"19\" \"19\" ...\n $ chair              : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...\n $ minister           : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...\n $ chancelor          : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...\n $ Fragestunde_logical: logi  TRUE TRUE TRUE TRUE TRUE TRUE ..."
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#advantages-and-disadvantages-of-lda",
+    "href": "slides/week-08/08-Comparisons.html#advantages-and-disadvantages-of-lda",
+    "title": "Topic Models",
+    "section": "Advantages and Disadvantages of LDA",
+    "text": "Advantages and Disadvantages of LDA\nAdvantages\n\nAutomatically finds substantively interesting collections of words\nEasily scaled to large corpora (millions of documents)\nRequires very little prior work (no manual labelling of texts/dictionary construction etc)\n\nDisadvantages\n\nGenerated topics may not reflect substantive interest of researcher\nMany estimated topics may be redundant for research question\nRequires extensive post-hoc interpretation of topics\nSensitivity to number of topics selected (what is the best choice for K?)"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#lda-extensions",
+    "href": "slides/week-08/08-Comparisons.html#lda-extensions",
+    "title": "Topic Models",
+    "section": "LDA Extensions",
+    "text": "LDA Extensions\n\nCorrelated Topic Model (CTM)\n\nLDA assumes that topics are uncorrelated across the corpus\nThe correlated topic model allows topics to be correlated: Closer approximation to true document structure\n\nDynamic Topic Model (DTM)\n\nLDA assumes that topics are fixed across documents, DTM allows topical content to vary smoothly over time\nThe assumption that topics are fixed may not be sensible!\n\nStructural Topic Model (STM)\n\nSocial scientists are typically interested in how topics vary with covariates. The structural topic model incorporates covariates into the LDA model"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#structural-topic-model",
+    "href": "slides/week-08/08-Comparisons.html#structural-topic-model",
+    "title": "Topic Models",
+    "section": "Structural Topic Model",
+    "text": "Structural Topic Model\n\nTypically, when estimating topic models we are interested in how some covariate is associated with the prevalence of topic usage (Gender, date, political party, etc)\nThe Structural Topic Model (STM) allows for the inclusion of arbitrary covariates of interest into the generative model\nTopic prevalence is allowed to vary according to the covariates X\n\nEach document has its own prior distribution over topics, which is defined by its covariates, rather than sharing a global mean\n\nTopical content can also vary according to the covariates Y\n\nWord use within a topic can differ for different groups of speakers/writers"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#structural-topic-model-application",
+    "href": "slides/week-08/08-Comparisons.html#structural-topic-model-application",
+    "title": "Topic Models",
+    "section": "Structural Topic Model Application",
+    "text": "Structural Topic Model Application\n\nIn the legislative domain, we might be interested in the degree to which MPs from different parties represent distinct interests in their parliamentary questions\nWe can use the STM to analyse how topic prevalence varies by party"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#structural-topic-model-application-1",
+    "href": "slides/week-08/08-Comparisons.html#structural-topic-model-application-1",
+    "title": "Topic Models",
+    "section": "Structural Topic Model Application",
+    "text": "Structural Topic Model Application\n\nlibrary(stm)\n# We work with the same dfm, convert to stm object\nstm &lt;- dfm %&gt;% \n  convert(to = \"stm\")\n\nsummary(stm)\n\n          Length Class      Mode     \ndocuments 2469   -none-     list     \nvocab     3230   -none-     character\nmeta        12   data.frame list"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#validating-topic-models-quantitative-metrics",
+    "href": "slides/week-08/08-Comparisons.html#validating-topic-models-quantitative-metrics",
+    "title": "Topic Models",
+    "section": "Validating Topic Models – Quantitative Metrics",
+    "text": "Validating Topic Models – Quantitative Metrics\n\nPredictive metric: Held-out likelihood\n\nAsk which words the model believes will be in a given document and comparing this to the document’s actual word composition (i.e. calculate the held-out likelihood)\nE.g. Splitting texts in half, train a topic model on one half, calculate the held-out likelihood for the other half\n\nInterpretational metrics\n\nSemantic coherence\n\nDo the most common words from a topic also co-occur together frequently in the same documents?\n\nExclusivity\n\nDo words with high probability in one topic have low probabilities in others?"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#quantitative-evaluation-of-stm",
+    "href": "slides/week-08/08-Comparisons.html#quantitative-evaluation-of-stm",
+    "title": "Topic Models",
+    "section": "Quantitative Evaluation of STM",
+    "text": "Quantitative Evaluation of STM\nWe can apply many of these metrics across a range of topic models using the searchK function in the stm package.\n\nk_results &lt;- searchK(documents = stm$documents, \n                     vocab = stm$vocab, \n                     data = stm$meta, \n                     max.em.its = 25, # maximum number of EM iterations\n                     K = c(5, 10, 15, 20),  # Try different K values\n                     prevalence = ~party, \n                     seed = 123)\n\n\nsave(k_results, file = \"k_results.Rda\")"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#semantic-validity-chang-et-al.-2009",
+    "href": "slides/week-08/08-Comparisons.html#semantic-validity-chang-et-al.-2009",
+    "title": "Topic Models",
+    "section": "Semantic validity (Chang et al. 2009)",
+    "text": "Semantic validity (Chang et al. 2009)\nWord intrusion: Test if topics have semantic coherence by asking humans identify a spurious word inserted into a topic.\n\n\n\nTopic\nw1\nw2\nw3\nw4\nw5\nw6\n\n\n\n\n1\nbank\nfinanc\nterror\nengland\nfiscal\nmarket\n\n\n2\neurope\nunion\neu\nreferendum\nvote\nschool\n\n\n3\nwar\ndeliv\nnhs\nprison\nmr\nright\n\n\n\nAssumption: When humans find it easy to locate the “intruding” word, the topics are more coherent."
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#semantic-validity-chang-et-al.-2009-1",
+    "href": "slides/week-08/08-Comparisons.html#semantic-validity-chang-et-al.-2009-1",
+    "title": "Topic Models",
+    "section": "Semantic validity (Chang et al. 2009)",
+    "text": "Semantic validity (Chang et al. 2009)\nTopic intrusion: Test if the association between topics and documents makes sense by asking humans to identify a topic that was not associated with a document.\n\nReforms to the banking system are an essential part of dealing with the crisis, and delivering lasting and sustainable growth to the economy. Without these changes, we will be weaker, we will be less well respected abroad, and we will be poorer.\n\n\n\n\nTopic\nw1\nw2\nw3\nw4\nw5\nw6\n\n\n\n\n1\nbank\nfinanc\nregul\nengland\nfiscal\nmarket\n\n\n2\nplan\neconom\ngrowth\nlongterm\ndeliv\nsector\n\n\n3\nschool\neduc\nchildren\nteacher\npupil\nclass\n\n\n\nAssumption: When humans find it easy to locate the “intruding” topic, the mappings are more sensible."
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#validating-topic-models-substantive-approaches",
+    "href": "slides/week-08/08-Comparisons.html#validating-topic-models-substantive-approaches",
+    "title": "Topic Models",
+    "section": "Validating Topic Models – Substantive approaches",
+    "text": "Validating Topic Models – Substantive approaches\n\nSemantic validity\n\nDoes a topic contain coherent groups of words?\nDoes a topic identify a coherent groups of texts that are internally homogenous but distinctive from other topics?\n\nPredictive validity\n\nHow well does variation in topic usage correspond to known events?\n\n\nImplication: All these approaches require careful human reading of texts and topics, and comparison with sensible metadata."
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#summing-up",
+    "href": "slides/week-08/08-Comparisons.html#summing-up",
+    "title": "Topic Models",
+    "section": "Summing Up",
+    "text": "Summing Up\n\nTopic models offer an approach to automatically inferring the substantive themes that exist in a corpus of texts\nA topic is described as a probability distribution over words in the vocabulary\nDocuments are described as a mixture of corpus wide topics\nTopic models require very little up-front effort, but require extensive interpretation and validation\n\n\n\n\nText-as-Data in R | Spring 2025 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#lda",
+    "href": "slides/week-08/08-Comparisons.html#lda",
+    "title": "Topic Models",
+    "section": "LDA",
+    "text": "LDA\n\n\nThe researcher picks a number of topics, K.\nEach topic (k) is a distribution over words\nEach document (d) is a mixture of corpus-wide topics\nEach word (w) is drawn from one of those topics"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#lda-example-1",
+    "href": "slides/week-08/08-Comparisons.html#lda-example-1",
+    "title": "Topic Models",
+    "section": "LDA example",
+    "text": "LDA example\n\n# Document feature matrix\ndfm &lt;- data %&gt;%\n  corpus(text_field = \"text\") %&gt;% \n  tokens(remove_punct = TRUE,\n         remove_numbers = TRUE,\n         remove_symbols = TRUE) %&gt;% \n  tokens_tolower() %&gt;% \n  tokens_remove(c(stopwords(\"de\"), \"dass\", \n                  \"herr\", \"frau\", \"geehrte\", \"damen\", \"herren\", \"kollege\", \"kollegen\", \"kollegin\", \"kolleginnen\", \"minister\",\n                  \"spd\", \"fdp\", \"cdu\", \"csu\", \"cdu/csu\", \"cducsu\", \"union\", \"afd\", \"die grünen\",  \"bündnis90\", \"linke\", \"fraktion\",\n                  \"alternative für deutschland\", \"christdemokraten\", \"sozialdemokraten\",\n                  \"präsident\", \"präsidentin\", \"staatsekretär\")) %&gt;% \n  tokens_wordstem(language = \"german\") %&gt;% \n  dfm() %&gt;% \n  # keep the top 20% of the most frequent features (min_termfreq = 0.8) \n  # in less than 10% of all documents (max_docfreq = 0.1) \n  # to focus on common but distinguishing features.\n  dfm_trim(min_termfreq = 0.8, termfreq_type = \"quantile\",\n           max_docfreq = 0.1, docfreq_type = \"prop\")"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#lda-example-2",
+    "href": "slides/week-08/08-Comparisons.html#lda-example-2",
+    "title": "Topic Models",
+    "section": "LDA example",
+    "text": "LDA example\n\n# Convert for usage in 'topicmodels' package\ndtm &lt;- dfm %&gt;%\n  convert(to = 'topicmodels')\n\ndtm\n\n&lt;&lt;DocumentTermMatrix (documents: 2469, terms: 3230)&gt;&gt;\nNon-/sparse entries: 62328/7912542\nSparsity           : 99%\nMaximal term length: 30\nWeighting          : term frequency (tf)\n\n\n\n# Run the LDA with 15 topics and set seed for reproducibility\nldaOut &lt;- LDA(dtm, \n              k = 15, \n              control = list(seed = 1234))\n\nsave(ldaOut, file = \"ldaOut.Rda\")"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#lda-example-3",
+    "href": "slides/week-08/08-Comparisons.html#lda-example-3",
+    "title": "Topic Models",
+    "section": "LDA example",
+    "text": "LDA example\n\n# Load data\ntopic_word_probabilities &lt;- tidy(ldaOut, matrix = \"beta\")\n\n# Filter for highest word probabilities per topic\nterms &lt;- topic_word_probabilities  %&gt;%\n  group_by(topic) %&gt;%\n  slice_max(beta, n = 7) %&gt;% \n  ungroup() %&gt;%\n  arrange(topic, -beta)\n\n# Plot\nterms %&gt;%\n  mutate(term = reorder_within(term, beta, topic)) %&gt;%\n  ggplot(aes(beta, term, fill = factor(topic))) +\n  geom_col(show.legend = FALSE) +\n  facet_wrap(~ topic, scales = \"free\") +\n  scale_y_reordered() + \n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#structural-topic-model-1",
+    "href": "slides/week-08/08-Comparisons.html#structural-topic-model-1",
+    "title": "Topic Models",
+    "section": "Structural Topic Model",
+    "text": "Structural Topic Model\n\nTypically, when estimating topic models we are interested in how some covariate is associated with the prevalence of topic usage (Gender, date, political party, etc)\nThe Structural Topic Model (STM) allows for the inclusion of arbitrary covariates of interest into the generative model\nTopic prevalence is allowed to vary according to the covariates X\n\nEach document has its own prior distribution over topics, which is defined by its covariates, rather than sharing a global mean\n\nTopical content can also vary according to the covariates Y\n\nWord use within a topic can differ for different groups of speakers/writers"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#lda-example-4",
+    "href": "slides/week-08/08-Comparisons.html#lda-example-4",
+    "title": "Topic Models",
+    "section": "LDA example",
+    "text": "LDA example"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#lda-example-5",
+    "href": "slides/week-08/08-Comparisons.html#lda-example-5",
+    "title": "Topic Models",
+    "section": "LDA example",
+    "text": "LDA example"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#lda-example-6",
+    "href": "slides/week-08/08-Comparisons.html#lda-example-6",
+    "title": "Topic Models",
+    "section": "LDA example",
+    "text": "LDA example\nNow let us make use of the following score to visualise the posterior topics:\n\\(\\text{term-score}_{k,v} = \\hat{\\beta}_{k,v} \\log \\left( \\frac{\\hat{\\beta_{k,v}}}{\\left( \\prod_{j=1}^{K} \\hat{\\beta}_{k,v} \\right)^{\\frac{1}{K}}} \\right)\\)\n\nThe first term \\(\\hat{\\beta}_{k,v}\\) is the probability of term \\(v\\) in topic \\(k\\) and is akin to the term frequency\nThe second term down-weights terms that have high probability under all topics"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#lda-example-7",
+    "href": "slides/week-08/08-Comparisons.html#lda-example-7",
+    "title": "Topic Models",
+    "section": "LDA example",
+    "text": "LDA example\n\n# Calculate term scores\ntop_terms &lt;- topic_word_probabilities %&gt;%\n  group_by(term) %&gt;%\n  mutate(beta_k = prod(beta)^(1/15)) %&gt;%\n  ungroup() %&gt;%\n  # Compute the term score with adjusted beta_k to prevent issues with log(0)\n  mutate(term_score = beta * log((beta) / (beta_k + 1e-10))) %&gt;%\n  group_by(topic) %&gt;%\n  slice_max(term_score, n = 10)  # Get top 15 terms for each topic\n\n# Extract the terms with the largest scores per topic\ntop_terms$term[top_terms$topic==8] \n\n [1] \"verstand\"         \"vorschlag\"        \"ziel\"             \"kommun\"          \n [5] \"position\"         \"staatssekretarin\" \"richtig\"          \"bitt\"            \n [9] \"erwart\"           \"end\"             \n\ntop_terms$term[top_terms$topic==9] \n\n [1] \"mensch\"  \"prozent\" \"kind\"    \"arbeit\"  \"alt\"     \"zahl\"    \"sozial\" \n [8] \"uns\"     \"leut\"    \"muss\""
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#lda-example-8",
+    "href": "slides/week-08/08-Comparisons.html#lda-example-8",
+    "title": "Topic Models",
+    "section": "LDA example",
+    "text": "LDA example"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#lda-example-9",
+    "href": "slides/week-08/08-Comparisons.html#lda-example-9",
+    "title": "Topic Models",
+    "section": "LDA example",
+    "text": "LDA example"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#greatest-difference-between-topic-8-and-topic-9",
+    "href": "slides/week-08/08-Comparisons.html#greatest-difference-between-topic-8-and-topic-9",
+    "title": "Topic Models",
+    "section": "Greatest difference between topic 8 and topic 9",
+    "text": "Greatest difference between topic 8 and topic 9\n\nbeta_diff &lt;- topic_word_probabilities %&gt;%\n  mutate(topic = paste0(\"topic\", topic)) %&gt;% # naming\n  pivot_wider(names_from = topic, values_from = beta) %&gt;% # to wide\n  filter(topic8 &gt; .001 | topic9 &gt; .001) %&gt;% # filter per-topic-per-word probabilities\n  mutate(log_ratio = log2(topic9 / topic8)) %&gt;% # calculate log ratio: log ratio is useful because it makes the difference symmetrical\n  select(term, log_ratio) \n\n# Get the largest and smallest differences\nbeta_diff &lt;- bind_rows(\n  beta_diff %&gt;% slice_max(order_by = log_ratio, n = 10),  # Top 10\n  beta_diff %&gt;% slice_min(order_by = log_ratio, n = 10)   # Bottom 10\n)\n\n# Plot these differences\nggplot(beta_diff, aes(x = reorder(term, log_ratio), y = log_ratio)) +\n  geom_bar(stat = \"identity\", fill = \"gray30\") +\n  coord_flip() +  # Horizontal bars\n  labs(x = NULL, y = \"Log2 ratio of beta in topic 9 / topic 8\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#greatest-difference-topic-8-and-topic-9",
+    "href": "slides/week-08/08-Comparisons.html#greatest-difference-topic-8-and-topic-9",
+    "title": "Topic Models",
+    "section": "Greatest difference: topic 8 and topic 9",
+    "text": "Greatest difference: topic 8 and topic 9\n\nbeta_diff &lt;- topic_word_probabilities %&gt;%\n  mutate(topic = paste0(\"topic\", topic)) %&gt;% # naming\n  pivot_wider(names_from = topic, values_from = beta) %&gt;% # to wide\n  filter(topic8 &gt; .001 | topic9 &gt; .001) %&gt;% # filter per-topic-per-word probabilities\n  mutate(log_ratio = log2(topic9 / topic8)) %&gt;% # calculate log ratio: log ratio is useful because it makes the difference symmetrical\n  select(term, log_ratio) \n\n# Get the largest and smallest differences\nbeta_diff &lt;- bind_rows(\n  beta_diff %&gt;% slice_max(order_by = log_ratio, n = 10),  # Top 10\n  beta_diff %&gt;% slice_min(order_by = log_ratio, n = 10)   # Bottom 10\n  )\n\n# Plot these differences\nggplot(beta_diff, aes(x = reorder(term, log_ratio), y = log_ratio)) +\n  geom_bar(stat = \"identity\", fill = \"gray30\") +\n  coord_flip() +  # Horizontal bars\n  labs(x = NULL, y = \"Log2 ratio of beta in topic 9 / topic 8\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#lda-example-topic-8-and-topic-9",
+    "href": "slides/week-08/08-Comparisons.html#lda-example-topic-8-and-topic-9",
+    "title": "Topic Models",
+    "section": "LDA example: topic 8 and topic 9",
+    "text": "LDA example: topic 8 and topic 9"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#lda-example-document-topic-probabilities",
+    "href": "slides/week-08/08-Comparisons.html#lda-example-document-topic-probabilities",
+    "title": "Topic Models",
+    "section": "LDA example: Document-topic probabilities",
+    "text": "LDA example: Document-topic probabilities\n\n# per-document-per-topic probabilities\ndoc_topics &lt;- tidy(ldaOut, matrix = \"gamma\") \n\n# per-document-per-topic probabilities\ndoc_topics %&gt;% \n  arrange(document) %&gt;% \n  head(n = 15)\n\n# A tibble: 15 × 3\n   document topic  gamma\n   &lt;chr&gt;    &lt;int&gt;  &lt;dbl&gt;\n 1 103632       1 0.0114\n 2 103632       2 0.104 \n 3 103632       3 0.0114\n 4 103632       4 0.0114\n 5 103632       5 0.0114\n 6 103632       6 0.0114\n 7 103632       7 0.0114\n 8 103632       8 0.0114\n 9 103632       9 0.0114\n10 103632      10 0.0114\n11 103632      11 0.272 \n12 103632      12 0.0114\n13 103632      13 0.0114\n14 103632      14 0.0114\n15 103632      15 0.488"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#lda-example-document-topic-probabilities-1",
+    "href": "slides/week-08/08-Comparisons.html#lda-example-document-topic-probabilities-1",
+    "title": "Topic Models",
+    "section": "LDA example: Document-topic probabilities",
+    "text": "LDA example: Document-topic probabilities\n\n# per-document-per-topic probabilities\ndoc_topics &lt;- tidy(ldaOut, matrix = \"gamma\") \n\n# per-document-per-topic probabilities sum up to 1\ndoc_topics %&gt;% \n  group_by(document) %&gt;% \n  summarise(sum = sum(gamma)) %&gt;% \n  head()\n\n# A tibble: 6 × 2\n  document   sum\n  &lt;chr&gt;    &lt;dbl&gt;\n1 103632       1\n2 103672       1\n3 103702       1\n4 103742       1\n5 103792       1\n6 103832       1"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#differences-topic-8-and-topic-9",
+    "href": "slides/week-08/08-Comparisons.html#differences-topic-8-and-topic-9",
+    "title": "Topic Models",
+    "section": "Differences topic 8 and topic 9",
+    "text": "Differences topic 8 and topic 9\n\nbeta_diff &lt;- topic_word_probabilities %&gt;%\n  mutate(topic = paste0(\"topic\", topic)) %&gt;% # naming\n  pivot_wider(names_from = topic, values_from = beta) %&gt;% # to wide\n  filter(topic8 &gt; .001 | topic9 &gt; .001) %&gt;% # filter per-topic-per-word probabilities\n  mutate(log_ratio = log2(topic9 / topic8)) %&gt;% # calculate log ratio: log ratio is useful because it makes the difference symmetrical\n  select(term, log_ratio) \n\n# Get the largest and smallest differences\nbeta_diff &lt;- bind_rows(\n  beta_diff %&gt;% slice_max(order_by = log_ratio, n = 10),  # Top 10\n  beta_diff %&gt;% slice_min(order_by = log_ratio, n = 10)   # Bottom 10\n  )\n\n# Plot these differences\nggplot(beta_diff, aes(x = reorder(term, log_ratio), y = log_ratio)) +\n  geom_bar(stat = \"identity\", fill = \"gray30\") +\n  coord_flip() +  # Horizontal bars\n  labs(x = NULL, y = \"Log2 ratio of beta in topic 9 / topic 8\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#diffences-topic-8-and-topic-9",
+    "href": "slides/week-08/08-Comparisons.html#diffences-topic-8-and-topic-9",
+    "title": "Topic Models",
+    "section": "Diffences topic 8 and topic 9",
+    "text": "Diffences topic 8 and topic 9"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#document-topic-probabilities",
+    "href": "slides/week-08/08-Comparisons.html#document-topic-probabilities",
+    "title": "Topic Models",
+    "section": "Document-topic probabilities",
+    "text": "Document-topic probabilities\n\n# per-document-per-topic probabilities\ndoc_topics &lt;- tidy(ldaOut, matrix = \"gamma\") \n\n# per-document-per-topic probabilities\ndoc_topics %&gt;% arrange(document) %&gt;% head(n = 15)\n\n# A tibble: 15 × 3\n   document topic  gamma\n   &lt;chr&gt;    &lt;int&gt;  &lt;dbl&gt;\n 1 103632       1 0.0114\n 2 103632       2 0.104 \n 3 103632       3 0.0114\n 4 103632       4 0.0114\n 5 103632       5 0.0114\n 6 103632       6 0.0114\n 7 103632       7 0.0114\n 8 103632       8 0.0114\n 9 103632       9 0.0114\n10 103632      10 0.0114\n11 103632      11 0.272 \n12 103632      12 0.0114\n13 103632      13 0.0114\n14 103632      14 0.0114\n15 103632      15 0.488"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#document-topic-probabilities-1",
+    "href": "slides/week-08/08-Comparisons.html#document-topic-probabilities-1",
+    "title": "Topic Models",
+    "section": "Document-topic probabilities",
+    "text": "Document-topic probabilities\n\n# per-document-per-topic probabilities\ndoc_topics &lt;- tidy(ldaOut, matrix = \"gamma\") \n\n# per-document-per-topic probabilities sum up to 1\ndoc_topics %&gt;% \n  group_by(document) %&gt;% \n  summarise(sum = sum(gamma)) %&gt;% \n  head()\n\n# A tibble: 6 × 2\n  document   sum\n  &lt;chr&gt;    &lt;dbl&gt;\n1 103632       1\n2 103672       1\n3 103702       1\n4 103742       1\n5 103792       1\n6 103832       1"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#inspect",
+    "href": "slides/week-08/08-Comparisons.html#inspect",
+    "title": "Topic Models",
+    "section": "Inspect",
+    "text": "Inspect\n\n# Highest probabilities, then focus topic 9\ndoc_topics %&gt;% \n  group_by(topic) %&gt;% \n  slice_max(gamma, n = 1) %&gt;% \n  ungroup()\n\n# A tibble: 15 × 3\n   document topic gamma\n   &lt;chr&gt;    &lt;int&gt; &lt;dbl&gt;\n 1 69097        1 0.985\n 2 321962       2 0.977\n 3 631461       3 0.877\n 4 564851       4 0.936\n 5 232332       5 0.967\n 6 380202       6 0.965\n 7 232802       7 0.994\n 8 500422       8 0.968\n 9 399962       9 0.994\n10 490132      10 0.967\n11 153082      11 0.925\n12 658611      12 0.995\n13 142952      13 0.977\n14 371262      14 0.961\n15 554391      15 0.977"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#estimate-stm",
+    "href": "slides/week-08/08-Comparisons.html#estimate-stm",
+    "title": "Topic Models",
+    "section": "Estimate STM",
+    "text": "Estimate STM\n\n## Estimate STM\nstmOut &lt;- stm(\n  documents = stm$documents,\n  vocab = stm$vocab,\n  data = stm$meta,\n  init.type = \"Spectral\",\n  prevalence = ~party,\n  K = 15,\n  seed = 123\n)\n\nsave(stmOut, file = \"stmOut.Rda\")"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#plot",
+    "href": "slides/week-08/08-Comparisons.html#plot",
+    "title": "Topic Models",
+    "section": "Plot",
+    "text": "Plot\n\nload(\"stmOut.Rda\")\n\nplot(stmOut, type = \"summary\")"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#plot-1",
+    "href": "slides/week-08/08-Comparisons.html#plot-1",
+    "title": "Topic Models",
+    "section": "Plot",
+    "text": "Plot\n\nHighest Prob is the raw coefficients\nScore is the term-score measure we defined before\nFREX is a measure which combines word-topic frequency with word-topic exclusivity\nLift is a normalised version of the word-probabilities\n\n\nlabelTopics(stmOut)\n\nTopic 1 Top Words:\n     Highest Prob: gern, europa, sich, eben, vorschlag, geb, position \n     FREX: position, verhandl, sich, vorschlag, gern, offent, anker-zentr \n     Lift: bildungspartnerschaft, qualifizier, bahnsteighoh, bundesstrass, ministererlaubnis, naturschutz, radverkehr \n     Score: gespannt, gern, bundesstrass, position, radweg, verhandl, fusion \nTopic 2 Top Words:\n     Highest Prob: euro, million, unternehm, prozent, milliard, erreich, ziel \n     FREX: tonn, erneuerbar, milliard, million, euro, pro, energi \n     Lift: dumont, nev, e-autos, storung, szenario, tonn, windenergi \n     Score: euro, million, ferkel, erneuerbar, tonn, energi, milliard \nTopic 3 Top Words:\n     Highest Prob: gross, seit, wann, kommun, lang, beispiel, bahn \n     FREX: kraftstoff, bahn, fahrzeug, verkehr, wasserstoff, kommun, bundesumweltministerium \n     Lift: ausgenomm, eingebaut, kriterium, moratorium, plattform, strommeng, asylbewerberleistungsgesetz \n     Score: planungssich, bahn, wasserstoff, kraftstoff, lenkungswirk, fahrzeug, asylbewerberleistungsgesetz \nTopic 4 Top Words:\n     Highest Prob: studi, gegeb, unterschied, aufgrund, beispiel, ergebnis, fall \n     FREX: frau, studi, unterschied, gegeb, bundespolizei, arbeitsgrupp, auftrag \n     Lift: thesenpapi, geschlecht, pflegebedurft, pflegedien, professor, alleinerzieh, ambulant \n     Score: angeleg, studi, frau, alleinerzieh, pflegebedurft, geschlecht, arbeitsgrupp \nTopic 5 Top Words:\n     Highest Prob: erkenntnis, neu, schul, darub, angebot, gab, natur \n     FREX: schul, angebot, erkenntnis, roll, digital, quell, novemb \n     Lift: einsatzbereitschaft, luftungsanlag, schulerinn, fertig, grenzkontroll, maskenpflicht, nordrhein-westfal \n     Score: nordrhein-westfal, schul, angebot, maskenpflicht, digital, vergabeverfahr, erkenntnis \nTopic 6 Top Words:\n     Highest Prob: verfahr, zwei, ministerium, burg, bevolker, zweit, funf \n     FREX: verfahr, bmz, schiedsgericht, afrikan, lokal, entwurf, bevolker \n     Lift: bonpflicht, europarechtswidr, kfw, prami, radfahr, schiedsgericht, traurig \n     Score: traurig, verfahr, schiedsgericht, bmz, schulenberg, barrierefrei, entwurf \nTopic 7 Top Words:\n     Highest Prob: hatt, kurz, zahl, aussag, warum, ziel, herrn \n     FREX: jugend, paris, umweltministerium, fair, eu-kommission, kommission, arzt \n     Lift: hypothet, arztinn, au-pair, eu-klimaziel, gott, treibhausgasemission, wilk \n     Score: gott, jugend, umweltministerium, klimaschutzabkomm, arzt, eu-kommission, kommission \nTopic 8 Top Words:\n     Highest Prob: beantwort, zahl, gestellt, genannt, davon, fall, bitt \n     FREX: beantwort, gestellt, schriftlich, off, marz, anfrag, versuch \n     Lift: bestandteil, bundesverteidigungsministerium, maass, militarseelsorg, muslim, seelsorg, plenum \n     Score: bestandteil, rechnung, marz, bundeswehr, schriftlich, anfrag, beantwort \nTopic 9 Top Words:\n     Highest Prob: moglich, landwirtschaft, wirklich, betrieb, hilf, imm, massnahm \n     FREX: landwirtschaft, landwirt, betrieb, gesichert, grundsteu, leist, hilf \n     Lift: ausub, shar, heckl, vorlag, kreuz, ungarn, wwf \n     Score: vorlag, landwirtschaft, grundsteu, landwirt, heckl, bundesrat, hilf \nTopic 10 Top Words:\n     Highest Prob: deshalb, zulass, initiativ, wissenschaft, wirklich, eben, europa \n     FREX: taiwan, wald, glyphosat, regeln, zulass, franzos, china \n     Lift: abwag, adil, demirci, eingelad, glyphosat-zulass, nachgeh, weiterkomm \n     Score: nachgeh, taiwan, sicherheitsrat, who, glyphosat, beobachterstatus, zulass \nTopic 11 Top Words:\n     Highest Prob: gas, uns, lass, eigent, europa, nord, zusammenarbeit \n     FREX: gas, nord, ukrain, stream, abhang, kohl, fossil \n     Lift: bundesschienenwegeausbaugesetz, flussiggas, geschaftsfuhr, szczepanski, infektion, operation, pipelin \n     Score: geschaftsfuhr, gas, stream, nord, fossil, ukrain, kohl \nTopic 12 Top Words:\n     Highest Prob: mensch, muss, imm, natur, alt, prozent, gesetz \n     FREX: alt, altersarmut, grundsicher, mensch, arm, absatz, miet \n     Lift: eingezahlt, grundsicher, teilgenomm, deutschlandtakt, elektrifiziert, mindestlohn, rent \n     Score: teilgenomm, altersarmut, mensch, grundsicher, rentn, tafeln, alt \nTopic 13 Top Words:\n     Highest Prob: teil, deshalb, staatssekretarin, einschatz, seh, sei, gern \n     FREX: brasili, anwes, atomkraftwerk, mess, nachweis, method, ausweichstreck \n     Lift: gemeinnutz, leopoldina, rechtsextremist, reprasentativ, rheintalbahn, umlagefah, amadeu-antonio-stift \n     Score: erzahl, ausweichstreck, extremismus, nationalversamml, amadeu-antonio-stift, atomkraftwerk, endlag \nTopic 14 Top Words:\n     Highest Prob: staatsminist, staat, polit, syri, regier, turkei, seit \n     FREX: liby, turkisch, militar, syri, menschenrecht, turkei, saudi-arabi \n     Lift: bombardier, endverbleib, freilass, joint, patrouillenboot, regenwald, rustungsgut \n     Score: syri, defini, turkei, turkisch, staatsminist, waff, liby \nTopic 15 Top Words:\n     Highest Prob: mensch, polizei, fluchtling, bereit, rahm, abschieb, umsetz \n     FREX: polizei, inseln, griechisch, fluchtling, abschieb, gefluchtet, rassismus \n     Lift: asylantrag, extremist, kabinettsausschuss, lesbos, polizei, inseln, kolumbi \n     Score: ruf, polizei, inseln, griechisch, fluchtling, rechtsextremismus, rassismus"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#plot-2",
+    "href": "slides/week-08/08-Comparisons.html#plot-2",
+    "title": "Topic Models",
+    "section": "Plot",
+    "text": "Plot\n\nplot(stmOut, labeltype = \"frex\")"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#plot-3",
+    "href": "slides/week-08/08-Comparisons.html#plot-3",
+    "title": "Topic Models",
+    "section": "Plot",
+    "text": "Plot\n\ncloud(stmOut, topic = 15)"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#plot-4",
+    "href": "slides/week-08/08-Comparisons.html#plot-4",
+    "title": "Topic Models",
+    "section": "Plot",
+    "text": "Plot\n\ntopic_effects &lt;- estimateEffect(c(15) ~ party, stmOut, meta = stm$meta)\n\nplot.estimateEffect(topic_effects,\n                    covariate = \"party\",\n                    method = \"pointestimate\")"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#validating-topic-models-1",
+    "href": "slides/week-08/08-Comparisons.html#validating-topic-models-1",
+    "title": "Topic Models",
+    "section": "Validating Topic Models",
+    "text": "Validating Topic Models\n\nLDA, and topic models more generally, require the researcher to make several implementation decisions\nIn particular, we must select a value for K, the number of topics\nHow can we select between different values of K? How can we tell how well a given topic model is performing?"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#quantitative-evaluation-of-stm-1",
+    "href": "slides/week-08/08-Comparisons.html#quantitative-evaluation-of-stm-1",
+    "title": "Topic Models",
+    "section": "Quantitative Evaluation of STM",
+    "text": "Quantitative Evaluation of STM\n\nload(\"k_results.Rda\")\n\nplot(k_results)"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#coding-1",
+    "href": "slides/week-08/08-Comparisons.html#coding-1",
+    "title": "Topic Models",
+    "section": "Coding",
+    "text": "Coding\n\nCreate your own data based on the parliamentary speeches dataset on ILIAS or other text data. Be creative!\nTry out to run a LDA and a STM. Inspect the models.\nBONUS: Try to “replicate” this paper.\n\nUse LDA (similar topics?) instead of seeded LDA. But you can try both of course!\nThe replication files for the analysis are available on OSF Registries at https://doi.org/10.17605/OSF.IO/93DQY.\n\n\n\n\n\nText-as-Data in R | Spring 2025 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#inspect-1",
+    "href": "slides/week-08/08-Comparisons.html#inspect-1",
+    "title": "Topic Models",
+    "section": "Inspect",
+    "text": "Inspect\n\ndata$document &lt;- rownames(data) \n\n# check the corresponding speech\ndata %&gt;% \n  filter(document == 399962) %&gt;% \n  select(text) %&gt;% \n  as.vector()\n\n$text\n[1] \"Sehr geehrter Herr Präsident! Werte Kolleginnen und Kollegen! Sehr geehrte Frau Lehmann, ehemalige Kreistagskollegin, herzlichen Glückwunsch zum Einzug in den Bundestag und auf eine gute gemeinsame Zusammenarbeit für den Heimatwahlkreis!  Ich komme gerade zurück aus Paris.  Es war eine Dienstreise. Ich war bei der Sitzung der Parlamentarischen Versammlung des Europarats. Es ging um Demokratie und Rechtsstaatlichkeit. Ich weiß, da haben gewisse Parteien hier in diesem Haus leider gewisse Berührungsängste.  Ich war der einzige deutsche Abgeordnete dort – leider. Auf jeden Fall: In Paris demonstrieren und streiken die Leute gerade. Sie demonstrieren und streiken gegen genau die Politik, die in Deutschland existiert und die Macron dort einführen will.  Macron will faktisch die deutsche Rente nach Frankreich  kopieren, genauso wie Ursula von der Leyen den Green New Deal von irgendwelchen US-amerikanischen Ökokommunistinnen kopiert und Merkel den Politikstil des Zentralkomitees. Diese Arbeitsattitüde der Großen Koalition bringt niemanden voran.  Die Leute gehen auf die Straße, weil sie sehen: Das bringt uns in Armut. Wenn dieses System kommt, dann bedeutet die Zukunft Armut, und das ist leider die Gegenwart in Deutschland. Insofern danke ich Ihnen von der Linken, dass Sie das Thema heute auf die Tagesordnung gesetzt haben;  denn es ist eine Schande für Deutschland, wenn immer mehr Rentner zur Tafel gehen müssen, um überhaupt überleben zu können.  Das zeigt doch: Es stimmt etwas nicht zwischen Einnahmen und Ausgaben.  Es kommt erstens zu wenig rein, und zweitens steigen die  Ausgaben zu stark. Und das hat natürlich mit dieser makroökonomischen Politik zu tun, die insbesondere von den  regierenden Parteien hier betrieben worden ist und betrieben wird. Ein großes Stichwort heißt „Riester-Dämpfung“. Die Reform, die SPD und Grüne – ich spreche es offen an – damals eingeführt haben: Die Leute werden am Rande alle noch ein bisschen riestern, und dann werden sie letztendlich eine private Vorsorge haben. – Pustekuchen! Ich frage mich schon, wie die Bundesregierung überhaupt  noch die Frechheit besitzen kann, im Rentenversicherungsbericht mit 4 Prozent per annum Verzinsung für die Riester-Rente zu rechnen. Wir wissen alle – das IVFP hat es nachgewiesen –, es kommen zwischen 0 und 2 Prozent Rendite raus, nicht 4 Prozent. Deswegen werden die Leute kaum mehr ausgezahlt bekommen, als sie eingezahlt haben, wenn sie in Rente gehen. Das bedeutet: Dieser private Vorsorgeteil scheitert, die gesetzliche Umlagerente haben Sie im Prinzip nach unten reformiert, auf einen niedrigen Standard reformiert, und dass wir heute Altersarmut zu beklagen haben, ist kein Zufall, sondern das Ergebnis Ihrer Politik. Das haben Sie als Ziel definiert.  Es ist übrigens kein Ausweg, dass die Rentner im Alter einfach weiterarbeiten, Herr Kober. Ich weiß nicht, warum Sie das formulieren. Auch in einem Zeitungsinter-Norbert Kleinwächter view haben Sie das formuliert. Vielleicht betreibt die FDP ja demnächst einen Sarglieferservice für Büros. Ich weiß nicht, was das soll. Menschen haben im Alter ein gutes Auskommen verdient, und dafür müssen wir in der Politik sorgen.  Jetzt kommt die schwere Aufgabe für die Zukunft – viele von Ihnen haben darüber gesprochen –: Wir müssen Löhne anheben, wir müssen für Bildung sorgen usw. Das ist richtig, und das ist wichtig für die nächste Generation.  Aber wir haben schon jetzt ein Altersarmutsproblem bei  den Leuten, die bereits in Rente sind. Und da müssen wir letztendlich mit anderen ökonomischen Mitteln herangehen.  Wir haben zweierlei Lösungskomplexe, die ich Ihnen ganz kurz vorstelle. Das eine ist ganz klar: die Ausgaben zu reduzieren. Wir haben jede Menge Dinge, die die ganz normalen Menschen in unserem Land immer mehr belasten. Ich sage nur: Ökospinnereien aller möglichen Arten, neue Heizungsverpflichtungen, neue Autoverpflichtungen, Erneuerbare-Energien-Gesetz. Das muss weg. Das treibt unseren Strompreis in die Höhe, und diesen Strom zahlen natürlich auch unsere Rentner. Wir sollten die Grundsteuer abschaffen. Wir müssen den Mehrwertsteuersatz senken. Das sind doch alles Dinge, die zu Ausgaben führen. Und vor allem: Wir müssen raus aus diesem Euro; denn der ist die Grundlage der großen Probleme, die wir in Deutschland haben.  Wir haben den Euro mit einer ständigen Geldmengensteigerung. 13 Billionen ist die Geldmenge aktuell. Die EZB druckt jedes Jahr eine halbe Billion nach. Das wird einfach in den Markt gestreut, und zwar nicht an alle, sondern an Investoren. Die investieren wieder in Immobilien, damit werden die Wohnungen teurer, damit werden die Mieten wieder teurer, und diese Mieten müssen natürlich auch unsere Rentner bezahlen. Deswegen sind sie am Ende dann arm. Diese Situation haben wir. Wir haben die Abwertung der Währung, sodass unsere Löhne und unsere Renten tatsächlich immer weniger wert sind.  Das ist natürlich ein Problem, weil das letztendlich unsere Währung billiger macht und Investoren aus dem Ausland anlockt, was dann letztendlich wiederum zu einer Preissteigerung im Sachwertesegment führt.   Und wir haben die Negativzinspolitik, die auch ein  Grund dafür ist, dass Riester nicht funktioniert. Die Leute kriegen keine Zinsen mehr auf ihre Spareinlagen. Die Leute können gar nicht mehr ordentlich fürs Alter vorsorgen. Und am Ende sind sie arm, weil unsere deutschen Rentner im Prinzip für die insolventen Broker aus dem Ausland zahlen. Das ist doch die Wahrheit der Politik, die die Regierung hier an den Tag legt.  Deswegen sagen wir: Runter mit den Ausgaben und raus aus dem Euro.  Das ist die wahre makroökonomische Lösung für das Problem der Altersarmut in Deutschland. Herzlichen Dank.\""
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#validating-topic-models-2",
+    "href": "slides/week-08/08-Comparisons.html#validating-topic-models-2",
+    "title": "Topic Models",
+    "section": "Validating Topic Models",
+    "text": "Validating Topic Models\n\nPredictive metric: Held-out likelihood\n\nAsk which words the model believes will be in a given document and comparing this to the document’s actual word composition (i.e. calculate the held-out likelihood)\nE.g. Splitting texts in half, train a topic model on one half, calculate the held-out likelihood for the other half\n\nInterpretational metrics\n\nSemantic coherence\n\nDo the most common words from a topic also co-occur together frequently in the same documents?\n\nExclusivity\n\nDo words with high probability in one topic have low probabilities in others?"
   }
 ]

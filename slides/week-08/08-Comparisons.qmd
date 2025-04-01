@@ -7,10 +7,638 @@ date-format: long
 institute: "University of Mannheim"
 format: 
   revealjs:
+    css: ../../styles.css
     theme: simple
     slide-number: c/t #< collapsed/total
     footer: "Text-as-Data in R | Spring 2025 | University of Mannheim"
 editor: visual
 ---
 
-# TBA
+## Today's session
+
+-   Input: Topic models
+
+-   Coding: Replication & Comparison
+
+## Topic models
+
+-   Allow us to cluster similar documents in a corpus together.
+-   Algorithm to find most important 'topics' in an unstructured corpus through analyzing co-occurence of words
+
+**Typical use:**
+
+-   to get a first impression of data, e.g., large amounts of text data
+
+-   to study the trajectory of large topics in diverse corpora in scientific journals, twitter data, laws, ...
+
+-   to study different frames of the same debate: different aspects highlighted, different words used, ...
+
+## Motivating example
+
+-   Data: German Bundestag - ["Fragestunden"](https://www.bundestag.de/services/glossar/glossar/F/fragestunde-245420) of the 19th legislative period.
+-   Further subsetted to speeches delivered by the opposition parties.
+
+[Results from a 15-Topic model](https://htmlpreview.github.io/?https://github.com/david-schweizer/LDAvis/blob/main/LDAvis/index.html)
+
+## Topic models
+
+-   Topic models offer an automated procedure for discovering the main “themes” in an unstructured corpus
+
+-   They require no prior information, training set, or labelling of texts before estimation
+
+-   They allow us to automatically organise, understand, and summarise large archives of text data.
+
+-   Latent Dirichlet Allocation (LDA) is the most common approach (Blei et al., 2003), and one that underpins more complex models
+
+-   Topic models are an example of *mixture* models:
+
+    -   Documents can contain multiple topics
+
+    -   Words can belong to multiple topics
+
+## What is a topic?
+
+A “topic” is a probability distribution over a fixed word vocabulary.
+
+-   Consider a vocabulary: "diplomacy", "treaty", "conflict", "election", "policy", "coalition"
+
+-   When speaking about international relations, you will:
+
+    -   **Frequently use** the words "diplomacy", "treaty", "conflict"
+
+    -   **Infrequently use** the words "election", "policy", and "coalition"
+
+-   When speaking about domestic politics, you will:
+
+    -   **Frequently use** the words "diplomacy", "treaty", "conflict"
+    -   **Infrequently use** the words "diplomacy", "treaty", and "alliance"
+
+## What is a “document”?
+
+-   In a topic model, each document is described as being composed of a **mixture** of corpus-wide topics
+
+-   For each document, we find the topic proportions that maximize the probability that we would observe the words in that particular document
+
+## Topic Models
+
+A topic model simultaneously estimates two sets of probabilities
+
+1.  The probability of observing each word for each topic
+
+2.  The probability of observing each topic in each document
+
+These quantities can then be used to organise documents by topic, assess how topics vary across documents, etc.
+
+# LDA (Latent Dirichlet Allocation)
+
+## LDA
+
+![](lda.png)
+
+-   The researcher picks a number of topics, K.
+
+-   Each *topic* (k) is a distribution over words
+
+-   Each *document* (d) is a mixture of corpus-wide topics
+
+-   Each *word* (w) is drawn from one of those topics
+
+## LDA
+
+![](lda_2.png)
+
+-   In reality, we only observe the documents
+
+-   The other structure are **hidden variables**
+
+-   Our goal is to **infer** the hidden variables
+
+## LDA
+
+![](lda_2.png)
+
+-   Topic modelling allows us to extrapolate backwards from a collection of documents to infer the “topics” that could have generated them.
+
+## LDA
+
+-   The LDA model is a **Bayesian mixture model** for discrete data which describes how the documents in a dataset were created
+
+-   The number of topics, K, is selected by the researcher
+
+-   Each of the K *topics* is a probability distribution over a fixed vocabulary of N words
+
+    -   Modeled as a Dirichlet distribution
+
+-   Each of the D *documents* is a probability distribution over the K topics
+
+    -   Modeled as a Dirichlet distribution
+
+-   Each word in each document is drawn from the topic-specific probability distribution over words
+
+    -   Modeled as a multinomial distribution
+
+## Why does LDA work?
+
+-   LDA trades off two goals.
+
+    1.  For each document, allocate its words to as few topics as possible (α)
+
+    2.  For each topic, assign high probability to as few terms as possible (η)
+
+-   These goals are at odds.
+
+    1.  Putting a document in a single topic makes (2) hard: All of its words must have probability under that topic.
+
+    2.  Putting very few words in each topic makes (1) hard: To cover a document’s words, it must assign many topics to it.
+
+-   Trading off these goals finds groups of **tightly co-occurring words**
+
+## LDA example
+
+```{r, echo=TRUE}
+# Load packages
+library(tidyverse)
+library(quanteda)
+library(topicmodels)
+library(tidytext)
+
+# Load data
+load("Corpus_speeches_germany_19.rda")
+
+# Get "Fragestunden" for opposition paries
+data <- Corpus_speeches_germany_19 %>% 
+  mutate(Fragestunde_logical = str_detect(agenda, "Fragestunde")) %>% 
+  filter(Fragestunde_logical == TRUE) %>% 
+  filter(party %in% c("BÜNDNIS 90/DIE GRÜNEN", "AfD", "DIE LINKE", "FDP"))
+
+str(data)
+
+```
+
+## LDA example
+
+```{r, echo=TRUE}
+# Document feature matrix
+dfm <- data %>%
+  corpus(text_field = "text") %>% 
+  tokens(remove_punct = TRUE,
+         remove_numbers = TRUE,
+         remove_symbols = TRUE) %>% 
+  tokens_tolower() %>% 
+  tokens_remove(c(stopwords("de"), "dass", 
+                  "herr", "frau", "geehrte", "damen", "herren", "kollege", "kollegen", "kollegin", "kolleginnen", "minister",
+                  "spd", "fdp", "cdu", "csu", "cdu/csu", "cducsu", "union", "afd", "die grünen",  "bündnis90", "linke", "fraktion",
+                  "alternative für deutschland", "christdemokraten", "sozialdemokraten",
+                  "präsident", "präsidentin", "staatsekretär")) %>% 
+  tokens_wordstem(language = "german") %>% 
+  dfm() %>% 
+  # keep the top 20% of the most frequent features (min_termfreq = 0.8) 
+  # in less than 10% of all documents (max_docfreq = 0.1) 
+  # to focus on common but distinguishing features.
+  dfm_trim(min_termfreq = 0.8, termfreq_type = "quantile",
+           max_docfreq = 0.1, docfreq_type = "prop")
+
+```
+
+## LDA example
+
+```{r, echo=TRUE}
+# Convert for usage in 'topicmodels' package
+dtm <- dfm %>%
+  convert(to = 'topicmodels')
+
+dtm
+
+```
+
+```{r, eval=FALSE, echo=TRUE}
+# Run the LDA with 15 topics and set seed for reproducibility
+ldaOut <- LDA(dtm, 
+              k = 15, 
+              control = list(seed = 1234))
+
+save(ldaOut, file = "ldaOut.Rda")
+```
+
+## LDA example
+
+```{r, include=FALSE}
+load("ldaOut.Rda")
+```
+
+```{r, echo=TRUE, eval = FALSE}
+# Load data
+topic_word_probabilities <- tidy(ldaOut, matrix = "beta")
+
+# Filter for highest word probabilities per topic
+terms <- topic_word_probabilities  %>%
+  group_by(topic) %>%
+  slice_max(beta, n = 7) %>% 
+  ungroup() %>%
+  arrange(topic, -beta)
+
+# Plot
+terms %>%
+  mutate(term = reorder_within(term, beta, topic)) %>%
+  ggplot(aes(beta, term, fill = factor(topic))) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~ topic, scales = "free") +
+  scale_y_reordered() + 
+  theme_minimal()
+
+```
+
+## LDA example
+
+```{r, echo=FALSE}
+# beta <- per-topic-per-word probabilities
+topic_word_probabilities <- tidy(ldaOut, matrix = "beta")
+
+terms <- topic_word_probabilities  %>%
+  group_by(topic) %>%
+  slice_max(beta, n = 7) %>% 
+  ungroup() %>%
+  arrange(topic, -beta)
+
+terms %>%
+  mutate(term = reorder_within(term, beta, topic)) %>%
+  ggplot(aes(beta, term, fill = factor(topic))) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~ topic, scales = "free") +
+  scale_y_reordered() + 
+  theme_minimal()
+```
+
+## LDA example
+
+```{r, echo=FALSE}
+terms <- topic_word_probabilities  %>%
+  group_by(topic) %>%
+  slice_max(beta, n = 7) %>% 
+  ungroup() %>%
+  arrange(topic, -beta) %>% 
+  filter(topic %in% c(8,9))
+
+terms %>%
+  mutate(term = reorder_within(term, beta, topic)) %>%
+  ggplot(aes(beta, term, fill = factor(topic))) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~ topic, scales = "free") +
+  scale_y_reordered() + 
+  theme_minimal()
+```
+
+## LDA example
+
+Now let us make use of the following score to visualise the posterior topics:
+
+$\text{term-score}_{k,v} = \hat{\beta}_{k,v} \log \left( \frac{\hat{\beta_{k,v}}}{\left( \prod_{j=1}^{K} \hat{\beta}_{k,v} \right)^{\frac{1}{K}}} \right)$
+
+-   The first term $\hat{\beta}_{k,v}$ is the probability of term $v$ in topic $k$ and is akin to the term frequency
+
+-   The second term down-weights terms that have high probability under all topics
+
+## LDA example
+
+```{r, echo=TRUE}
+# Calculate term scores
+top_terms <- topic_word_probabilities %>%
+  group_by(term) %>%
+  mutate(beta_k = prod(beta)^(1/15)) %>%
+  ungroup() %>%
+  # Compute the term score with adjusted beta_k to prevent issues with log(0)
+  mutate(term_score = beta * log((beta) / (beta_k + 1e-10))) %>%
+  group_by(topic) %>%
+  slice_max(term_score, n = 10)  # Get top 15 terms for each topic
+
+# Extract the terms with the largest scores per topic
+top_terms$term[top_terms$topic==8] 
+top_terms$term[top_terms$topic==9] 
+```
+
+## Differences topic 8 and topic 9
+
+```{r, eval = FALSE, echo=TRUE}
+beta_diff <- topic_word_probabilities %>%
+  mutate(topic = paste0("topic", topic)) %>% # naming
+  pivot_wider(names_from = topic, values_from = beta) %>% # to wide
+  filter(topic8 > .001 | topic9 > .001) %>% # filter per-topic-per-word probabilities
+  mutate(log_ratio = log2(topic9 / topic8)) %>% # calculate log ratio: log ratio is useful because it makes the difference symmetrical
+  select(term, log_ratio) 
+
+# Get the largest and smallest differences
+beta_diff <- bind_rows(
+  beta_diff %>% slice_max(order_by = log_ratio, n = 10),  # Top 10
+  beta_diff %>% slice_min(order_by = log_ratio, n = 10)   # Bottom 10
+  )
+
+# Plot these differences
+ggplot(beta_diff, aes(x = reorder(term, log_ratio), y = log_ratio)) +
+  geom_bar(stat = "identity", fill = "gray30") +
+  coord_flip() +  # Horizontal bars
+  labs(x = NULL, y = "Log2 ratio of beta in topic 9 / topic 8") +
+  theme_minimal()
+```
+
+## Diffences topic 8 and topic 9
+
+```{r, echo = FALSE}
+beta_diff <- topic_word_probabilities %>%
+  # naming
+  mutate(topic = paste0("topic", topic)) %>%
+  # to wide
+  pivot_wider(names_from = topic, values_from = beta) %>% 
+  # filter per-topic-per-word probabilities
+  filter(topic8 > .001 | topic9 > .001) %>%
+  # calculate log ration
+  mutate(log_ratio = log2(topic9 / topic8)) %>% 
+  select(term, log_ratio) 
+
+# Get the largest and smallest differences
+beta_diff <- bind_rows(
+  beta_diff %>% slice_max(order_by = log_ratio, n = 10),  # Top 10
+  beta_diff %>% slice_min(order_by = log_ratio, n = 10)   # Bottom 10
+)
+
+# Plot these differences
+ggplot(beta_diff, aes(x = reorder(term, log_ratio), 
+                      y = log_ratio)) +
+  geom_bar(stat = "identity", fill = "gray30") +
+  coord_flip() +  # Horizontal bars
+  labs(x = NULL,
+       y = "Log2 ratio of beta in topic 9 / topic 8") +
+  theme_minimal()
+```
+
+## Document-topic probabilities
+
+```{r, echo=TRUE}
+# per-document-per-topic probabilities
+doc_topics <- tidy(ldaOut, matrix = "gamma") 
+
+# per-document-per-topic probabilities
+doc_topics %>% arrange(document) %>% head(n = 15)
+```
+
+## Document-topic probabilities
+
+```{r, echo=TRUE}
+# per-document-per-topic probabilities
+doc_topics <- tidy(ldaOut, matrix = "gamma") 
+
+# per-document-per-topic probabilities sum up to 1
+doc_topics %>% 
+  group_by(document) %>% 
+  summarise(sum = sum(gamma)) %>% 
+  head()
+```
+
+## Inspect
+
+```{r, echo=TRUE}
+# Highest probabilities, then focus topic 9
+doc_topics %>% 
+  group_by(topic) %>% 
+  slice_max(gamma, n = 1) %>% 
+  ungroup()
+```
+
+## Inspect
+
+```{r, echo=TRUE}
+data$document <- rownames(data) 
+
+# check the corresponding speech
+data %>% 
+  filter(document == 399962) %>% 
+  select(text) %>% 
+  as.vector()
+```
+
+## Advantages and Disadvantages of LDA
+
+**Advantages**
+
+-   Automatically finds substantively interesting collections of words
+
+-   Easily scaled to large corpora (millions of documents)
+
+-   Requires very little prior work (no manual labelling of texts/dictionary construction etc)
+
+**Disadvantages**
+
+-   Generated topics may not reflect substantive interest of researcher
+
+-   Many estimated topics may be redundant for research question
+
+-   Requires extensive post-hoc interpretation of topics
+
+-   Sensitivity to number of topics selected (what is the best choice for K?)
+
+# Structural Topic Model (STM)
+
+## LDA Extensions
+
+1.  **Correlated Topic Model (CTM)**
+
+    -   LDA assumes that topics are uncorrelated across the corpus
+
+    -   The correlated topic model allows topics to be correlated: Closer approximation to true document structure
+
+2.  **Dynamic Topic Model (DTM)**
+
+    -   LDA assumes that topics are fixed across documents, DTM allows topical content to vary smoothly over time
+
+    -   The assumption that topics are fixed may not be sensible!
+
+3.  **Structural Topic Model (STM)**
+
+    -   Social scientists are typically interested in how topics vary with covariates. The structural topic model incorporates covariates into the LDA model
+
+# Structural Topic Model
+
+## Structural Topic Model
+
+-   Typically, when estimating topic models we are interested in how some covariate is associated with the prevalence of topic usage (Gender, date, political party, etc)
+
+-   The Structural Topic Model (STM) allows for the inclusion of arbitrary covariates of interest into the generative model
+
+-   **Topic prevalence** is allowed to vary according to the covariates X
+
+    -   Each document has its own prior distribution over topics, which is defined by its covariates, rather than sharing a global mean
+
+-   **Topical content** can also vary according to the covariates Y
+
+    -   Word use *within* a topic can differ for different groups of speakers/writers
+
+## Structural Topic Model Application
+
+-   In the legislative domain, we might be interested in the degree to which MPs from different parties represent distinct interests in their parliamentary questions
+
+-   We can use the STM to analyse how topic prevalence varies by party
+
+## Structural Topic Model Application
+
+```{r, echo=TRUE}
+library(stm)
+# We work with the same dfm, convert to stm object
+stm <- dfm %>% 
+  convert(to = "stm")
+
+summary(stm)
+```
+
+## Estimate STM
+
+```{r, echo=TRUE, eval= FALSE}
+## Estimate STM
+stmOut <- stm(
+  documents = stm$documents,
+  vocab = stm$vocab,
+  data = stm$meta,
+  init.type = "Spectral",
+  prevalence = ~party,
+  K = 15,
+  seed = 123
+)
+
+save(stmOut, file = "stmOut.Rda")
+```
+
+## Plot
+
+```{r, echo=TRUE}
+load("stmOut.Rda")
+
+plot(stmOut, type = "summary")
+```
+
+## Plot
+
+-   Highest Prob is the raw coefficients
+
+-   Score is the term-score measure we defined before
+
+-   FREX is a measure which combines word-topic frequency with word-topic exclusivity
+
+-   Lift is a normalised version of the word-probabilities
+
+```{r, echo=TRUE}
+labelTopics(stmOut)
+```
+
+## Plot
+
+```{r, echo=TRUE}
+plot(stmOut, labeltype = "frex")
+```
+
+## Plot
+
+```{r, echo=TRUE}
+cloud(stmOut, topic = 15)
+```
+
+## Plot
+
+```{r, echo=TRUE}
+topic_effects <- estimateEffect(c(15) ~ party, stmOut, meta = stm$meta)
+
+plot.estimateEffect(topic_effects,
+                    covariate = "party",
+                    method = "pointestimate")
+```
+
+# Validating Topic Models
+
+## Validating Topic Models
+
+-   LDA, and topic models more generally, require the researcher to make several implementation decisions
+
+-   In particular, we must select a value for K, the number of topics
+
+-   How can we select between different values of K? How can we tell how well a given topic model is performing?
+
+## Validating Topic Models 
+
+-   **Predictive metric: Held-out likelihood**
+
+    -   Ask which words the model believes will be in a given document and comparing this to the document’s actual word composition (i.e. calculate the held-out likelihood)
+
+    -   E.g. Splitting texts in half, train a topic model on one half, calculate the held-out likelihood for the other half
+
+-   **Interpretational metrics**
+
+    -   *Semantic coherence*
+
+        -   Do the most common words from a topic also co-occur together frequently in the same documents?
+
+    -   *Exclusivity*
+
+        -   Do words with high probability in one topic have low probabilities in others?
+
+## Quantitative Evaluation of STM
+
+We can apply many of these metrics across a range of topic models using the `searchK` function in the `stm` package.
+
+```{r, echo = TRUE, eval = FALSE}
+k_results <- searchK(documents = stm$documents, 
+                     vocab = stm$vocab, 
+                     data = stm$meta, 
+                     max.em.its = 25, # maximum number of EM iterations
+                     K = c(5, 10, 15, 20),  # Try different K values
+                     prevalence = ~party, 
+                     seed = 123)
+```
+
+```{r, echo=TRUE, eval=FALSE}
+save(k_results, file = "k_results.Rda")
+```
+
+## Quantitative Evaluation of STM
+
+```{r, echo=TRUE}
+load("k_results.Rda")
+
+plot(k_results)
+```
+
+## Semantic validity ([Chang et al. 2009](http://users.umiacs.umd.edu/~jbg/docs/nips2009-rtl.pdf))
+
+*Word intrusion:* Test if topics have semantic coherence by asking humans identify a spurious word inserted into a topic.
+
+| **Topic** |   w1   |   w2   |   w3   |     w4     |   w5   |   w6   |
+|:---------:|:------:|:------:|:------:|:----------:|:------:|:------:|
+|     1     |  bank  | financ | terror |  england   | fiscal | market |
+|     2     | europe | union  |   eu   | referendum |  vote  | school |
+|     3     |  war   | deliv  |  nhs   |   prison   |   mr   | right  |
+
+**Assumption:** When humans find it easy to locate the “intruding” *word*, the topics are more coherent.
+
+## Validating Topic Models – Substantive approaches
+
+-   *Semantic validity*
+
+    -   Does a topic contain coherent groups of words?
+
+    -   Does a topic identify a coherent groups of texts that are internally homogenous but distinctive from other topics?
+
+-   *Predictive validity*
+
+    -   How well does variation in topic usage correspond to known events?
+
+**Implication**: All these approaches require careful human reading of texts and topics, and comparison with sensible metadata.
+
+# Coding
+
+## Coding
+
+-   Create your own data based on the parliamentary speeches dataset on ILIAS or other text data. Be creative!
+
+-   Try out to run a LDA and a STM. Inspect the models.
+
+-   BONUS: Try to "replicate" [this paper](https://www.cambridge.org/core/journals/government-and-opposition/article/simply-speaking-language-complexity-among-nonpopulist-actors-in-parliamentary-debates/30B241C0182677F07A6ABD31BC519831).
+
+    -   Use LDA (similar topics?) instead of seeded LDA. But you can try both of course!
+
+    -   The replication files for the analysis are available on OSF Registries at <https://doi.org/10.17605/OSF.IO/93DQY>.

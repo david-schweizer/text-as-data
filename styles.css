@@ -1,0 +1,13 @@
+/* Target the paragraph inside the footer if you want finer control */
+.reveal .footer p {
+  font-size: 20px !important;  /* Adjust font size for the text inside the footer */
+}
+
+
+.reveal p,
+.reveal ul li,
+.reveal ol li,
+.reveal blockquote {
+  font-size: 32px !important;
+}
+
