@@ -9,7 +9,7 @@ editor:
 ## **Course details**
 
 |               |                                                                                             |
-|-------------------------|----------------------------------------------|
+|--------------------------|----------------------------------------------|
 | Seminar:      | Übung - Methoden der Vergleichenden Regierungslehre                                         |
 | Time:         | Tuesday, 15:30 – 17:00,  February 11 to May 27                                              |
 | Place:        | C -108 Methodenlabor - groß/ Telefonlabor (A 5, 6 Bauteil C)                                |
@@ -221,7 +221,7 @@ Week 07 - 25.03.2025 - Dictionary and Sentiment
 
 Week 08 - 01.04.2025 - Topic Models
 
-Week 09 - 08.04.2025 - Advanced and state-of-the-art methods
+Week 09 - 08.04.2025 - (Semi-)Supervised Methods
 
 *Week 10 - 15.04.2024 - Easter break*
 

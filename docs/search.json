@@ -28,7 +28,7 @@
     "href": "material.html",
     "title": "Schedule, slides & materials",
     "section": "",
-    "text": "You can find all course materials below. This includes slides, code, links to readings, etc.\nJust click on the topic of the respective week.\n\n\n\n\n\nWeek\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nFebruary 11, 2025\n\n\n\n\nWeek 02\n\n\nIntro to R\n\n\nFebruary 18, 2025\n\n\n\n\nWeek 03\n\n\nTidyverse I: Import, tidy, and transform\n\n\nFebruary 25, 2025\n\n\n\n\nWeek 04\n\n\nTidyverse II: Transform, and visualize\n\n\nMarch 04, 2025\n\n\n\n\nWeek 05\n\n\nIntro to Text-as-Data I: Concepts\n\n\nMarch 11, 2025\n\n\n\n\nWeek 06\n\n\nIntro to Text-as-Data II: Workflow\n\n\nMarch 18, 2025\n\n\n\n\nWeek 07\n\n\nDictionary and Sentiment\n\n\nMarch 25, 2025\n\n\n\n\nWeek 08\n\n\nTopic Models\n\n\nApril 01, 2025\n\n\n\n\n\nNo matching items",
+    "text": "You can find all course materials below. This includes slides, code, links to readings, etc.\nJust click on the topic of the respective week.\n\n\n\n\n\nWeek\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nFebruary 11, 2025\n\n\n\n\nWeek 02\n\n\nIntro to R\n\n\nFebruary 18, 2025\n\n\n\n\nWeek 03\n\n\nTidyverse I: Import, tidy, and transform\n\n\nFebruary 25, 2025\n\n\n\n\nWeek 04\n\n\nTidyverse II: Transform, and visualize\n\n\nMarch 04, 2025\n\n\n\n\nWeek 05\n\n\nIntro to Text-as-Data I: Concepts\n\n\nMarch 11, 2025\n\n\n\n\nWeek 06\n\n\nIntro to Text-as-Data II: Workflow\n\n\nMarch 18, 2025\n\n\n\n\nWeek 07\n\n\nDictionary and Sentiment\n\n\nMarch 25, 2025\n\n\n\n\nWeek 08\n\n\nTopic Models\n\n\nApril 01, 2025\n\n\n\n\nWeek 09\n\n\n(Semi-)Supervised Methods\n\n\nApril 08, 2025\n\n\n\n\nWeek 10\n\n\nEaster Break - No Session\n\n\nApril 15, 2025\n\n\n\n\nWeek 11\n\n\nEaster Break - No Session\n\n\nApril 22, 2025\n\n\n\n\nWeek 12\n\n\nWeb scraping: Basics\n\n\nApril 29, 2025\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Schedule, slides & materials"
     ]
@@ -183,7 +183,7 @@
     "href": "syllabus.html#course-schedule",
     "title": "Syllabus",
     "section": "Course Schedule",
-    "text": "Course Schedule\nThe schedule is preliminary. Structure and/or content might change during the semester. You will find the readings, materials, and slides for each week on the course website (see Schedule, slides & materials).\nIntro\nWeek 01 - 11.02.2025 - Intro Session\nBlock I: Import, Tidy, Transform, & Visualize Data\nWeek 02 - 18.02.2025 - Intro to R\nWeek 03 - 25.02.2025 - Tidyverse I: Import, tidy, and transform\nWeek 04 - 04.03.2025 - Tidyverse II: Transform, and visualize\nBlock II: Text-as-Data\nWeek 05 - 11.03.2025 - Intro to Text-as-Data I: Concepts\nWeek 06 - 18.03.2025 - Intro to Text-as-Data II: Workflow\nWeek 07 - 25.03.2025 - Dictionary and Sentiment\nWeek 08 - 01.04.2025 - Topic Models\nWeek 09 - 08.04.2025 - Advanced and state-of-the-art methods\nWeek 10 - 15.04.2024 - Easter break\nWeek 11 - 22.04.2025 - Easter break\nBlock III: Web scraping\nWeek 12 - 29.04.2025 - Web scraping: Basics\nWeek 13 - 06.05.2025 - Web scraping: Static\nWeek 14 - 13.05.2025 - Web scraping: Dynamic\nClosing\nWeek 15 - 20.05.2025 - Outlook: Large Language Models and more\nWeek 16 - 27.05.2025 - Closing Session",
+    "text": "Course Schedule\nThe schedule is preliminary. Structure and/or content might change during the semester. You will find the readings, materials, and slides for each week on the course website (see Schedule, slides & materials).\nIntro\nWeek 01 - 11.02.2025 - Intro Session\nBlock I: Import, Tidy, Transform, & Visualize Data\nWeek 02 - 18.02.2025 - Intro to R\nWeek 03 - 25.02.2025 - Tidyverse I: Import, tidy, and transform\nWeek 04 - 04.03.2025 - Tidyverse II: Transform, and visualize\nBlock II: Text-as-Data\nWeek 05 - 11.03.2025 - Intro to Text-as-Data I: Concepts\nWeek 06 - 18.03.2025 - Intro to Text-as-Data II: Workflow\nWeek 07 - 25.03.2025 - Dictionary and Sentiment\nWeek 08 - 01.04.2025 - Topic Models\nWeek 09 - 08.04.2025 - (Semi-)Supervised Methods\nWeek 10 - 15.04.2024 - Easter break\nWeek 11 - 22.04.2025 - Easter break\nBlock III: Web scraping\nWeek 12 - 29.04.2025 - Web scraping: Basics\nWeek 13 - 06.05.2025 - Web scraping: Static\nWeek 14 - 13.05.2025 - Web scraping: Dynamic\nClosing\nWeek 15 - 20.05.2025 - Outlook: Large Language Models and more\nWeek 16 - 27.05.2025 - Closing Session",
     "crumbs": [
       "Syllabus"
     ]
@@ -233,16 +233,16 @@
   {
     "objectID": "weeks/week-09.html",
     "href": "weeks/week-09.html",
-    "title": "Web scraping basics",
+    "title": "(Semi-)Supervised Methods",
     "section": "",
-    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nWeb scraping basics\n\n\nWeek 11\n\n\nApr 23, 2024\n\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nThere are no extra materials for this week.\n\n\nTo Do’s before our session\nRead Chapter 24.1 - 24.5 in R for Data Science. Do you have already a website in mind that you might want to scrape? Think about possible websites and let me know on Slack or via e-mail!"
+    "text": "To Do’s before our session\n\nTry out to run topic models on your own! On parliamentary speeches or a data set of your choice. Experiment with the number of topics and inspect the model outcomes.\n\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\n(Semi-)Supervised Methods\n\n\nWeek 09\n\n\nApr 8, 2025\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA."
   },
   {
     "objectID": "weeks/week-10.html",
     "href": "weeks/week-10.html",
-    "title": "Web scraping static",
+    "title": "Web scraping: Basics",
     "section": "",
-    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nWeb scraping static\n\n\nWeek 12\n\n\nApr 30, 2024\n\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nYou can find a R script with examples how to extract tables from Wikipedia sites on the world population and locations of UN organizations here on ILIAS.\n\n\nTo Do’s before our session\nRead Chapter 24.6 in R for Data Science. Do you have already a website in mind that you might want to scrape? Think about possible websites and let me know on Slack or via e-mail!"
+    "text": "To Do’s before our session\n\nWork on Assignment 2. The deadline is 28.04.2025 13:00. Feel free to get in touch with me via e-mail about anything unclear or when you are stuck.\nTake the Easter break to think a bit more about what you want to work on in the term paper and what method might be suitable. By now, you have encountered various text-as-data methods: dictionaries, unsupervised, and supervised approaches.\n\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nWeb scraping: Basics\n\n\nWeek 12\n\n\nApr 29, 2025\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA."
   },
   {
     "objectID": "weeks/week-11.html",
@@ -9191,5 +9191,54 @@
     "title": "Topic Models",
     "section": "Validating Topic Models",
     "text": "Validating Topic Models\n\nPredictive metric: Held-out likelihood\n\nAsk which words the model believes will be in a given document and comparing this to the document’s actual word composition (i.e. calculate the held-out likelihood)\nE.g. Splitting texts in half, train a topic model on one half, calculate the held-out likelihood for the other half\n\nInterpretational metrics\n\nSemantic coherence\n\nDo the most common words from a topic also co-occur together frequently in the same documents?\n\nExclusivity\n\nDo words with high probability in one topic have low probabilities in others?"
+  },
+  {
+    "objectID": "weeks/easter-break-1.html",
+    "href": "weeks/easter-break-1.html",
+    "title": "Easter Break",
+    "section": "",
+    "text": "Work on Assignment 2. The deadline is 28.04.2025 13:00. Feel free to get in touch with me via e-mail about anything unclear or when you are stuck.\nTake the Easter break to think a bit more about what you want to work on in the term paper and what method might be suitable. By now, you have encountered various text-as-data methods: dictionaries, unsupervised, and supervised approaches."
+  },
+  {
+    "objectID": "weeks/easter-break-1.html#but-keep-in-mind",
+    "href": "weeks/easter-break-1.html#but-keep-in-mind",
+    "title": "Easter Break",
+    "section": "",
+    "text": "Work on Assignment 2. The deadline is 28.04.2025 13:00. Feel free to get in touch with me via e-mail about anything unclear or when you are stuck.\nTake the Easter break to think a bit more about what you want to work on in the term paper and what method might be suitable. By now, you have encountered various text-as-data methods: dictionaries, unsupervised, and supervised approaches."
+  },
+  {
+    "objectID": "weeks/week-09-2-easter.html",
+    "href": "weeks/week-09-2-easter.html",
+    "title": "Easter Break - No Session",
+    "section": "",
+    "text": "Work on Assignment 2. The deadline is 28.04.2025 13:00. Feel free to get in touch with me via e-mail about anything unclear or when you are stuck.\nTake the Easter break to think a bit more about what you want to work on in the term paper and what method might be suitable. By now, you have encountered various text-as-data methods: dictionaries, unsupervised, and supervised approaches."
+  },
+  {
+    "objectID": "weeks/week-09-2-easter.html#but-keep-in-mind",
+    "href": "weeks/week-09-2-easter.html#but-keep-in-mind",
+    "title": "Easter Break - No Session",
+    "section": "",
+    "text": "Work on Assignment 2. The deadline is 28.04.2025 13:00. Feel free to get in touch with me via e-mail about anything unclear or when you are stuck.\nTake the Easter break to think a bit more about what you want to work on in the term paper and what method might be suitable. By now, you have encountered various text-as-data methods: dictionaries, unsupervised, and supervised approaches."
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html",
+    "href": "slides/week-10/10-InteractivityI.html",
+    "title": "Web scraping: Basics",
+    "section": "",
+    "text": "TBA"
+  },
+  {
+    "objectID": "weeks/week-09-1-easter.html",
+    "href": "weeks/week-09-1-easter.html",
+    "title": "Easter Break - No Session",
+    "section": "",
+    "text": "Work on Assignment 2. The deadline is 28.04.2025 13:00. Feel free to get in touch with me via e-mail about anything unclear or when you are stuck.\nTake the Easter break to think a bit more about what you want to work on in the term paper and what method might be suitable. By now, you have encountered various text-as-data methods: dictionaries, unsupervised, and supervised approaches."
+  },
+  {
+    "objectID": "weeks/week-09-1-easter.html#but-keep-in-mind",
+    "href": "weeks/week-09-1-easter.html#but-keep-in-mind",
+    "title": "Easter Break - No Session",
+    "section": "",
+    "text": "Work on Assignment 2. The deadline is 28.04.2025 13:00. Feel free to get in touch with me via e-mail about anything unclear or when you are stuck.\nTake the Easter break to think a bit more about what you want to work on in the term paper and what method might be suitable. By now, you have encountered various text-as-data methods: dictionaries, unsupervised, and supervised approaches."
   }
 ]

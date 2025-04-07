@@ -1,8 +1,8 @@
 ---
-title: "(Semi-)Supervised Methods"
-subtitle: "Week 09"
+title: "Easter Break - No Session"
+subtitle: "Week 10"
 author: "David Schweizer"
-date: "April 08, 2025"
+date: "April 15, 2025"
 date-format: long
 institute: "University of Mannheim"
 format: 
@@ -13,4 +13,4 @@ format:
 editor: visual
 ---
 
-# TBA
+# Enjoy the Easter break

@@ -11,6 +11,10 @@ listing:
       - weeks/week-06.qmd
       - weeks/week-07.qmd
       - weeks/week-08.qmd
+      - weeks/week-09-0.qmd
+      - weeks/week-09-1-easter.qmd
+      - weeks/week-09-2-easter.qmd
+      - weeks/week-10.qmd
     type: table
     fields: [subtitle, title, date]
     field-display-names:
