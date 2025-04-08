@@ -30,8 +30,74 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="../../styles.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -343,15 +409,944 @@ David Schweizer
 
   <p class="date">April 8, 2025</p>
 </section>
-<section id="tba" class="title-slide slide level1 center">
-<h1>TBA</h1>
+<section id="plan-for-today" class="slide level2">
+<h2>Plan for today</h2>
+<p>Input with illustrative examples</p>
+<ul>
+<li><p>Semi-supervised methods: Topic modeling.</p></li>
+<li><p>Supervised learning methods for classification: Naive-Bayes.</p></li>
+</ul>
+</section>
+<section id="semi-supervised-topic-models" class="slide level2">
+<h2>Semi-supervised topic models</h2>
+<ul>
+<li><strong>Unsupervised topic models</strong> cluster documents based on word co-occurrences. Requires extensive ex-post validation! And meaning of topics might be unclear or ambiguous.</li>
+<li><strong>Semi-supervised topic models</strong> allows us to “nudge” the model towards including specific topics which we define by keywords - requires case knowledge!
+<ul>
+<li>We improve topic-word distributions: Topics prefer to generate words related to our keywords.</li>
+<li>We improve document-topic distributions: Model prefers topic for which we defined keywords</li>
+</ul></li>
+<li>In R: <a href="https://koheiw.github.io/seededlda/index.html">Seeded LDA</a> and <a href="https://keyatm.github.io/keyATM/">Keyword Assisted Topic Models (keyATM)</a>.</li>
+</ul>
+</section>
+<section id="seeded-lda---application" class="slide level2">
+<h2>Seeded LDA - Application</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://www.cambridge.org/core/journals/government-and-opposition/article/simply-speaking-language-complexity-among-nonpopulist-actors-in-parliamentary-debates/30B241C0182677F07A6ABD31BC519831"><img data-src="kittel.jpg" class="quarto-figure quarto-figure-center"></a></p>
+</figure>
+</div>
+</section>
+<section id="seeded-lda---application-1" class="slide level2">
+<h2>Seeded LDA - Application</h2>
+<ul>
+<li><p>Kittel provides all R scripts for the analysis and a link to the data in her replication files: <a href="https://osf.io/93dqy/files/osfstorage" class="uri">https://osf.io/93dqy/files/osfstorage</a></p></li>
+<li><p>This allows us to follow exactly the same pre-processing! For example:</p>
+<ul>
+<li><p>Limit the time period</p></li>
+<li><p>Do not include speeches by the chair</p></li>
+<li><p>Only consider speeches that are at lease 150 words long</p></li>
+<li><p>Remove punctuation, symbols, numbers, and stopwords</p></li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Kittel focuses on common but distinguishing features:</span></span>
+<span id="cb1-2"><a></a>dfm_german <span class="ot">&lt;-</span> <span class="fu">dfm</span>(toks_german_2) <span class="sc">%&gt;%</span></span>
+<span id="cb1-3"><a></a>  <span class="co"># Keeps only the top 10% most frequent terms</span></span>
+<span id="cb1-4"><a></a>  <span class="fu">dfm_trim</span>(<span class="at">min_termfreq =</span> <span class="fl">0.90</span>, <span class="at">termfreq_type =</span> <span class="st">"quantile"</span>,</span>
+<span id="cb1-5"><a></a>  <span class="co">#Removes any word that appears in more than 10% of documents</span></span>
+<span id="cb1-6"><a></a>           <span class="at">max_docfreq =</span> <span class="fl">0.1</span>, <span class="at">docfreq_type =</span> <span class="st">"prop"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="seeded-lda---application-2" class="slide level2">
+<h2>Seeded LDA - Application</h2>
+<ul>
+<li><p>Instead of unsupervised topic modeling, nudging of the topics towards 13 policy areas based on <a href="https://journals.sagepub.com/doi/10.1177/1354068817695742">Klüver &amp; Zubek (2018</a>).</p>
+<ul>
+<li>Adaptation of policy areas from the <a href="https://www.comparativeagendas.net/">Comparative Agendas Project</a>. Originally, 19 major issue areas and 225 sub-issues.</li>
+</ul></li>
+<li><p>We nudge the model by providing keywords that represent the respective topics. The seed words provide prior knowledge to the algorithm.</p></li>
+<li><p>Here: Keywords are “derived through hand coding of bills mentioned in the parliamentary speech data.”</p></li>
+</ul>
+</section>
+<section id="seeded-lda---application-3" class="slide level2">
+<h2>Seeded LDA - Application</h2>
+<p>We collect the keywords inside a dictionary:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>dictionaryPolicyGER<span class="ot">&lt;-</span><span class="fu">dictionary</span>(<span class="fu">list</span>(</span>
+<span id="cb2-2"><a></a>  <span class="at">Budget_Tax=</span><span class="fu">c</span>(<span class="st">"*budget*"</span>,<span class="st">"*steuer*"</span>),</span>
+<span id="cb2-3"><a></a>  <span class="at">Welfare=</span><span class="fu">c</span>(<span class="st">"*rente*"</span>,<span class="st">"*versicher*"</span>,<span class="st">"*gesundheit*"</span>),</span>
+<span id="cb2-4"><a></a>  <span class="at">Decentralization=</span><span class="fu">c</span>(<span class="st">"*l?nd*"</span>,<span class="st">"stadt*"</span>,<span class="st">"st?dt*"</span>,<span class="st">"kommun*"</span>,<span class="st">"bundesland"</span>),</span>
+<span id="cb2-5"><a></a>  <span class="at">Education=</span><span class="fu">c</span>(<span class="st">"*schul*"</span>,<span class="st">"universit*"</span>,<span class="st">"*bildung*"</span>),</span>
+<span id="cb2-6"><a></a>  <span class="at">Defence=</span><span class="fu">c</span>(<span class="st">"verteidig*"</span>,<span class="st">"*milit*"</span>,<span class="st">"*waff*"</span>,<span class="st">"*solda*"</span>,<span class="st">"*geheimdienst*"</span>,<span class="st">"*nachrichtendienst*"</span>),</span>
+<span id="cb2-7"><a></a>  <span class="at">Labour=</span><span class="fu">c</span>(<span class="st">"*arbeit*"</span>,<span class="st">"besch?ft*"</span>,<span class="st">"*einstell*"</span>),</span>
+<span id="cb2-8"><a></a>  <span class="at">Internationalism=</span><span class="fu">c</span>(<span class="st">"*internation*"</span>,<span class="st">"ausland*"</span>,<span class="st">"ausl?nd*"</span>,<span class="st">"ausw?rt*"</span>,<span class="st">"terror*"</span>),</span>
+<span id="cb2-9"><a></a>  <span class="at">EU=</span><span class="fu">c</span>(<span class="st">"eu*"</span>,<span class="st">"*euro*"</span>,<span class="st">"gemeinsamer markt"</span>),</span>
+<span id="cb2-10"><a></a>  <span class="at">Immigration=</span><span class="fu">c</span>(<span class="st">"asyl*"</span>,<span class="st">"fl?chtl*"</span>,<span class="st">"gefl?ch*"</span>,<span class="st">"*migrat*"</span>,<span class="st">"*ethnisch*"</span>,<span class="st">"rassis*"</span>,<span class="st">"aufenthalt*"</span>),</span>
+<span id="cb2-11"><a></a>  <span class="at">Environment=</span><span class="fu">c</span>(<span class="st">"umwelt*"</span>,<span class="st">"*wasser*"</span>,<span class="st">"*energ*"</span>,<span class="st">"strom*"</span>,<span class="st">"gas*"</span>,<span class="st">"*kohle*"</span>,<span class="st">"*m?ll*"</span>,<span class="st">"*recycel*"</span>),</span>
+<span id="cb2-12"><a></a>  <span class="at">Economy=</span><span class="fu">c</span>(<span class="st">"*verbrauch*"</span>,<span class="st">"*bankrott*"</span>,<span class="st">"*konkurs*"</span>,<span class="st">"*bank*"</span>,<span class="st">"*firm*"</span>,<span class="st">"*miet*"</span>,<span class="st">"*markt*"</span>,<span class="st">"*unternehm*"</span>,<span class="st">"*touris*"</span>,<span class="st">"*handel*"</span>,<span class="st">"*immobili*"</span>,<span class="st">"*eigent*"</span>,<span class="st">"*verkehr*"</span>,<span class="st">"*flug*"</span>,<span class="st">"*wirtschaft*"</span>,<span class="st">"*auto*"</span>),</span>
+<span id="cb2-13"><a></a>  <span class="at">Agriculture=</span><span class="fu">c</span>(<span class="st">"*agrar*"</span>,<span class="st">"*landwirtsch*"</span>,<span class="st">"fisch*"</span>,<span class="st">"*pferd*"</span>,<span class="st">"*zucht*"</span>,<span class="st">"*schwein*"</span>,<span class="st">"rind*"</span>,<span class="st">"kuh*"</span>,<span class="st">"lebensmitt*"</span>,<span class="st">"*nahrung*"</span>),</span>
+<span id="cb2-14"><a></a>  <span class="at">Civil_Rights =</span><span class="fu">c</span>(<span class="st">"*zivil*"</span>,<span class="st">"b?rgerl*"</span>,<span class="st">"geschlecht*"</span>,<span class="st">"diskrim*"</span>,<span class="st">"w?hl*"</span>,<span class="st">"freih*"</span>,<span class="st">"privat*"</span>,<span class="st">"gef?ng*"</span>,<span class="st">"gefang*"</span>,<span class="st">"krim*"</span>,<span class="st">"verbrech*"</span>,<span class="st">"*gericht*"</span>,<span class="st">"*polizei*"</span>,<span class="st">"feuerwehr*"</span>,<span class="st">"*straf*"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="seeded-lda---application-4" class="slide level2">
+<h2>Seeded LDA - Application</h2>
+<p>Now, we can run the semi-supervised topic model:</p>
+<ul>
+<li><p>with “dfm_german” as document feature matrix,</p></li>
+<li><p>with “dictionaryPolicyGER” as seed words/keywords,</p></li>
+<li><p>and “residual = TRUE” allows for a residual / miscellaneous topic so that we do not force words into one of the seeded topics if they are a bad fit.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(seededlda)</span>
+<span id="cb3-2"><a></a></span>
+<span id="cb3-3"><a></a><span class="co"># For Kittel, this code takes ~1.6 hours to execute</span></span>
+<span id="cb3-4"><a></a>slda <span class="ot">&lt;-</span> <span class="fu">textmodel_seededlda</span>(dfm_german, dictionaryPolicyGER, <span class="at">residual =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="seeded-lda---application-5" class="slide level2">
+<h2>Seeded LDA - Application</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co">#top 20 words</span></span>
+<span id="cb4-2"><a></a><span class="fu">terms</span>(slda, <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<img data-src="kittel_2.jpg" class="r-stretch"></section>
+<section id="seeded-lda---application-6" class="slide level2">
+<h2>Seeded LDA - Application</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co">#top 20 words</span></span>
+<span id="cb5-2"><a></a><span class="fu">terms</span>(slda, <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<img data-src="kittel_3.jpg" class="r-stretch"></section>
+<section id="seeded-lda---application-7" class="slide level2">
+<h2>Seeded LDA - Application</h2>
+<ul>
+<li><p>Kittel is interested in how the content of the debate influence language complexity.</p></li>
+<li><p>She assigns a speech the topic with the highest document-topic probability:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>slda <span class="ot">&lt;-</span> <span class="fu">textmodel_seededlda</span>(dfm_german, dictionaryPolicyGER, <span class="at">residual =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-2"><a></a></span>
+<span id="cb6-3"><a></a>topic_df<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(<span class="fu">topics</span>(slda)) <span class="co"># getting the dominant topics</span></span>
+<span id="cb6-4"><a></a></span>
+<span id="cb6-5"><a></a>data_german_3<span class="ot">&lt;-</span><span class="fu">cbind</span>(data_german_4,topic_df) <span class="co"># merging with speech level data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p>Any concerns? Example for document-topic probability table:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Document</th>
+<th>Topic 1</th>
+<th>Topic 2</th>
+<th>Topic 3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Document 1</td>
+<td>0.80</td>
+<td>0.15</td>
+<td>0.05</td>
+</tr>
+<tr class="even">
+<td>Document 2</td>
+<td>0.34</td>
+<td>0.33</td>
+<td>0.33</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="seeded-lda---application-8" class="slide level2">
+<h2>Seeded LDA - Application</h2>
+<p>Any concerns about this choice of visualization?</p>
+
+<img data-src="kittel_4.jpg" class="r-stretch"></section>
+<section id="seeded-lda---application-9" class="slide level2">
+<h2>Seeded LDA - Application</h2>
+
+<img data-src="images/clipboard-3297750908.png" class="r-stretch"></section>
+<section id="resources-for-keyatm" class="slide level2">
+<h2>Resources for keyATM</h2>
+<p>keyATM allows you to follow a semi-supervised approach. It goes beyond seededLDA by incorporating meta information such as covariates and time. Similar to STM vs.&nbsp;LDA. You can find the vignette, introducing article with examples and other implementations (with replication files!) below:</p>
+<ul>
+<li><p><a href="https://keyatm.github.io/keyATM/index.html">Vignette</a> &amp; <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/ajps.12779?saml_referrer">Eshima, S., Imai, K., &amp; Sasaki, T. (2024). Keyword‐assisted topic models.&nbsp;<em>American Journal of Political Science</em>,&nbsp;<em>68</em>(2), 730-750.</a></p></li>
+<li><p><a href="https://onlinelibrary.wiley.com/doi/full/10.1111/lsq.12458">Müller, S., &amp; Ncib, J. (2024). Legislating landlords: Private interests, issue emphasis, and policy positions.&nbsp;<em>Legislative Studies Quarterly</em>,&nbsp;<em>49</em>(4), 925-942.</a></p></li>
+<li><p><a href="https://www.tandfonline.com/doi/full/10.1080/13501763.2024.2391510?scroll=top&amp;needAccess=true#abstract">Kollberg, M. (2024). The challenger advantage–how challenger parties disrupt mainstream party dominance in the European Parliament.&nbsp;<em>Journal of European Public Policy</em>, 1-30.</a></p></li>
+</ul>
+</section>
+<section id="keyatm-in-müller-ncib-2024" class="slide level2">
+<h2>keyATM in Müller &amp; Ncib (2024)</h2>
+
+<img data-src="mueller_1.jpg" class="r-stretch"></section>
+<section>
+<section id="supervised-learning-methods" class="title-slide slide level1 center">
+<h1>Supervised learning methods</h1>
+
+</section>
+<section id="supervised-learning-methods-1" class="slide level2">
+<h2>Supervised learning methods</h2>
+<ul>
+<li>Classification of documents into pre-defined categories on the basis of the words they contain.</li>
+<li>Supervised learning can be conceptualized as a generalization of dictionary methods</li>
+<li><strong>Dictionaries:</strong>
+<ul>
+<li><p>Words associated with each category are pre-specified by the researcher</p></li>
+<li><p>Words typically have a weight of either zero or one</p></li>
+<li><p>Documents are scored on the basis of words they contain</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="supervised-learning-methods-2" class="slide level2">
+<h2>Supervised learning methods</h2>
+<ul>
+<li><p>Classification of documents into pre-defined categories on the basis of the words they contain.</p></li>
+<li><p>Supervised learning can be conceptualized as a generalization of dictionary methods</p></li>
+<li><p><strong>Supervised learning:</strong></p>
+<ul>
+<li><p>Words are associated with categories on the basis of pre-labelled training data</p></li>
+<li><p>Words have are weighted according to their relative prevalence in each each category</p></li>
+<li><p>Documents are scored on the basis of words they contain</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="supervised-learning-methods-3" class="slide level2">
+<h2>Supervised learning methods</h2>
+<ul>
+<li><p>Classification of documents into pre-defined categories on the basis of the words they contain.</p></li>
+<li><p>Supervised learning can be conceptualized as a generalization of dictionary methods</p></li>
+<li><p><strong>Differences:</strong></p></li>
+<li><p>The key difference is that in supervised learning the features associated with each category (and their relative weight) are <strong>learned</strong> from the data</p></li>
+<li><p>A major advantage of supervised learning methods is that the weights we estimate are specific to the corpus with which we are working</p></li>
+<li><p>Supervised learning methods will often outperform dictionary methods in classification tasks, particularly when the training sample is large.</p></li>
+</ul>
+</section>
+<section id="supervised-learning" class="slide level2">
+<h2>Supervised learning</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Labelled data</a></li><li><a href="#tabset-1-2">Classification</a></li><li><a href="#tabset-1-3">Validation</a></li><li><a href="#tabset-1-4">Prediction</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<ul>
+<li><p>Labelled dataset</p>
+<ul>
+<li><p>Labelled (normally hand-coded) data which categorizes texts into different categories</p></li>
+<li><p>Training set: used to train the classifier</p></li>
+<li><p>Test set: used to validate the classifier</p></li>
+</ul></li>
+</ul>
+</div>
+<div id="tabset-1-2">
+<ul>
+<li><p>Statistical method to:</p>
+<ul>
+<li><p>learn the relationship between coded texts and words</p></li>
+<li><p>predict unlabeled documents from the words they contain</p></li>
+</ul></li>
+<li><p>Examples: Naive Bayes, Logistic Regression, SVM, tree-based methods, many others…</p></li>
+</ul>
+</div>
+<div id="tabset-1-3">
+<p>Validation method:</p>
+<ul>
+<li><p>Predictive metrics such as confusion matrix, accuracy, sensitivity, specificity, etc</p></li>
+<li><p>Normally we use a specific type of validation known as <em>cross-validation</em></p></li>
+</ul>
+</div>
+<div id="tabset-1-4">
+<p>Out-of-sample prediction:</p>
+<ul>
+<li>Use the estimated statistical model to predict categories for documents that do not have labels</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="how-to-get-labelled-data" class="slide level2">
+<h2>How to get labelled data?</h2>
+<ul>
+<li><p>External sources of annotation, e.g.</p>
+<ul>
+<li>Party labels for election manifestos</li>
+</ul></li>
+<li><p>Expert annotation, e.g.</p>
+<ul>
+<li><p>In many projects, undergraduate students (“expertise” comes from training)</p></li>
+<li><p>Existing expert annotations, e.g.&nbsp;Comparative Manifesto Project</p></li>
+</ul></li>
+<li><p>Crowd-sourced coding, e.g.</p>
+<ul>
+<li><p>Ask random people on the internet to code texts into categories</p></li>
+<li><p>Tends to rely on the “wisdom of crowds” hypothesis: aggregated judgments of non-experts converge to judgments of experts at much lower cost</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="implementation-in-r" class="slide level2">
+<h2>Implementation in R</h2>
+<p>Packages:</p>
+<ul>
+<li><p>quanteda and quanteda.textmodels</p>
+<ul>
+<li><p>implementation of standard classification models such as naiveBayes or SVM</p></li>
+<li><p>works directly on document feature matrix</p></li>
+</ul></li>
+<li><p>caret (classification and regression training)</p>
+<ul>
+<li><p>unifies usage of machine learning algorithms from different R packages</p></li>
+<li><p>tools for evaluation</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="supervised-learning---application" class="slide level2">
+<h2>Supervised Learning - Application</h2>
+<p><a href="https://www.journals.uchicago.edu/doi/10.1086/715165"><img data-src="mueller_2.jpg"></a></p>
+<p><strong>Replication data:</strong> <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/7NP2XH&amp;version=1.0" class="uri">https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/7NP2XH&amp;version=1.0</a></p>
+</section>
+<section id="supervised-learning---application-1" class="slide level2">
+<h2>Supervised Learning - Application</h2>
+<p>Again, Müller provides all necessary files for replication and allows us to follow the same analysis including text pre-processing.</p>
+<p>The overall idea is to map the temporal focus in election manifestos.</p>
+<ul>
+<li><p>At the sentence level,</p></li>
+<li><p>In German and English,</p></li>
+<li><p>Into temporal emphasis on the past, present, and future.</p></li>
+</ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Examples - Temporal focus</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><strong>Past</strong>: “Poverty has not improved at all over the last 20 I years”</li>
+<li><strong>Present:</strong> “As at the last election, we are not making any promises which we cannot keep.”</li>
+<li><strong>Future:</strong> “Our overall aim will be a comprehensive health service geared to the future needs of all the Irish people.”</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="supervised-learning---application-2" class="slide level2">
+<h2>Supervised Learning - Application</h2>
+<p><strong>Labelled data: “Past”, “Present”, “Future”</strong></p>
+<ul>
+<li><p>German:</p>
+<ul>
+<li><p>Human codings of the Austrian National Election Study: 2002, 2006, 2008, and 2013.</p></li>
+<li><p>In total: 12 084 unique sentences</p></li>
+</ul></li>
+<li><p>English:</p>
+<ul>
+<li><p>Crowd sourced text coding. New set of sentences from party manifestos.</p></li>
+<li><p>In total: 5 858 unique sentences (crowd coders and research assistants)</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="supervised-learning---application-3" class="slide level2">
+<h2>Supervised Learning - Application</h2>
+<p>Snippet from the <a href="https://www.journals.uchicago.edu/doi/suppl/10.1086/715165/suppl_file/191301Appendix.pdf">Appendix</a> - Coding Instructions.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="mueller_5.jpg"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="mueller_6.jpg"></p>
+</div>
+</div>
+</section>
+<section id="supervised-learning---application-4" class="slide level2">
+<h2>Supervised Learning - Application</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># Data from here:https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/7NP2XH&amp;version=1.0</span></span>
+<span id="cb7-2"><a></a></span>
+<span id="cb7-3"><a></a><span class="co"># load coded statements:</span></span>
+<span id="cb7-4"><a></a>dat_classified_english <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data_sentences_classified_english.rds"</span>)</span>
+<span id="cb7-5"><a></a></span>
+<span id="cb7-6"><a></a><span class="co"># check the first two rows:</span></span>
+<span id="cb7-7"><a></a><span class="fu">head</span>(dat_classified_english, <span class="at">n =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 7
+# Groups:   sentence_id [2]
+  text                 sentence_id countryname party date  class class_pro_retro
+  &lt;chr&gt;                &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;          
+1 And to boost the ho… 51320_2015… United Kin… 51320 2015… Futu… Prospective    
+2 In many cases, thei… 53110_2007… Ireland     53110 2007… Pres… Retrospective  </code></pre>
+</div>
+</div>
+</section>
+<section id="intuition---naive-bayes-classification" class="slide level2">
+<h2>Intuition - Naive Bayes Classification</h2>
+<ul>
+<li><p>Imagine, we read hundreds of sentences from election manifestos. Over time, we start to notice patterns:</p>
+<ul>
+<li><p>When a sentence uses words like <em>“justice,” “equity,” “progress”</em> → it’s usually from a <strong>left-leaning</strong> party.</p></li>
+<li><p>When a speech uses words like <em>“tradition,” “freedom,” “patriotism”</em> → it’s often <strong>right-leaning</strong>.</p></li>
+</ul></li>
+<li><p>Now, we get a <strong>new speech.</strong> Based on the words it uses, we <strong>guess the political leaning</strong>.</p></li>
+<li><p>That’s what Naive Bayes does.</p></li>
+</ul>
+</section>
+<section id="intuition---naive-bayes-classification-1" class="slide level2">
+<h2>Intuition - Naive Bayes Classification</h2>
+<ul>
+<li><p><strong>Looks at how common each category is</strong><br>
+(e.g., maybe 60% of your training speeches are left, 40% right — that’s your <strong>prior probability</strong>)</p></li>
+<li><p><strong>Looks at how likely each word is in each category</strong> (e.g., <em>“freedom”</em> appears in 70% of right-wing speeches, but only 10% of left-wing ones)</p></li>
+<li><p><strong>Combines those probabilities using Bayes’ Theorem</strong> (but makes a “naive” assumption that the words are independent)</p></li>
+<li><p><strong>Picks the category with the highest combined score</strong></p></li>
+</ul>
+<p>Naive Bayes guesses the category of a document by checking which category is most likely to have produced those words.</p>
+</section>
+<section id="supervised-learning---application-5" class="slide level2">
+<h2>Supervised Learning - Application</h2>
+<p>First, we need to transform our data to a document feature matrix. In addition, we trim the dfm.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># create document-feature matrices with classified English training sets</span></span>
+<span id="cb9-2"><a></a>dfm_en <span class="ot">&lt;-</span> dat_classified_english <span class="sc">%&gt;%</span> </span>
+<span id="cb9-3"><a></a>  <span class="fu">corpus</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a></a>  <span class="fu">tokens</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb9-5"><a></a>  <span class="fu">dfm</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb9-6"><a></a>  <span class="co"># Keeps only the top 10% most frequent terms</span></span>
+<span id="cb9-7"><a></a>  <span class="fu">dfm_trim</span>(<span class="at">min_termfreq =</span> <span class="fl">0.90</span>, <span class="at">termfreq_type =</span> <span class="st">"quantile"</span>,</span>
+<span id="cb9-8"><a></a>  <span class="co">#Removes any word that appears in more than 30% of documents</span></span>
+<span id="cb9-9"><a></a>           <span class="at">max_docfreq =</span> <span class="fl">0.3</span>, <span class="at">docfreq_type =</span> <span class="st">"prop"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="supervised-learning---application-6" class="slide level2">
+<h2>Supervised Learning - Application</h2>
+<ul>
+<li><p>The <strong>class priors</strong> represent the prior probability of a document belonging to a particular category, before considering any of the words in the document.</p></li>
+<li><p>The <strong>feature scores</strong> represent how likely a word is to occur in a document from a particular category, based on the training data.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">library</span>(quanteda.textmodels)</span>
+<span id="cb10-2"><a></a></span>
+<span id="cb10-3"><a></a>nb_output <span class="ot">&lt;-</span> <span class="fu">textmodel_nb</span>(<span class="at">x =</span> dfm_en, <span class="at">y =</span> dfm_en<span class="sc">$</span>class, <span class="at">prior =</span> <span class="st">"docfreq"</span>)</span>
+<span id="cb10-4"><a></a></span>
+<span id="cb10-5"><a></a><span class="fu">summary</span>(nb_output)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+textmodel_nb.dfm(x = dfm_en, y = dfm_en$class, prior = "docfreq")
+
+Class Priors:
+(showing first 3 elements)
+ Future    Past Present 
+ 0.6007  0.1413  0.2579 
+
+Estimated Feature Scores:
+            boost  housing      we     need     start     build      new
+Future  0.0002471 0.001662 0.02269 0.001662 0.0004268 0.0011905 0.010018
+Past    0.0004508 0.001533 0.01596 0.001623 0.0002705 0.0008115 0.008205
+Present 0.0002152 0.001237 0.01700 0.003121 0.0004304 0.0004304 0.008071
+        generation    cities      many     cases    their     value   society
+Future   0.0002246 0.0002471 0.0007637 4.043e-04 0.006155 0.0008535 0.0008535
+Past     0.0005410 0.0006311 0.0021639 9.016e-05 0.004238 0.0006311 0.0006311
+Present  0.0005380 0.0004304 0.0029592 3.766e-04 0.007694 0.0008609 0.0012913
+        economic   social environmental     terms       is   however     for
+Future  0.002628 0.002830     0.0007412 0.0005615 0.009479 0.0003819 0.02671
+Past    0.003426 0.002525     0.0006311 0.0006311 0.005500 0.0003607 0.02254
+Present 0.003497 0.002475     0.0004842 0.0009685 0.029162 0.0009147 0.02174
+            order      dáil business    which      are      out      on
+Future  0.0010332 0.0003145 0.001752 0.005211 0.006783 0.001864 0.01307
+Past    0.0002705 0.0001803 0.001893 0.004869 0.003877 0.002344 0.01136
+Present 0.0006456 0.0004304 0.001291 0.006403 0.016894 0.002045 0.01087
+            being    issues
+Future  0.0006963 0.0005840
+Past    0.0007213 0.0009016
+Present 0.0017755 0.0006995</code></pre>
+</div>
+</div>
+</section>
+<section id="supervised-learning---application-7" class="slide level2">
+<h2>Supervised Learning - Application</h2>
+<p>We are interested in the probabilities of observing a word in a given class:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">head</span>(<span class="fu">coef</span>(nb_output))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              Future         Past      Present
+boost   0.0002470800 0.0004508160 0.0002152158
+housing 0.0016621743 0.0015327743 0.0012374906
+we      0.0226864331 0.0159588856 0.0170020445
+need    0.0016621743 0.0016229375 0.0031206284
+start   0.0004267745 0.0002704896 0.0004304315
+build   0.0011904762 0.0008114688 0.0004304315</code></pre>
+</div>
+</div>
+<p>Words with highest probability in the “future” class:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">head</span>(<span class="fu">sort</span>(<span class="fu">coef</span>(nb_output)[,<span class="dv">1</span>], <span class="at">decreasing =</span> <span class="cn">TRUE</span>), <span class="at">n =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        for          be          we        that          on        with 
+0.026707098 0.023247978 0.022686433 0.013858940 0.013072776 0.012309075 
+         by          as         new          is         our  government 
+0.010961366 0.010040431 0.010017969 0.009478886 0.009456424 0.008513028 
+        are        this         all 
+0.006783468 0.006761006 0.006424079 </code></pre>
+</div>
+</div>
+</section>
+<section id="supervised-learning---application-8" class="slide level2">
+<h2>Supervised Learning - Application</h2>
+<p>Words with highest probability in the “past” class:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">head</span>(<span class="fu">sort</span>(<span class="fu">coef</span>(nb_output)[,<span class="dv">2</span>], <span class="at">decreasing =</span> <span class="cn">TRUE</span>), <span class="at">n =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        has        have         for          we        been          by 
+0.027860427 0.026057163 0.022540799 0.015958886 0.014696601 0.011450726 
+         on         our        that  government        with         new 
+0.011360563 0.011360563 0.010008115 0.009647462 0.008835993 0.008204851 
+         as           -        this 
+0.007754035 0.007483545 0.007122892 </code></pre>
+</div>
+</div>
+<p>Words with highest probability in the “present” class:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">head</span>(<span class="fu">sort</span>(<span class="fu">coef</span>(nb_output)[,<span class="dv">3</span>], <span class="at">decreasing =</span> <span class="cn">TRUE</span>), <span class="at">n =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         is         for        that          we         are         our 
+0.029161735 0.021736791 0.018562359 0.017002045 0.016894437 0.014096632 
+         on          be          as        with          it          by 
+0.010868396 0.009415689 0.009308081 0.008877650 0.008877650 0.008447218 
+        new       their        this 
+0.008070591 0.007693963 0.007102120 </code></pre>
+</div>
+</div>
+</section>
+<section id="supervised-learning---application-9" class="slide level2">
+<h2>Supervised Learning - Application</h2>
+<p>Which sentences are predicted to have a high probability of past temporal focus?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>dfm_en<span class="sc">$</span>past_nb_probability <span class="ot">&lt;-</span> <span class="fu">predict</span>(nb_output,<span class="at">type =</span> <span class="st">"probability"</span>)</span>
+<span id="cb20-2"><a></a></span>
+<span id="cb20-3"><a></a><span class="fu">sort</span>(dfm_en<span class="sc">$</span>past_nb_probability[, <span class="dv">2</span>], <span class="at">decreasing =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> text1402   text661  text3754  text4363  text4584 
+1.0000000 0.9999996 0.9999990 0.9999990 0.9999990 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>dat_classified_english <span class="sc">%&gt;%</span> </span>
+<span id="cb22-2"><a></a>  <span class="fu">filter</span>(<span class="fu">row_number</span>() <span class="sc">==</span> <span class="dv">1402</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-3"><a></a>  <span class="fu">select</span>(text) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+# Groups:   sentence_id [1]
+  sentence_id text                                                 
+  &lt;chr&gt;       &lt;chr&gt;                                                
+1 &lt;NA&gt;        This was a legacy we inherited from our predecessors.</code></pre>
+</div>
+</div>
+</section>
+<section id="supervised-learning---application-10" class="slide level2">
+<h2>Supervised Learning - Application</h2>
+<ul>
+<li><p>The purpose of training a classification model is to make <strong>out-of-sample</strong> predictions</p></li>
+<li><p>Generally, we have a small hand-coded training dataset and then we predict for lots of other documents</p></li>
+<li><p>Here, we are only predicting for one out-of-sample observation</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>example <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Our plan will cut taxes for the middle class"</span>)</span>
+<span id="cb24-2"><a></a></span>
+<span id="cb24-3"><a></a>dfm_example <span class="ot">&lt;-</span> <span class="fu">tokens</span>(example) <span class="sc">%&gt;%</span></span>
+<span id="cb24-4"><a></a>            <span class="fu">dfm</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb24-5"><a></a>            <span class="fu">dfm_match</span>(<span class="at">features =</span> <span class="fu">featnames</span>(dfm_en))</span>
+<span id="cb24-6"><a></a></span>
+<span id="cb24-7"><a></a><span class="fu">predict</span>(nb_output, <span class="at">newdata =</span> dfm_example, <span class="at">type =</span> <span class="st">"probability"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         Future      Past    Present
+text1 0.7130344 0.1920202 0.09494538</code></pre>
+</div>
+</div>
+</section>
+<section id="advantages-of-naive-bayes" class="slide level2">
+<h2>Advantages of Naive Bayes</h2>
+<ul>
+<li><p>Fast</p>
+<ul>
+<li>Takes seconds to compute, even for very large vocabularies/corpuses</li>
+</ul></li>
+<li><p>Easy to apply</p>
+<ul>
+<li>One line of code in quanteda</li>
+</ul></li>
+<li><p>Can easily be extended to include…</p>
+<ul>
+<li><p>… multiple categories</p></li>
+<li><p>… different text representations (bigrams, tri-grams etc)</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="disadvantages-of-naive-bayes" class="slide level2">
+<h2>Disadvantages of Naive Bayes</h2>
+<ul>
+<li><p>Independence assumption</p>
+<ul>
+<li><p>Independence means NB is unable to account for interactions between words</p>
+<ul>
+<li>e.g.&nbsp;When the word “freedom” appears with the word “speech” that should indicate something different from when it appears without the word “speech”</li>
+</ul></li>
+<li><p>Independence also means that NB is often overconfident</p>
+<ul>
+<li>Each additional word counts as a new piece of information</li>
+</ul></li>
+<li><p>In some contexts, the independence assumption can decrease predictive accuracy</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="disadvantages-of-naive-bayes-1" class="slide level2">
+<h2>Disadvantages of Naive Bayes</h2>
+<ul>
+<li><p>Linear classifier</p>
+<ul>
+<li><p>Other methods (e.g.&nbsp;SVM) allow the classification probabilities to change <em>non-linearly</em> in the word counts</p></li>
+<li><p>e.g.&nbsp;Perhaps seeing the word “tax” once should have a smaller effect on the probability that a text is about tax reform or fiscal policy than seeing the word “tax” five times</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="validating-supervised-learning-classifiers" class="slide level2">
+<h2>Validating supervised learning classifiers</h2>
+<ul>
+<li><p>How can we assess the classification performance of our supervised learning classifier?</p></li>
+<li><p>Our goal is to measure the degree to which the predictions we make correspond to the observed data</p>
+<ul>
+<li><p>Accuracy – the proportion of all predictions that match the observed data</p></li>
+<li><p>Sensitivity – the proportion of “true positive” predictions that match the observed data</p></li>
+<li><p>Specificity – the proportion of “true negative” predictions that match the observed data</p></li>
+</ul></li>
+<li><p>To get informative estimates of these quantities, we need to distinguish between the performance of the classifier on the training set and the test set</p></li>
+</ul>
+</section>
+<section id="training-error-versus-test-error" class="slide level2">
+<h2>Training Error versus Test error</h2>
+<ul>
+<li><p>The test error is the average error that results from using a statistical learning method to predict the response on a new observation, one that was not used in training the method.</p></li>
+<li><p>In contrast, the training error can be easily calculated by applying the statistical learning method to the observations used in its training.</p></li>
+<li><p>Training error rate often is quite different from the test error rate, and in particular the former can underestimate the latter.</p></li>
+</ul>
+</section>
+<section id="bias-variance-trade-off" class="slide level2">
+<h2>Bias-Variance Trade-Off</h2>
+<p>We can think of the test error associated with any given statistical estimator as coming from two fundamental quantities:</p>
+<ol type="1">
+<li><p><strong>Bias</strong></p>
+<ul>
+<li>The bias of an estimator is the error that is introduced by approximating a complicated set of relationships with a simple model that doesn’t characterise the full complexity</li>
+</ul></li>
+<li><p><strong>Variance</strong></p>
+<ul>
+<li>The variance of an estimator is the amount that the predictions produced by the estimator would change if it had been estimated on different data</li>
+</ul></li>
+</ol>
+<p>Ideally we would like to minimize both variance and bias, but these goals are often at odds with each other.</p>
+</section>
+<section id="training--versus-test-set-performance" class="slide level2">
+<h2>Training- versus Test-Set Performance</h2>
+
+<img data-src="bias.jpeg" class="r-stretch"></section>
+<section id="training--versus-test-set-performance-1" class="slide level2">
+<h2>Training- versus Test-Set Performance</h2>
+<ul>
+<li><p>As we use more flexible models, the variance will increase and the bias will decrease</p></li>
+<li><p>The relative rate of change of these two quantities determines whether the test error increases or decreases</p></li>
+<li><p>As we start to make the model more flexible the bias will tend to decrease faster than the variance will increase</p></li>
+<li><p>After some point, adding more flexibility will decrease the the bias a bit, but the variance will increase a lot</p></li>
+</ul>
+<p><strong>Implication</strong>: We need tools which tell us when we have reached the optimal balance between bias and variance.</p>
+</section>
+<section id="test-set-approach" class="slide level2">
+<h2>Test-set approach</h2>
+<ul>
+<li><p>We <em>randomly</em> divide the available set of samples into two parts: a training set and a test set.</p></li>
+<li><p>The model is fit on the training set, and the fitted model is used to predict the responses for the test set.</p></li>
+<li><p>We then calculate classification performance scores (accuracy, sensitivity, specificity, etc) for the test set.</p></li>
+</ul>
+</section>
+<section id="supervised-learning---application-11" class="slide level2">
+<h2>Supervised learning - Application</h2>
+<p>Before we train a model, we need to separate our data into a training set and a test set:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="co"># generate random numbers without replacement (length of coded sentenced dataframe)</span></span>
+<span id="cb26-2"><a></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb26-3"><a></a></span>
+<span id="cb26-4"><a></a>id_train <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(dat_classified_english), <span class="fl">0.8</span><span class="sc">*</span><span class="fu">nrow</span>(dat_classified_english),  <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb26-5"><a></a></span>
+<span id="cb26-6"><a></a><span class="fu">head</span>(id_train, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 2463 2511 2227  526 4291 2986 1842 1142 3371 5349</code></pre>
+</div>
+</div>
+<p><br>
+</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="co"># create document-feature matrices with classified English training sets</span></span>
+<span id="cb28-2"><a></a>dfmat_coded_en <span class="ot">&lt;-</span> dat_classified_english <span class="sc">%&gt;%</span> </span>
+<span id="cb28-3"><a></a>  <span class="fu">corpus</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb28-4"><a></a>  <span class="fu">tokens</span>(<span class="at">remove_punct =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb28-5"><a></a>         <span class="at">remove_number =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb28-6"><a></a>         <span class="at">remove_symbol =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-7"><a></a>  <span class="fu">tokens_tolower</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb28-8"><a></a>  <span class="fu">dfm</span>()</span>
+<span id="cb28-9"><a></a></span>
+<span id="cb28-10"><a></a>dfmat_coded_en<span class="sc">$</span>id_numeric <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ndoc</span>(dfmat_coded_en)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="supervised-learning---application-12" class="slide level2">
+<h2>Supervised learning - Application</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="co"># get training set</span></span>
+<span id="cb29-2"><a></a>dfmat_train <span class="ot">&lt;-</span> <span class="fu">dfm_subset</span>(dfmat_coded_en, id_numeric <span class="sc">%in%</span> id_train)</span>
+<span id="cb29-3"><a></a></span>
+<span id="cb29-4"><a></a><span class="co"># get test set (documents not in id_train)</span></span>
+<span id="cb29-5"><a></a>dfmat_test <span class="ot">&lt;-</span> <span class="fu">dfm_subset</span>(dfmat_coded_en, <span class="sc">!</span>id_numeric <span class="sc">%in%</span> id_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br>
+</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="fu">prop.table</span>(<span class="fu">table</span>(dfmat_train<span class="sc">$</span>class))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+   Future      Past   Present 
+0.5973111 0.1408451 0.2618438 </code></pre>
+</div>
+</div>
+<p><br>
+</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a><span class="fu">prop.table</span>(<span class="fu">table</span>(dfmat_test<span class="sc">$</span>class))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+   Future      Past   Present 
+0.6143345 0.1433447 0.2423208 </code></pre>
+</div>
+</div>
+</section>
+<section id="supervised-learning---application-13" class="slide level2">
+<h2>Supervised Learning - Application</h2>
+<p>Train the Naive Bayes model on the training set:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>nb_train <span class="ot">&lt;-</span> <span class="fu">textmodel_nb</span>(<span class="at">x =</span> dfmat_train, </span>
+<span id="cb34-2"><a></a>                         <span class="at">y =</span> dfmat_train<span class="sc">$</span>class,</span>
+<span id="cb34-3"><a></a>                         <span class="at">prior =</span> <span class="st">"docfreq"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And predict the categories in the test set. <strong>Attention:</strong> Naive Bayes can only take features into consideration that occur both in the training set and the test set, but we can make the features identical using&nbsp;<code>dfm_match().</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>dfmat_matched <span class="ot">&lt;-</span> <span class="fu">dfm_match</span>(dfmat_test, <span class="at">features =</span> <span class="fu">featnames</span>(dfmat_train))</span>
+<span id="cb35-2"><a></a></span>
+<span id="cb35-3"><a></a>dfmat_matched<span class="sc">$</span>predicted_class_nb <span class="ot">&lt;-</span> <span class="fu">predict</span>(nb_train,</span>
+<span id="cb35-4"><a></a>                                        <span class="at">newdata =</span> dfmat_matched,</span>
+<span id="cb35-5"><a></a>                                                <span class="at">type =</span> <span class="st">"class"</span>)</span>
+<span id="cb35-6"><a></a></span>
+<span id="cb35-7"><a></a><span class="fu">summary</span>(dfmat_matched<span class="sc">$</span>predicted_class_nb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Future    Past Present 
+    853      99     220 </code></pre>
+</div>
+</div>
+</section>
+<section id="naive-bayes-classification-performance" class="slide level2">
+<h2>Naive Bayes Classification Performance</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="fu">library</span>(caret)</span>
+<span id="cb37-2"><a></a></span>
+<span id="cb37-3"><a></a>confusion_nb <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="at">predicted_classification =</span> dfmat_matched<span class="sc">$</span>predicted_class_nb,</span>
+<span id="cb37-4"><a></a>                      <span class="at">true_classification =</span> dfmat_matched<span class="sc">$</span>class)</span>
+<span id="cb37-5"><a></a></span>
+<span id="cb37-6"><a></a><span class="fu">confusionMatrix</span>(confusion_nb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Confusion Matrix and Statistics
+
+                        true_classification
+predicted_classification Future Past Present
+                 Future     645   62     146
+                 Past        11   73      15
+                 Present     64   33     123
+
+Overall Statistics
+                                          
+               Accuracy : 0.7176          
+                 95% CI : (0.6909, 0.7432)
+    No Information Rate : 0.6143          
+    P-Value [Acc &gt; NIR] : 7.698e-14       
+                                          
+                  Kappa : 0.4298          
+                                          
+ Mcnemar's Test P-Value : 4.874e-16       
+
+Statistics by Class:
+
+                     Class: Future Class: Past Class: Present
+Sensitivity                 0.8958     0.43452         0.4331
+Specificity                 0.5398     0.97410         0.8908
+Pos Pred Value              0.7562     0.73737         0.5591
+Neg Pred Value              0.7649     0.91146         0.8309
+Prevalence                  0.6143     0.14334         0.2423
+Detection Rate              0.5503     0.06229         0.1049
+Detection Prevalence        0.7278     0.08447         0.1877
+Balanced Accuracy           0.7178     0.70431         0.6619</code></pre>
+</div>
+</div>
+</section>
+<section id="training-set-and-test-set-performance" class="slide level2">
+<h2>Training-Set and Test-Set Performance</h2>
+<ul>
+<li><p>The test set and training set accuracy can be very different</p></li>
+<li><p>As a model becomes more flexible…</p>
+<ul>
+<li><p>…the training set accuracy will almost always increase</p></li>
+<li><p>…the test set accuracy will sometimes decrease</p></li>
+</ul></li>
+<li><p>Imagine that we include a very large number of features in our dfms</p></li>
+<li><p>How does the training/test set accuracy change as we increase the number of features used to train the classifier?</p></li>
+</ul>
+</section>
+<section id="training-set-and-test-set-accuracy" class="slide level2">
+<h2>Training-Set and Test-Set Accuracy</h2>
+
+<img data-src="09-Annotations_files/figure-revealjs/unnamed-chunk-26-1.png" width="960" class="r-stretch"></section>
+<section id="overfitting-and-test-set-accuracy" class="slide level2">
+<h2>Overfitting and Test-Set Accuracy</h2>
+<ul>
+<li><p><strong>Question:</strong> Why does the test-set accuracy decrease when we add additional features?</p></li>
+<li><p><strong>Answer:</strong> Because we are now <em>overfitting</em> our data.</p></li>
+<li><p>Overfitting occurs when we find relationships between words (or n-grams) and classes in our training data that do not generalise to our test data</p></li>
+</ul>
+</section>
+<section id="test-set-validation-for-feature-selection" class="slide level2">
+<h2>Test-Set Validation for Feature Selection</h2>
+<ul>
+<li><p>We can use the test-set performance statistics to select between model specifications</p></li>
+<li><p>We will compare the accuracy, sensitivity and specificity for the following models:</p>
+<ul>
+<li><p>Our “raw” model (unigrams, nothing removed)</p></li>
+<li><p>A “trimmed” model (unigrams, no stopwords, trimmed)</p></li>
+<li><p>A “stopwords” model (unigrams, stopwords removed, not trimmed)</p></li>
+<li><p>A “reduced” model (unigrams, stopwords removed, trimmed, wordstem)</p></li>
+</ul></li>
+<li><p>The “best” model is the one which has the highest classification scores</p></li>
+</ul>
+</section>
+<section id="test-set-validation-for-feature-selection-1" class="slide level2">
+<h2>Test-Set Validation for Feature Selection</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<caption>Model Evaluation Metrics</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Model</th>
+<th style="text-align: right;">Accuracy</th>
+<th style="text-align: right;">Sensitivity</th>
+<th style="text-align: right;">Specificity</th>
+<th style="text-align: right;">Num_Features</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Raw</td>
+<td style="text-align: right;">0.7175768</td>
+<td style="text-align: right;">0.8958333</td>
+<td style="text-align: right;">0.4345238</td>
+<td style="text-align: right;">9490</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Trim</td>
+<td style="text-align: right;">0.6962457</td>
+<td style="text-align: right;">0.8097222</td>
+<td style="text-align: right;">0.6071429</td>
+<td style="text-align: right;">996</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Stopwords</td>
+<td style="text-align: right;">0.6493174</td>
+<td style="text-align: right;">0.8541667</td>
+<td style="text-align: right;">0.2559524</td>
+<td style="text-align: right;">9349</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Reduced</td>
+<td style="text-align: right;">0.6220137</td>
+<td style="text-align: right;">0.7916667</td>
+<td style="text-align: right;">0.2976190</td>
+<td style="text-align: right;">622</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="cross-validation" class="slide level2">
+<h2>Cross-Validation</h2>
+<ul>
+<li><p>To calculate the test-set accuracy we <strong>randomly</strong> allocated observations to the test and training sets</p></li>
+<li><p>If we repeat this process with a new randomization, we will get different test-set performance scores</p></li>
+<li><p>The simple validation approach suffers from two weaknesses:</p>
+<ol type="1">
+<li><p>Estimates of test-set accuracy can be highly variable</p></li>
+<li><p>We are only using a subset of the data to train the model (the observations in the training set)</p></li>
+</ol></li>
+<li><p><strong>Implication:</strong>&nbsp;We need a method that uses all data for training and generates more stable test-set accuracy.</p></li>
+</ul>
+</section>
+<section id="k-fold-cross-validation---concept" class="slide level2">
+<h2>K-fold Cross-Validation - Concept</h2>
+<ul>
+<li><p>K-fold cross-validation is an alternative to a simple train-test split</p></li>
+<li><p>This approach involves randomly dividing the set of observations into k groups, or <em>folds</em>, of approximately equal size. Typical choices are k = 5 or k = 10.</p></li>
+<li><p>For each of the k folds we do the following</p>
+<ol type="1">
+<li><p>Train the Naive Bayes model on all observations not included in the fold</p></li>
+<li><p>Generate predictions for the observations in the fold</p></li>
+<li><p>Calculate the accuracy etc of the predictions for the observations in the held-out fold</p></li>
+</ol></li>
+<li><p>We then calculate the performance metrics by averaging over those computed on each fold</p></li>
+</ul>
+</section>
+<section id="extensions" class="slide level2">
+<h2>Extensions</h2>
+<p>Naive Bayes is only one supervised learning text-classification method</p>
+<ul>
+<li><p>Regularized Logistic Regression</p>
+<ul>
+<li><p>Directly models the probability that each document is in class kk using logistic regression</p></li>
+<li><p>Regularization required to prevent overfitting data</p></li>
+<li><p><code>textmodel_lr</code> in <code>quanteda</code></p></li>
+</ul></li>
+<li><p>Support Vector Machines</p>
+<ul>
+<li><p>SVMs draw a hyperplane through the multidimensional word space that best separates documents into different classes</p></li>
+<li><p>Can accomodate <em>non-linear</em> boundaries between classes</p></li>
+<li><p><code>textmodel_svm()</code> in <code>quanteda</code></p></li>
+</ul></li>
+</ul>
+</section></section>
+<section>
+<section id="coding" class="title-slide slide level1 center">
+<h1>Coding</h1>
+
+</section>
+<section id="coding-1" class="slide level2">
+<h2>Coding</h2>
+<p>Let’s do the same for German!</p>
+<ul>
+<li><p>Train and predict a Naive Bayes model.</p></li>
+<li><p>Validate the model.</p></li>
+<li><p>What happens if you use a Support Vector Machine (SVM) using textmodel_svm()? Is it better? Look at accuracy, specificity, and sensitivity.</p></li>
+</ul>
+<p>You can find the replication archive here: <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/7NP2XH&amp;version=1.0" class="uri">https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/7NP2XH&amp;version=1.0</a></p>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p>Text-as-Data in R | Spring 2025 | University of Mannheim</p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -562,6 +1557,82 @@ David Schweizer
         ]
       });
     </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

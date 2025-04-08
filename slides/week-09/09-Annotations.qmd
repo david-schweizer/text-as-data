@@ -7,10 +7,941 @@ date-format: long
 institute: "University of Mannheim"
 format: 
   revealjs:
+    css: ../../styles.css
     theme: simple
     slide-number: c/t #< collapsed/total
     footer: "Text-as-Data in R | Spring 2025 | University of Mannheim"
 editor: visual
 ---
 
-# TBA
+```{r, include=FALSE}
+library(tidyverse)
+library(quanteda)
+library(quanteda.textmodels)
+```
+
+## Plan for today
+
+Input with illustrative examples
+
+-   Semi-supervised methods: Topic modeling.
+
+-   Supervised learning methods for classification: Naive-Bayes.
+
+## Semi-supervised topic models
+
+-   **Unsupervised topic models** cluster documents based on word co-occurrences. Requires extensive ex-post validation! And meaning of topics might be unclear or ambiguous.
+-   **Semi-supervised topic models** allows us to "nudge" the model towards including specific topics which we define by keywords - requires case knowledge!
+    -   We improve topic-word distributions: Topics prefer to generate words related to our keywords.
+    -   We improve document-topic distributions: Model prefers topic for which we defined keywords
+-   In R: [Seeded LDA](https://koheiw.github.io/seededlda/index.html) and [Keyword Assisted Topic Models (keyATM)](https://keyatm.github.io/keyATM/).
+
+## Seeded LDA - Application
+
+[![](kittel.jpg){fig-align="center"}](https://www.cambridge.org/core/journals/government-and-opposition/article/simply-speaking-language-complexity-among-nonpopulist-actors-in-parliamentary-debates/30B241C0182677F07A6ABD31BC519831)
+
+## Seeded LDA - Application
+
+-   Kittel provides all R scripts for the analysis and a link to the data in her replication files: <https://osf.io/93dqy/files/osfstorage>
+
+-   This allows us to follow exactly the same pre-processing! For example:
+
+    -   Limit the time period
+
+    -   Do not include speeches by the chair
+
+    -   Only consider speeches that are at lease 150 words long
+
+    -   Remove punctuation, symbols, numbers, and stopwords
+
+```{r, echo=TRUE, eval = FALSE}
+# Kittel focuses on common but distinguishing features:
+dfm_german <- dfm(toks_german_2) %>%
+  # Keeps only the top 10% most frequent terms
+  dfm_trim(min_termfreq = 0.90, termfreq_type = "quantile",
+  #Removes any word that appears in more than 10% of documents
+           max_docfreq = 0.1, docfreq_type = "prop")
+```
+
+## Seeded LDA - Application
+
+-   Instead of unsupervised topic modeling, nudging of the topics towards 13 policy areas based on [Klüver & Zubek (2018](https://journals.sagepub.com/doi/10.1177/1354068817695742)).
+
+    -   Adaptation of policy areas from the [Comparative Agendas Project](https://www.comparativeagendas.net/). Originally, 19 major issue areas and 225 sub-issues.
+
+-   We nudge the model by providing keywords that represent the respective topics. The seed words provide prior knowledge to the algorithm.
+
+-   Here: Keywords are "derived through hand coding of bills mentioned in the parliamentary speech data."
+
+## Seeded LDA - Application
+
+We collect the keywords inside a dictionary:
+
+```{r, echo=TRUE, eval = FALSE}
+dictionaryPolicyGER<-dictionary(list(
+  Budget_Tax=c("*budget*","*steuer*"),
+  Welfare=c("*rente*","*versicher*","*gesundheit*"),
+  Decentralization=c("*l?nd*","stadt*","st?dt*","kommun*","bundesland"),
+  Education=c("*schul*","universit*","*bildung*"),
+  Defence=c("verteidig*","*milit*","*waff*","*solda*","*geheimdienst*","*nachrichtendienst*"),
+  Labour=c("*arbeit*","besch?ft*","*einstell*"),
+  Internationalism=c("*internation*","ausland*","ausl?nd*","ausw?rt*","terror*"),
+  EU=c("eu*","*euro*","gemeinsamer markt"),
+  Immigration=c("asyl*","fl?chtl*","gefl?ch*","*migrat*","*ethnisch*","rassis*","aufenthalt*"),
+  Environment=c("umwelt*","*wasser*","*energ*","strom*","gas*","*kohle*","*m?ll*","*recycel*"),
+  Economy=c("*verbrauch*","*bankrott*","*konkurs*","*bank*","*firm*","*miet*","*markt*","*unternehm*","*touris*","*handel*","*immobili*","*eigent*","*verkehr*","*flug*","*wirtschaft*","*auto*"),
+  Agriculture=c("*agrar*","*landwirtsch*","fisch*","*pferd*","*zucht*","*schwein*","rind*","kuh*","lebensmitt*","*nahrung*"),
+  Civil_Rights =c("*zivil*","b?rgerl*","geschlecht*","diskrim*","w?hl*","freih*","privat*","gef?ng*","gefang*","krim*","verbrech*","*gericht*","*polizei*","feuerwehr*","*straf*")))
+```
+
+## Seeded LDA - Application
+
+Now, we can run the semi-supervised topic model:
+
+-   with "dfm_german" as document feature matrix,
+
+-   with "dictionaryPolicyGER" as seed words/keywords,
+
+-   and "residual = TRUE" allows for a residual / miscellaneous topic so that we do not force words into one of the seeded topics if they are a bad fit.
+
+```{r, echo=TRUE, eval=FALSE}
+library(seededlda)
+
+# For Kittel, this code takes ~1.6 hours to execute
+slda <- textmodel_seededlda(dfm_german, dictionaryPolicyGER, residual = TRUE)
+```
+
+## Seeded LDA - Application
+
+```{r, echo=TRUE, eval=FALSE}
+#top 20 words
+terms(slda, 20)
+```
+
+![](kittel_2.jpg)
+
+## Seeded LDA - Application
+
+```{r, echo=TRUE, eval=FALSE}
+#top 20 words
+terms(slda, 20)
+```
+
+![](kittel_3.jpg)
+
+## Seeded LDA - Application
+
+-   Kittel is interested in how the content of the debate influence language complexity.
+
+-   She assigns a speech the topic with the highest document-topic probability:
+
+```{r, echo=TRUE, eval=FALSE}
+slda <- textmodel_seededlda(dfm_german, dictionaryPolicyGER, residual = TRUE)
+
+topic_df<-as.data.frame(topics(slda)) # getting the dominant topics
+
+data_german_3<-cbind(data_german_4,topic_df) # merging with speech level data
+```
+
+. . .
+
+Any concerns? Example for document-topic probability table:
+
+| Document   | Topic 1 | Topic 2 | Topic 3 |
+|------------|---------|---------|---------|
+| Document 1 | 0.80    | 0.15    | 0.05    |
+| Document 2 | 0.34    | 0.33    | 0.33    |
+
+## Seeded LDA - Application
+
+Any concerns about this choice of visualization?
+
+![](kittel_4.jpg)
+
+## Seeded LDA - Application
+
+![](images/clipboard-3297750908.png)
+
+## Resources for keyATM
+
+keyATM allows you to follow a semi-supervised approach. It goes beyond seededLDA by incorporating meta information such as covariates and time. Similar to STM vs. LDA. You can find the vignette, introducing article with examples and other implementations (with replication files!) below:
+
+-   [Vignette](https://keyatm.github.io/keyATM/index.html) & [Eshima, S., Imai, K., & Sasaki, T. (2024). Keyword‐assisted topic models. *American Journal of Political Science*, *68*(2), 730-750.](https://onlinelibrary.wiley.com/doi/full/10.1111/ajps.12779?saml_referrer)
+
+-   [Müller, S., & Ncib, J. (2024). Legislating landlords: Private interests, issue emphasis, and policy positions. *Legislative Studies Quarterly*, *49*(4), 925-942.](https://onlinelibrary.wiley.com/doi/full/10.1111/lsq.12458)
+
+-   [Kollberg, M. (2024). The challenger advantage–how challenger parties disrupt mainstream party dominance in the European Parliament. *Journal of European Public Policy*, 1-30.](https://www.tandfonline.com/doi/full/10.1080/13501763.2024.2391510?scroll=top&needAccess=true#abstract)
+
+## keyATM in Müller & Ncib (2024)
+
+![](mueller_1.jpg)
+
+# Supervised learning methods
+
+## Supervised learning methods
+
+-   Classification of documents into pre-defined categories on the basis of the words they contain.
+-   Supervised learning can be conceptualized as a generalization of dictionary methods
+-   **Dictionaries:**
+    -   Words associated with each category are pre-specified by the researcher
+
+    -   Words typically have a weight of either zero or one
+
+    -   Documents are scored on the basis of words they contain
+
+## Supervised learning methods
+
+-   Classification of documents into pre-defined categories on the basis of the words they contain.
+
+-   Supervised learning can be conceptualized as a generalization of dictionary methods
+
+-   **Supervised learning:**
+
+    -   Words are associated with categories on the basis of pre-labelled training data
+
+    -   Words have are weighted according to their relative prevalence in each each category
+
+    -   Documents are scored on the basis of words they contain
+
+## Supervised learning methods
+
+-   Classification of documents into pre-defined categories on the basis of the words they contain.
+
+-   Supervised learning can be conceptualized as a generalization of dictionary methods
+
+-   **Differences:**
+
+-   The key difference is that in supervised learning the features associated with each category (and their relative weight) are **learned** from the data
+
+-   A major advantage of supervised learning methods is that the weights we estimate are specific to the corpus with which we are working
+
+-   Supervised learning methods will often outperform dictionary methods in classification tasks, particularly when the training sample is large.
+
+## Supervised learning
+
+::: panel-tabset
+## Labelled data
+
+-   Labelled dataset
+
+    -   Labelled (normally hand-coded) data which categorizes texts into different categories
+
+    -   Training set: used to train the classifier
+
+    -   Test set: used to validate the classifier
+
+## Classification
+
+-   Statistical method to:
+
+    -   learn the relationship between coded texts and words
+
+    -   predict unlabeled documents from the words they contain
+
+-   Examples: Naive Bayes, Logistic Regression, SVM, tree-based methods, many others…
+
+## Validation
+
+Validation method:
+
+-   Predictive metrics such as confusion matrix, accuracy, sensitivity, specificity, etc
+
+-   Normally we use a specific type of validation known as *cross-validation*
+
+## Prediction
+
+Out-of-sample prediction:
+
+-   Use the estimated statistical model to predict categories for documents that do not have labels
+:::
+
+## How to get labelled data?
+
+-   External sources of annotation, e.g.
+
+    -   Party labels for election manifestos
+
+-   Expert annotation, e.g.
+
+    -   In many projects, undergraduate students (“expertise” comes from training)
+
+    -   Existing expert annotations, e.g. Comparative Manifesto Project
+
+-   Crowd-sourced coding, e.g.
+
+    -   Ask random people on the internet to code texts into categories
+
+    -   Tends to rely on the “wisdom of crowds” hypothesis: aggregated judgments of non-experts converge to judgments of experts at much lower cost
+
+## Implementation in R
+
+Packages:
+
+-   quanteda and quanteda.textmodels
+
+    -   implementation of standard classification models such as naiveBayes or SVM
+
+    -   works directly on document feature matrix
+
+-   caret (classification and regression training)
+
+    -   unifies usage of machine learning algorithms from different R packages
+
+    -   tools for evaluation
+
+## Supervised Learning - Application
+
+[![](mueller_2.jpg)](https://www.journals.uchicago.edu/doi/10.1086/715165)
+
+**Replication data:** <https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/7NP2XH&version=1.0>
+
+## Supervised Learning - Application
+
+Again, Müller provides all necessary files for replication and allows us to follow the same analysis including text pre-processing.
+
+The overall idea is to map the temporal focus in election manifestos.
+
+-   At the sentence level,
+
+-   In German and English,
+
+-   Into temporal emphasis on the past, present, and future.
+
+::: callout-note
+## Examples - Temporal focus
+
+-   **Past**: "Poverty has not improved at all over the last 20 I years"
+-   **Present:** "As at the last election, we are not making any promises which we cannot keep."
+-   **Future:** "Our overall aim will be a comprehensive health service geared to the future needs of all the Irish people."
+:::
+
+## Supervised Learning - Application
+
+**Labelled data: "Past", "Present", "Future"**
+
+-   German:
+
+    -   Human codings of the Austrian National Election Study: 2002, 2006, 2008, and 2013.
+
+    -   In total: 12 084 unique sentences
+
+-   English:
+
+    -   Crowd sourced text coding. New set of sentences from party manifestos.
+
+    -   In total: 5 858 unique sentences (crowd coders and research assistants)
+
+## Supervised Learning - Application
+
+Snippet from the [Appendix](https://www.journals.uchicago.edu/doi/suppl/10.1086/715165/suppl_file/191301Appendix.pdf) - Coding Instructions.
+
+::: columns
+::: {.column width="50%"}
+![](mueller_5.jpg)
+:::
+
+::: {.column width="50%"}
+![](mueller_6.jpg)
+:::
+:::
+
+## Supervised Learning - Application
+
+```{r, echo=TRUE}
+# Data from here:https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/7NP2XH&version=1.0
+
+# load coded statements:
+dat_classified_english <- readRDS("data_sentences_classified_english.rds")
+
+# check the first two rows:
+head(dat_classified_english, n = 2)
+```
+
+## Intuition - Naive Bayes Classification
+
+-   Imagine, we read hundreds of sentences from election manifestos. Over time, we start to notice patterns:
+
+    -   When a sentence uses words like *“justice,” “equity,” “progress”* → it’s usually from a **left-leaning** party.
+
+    -   When a speech uses words like *“tradition,” “freedom,” “patriotism”* → it’s often **right-leaning**.
+
+-   Now, we get a **new speech.** Based on the words it uses, we **guess the political leaning**.
+
+-   That’s what Naive Bayes does.
+
+## Intuition - Naive Bayes Classification
+
+-   **Looks at how common each category is**\
+    (e.g., maybe 60% of your training speeches are left, 40% right — that’s your **prior probability**)
+
+-   **Looks at how likely each word is in each category** (e.g., *“freedom”* appears in 70% of right-wing speeches, but only 10% of left-wing ones)
+
+-   **Combines those probabilities using Bayes' Theorem** (but makes a “naive” assumption that the words are independent)
+
+-   **Picks the category with the highest combined score**
+
+Naive Bayes guesses the category of a document by checking which category is most likely to have produced those words.
+
+## Supervised Learning - Application
+
+First, we need to transform our data to a document feature matrix. In addition, we trim the dfm.
+
+```{r, echo=TRUE}
+# create document-feature matrices with classified English training sets
+dfm_en <- dat_classified_english %>% 
+  corpus() %>%
+  tokens() %>% 
+  dfm() %>%
+  # Keeps only the top 10% most frequent terms
+  dfm_trim(min_termfreq = 0.90, termfreq_type = "quantile",
+  #Removes any word that appears in more than 30% of documents
+           max_docfreq = 0.3, docfreq_type = "prop")
+```
+
+## Supervised Learning - Application
+
+-   The **class priors** represent the prior probability of a document belonging to a particular category, before considering any of the words in the document.
+
+-   The **feature scores** represent how likely a word is to occur in a document from a particular category, based on the training data.
+
+```{r, echo=TRUE}
+library(quanteda.textmodels)
+
+nb_output <- textmodel_nb(x = dfm_en, y = dfm_en$class, prior = "docfreq")
+
+summary(nb_output)
+```
+
+## Supervised Learning - Application
+
+We are interested in the probabilities of observing a word in a given class:
+
+```{r, echo=TRUE}
+head(coef(nb_output))
+```
+
+Words with highest probability in the "future" class:
+
+```{r, echo=TRUE}
+head(sort(coef(nb_output)[,1], decreasing = TRUE), n = 15)
+```
+
+## Supervised Learning - Application
+
+Words with highest probability in the "past" class:
+
+```{r, echo=TRUE}
+head(sort(coef(nb_output)[,2], decreasing = TRUE), n = 15)
+```
+
+Words with highest probability in the "present" class:
+
+```{r, echo=TRUE}
+head(sort(coef(nb_output)[,3], decreasing = TRUE), n = 15)
+```
+
+## Supervised Learning - Application
+
+Which sentences are predicted to have a high probability of past temporal focus?
+
+```{r, echo=TRUE}
+dfm_en$past_nb_probability <- predict(nb_output,type = "probability")
+
+sort(dfm_en$past_nb_probability[, 2], decreasing = TRUE)[1:5]
+```
+
+```{r, echo=TRUE}
+dat_classified_english %>% 
+  filter(row_number() == 1402) %>% 
+  select(text) 
+```
+
+## Supervised Learning - Application
+
+-   The purpose of training a classification model is to make **out-of-sample** predictions
+
+-   Generally, we have a small hand-coded training dataset and then we predict for lots of other documents
+
+-   Here, we are only predicting for one out-of-sample observation
+
+```{r, echo=TRUE}
+example <- c("Our plan will cut taxes for the middle class")
+
+dfm_example <- tokens(example) %>%
+            dfm() %>%
+            dfm_match(features = featnames(dfm_en))
+
+predict(nb_output, newdata = dfm_example, type = "probability")
+```
+
+## Advantages of Naive Bayes
+
+-   Fast
+
+    -   Takes seconds to compute, even for very large vocabularies/corpuses
+
+-   Easy to apply
+
+    -   One line of code in quanteda
+
+-   Can easily be extended to include…
+
+    -   … multiple categories
+
+    -   … different text representations (bigrams, tri-grams etc)
+
+## Disadvantages of Naive Bayes
+
+-   Independence assumption
+
+    -   Independence means NB is unable to account for interactions between words
+
+        -   e.g. When the word “freedom” appears with the word “speech” that should indicate something different from when it appears without the word “speech”
+
+    -   Independence also means that NB is often overconfident
+
+        -   Each additional word counts as a new piece of information
+
+    -   In some contexts, the independence assumption can decrease predictive accuracy
+
+## Disadvantages of Naive Bayes
+
+-   Linear classifier
+
+    -   Other methods (e.g. SVM) allow the classification probabilities to change *non-linearly* in the word counts
+
+    -   e.g. Perhaps seeing the word “tax” once should have a smaller effect on the probability that a text is about tax reform or fiscal policy than seeing the word “tax” five times
+
+## Validating supervised learning classifiers
+
+-   How can we assess the classification performance of our supervised learning classifier?
+
+-   Our goal is to measure the degree to which the predictions we make correspond to the observed data
+
+    -   Accuracy – the proportion of all predictions that match the observed data
+
+    -   Sensitivity – the proportion of “true positive” predictions that match the observed data
+
+    -   Specificity – the proportion of “true negative” predictions that match the observed data
+
+-   To get informative estimates of these quantities, we need to distinguish between the performance of the classifier on the training set and the test set
+
+## Training Error versus Test error
+
+-   The test error is the average error that results from using a statistical learning method to predict the response on a new observation, one that was not used in training the method.
+
+-   In contrast, the training error can be easily calculated by applying the statistical learning method to the observations used in its training.
+
+-   Training error rate often is quite different from the test error rate, and in particular the former can underestimate the latter.
+
+## Bias-Variance Trade-Off
+
+We can think of the test error associated with any given statistical estimator as coming from two fundamental quantities:
+
+1.  **Bias**
+
+    -   The bias of an estimator is the error that is introduced by approximating a complicated set of relationships with a simple model that doesn’t characterise the full complexity
+
+2.  **Variance**
+
+    -   The variance of an estimator is the amount that the predictions produced by the estimator would change if it had been estimated on different data
+
+Ideally we would like to minimize both variance and bias, but these goals are often at odds with each other.
+
+## Training- versus Test-Set Performance
+
+![](bias.jpeg)
+
+## Training- versus Test-Set Performance
+
+-   As we use more flexible models, the variance will increase and the bias will decrease
+
+-   The relative rate of change of these two quantities determines whether the test error increases or decreases
+
+-   As we start to make the model more flexible the bias will tend to decrease faster than the variance will increase
+
+-   After some point, adding more flexibility will decrease the the bias a bit, but the variance will increase a lot
+
+**Implication**: We need tools which tell us when we have reached the optimal balance between bias and variance.
+
+## Test-set approach
+
+-   We *randomly* divide the available set of samples into two parts: a training set and a test set.
+
+-   The model is fit on the training set, and the fitted model is used to predict the responses for the test set.
+
+-   We then calculate classification performance scores (accuracy, sensitivity, specificity, etc) for the test set.
+
+## Supervised learning - Application
+
+Before we train a model, we need to separate our data into a training set and a test set:
+
+```{r, echo=TRUE}
+# generate random numbers without replacement (length of coded sentenced dataframe)
+set.seed(123)
+
+id_train <- sample(1:nrow(dat_classified_english), 0.8*nrow(dat_classified_english),  replace = FALSE)
+
+head(id_train, 10)
+```
+
+\
+
+```{r, echo=TRUE}
+# create document-feature matrices with classified English training sets
+dfmat_coded_en <- dat_classified_english %>% 
+  corpus() %>%
+  tokens(remove_punct = TRUE,
+         remove_number = TRUE,
+         remove_symbol = TRUE) %>% 
+  tokens_tolower() %>% 
+  dfm()
+
+dfmat_coded_en$id_numeric <- 1:ndoc(dfmat_coded_en)
+```
+
+## Supervised learning - Application
+
+```{r, echo=TRUE}
+# get training set
+dfmat_train <- dfm_subset(dfmat_coded_en, id_numeric %in% id_train)
+
+# get test set (documents not in id_train)
+dfmat_test <- dfm_subset(dfmat_coded_en, !id_numeric %in% id_train)
+```
+
+\
+
+```{r, echo=TRUE}
+prop.table(table(dfmat_train$class))
+```
+
+\
+
+```{r, echo=TRUE}
+prop.table(table(dfmat_test$class))
+```
+
+## Supervised Learning - Application
+
+Train the Naive Bayes model on the training set:
+
+```{r, echo=TRUE}
+nb_train <- textmodel_nb(x = dfmat_train, 
+                         y = dfmat_train$class,
+                         prior = "docfreq")
+```
+
+And predict the categories in the test set. **Attention:** Naive Bayes can only take features into consideration that occur both in the training set and the test set, but we can make the features identical using `dfm_match().`
+
+```{r, echo=TRUE}
+dfmat_matched <- dfm_match(dfmat_test, features = featnames(dfmat_train))
+
+dfmat_matched$predicted_class_nb <- predict(nb_train,
+                                        newdata = dfmat_matched,
+                                                type = "class")
+
+summary(dfmat_matched$predicted_class_nb)
+```
+
+## Naive Bayes Classification Performance
+
+```{r, echo=TRUE}
+library(caret)
+
+confusion_nb <- table(predicted_classification = dfmat_matched$predicted_class_nb,
+                      true_classification = dfmat_matched$class)
+
+confusionMatrix(confusion_nb)
+```
+
+## Training-Set and Test-Set Performance
+
+-   The test set and training set accuracy can be very different
+
+-   As a model becomes more flexible…
+
+    -   …the training set accuracy will almost always increase
+
+    -   …the test set accuracy will sometimes decrease
+
+-   Imagine that we include a very large number of features in our dfms
+
+-   How does the training/test set accuracy change as we increase the number of features used to train the classifier?
+
+## Training-Set and Test-Set Accuracy
+
+```{r, echo=FALSE}
+# Load libraries
+library(ggplot2)
+library(dplyr)
+
+# Example data structure
+df <- data.frame(
+  num_features = rep(c(1000, 10000, 50000, 100000, 150000), each = 2),
+  set = rep(c("Training Set", "Test Set"), times = 5),
+  accuracy = c(0.91, 0.90, 0.95, 0.93, 0.97, 0.95, 0.98, 0.96, 0.98, 0.95),
+  se = c(0.005, 0.006, 0.004, 0.005, 0.003, 0.004, 0.002, 0.003, 0.002, 0.004)
+)
+
+# Plot
+ggplot(df, aes(x = num_features, y = accuracy, color = set, fill = set)) +
+  geom_line(size = 1) +
+  geom_ribbon(aes(ymin = accuracy - se, ymax = accuracy + se), alpha = 0.2, color = NA) +
+  scale_color_manual(values = c("Training Set" = "#66c2a5", "Test Set" = "#fc8d62")) +
+  scale_fill_manual(values = c("Training Set" = "#66c2a5", "Test Set" = "#fc8d62")) +
+  labs(
+    x = "Number of features",
+    y = "Classification Accuracy",
+    color = NULL,
+    fill = NULL
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    legend.position = "right"
+  )
+
+```
+
+## Overfitting and Test-Set Accuracy
+
+-   **Question:** Why does the test-set accuracy decrease when we add additional features?
+
+-   **Answer:** Because we are now *overfitting* our data.
+
+-   Overfitting occurs when we find relationships between words (or n-grams) and classes in our training data that do not generalise to our test data
+
+## Test-Set Validation for Feature Selection
+
+-   We can use the test-set performance statistics to select between model specifications
+
+-   We will compare the accuracy, sensitivity and specificity for the following models:
+
+    -   Our “raw” model (unigrams, nothing removed)
+
+    -   A “trimmed” model (unigrams, no stopwords, trimmed)
+
+    -   A “stopwords” model (unigrams, stopwords removed, not trimmed)
+
+    -   A “reduced” model (unigrams, stopwords removed, trimmed, wordstem)
+
+-   The “best” model is the one which has the highest classification scores
+
+## Test-Set Validation for Feature Selection
+
+```{r, include=FALSE}
+# trimmed
+dfmat_trim <- dat_classified_english %>% 
+  corpus() %>%
+  tokens(remove_punct = TRUE,
+         remove_number = TRUE,
+         remove_symbol = TRUE) %>% 
+  tokens_tolower() %>% 
+  dfm() %>%
+  # Keeps only the top 10% most frequent terms
+  dfm_trim(min_termfreq = 0.90, termfreq_type = "quantile",
+  #Removes any word that appears in more than 30% of documents
+           max_docfreq = 0.3, docfreq_type = "prop")
+
+dfmat_trim$id_numeric <- 1:ndoc(dfmat_trim)
+
+# stopwords
+dfmat_stopwords <- dat_classified_english %>% 
+  corpus() %>%
+  tokens(remove_punct = TRUE,
+         remove_number = TRUE,
+         remove_symbol = TRUE) %>% 
+  tokens_tolower() %>% 
+  tokens_remove(pattern = stopwords("en")) %>% 
+  dfm() 
+
+dfmat_stopwords$id_numeric <- 1:ndoc(dfmat_stopwords)
+
+# reduced
+dfmat_reduced <- dat_classified_english %>% 
+  corpus() %>%
+  tokens(remove_punct = TRUE,
+         remove_number = TRUE,
+         remove_symbol = TRUE) %>% 
+  tokens_tolower() %>% 
+  tokens_remove(pattern = stopwords("en")) %>%  
+  tokens_wordstem() %>%
+  dfm() %>%
+  # Keeps only the top 10% most frequent terms
+  dfm_trim(min_termfreq = 0.90, termfreq_type = "quantile",
+  #Removes any word that appears in more than 30% of documents
+           max_docfreq = 0.3, docfreq_type = "prop")
+
+dfmat_reduced$id_numeric <- 1:ndoc(dfmat_reduced)
+```
+
+```{r, include=FALSE}
+# get training set
+dfmat_trim_train <- dfm_subset(dfmat_trim, id_numeric %in% id_train)
+
+# get test set (documents not in id_train)
+dfmat_trim_test <- dfm_subset(dfmat_trim, !id_numeric %in% id_train)
+
+# get training set
+dfmat_stopwords_train <- dfm_subset(dfmat_stopwords, id_numeric %in% id_train)
+
+# get test set (documents not in id_train)
+dfmat_stopwords_test <- dfm_subset(dfmat_stopwords, !id_numeric %in% id_train)
+
+# get training set
+dfmat_reduced_train <- dfm_subset(dfmat_reduced, id_numeric %in% id_train)
+
+# get test set (documents not in id_train)
+dfmat_reduced_test <- dfm_subset(dfmat_reduced, !id_numeric %in% id_train)
+
+nb_trim_train <- textmodel_nb(x = dfmat_trim_train, 
+                         y = dfmat_train$class,
+                         prior = "docfreq")
+
+nb_stopwords_train <- textmodel_nb(x = dfmat_stopwords_train, 
+                         y = dfmat_train$class,
+                         prior = "docfreq")
+
+nb_reduced_train <- textmodel_nb(x = dfmat_reduced_train, 
+                         y = dfmat_train$class,
+                         prior = "docfreq")
+
+dfmat_matched_trim <- dfm_match(dfmat_trim_test, features = featnames(dfmat_trim_train))
+
+dfmat_matched_trim$predicted_class_nb <- predict(nb_trim_train,
+                                        newdata = dfmat_matched_trim,
+                                                type = "class")
+
+dfmat_matched_reduced <- dfm_match(dfmat_reduced_test, features = featnames(dfmat_reduced_train))
+
+dfmat_matched_reduced$predicted_class_nb <- predict(nb_reduced_train,
+                                        newdata = dfmat_matched_reduced,
+                                                type = "class")
+
+dfmat_matched_stopwords <- dfm_match(dfmat_stopwords_test, features = featnames(dfmat_stopwords_train))
+
+dfmat_matched_stopwords$predicted_class_nb <- predict(nb_stopwords_train,
+                                        newdata = dfmat_matched_stopwords,
+                                                type = "class")
+```
+
+```{r, include=FALSE}
+confusion_nb_trim <- table(predicted_classification = dfmat_matched_trim$predicted_class_nb,
+                      true_classification = dfmat_matched_trim$class)
+
+confusion_trim <- confusionMatrix(confusion_nb_trim)
+
+accuracy_trim <- confusion_trim$overall[1]
+sensitivity_trim <- confusion_trim$byClass[1]
+specificity_trim <- confusion_trim$byClass[2]
+num_features_trim <- ncol(dfmat_matched_trim)
+
+# stopwords
+confusion_nb_stopwords <- table(predicted_classification = dfmat_matched_stopwords$predicted_class_nb,
+                      true_classification = dfmat_matched_stopwords$class)
+
+confusion_stopwords <- confusionMatrix(confusion_nb_stopwords)
+
+accuracy_stopwords <- confusion_stopwords$overall[1]
+sensitivity_stopwords <- confusion_stopwords$byClass[1]
+specificity_stopwords <- confusion_stopwords$byClass[2]
+num_features_stopwords <- ncol(dfmat_matched_stopwords)
+
+# reduced
+confusion_nb_reduced <- table(predicted_classification = dfmat_matched_reduced$predicted_class_nb,
+                      true_classification = dfmat_matched_reduced$class)
+
+confusion_reduced <- confusionMatrix(confusion_nb_reduced)
+
+accuracy_reduced <- confusion_reduced$overall[1]
+sensitivity_reduced <- confusion_reduced$byClass[1]
+specificity_reduced <- confusion_reduced$byClass[2]
+num_features_reduced <- ncol(dfmat_matched_reduced)
+
+confusion_raw <- confusionMatrix(confusion_nb)
+
+accuracy_raw <- confusion_raw$overall[1]
+sensitivity_raw <- confusion_raw$byClass[1]
+specificity_raw <- confusion_raw$byClass[2]
+num_features_raw <- ncol(dfmat_matched)
+```
+
+```{r, echo=FALSE}
+# Create a data frame with the relevant metrics
+results <- data.frame(
+  Model = c("Raw", "Trim", "Stopwords", "Reduced"),
+  Accuracy = c(accuracy_raw, accuracy_trim, accuracy_stopwords, accuracy_reduced),
+  Sensitivity = c(sensitivity_raw, sensitivity_trim, sensitivity_stopwords, sensitivity_reduced),
+  Specificity = c(specificity_raw, specificity_trim, specificity_stopwords, specificity_reduced),
+  Num_Features = c(num_features_raw, num_features_trim, num_features_stopwords, num_features_reduced)
+)
+
+# Display the table using knitr::kable()
+library(knitr)
+kable(results, caption = "Model Evaluation Metrics", format = "markdown")
+
+```
+
+## Cross-Validation
+
+-   To calculate the test-set accuracy we **randomly** allocated observations to the test and training sets
+
+-   If we repeat this process with a new randomization, we will get different test-set performance scores
+
+-   The simple validation approach suffers from two weaknesses:
+
+    1.  Estimates of test-set accuracy can be highly variable
+
+    2.  We are only using a subset of the data to train the model (the observations in the training set)
+
+-   **Implication:** We need a method that uses all data for training and generates more stable test-set accuracy.
+
+## K-fold Cross-Validation - Concept
+
+-   K-fold cross-validation is an alternative to a simple train-test split
+
+-   This approach involves randomly dividing the set of observations into k groups, or *folds*, of approximately equal size. Typical choices are k = 5 or k = 10.
+
+-   For each of the k folds we do the following
+
+    1.  Train the Naive Bayes model on all observations not included in the fold
+
+    2.  Generate predictions for the observations in the fold
+
+    3.  Calculate the accuracy etc of the predictions for the observations in the held-out fold
+
+-   We then calculate the performance metrics by averaging over those computed on each fold
+
+## Extensions
+
+Naive Bayes is only one supervised learning text-classification method
+
+-   Regularized Logistic Regression
+
+    -   Directly models the probability that each document is in class kk using logistic regression
+
+    -   Regularization required to prevent overfitting data
+
+    -   `textmodel_lr` in `quanteda`
+
+-   Support Vector Machines
+
+    -   SVMs draw a hyperplane through the multidimensional word space that best separates documents into different classes
+
+    -   Can accomodate *non-linear* boundaries between classes
+
+    -   `textmodel_svm()` in `quanteda`
+
+# Coding
+
+## Coding
+
+Let's do the same for German!
+
+-   Train and predict a Naive Bayes model.
+
+-   Validate the model.
+
+-   What happens if you use a Support Vector Machine (SVM) using textmodel_svm()? Is it better? Look at accuracy, specificity, and sensitivity.
+
+You can find the replication archive here: <https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/7NP2XH&version=1.0>

@@ -3977,9 +3977,9 @@
   {
     "objectID": "slides/week-09/09-Annotations.html#plan-for-today",
     "href": "slides/week-09/09-Annotations.html#plan-for-today",
-    "title": "Annotations",
+    "title": "(Semi-)Supervised Methods",
     "section": "Plan for today",
-    "text": "Plan for today\nShort input\n\nWhy details matter\n(Text) annotation\nSeeds\n\nCoding\n\nGroup work: Your turn to code!"
+    "text": "Plan for today\nInput with illustrative examples\n\nSemi-supervised methods: Topic modeling.\nSupervised learning methods for classification: Naive-Bayes."
   },
   {
     "objectID": "slides/week-09/09-Annotations.html#why-details-matter-1",
@@ -9240,5 +9240,488 @@
     "title": "Easter Break - No Session",
     "section": "",
     "text": "Work on Assignment 2. The deadline is 28.04.2025 13:00. Feel free to get in touch with me via e-mail about anything unclear or when you are stuck.\nTake the Easter break to think a bit more about what you want to work on in the term paper and what method might be suitable. By now, you have encountered various text-as-data methods: dictionaries, unsupervised, and supervised approaches."
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#seeded-lda---application",
+    "href": "slides/week-09/09-Annotations.html#seeded-lda---application",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Seeded LDA - Application",
+    "text": "Seeded LDA - Application"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#semi-supervised-topic-models",
+    "href": "slides/week-09/09-Annotations.html#semi-supervised-topic-models",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Semi-supervised topic models",
+    "text": "Semi-supervised topic models\n\nUnsupervised topic models cluster documents based on word co-occurrences. Requires extensive ex-post validation! And meaning of topics might be unclear or ambiguous.\nSemi-supervised topic models allows us to “nudge” the model towards including specific topics which we define by keywords - requires case knowledge!\n\nWe improve topic-word distributions: Topics prefer to generate words related to our keywords.\nWe improve document-topic distributions: Model prefers topic for which we defined keywords\n\nIn R: Seeded LDA and Keyword Assisted Topic Models (keyATM)."
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#seeded-lda---application-1",
+    "href": "slides/week-09/09-Annotations.html#seeded-lda---application-1",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Seeded LDA - Application",
+    "text": "Seeded LDA - Application\n\nKittel provides all R scripts for the analysis and a link to the data in her replication files: https://osf.io/93dqy/files/osfstorage\nThis allows us to follow exactly the same pre-processing! For example:\n\nLimit the time period\nDo not include speeches by the chair\nOnly consider speeches that are at lease 150 words long\nRemove punctuation, symbols, numbers, and stopwords\n\n\n\n# Kittel focuses on common but distinguishing features:\ndfm_german &lt;- dfm(toks_german_2) %&gt;%\n  # Keeps only the top 10% most frequent terms\n  dfm_trim(min_termfreq = 0.90, termfreq_type = \"quantile\",\n  #Removes any word that appears in more than 10% of documents\n           max_docfreq = 0.1, docfreq_type = \"prop\")"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#seeded-lda---application-2",
+    "href": "slides/week-09/09-Annotations.html#seeded-lda---application-2",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Seeded LDA - Application",
+    "text": "Seeded LDA - Application\n\nInstead of unsupervised topic modeling, nudging of the topics towards 13 policy areas based on Klüver & Zubek (2018).\n\nAdaptation of policy areas from the Comparative Agendas Project. Originally, 19 major issue areas and 225 sub-issues.\n\nWe nudge the model by providing keywords that represent the respective topics. The seed words provide prior knowledge to the algorithm.\nHere: Keywords are “derived through hand coding of bills mentioned in the parliamentary speech data.”"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#seeded-lda---application-3",
+    "href": "slides/week-09/09-Annotations.html#seeded-lda---application-3",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Seeded LDA - Application",
+    "text": "Seeded LDA - Application\nWe collect the keywords inside a dictionary:\n\ndictionaryPolicyGER&lt;-dictionary(list(\n  Budget_Tax=c(\"*budget*\",\"*steuer*\"),\n  Welfare=c(\"*rente*\",\"*versicher*\",\"*gesundheit*\"),\n  Decentralization=c(\"*l?nd*\",\"stadt*\",\"st?dt*\",\"kommun*\",\"bundesland\"),\n  Education=c(\"*schul*\",\"universit*\",\"*bildung*\"),\n  Defence=c(\"verteidig*\",\"*milit*\",\"*waff*\",\"*solda*\",\"*geheimdienst*\",\"*nachrichtendienst*\"),\n  Labour=c(\"*arbeit*\",\"besch?ft*\",\"*einstell*\"),\n  Internationalism=c(\"*internation*\",\"ausland*\",\"ausl?nd*\",\"ausw?rt*\",\"terror*\"),\n  EU=c(\"eu*\",\"*euro*\",\"gemeinsamer markt\"),\n  Immigration=c(\"asyl*\",\"fl?chtl*\",\"gefl?ch*\",\"*migrat*\",\"*ethnisch*\",\"rassis*\",\"aufenthalt*\"),\n  Environment=c(\"umwelt*\",\"*wasser*\",\"*energ*\",\"strom*\",\"gas*\",\"*kohle*\",\"*m?ll*\",\"*recycel*\"),\n  Economy=c(\"*verbrauch*\",\"*bankrott*\",\"*konkurs*\",\"*bank*\",\"*firm*\",\"*miet*\",\"*markt*\",\"*unternehm*\",\"*touris*\",\"*handel*\",\"*immobili*\",\"*eigent*\",\"*verkehr*\",\"*flug*\",\"*wirtschaft*\",\"*auto*\"),\n  Agriculture=c(\"*agrar*\",\"*landwirtsch*\",\"fisch*\",\"*pferd*\",\"*zucht*\",\"*schwein*\",\"rind*\",\"kuh*\",\"lebensmitt*\",\"*nahrung*\"),\n  Civil_Rights =c(\"*zivil*\",\"b?rgerl*\",\"geschlecht*\",\"diskrim*\",\"w?hl*\",\"freih*\",\"privat*\",\"gef?ng*\",\"gefang*\",\"krim*\",\"verbrech*\",\"*gericht*\",\"*polizei*\",\"feuerwehr*\",\"*straf*\")))"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#seeded-lda-application",
+    "href": "slides/week-09/09-Annotations.html#seeded-lda-application",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Seeded LDA application",
+    "text": "Seeded LDA application\nNow, we can run the semi-supervised topic model:\n\nwith “dfm_german” as document feature matrix,\nwith “dictionaryPolicyGER” as seed words/keywords,\nand “residual = TRUE” allows for a residual / miscellaneous topic so that we do not force words into one of the seeded topics if they are a bad fit.\n\n\nlibrary(seededlda)\n\n# For Kittel, this code takes ~1.6 hours to execute\nslda &lt;- textmodel_seededlda(dfm_german, dictionaryPolicyGER, residual = TRUE)"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#seeded-lda-application-1",
+    "href": "slides/week-09/09-Annotations.html#seeded-lda-application-1",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Seeded LDA application",
+    "text": "Seeded LDA application\n\n#top 20 words\nterms(slda, 20)"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#seeded-lda-application-2",
+    "href": "slides/week-09/09-Annotations.html#seeded-lda-application-2",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Seeded LDA application",
+    "text": "Seeded LDA application\n\n#top 20 words\nterms(slda, 20)"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#seeded-lda---application-4",
+    "href": "slides/week-09/09-Annotations.html#seeded-lda---application-4",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Seeded LDA - Application",
+    "text": "Seeded LDA - Application\nNow, we can run the semi-supervised topic model:\n\nwith “dfm_german” as document feature matrix,\nwith “dictionaryPolicyGER” as seed words/keywords,\nand “residual = TRUE” allows for a residual / miscellaneous topic so that we do not force words into one of the seeded topics if they are a bad fit.\n\n\nlibrary(seededlda)\n\n# For Kittel, this code takes ~1.6 hours to execute\nslda &lt;- textmodel_seededlda(dfm_german, dictionaryPolicyGER, residual = TRUE)"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#seeded-lda-application-3",
+    "href": "slides/week-09/09-Annotations.html#seeded-lda-application-3",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Seeded LDA Application",
+    "text": "Seeded LDA Application\nAny concerns about this choice of visualization?"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#seeded-lda-application-4",
+    "href": "slides/week-09/09-Annotations.html#seeded-lda-application-4",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Seeded LDA application",
+    "text": "Seeded LDA application\n\n\n\n\nText-as-Data in R | Spring 2025 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#seeded-lda---application-5",
+    "href": "slides/week-09/09-Annotations.html#seeded-lda---application-5",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Seeded LDA - Application",
+    "text": "Seeded LDA - Application\n\n#top 20 words\nterms(slda, 20)"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#seeded-lda---application-6",
+    "href": "slides/week-09/09-Annotations.html#seeded-lda---application-6",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Seeded LDA - Application",
+    "text": "Seeded LDA - Application\n\n#top 20 words\nterms(slda, 20)"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#seeded-lda---application-7",
+    "href": "slides/week-09/09-Annotations.html#seeded-lda---application-7",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Seeded LDA - Application",
+    "text": "Seeded LDA - Application\n\nKittel is interested in how the content of the debate influence language complexity.\nShe assigns a speech the topic with the highest document-topic probability:\n\n\nslda &lt;- textmodel_seededlda(dfm_german, dictionaryPolicyGER, residual = TRUE)\n\ntopic_df&lt;-as.data.frame(topics(slda)) # getting the dominant topics\n\ndata_german_3&lt;-cbind(data_german_4,topic_df) # merging with speech level data\n\n\nAny concerns? Example for document-topic probability table:\n\n\n\nDocument\nTopic 1\nTopic 2\nTopic 3\n\n\n\n\nDocument 1\n0.80\n0.15\n0.05\n\n\nDocument 2\n0.34\n0.33\n0.33"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#seeded-lda---application-8",
+    "href": "slides/week-09/09-Annotations.html#seeded-lda---application-8",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Seeded LDA - Application",
+    "text": "Seeded LDA - Application\nAny concerns about this choice of visualization?"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#seeded-lda---application-9",
+    "href": "slides/week-09/09-Annotations.html#seeded-lda---application-9",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Seeded LDA - Application",
+    "text": "Seeded LDA - Application"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#resources-for-keyatm",
+    "href": "slides/week-09/09-Annotations.html#resources-for-keyatm",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Resources for keyATM",
+    "text": "Resources for keyATM\nkeyATM allows you to follow a semi-supervised approach. It goes beyond seededLDA by incorporating meta information such as covariates and time. Similar to STM vs. LDA. You can find the vignette, introducing article with examples and other implementations (with replication files!) below:\n\nVignette & Eshima, S., Imai, K., & Sasaki, T. (2024). Keyword‐assisted topic models. American Journal of Political Science, 68(2), 730-750.\nMüller, S., & Ncib, J. (2024). Legislating landlords: Private interests, issue emphasis, and policy positions. Legislative Studies Quarterly, 49(4), 925-942.\nKollberg, M. (2024). The challenger advantage–how challenger parties disrupt mainstream party dominance in the European Parliament. Journal of European Public Policy, 1-30."
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#keyatm---example-frim-müller-ncib-2024",
+    "href": "slides/week-09/09-Annotations.html#keyatm---example-frim-müller-ncib-2024",
+    "title": "(Semi-)Supervised Methods",
+    "section": "keyATM - Example frim Müller & Ncib (2024)",
+    "text": "keyATM - Example frim Müller & Ncib (2024)"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#keyatm-in-müller-ncib-2024",
+    "href": "slides/week-09/09-Annotations.html#keyatm-in-müller-ncib-2024",
+    "title": "(Semi-)Supervised Methods",
+    "section": "keyATM in Müller & Ncib (2024)",
+    "text": "keyATM in Müller & Ncib (2024)"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#supervised-learning-methods-1",
+    "href": "slides/week-09/09-Annotations.html#supervised-learning-methods-1",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Supervised learning methods",
+    "text": "Supervised learning methods\n\nClassification of documents into pre-defined categories on the basis of the words they contain.\nSupervised learning can be conceptualized as a generalization of dictionary methods\nDictionaries:\n\nWords associated with each category are pre-specified by the researcher\nWords typically have a weight of either zero or one\nDocuments are scored on the basis of words they contain"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#supervised-learning-methods-2",
+    "href": "slides/week-09/09-Annotations.html#supervised-learning-methods-2",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Supervised learning methods",
+    "text": "Supervised learning methods\n\nClassification of documents into pre-defined categories on the basis of the words they contain.\nSupervised learning can be conceptualized as a generalization of dictionary methods\nSupervised learning:\n\nWords are associated with categories on the basis of pre-labelled training data\nWords have are weighted according to their relative prevalence in each each category\nDocuments are scored on the basis of words they contain"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#supervised-learning-methods-3",
+    "href": "slides/week-09/09-Annotations.html#supervised-learning-methods-3",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Supervised learning methods",
+    "text": "Supervised learning methods\n\nClassification of documents into pre-defined categories on the basis of the words they contain.\nSupervised learning can be conceptualized as a generalization of dictionary methods\nDifferences:\nThe key difference is that in supervised learning the features associated with each category (and their relative weight) are learned from the data\nA major advantage of supervised learning methods is that the weights we estimate are specific to the corpus with which we are working\nSupervised learning methods will often outperform dictionary methods in classification tasks, particularly when the training sample is large."
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#supervised-learning",
+    "href": "slides/week-09/09-Annotations.html#supervised-learning",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Supervised learning",
+    "text": "Supervised learning\n\nLabelled dataClassificationValidationPrediction\n\n\n\nLabelled dataset\n\nLabelled (normally hand-coded) data which categorizes texts into different categories\nTraining set: used to train the classifier\nTest set: used to validate the classifier\n\n\n\n\n\nStatistical method to:\n\nlearn the relationship between coded texts and words\npredict unlabeled documents from the words they contain\n\nExamples: Naive Bayes, Logistic Regression, SVM, tree-based methods, many others…\n\n\n\nValidation method:\n\nPredictive metrics such as confusion matrix, accuracy, sensitivity, specificity, etc\nNormally we use a specific type of validation known as cross-validation\n\n\n\nOut-of-sample prediction:\n\nUse the estimated statistical model to predict categories for documents that do not have labels"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#how-to-get-labelled-data",
+    "href": "slides/week-09/09-Annotations.html#how-to-get-labelled-data",
+    "title": "(Semi-)Supervised Methods",
+    "section": "How to get labelled data?",
+    "text": "How to get labelled data?\n\nExternal sources of annotation, e.g.\n\nParty labels for election manifestos\n\nExpert annotation, e.g.\n\nIn many projects, undergraduate students (“expertise” comes from training)\nExisting expert annotations, e.g. Comparative Manifesto Project\n\nCrowd-sourced coding, e.g.\n\nAsk random people on the internet to code texts into categories\nTends to rely on the “wisdom of crowds” hypothesis: aggregated judgments of non-experts converge to judgments of experts at much lower cost"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#implementation-in-r",
+    "href": "slides/week-09/09-Annotations.html#implementation-in-r",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Implementation in R",
+    "text": "Implementation in R\nPackages:\n\nquanteda and quanteda.textmodels\n\nimplementation of standard classification models such as naiveBayes or SVM\nworks directly on document feature matrix\n\ncaret (classification and regression training)\n\nunifies usage of machine learning algorithms from different R packages\ntools for evaluation"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#supervised-learning---application",
+    "href": "slides/week-09/09-Annotations.html#supervised-learning---application",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Supervised Learning - Application",
+    "text": "Supervised Learning - Application\n\nReplication data: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/7NP2XH&version=1.0"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#supervised-learning---application-1",
+    "href": "slides/week-09/09-Annotations.html#supervised-learning---application-1",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Supervised Learning - Application",
+    "text": "Supervised Learning - Application\nAgain, Müller provides all necessary files for replication and allows us to follow the same analysis including text pre-processing.\nThe overall idea is to map the temporal focus in election manifestos.\n\nAt the sentence level,\nIn German and English,\nInto temporal emphasis on the past, present, and future.\n\n\n\n\n\n\n\nExamples - Temporal focus\n\n\n\nPast: “Poverty has not improved at all over the last 20 I years”\nPresent: “As at the last election, we are not making any promises which we cannot keep.”\nFuture: “Our overall aim will be a comprehensive health service geared to the future needs of all the Irish people.”"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#supervised-learning---application-2",
+    "href": "slides/week-09/09-Annotations.html#supervised-learning---application-2",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Supervised Learning - Application",
+    "text": "Supervised Learning - Application\nLabelled data: “Past”, “Present”, “Future”\n\nGerman:\n\nHuman codings of the Austrian National Election Study: 2002, 2006, 2008, and 2013.\nIn total: 12 084 unique sentences\n\nEnglish:\n\nCrowd sourced text coding. New set of sentences from party manifestos.\nIn total: 5 858 unique sentences (crowd coders and research assistants)"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#supervised-learning---application-3",
+    "href": "slides/week-09/09-Annotations.html#supervised-learning---application-3",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Supervised Learning - Application",
+    "text": "Supervised Learning - Application\nSnippet from the Appendix - Coding Instructions."
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#supervised-learning---application-4",
+    "href": "slides/week-09/09-Annotations.html#supervised-learning---application-4",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Supervised Learning - Application",
+    "text": "Supervised Learning - Application\n\n# Data from here:https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/7NP2XH&version=1.0\n\n# load coded statements:\ndat_classified_english &lt;- readRDS(\"data_sentences_classified_english.rds\")\n\n# check the first two rows:\nhead(dat_classified_english, n = 2)\n\n# A tibble: 2 × 7\n# Groups:   sentence_id [2]\n  text                 sentence_id countryname party date  class class_pro_retro\n  &lt;chr&gt;                &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;          \n1 And to boost the ho… 51320_2015… United Kin… 51320 2015… Futu… Prospective    \n2 In many cases, thei… 53110_2007… Ireland     53110 2007… Pres… Retrospective"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#intuition---naive-bayes-classification",
+    "href": "slides/week-09/09-Annotations.html#intuition---naive-bayes-classification",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Intuition - Naive Bayes Classification",
+    "text": "Intuition - Naive Bayes Classification\n\nImagine, we read hundreds of sentences from election manifestos. Over time, we start to notice patterns:\n\nWhen a sentence uses words like “justice,” “equity,” “progress” → it’s usually from a left-leaning party.\nWhen a speech uses words like “tradition,” “freedom,” “patriotism” → it’s often right-leaning.\n\nNow, we get a new speech. Based on the words it uses, we guess the political leaning.\nThat’s what Naive Bayes does."
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#intuition---naive-bayes-classification-1",
+    "href": "slides/week-09/09-Annotations.html#intuition---naive-bayes-classification-1",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Intuition - Naive Bayes Classification",
+    "text": "Intuition - Naive Bayes Classification\n\nLooks at how common each category is\n(e.g., maybe 60% of your training speeches are left, 40% right — that’s your prior probability)\nLooks at how likely each word is in each category (e.g., “freedom” appears in 70% of right-wing speeches, but only 10% of left-wing ones)\nCombines those probabilities using Bayes’ Theorem (but makes a “naive” assumption that the words are independent)\nPicks the category with the highest combined score\n\nNaive Bayes guesses the category of a document by checking which category is most likely to have produced those words."
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#supervised-learning---application-5",
+    "href": "slides/week-09/09-Annotations.html#supervised-learning---application-5",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Supervised Learning - Application",
+    "text": "Supervised Learning - Application\nFirst, we need to transform our data to a document feature matrix. In addition, we trim the dfm.\n\n# create document-feature matrices with classified English training sets\ndfm_en &lt;- dat_classified_english %&gt;% \n  corpus() %&gt;%\n  tokens() %&gt;% \n  dfm() %&gt;%\n  # Keeps only the top 10% most frequent terms\n  dfm_trim(min_termfreq = 0.90, termfreq_type = \"quantile\",\n  #Removes any word that appears in more than 30% of documents\n           max_docfreq = 0.3, docfreq_type = \"prop\")"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#supervised-learning---application-6",
+    "href": "slides/week-09/09-Annotations.html#supervised-learning---application-6",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Supervised Learning - Application",
+    "text": "Supervised Learning - Application\n\nThe class priors represent the prior probability of a document belonging to a particular category, before considering any of the words in the document.\nThe feature scores represent how likely a word is to occur in a document from a particular category, based on the training data.\n\n\nlibrary(quanteda.textmodels)\n\nnb_output &lt;- textmodel_nb(x = dfm_en, y = dfm_en$class, prior = \"docfreq\")\n\nsummary(nb_output)\n\n\nCall:\ntextmodel_nb.dfm(x = dfm_en, y = dfm_en$class, prior = \"docfreq\")\n\nClass Priors:\n(showing first 3 elements)\n Future    Past Present \n 0.6007  0.1413  0.2579 \n\nEstimated Feature Scores:\n            boost  housing      we     need     start     build      new\nFuture  0.0002471 0.001662 0.02269 0.001662 0.0004268 0.0011905 0.010018\nPast    0.0004508 0.001533 0.01596 0.001623 0.0002705 0.0008115 0.008205\nPresent 0.0002152 0.001237 0.01700 0.003121 0.0004304 0.0004304 0.008071\n        generation    cities      many     cases    their     value   society\nFuture   0.0002246 0.0002471 0.0007637 4.043e-04 0.006155 0.0008535 0.0008535\nPast     0.0005410 0.0006311 0.0021639 9.016e-05 0.004238 0.0006311 0.0006311\nPresent  0.0005380 0.0004304 0.0029592 3.766e-04 0.007694 0.0008609 0.0012913\n        economic   social environmental     terms       is   however     for\nFuture  0.002628 0.002830     0.0007412 0.0005615 0.009479 0.0003819 0.02671\nPast    0.003426 0.002525     0.0006311 0.0006311 0.005500 0.0003607 0.02254\nPresent 0.003497 0.002475     0.0004842 0.0009685 0.029162 0.0009147 0.02174\n            order      dáil business    which      are      out      on\nFuture  0.0010332 0.0003145 0.001752 0.005211 0.006783 0.001864 0.01307\nPast    0.0002705 0.0001803 0.001893 0.004869 0.003877 0.002344 0.01136\nPresent 0.0006456 0.0004304 0.001291 0.006403 0.016894 0.002045 0.01087\n            being    issues\nFuture  0.0006963 0.0005840\nPast    0.0007213 0.0009016\nPresent 0.0017755 0.0006995"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#supervised-learning---application-7",
+    "href": "slides/week-09/09-Annotations.html#supervised-learning---application-7",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Supervised Learning - Application",
+    "text": "Supervised Learning - Application\nWe are interested in the probabilities of observing a word in a given class:\n\nhead(coef(nb_output))\n\n              Future         Past      Present\nboost   0.0002470800 0.0004508160 0.0002152158\nhousing 0.0016621743 0.0015327743 0.0012374906\nwe      0.0226864331 0.0159588856 0.0170020445\nneed    0.0016621743 0.0016229375 0.0031206284\nstart   0.0004267745 0.0002704896 0.0004304315\nbuild   0.0011904762 0.0008114688 0.0004304315\n\n\nWords with highest probability in the “future” class:\n\nhead(sort(coef(nb_output)[,1], decreasing = TRUE), n = 15)\n\n        for          be          we        that          on        with \n0.026707098 0.023247978 0.022686433 0.013858940 0.013072776 0.012309075 \n         by          as         new          is         our  government \n0.010961366 0.010040431 0.010017969 0.009478886 0.009456424 0.008513028 \n        are        this         all \n0.006783468 0.006761006 0.006424079"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#supervised-learning---application-8",
+    "href": "slides/week-09/09-Annotations.html#supervised-learning---application-8",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Supervised Learning - Application",
+    "text": "Supervised Learning - Application\nWords with highest probability in the “past” class:\n\nhead(sort(coef(nb_output)[,2], decreasing = TRUE), n = 15)\n\n        has        have         for          we        been          by \n0.027860427 0.026057163 0.022540799 0.015958886 0.014696601 0.011450726 \n         on         our        that  government        with         new \n0.011360563 0.011360563 0.010008115 0.009647462 0.008835993 0.008204851 \n         as           -        this \n0.007754035 0.007483545 0.007122892 \n\n\nWords with highest probability in the “present” class:\n\nhead(sort(coef(nb_output)[,3], decreasing = TRUE), n = 15)\n\n         is         for        that          we         are         our \n0.029161735 0.021736791 0.018562359 0.017002045 0.016894437 0.014096632 \n         on          be          as        with          it          by \n0.010868396 0.009415689 0.009308081 0.008877650 0.008877650 0.008447218 \n        new       their        this \n0.008070591 0.007693963 0.007102120"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#supervised-learning---application-9",
+    "href": "slides/week-09/09-Annotations.html#supervised-learning---application-9",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Supervised Learning - Application",
+    "text": "Supervised Learning - Application\nWhich sentences are predicted to have a high probability of past temporal focus?\n\ndfm_en$past_nb_probability &lt;- predict(nb_output,type = \"probability\")\n\nsort(dfm_en$past_nb_probability[, 2], decreasing = TRUE)[1:5]\n\n text1402   text661  text3754  text4363  text4584 \n1.0000000 0.9999996 0.9999990 0.9999990 0.9999990 \n\n\n\ndat_classified_english %&gt;% \n  filter(row_number() == 1402) %&gt;% \n  select(text) \n\n# A tibble: 1 × 2\n# Groups:   sentence_id [1]\n  sentence_id text                                                 \n  &lt;chr&gt;       &lt;chr&gt;                                                \n1 &lt;NA&gt;        This was a legacy we inherited from our predecessors."
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#supervised-learning---application-10",
+    "href": "slides/week-09/09-Annotations.html#supervised-learning---application-10",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Supervised Learning - Application",
+    "text": "Supervised Learning - Application\n\nThe purpose of training a classification model is to make out-of-sample predictions\nGenerally, we have a small hand-coded training dataset and then we predict for lots of other documents\nHere, we are only predicting for one out-of-sample observation\n\n\nexample &lt;- c(\"Our plan will cut taxes for the middle class\")\n\ndfm_example &lt;- tokens(example) %&gt;%\n            dfm() %&gt;%\n            dfm_match(features = featnames(dfm_en))\n\npredict(nb_output, newdata = dfm_example, type = \"probability\")\n\n         Future      Past    Present\ntext1 0.7130344 0.1920202 0.09494538"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#advantages-and-disadvantages-of-naive-bayes",
+    "href": "slides/week-09/09-Annotations.html#advantages-and-disadvantages-of-naive-bayes",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Advantages and Disadvantages of Naive Bayes",
+    "text": "Advantages and Disadvantages of Naive Bayes\nAdvantages\n\nFast\n\nTakes seconds to compute, even for very large vocabularies/corpuses\n\nEasy to apply\n\nOne line of code in quanteda\n\nCan easily be extended to include…\n\n… multiple categories\n… different text representations (bigrams, tri-grams etc)"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#advantages-and-disadvantages-of-naive-bayes-1",
+    "href": "slides/week-09/09-Annotations.html#advantages-and-disadvantages-of-naive-bayes-1",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Advantages and Disadvantages of Naive Bayes",
+    "text": "Advantages and Disadvantages of Naive Bayes\nDisadvantages\n\nIndependence assumption\n\nIndependence means NB is unable to account for interactions between words\n\ne.g. When the word “freedom” appears with the word “speech” that should indicate something different from when it appears without the word “speech”\n\nIndependence also means that NB is often overconfident\n\nEach additional word counts as a new piece of information\n\nIn some contexts, the independence assumption can decrease predictive accuracy\n\nLinear classifier\n\nOther methods (e.g. SVM) allow the classification probabilities to change non-linearly in the word counts\ne.g. Perhaps seeing the word “tax” once should have a smaller effect on the probability that a text is about tax reform or fiscal policy than seeing the word “tax” five times"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#validating-supervised-learning-classifiers",
+    "href": "slides/week-09/09-Annotations.html#validating-supervised-learning-classifiers",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Validating supervised learning classifiers",
+    "text": "Validating supervised learning classifiers\n\nHow can we assess the classification performance of our supervised learning classifier?\nOur goal is to measure the degree to which the predictions we make correspond to the observed data\n\nAccuracy – the proportion of all predictions that match the observed data\nSensitivity – the proportion of “true positive” predictions that match the observed data\nSpecificity – the proportion of “true negative” predictions that match the observed data\n\nTo get informative estimates of these quantities, we need to distinguish between the performance of the classifier on the training set and the test set"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#training-error-versus-test-error",
+    "href": "slides/week-09/09-Annotations.html#training-error-versus-test-error",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Training Error versus Test error",
+    "text": "Training Error versus Test error\n\nThe test error is the average error that results from using a statistical learning method to predict the response on a new observation, one that was not used in training the method.\nIn contrast, the training error can be easily calculated by applying the statistical learning method to the observations used in its training.\nTraining error rate often is quite different from the test error rate, and in particular the former can underestimate the latter."
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#bias-variance-trade-off",
+    "href": "slides/week-09/09-Annotations.html#bias-variance-trade-off",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Bias-Variance Trade-Off",
+    "text": "Bias-Variance Trade-Off\nWe can think of the test error associated with any given statistical estimator as coming from two fundamental quantities:\n\nBias\n\nThe bias of an estimator is the error that is introduced by approximating a complicated set of relationships with a simple model that doesn’t characterise the full complexity\n\nVariance\n\nThe variance of an estimator is the amount that the predictions produced by the estimator would change if it had been estimated on different data\n\n\nIdeally we would like to minimize both variance and bias, but these goals are often at odds with each other."
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#training--versus-test-set-performance",
+    "href": "slides/week-09/09-Annotations.html#training--versus-test-set-performance",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Training- versus Test-Set Performance",
+    "text": "Training- versus Test-Set Performance"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#training--versus-test-set-performance-1",
+    "href": "slides/week-09/09-Annotations.html#training--versus-test-set-performance-1",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Training- versus Test-Set Performance",
+    "text": "Training- versus Test-Set Performance\n\nAs we use more flexible models, the variance will increase and the bias will decrease\nThe relative rate of change of these two quantities determines whether the test error increases or decreases\nAs we start to make the model more flexible the bias will tend to decrease faster than the variance will increase\nAfter some point, adding more flexibility will decrease the the bias a bit, but the variance will increase a lot\n\nImplication: We need tools which tell us when we have reached the optimal balance between bias and variance."
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#test-set-approach",
+    "href": "slides/week-09/09-Annotations.html#test-set-approach",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Test-set approach",
+    "text": "Test-set approach\n\nWe randomly divide the available set of samples into two parts: a training set and a test set.\nThe model is fit on the training set, and the fitted model is used to predict the responses for the test set.\nWe then calculate classification performance scores (accuracy, sensitivity, specificity, etc) for the test set."
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#supervised-learning---application-11",
+    "href": "slides/week-09/09-Annotations.html#supervised-learning---application-11",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Supervised learning - Application",
+    "text": "Supervised learning - Application\nBefore we train a model, we need to separate our data into a training set and a test set:\n\n# generate random numbers without replacement (length of coded sentenced dataframe)\nset.seed(123)\n\nid_train &lt;- sample(1:nrow(dat_classified_english), 0.8*nrow(dat_classified_english),  replace = FALSE)\n\nhead(id_train, 10)\n\n [1] 2463 2511 2227  526 4291 2986 1842 1142 3371 5349\n\n\n\n\n\n# create document-feature matrices with classified English training sets\ndfmat_coded_en &lt;- dat_classified_english %&gt;% \n  corpus() %&gt;%\n  tokens(remove_punct = TRUE,\n         remove_number = TRUE,\n         remove_symbol = TRUE) %&gt;% \n  tokens_tolower() %&gt;% \n  dfm()\n\ndfmat_coded_en$id_numeric &lt;- 1:ndoc(dfmat_coded_en)"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#supervised-learning---application-12",
+    "href": "slides/week-09/09-Annotations.html#supervised-learning---application-12",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Supervised learning - Application",
+    "text": "Supervised learning - Application\n\n# get training set\ndfmat_train &lt;- dfm_subset(dfmat_coded_en, id_numeric %in% id_train)\n\n# get test set (documents not in id_train)\ndfmat_test &lt;- dfm_subset(dfmat_coded_en, !id_numeric %in% id_train)\n\n\n\n\nprop.table(table(dfmat_train$class))\n\n\n   Future      Past   Present \n0.5973111 0.1408451 0.2618438 \n\n\n\n\n\nprop.table(table(dfmat_test$class))\n\n\n   Future      Past   Present \n0.6143345 0.1433447 0.2423208"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#supervised-learning---application-13",
+    "href": "slides/week-09/09-Annotations.html#supervised-learning---application-13",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Supervised Learning - Application",
+    "text": "Supervised Learning - Application\nTrain the Naive Bayes model on the training set:\n\nnb_train &lt;- textmodel_nb(x = dfmat_train, \n                         y = dfmat_train$class,\n                         prior = \"docfreq\")\n\nAnd predict the categories in the test set. Attention: Naive Bayes can only take features into consideration that occur both in the training set and the test set, but we can make the features identical using dfm_match().\n\ndfmat_matched &lt;- dfm_match(dfmat_test, features = featnames(dfmat_train))\n\ndfmat_matched$predicted_class_nb &lt;- predict(nb_train,\n                                        newdata = dfmat_matched,\n                                                type = \"class\")\n\nsummary(dfmat_matched$predicted_class_nb)\n\n Future    Past Present \n    853      99     220"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#naive-bayes-classification-performance",
+    "href": "slides/week-09/09-Annotations.html#naive-bayes-classification-performance",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Naive Bayes Classification Performance",
+    "text": "Naive Bayes Classification Performance\n\nlibrary(caret)\n\nconfusion_nb &lt;- table(predicted_classification = dfmat_matched$predicted_class_nb,\n                      true_classification = dfmat_matched$class)\n\nconfusionMatrix(confusion_nb)\n\nConfusion Matrix and Statistics\n\n                        true_classification\npredicted_classification Future Past Present\n                 Future     645   62     146\n                 Past        11   73      15\n                 Present     64   33     123\n\nOverall Statistics\n                                          \n               Accuracy : 0.7176          \n                 95% CI : (0.6909, 0.7432)\n    No Information Rate : 0.6143          \n    P-Value [Acc &gt; NIR] : 7.698e-14       \n                                          \n                  Kappa : 0.4298          \n                                          \n Mcnemar's Test P-Value : 4.874e-16       \n\nStatistics by Class:\n\n                     Class: Future Class: Past Class: Present\nSensitivity                 0.8958     0.43452         0.4331\nSpecificity                 0.5398     0.97410         0.8908\nPos Pred Value              0.7562     0.73737         0.5591\nNeg Pred Value              0.7649     0.91146         0.8309\nPrevalence                  0.6143     0.14334         0.2423\nDetection Rate              0.5503     0.06229         0.1049\nDetection Prevalence        0.7278     0.08447         0.1877\nBalanced Accuracy           0.7178     0.70431         0.6619"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#test",
+    "href": "slides/week-09/09-Annotations.html#test",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Test",
+    "text": "Test\n\n\n\n\nText-as-Data in R | Spring 2025 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#training-set-and-test-set-performance",
+    "href": "slides/week-09/09-Annotations.html#training-set-and-test-set-performance",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Training-Set and Test-Set Performance",
+    "text": "Training-Set and Test-Set Performance\n\nThe test set and training set accuracy can be very different\nAs a model becomes more flexible…\n\n…the training set accuracy will almost always increase\n…the test set accuracy will sometimes decrease\n\nImagine that we include a very large number of features in our dfms\nHow does the training/test set accuracy change as we increase the number of features used to train the classifier?"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#training-set-and-test-set-accuracy",
+    "href": "slides/week-09/09-Annotations.html#training-set-and-test-set-accuracy",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Training-Set and Test-Set Accuracy",
+    "text": "Training-Set and Test-Set Accuracy"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#overfitting-and-test-set-accuracy",
+    "href": "slides/week-09/09-Annotations.html#overfitting-and-test-set-accuracy",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Overfitting and Test-Set Accuracy",
+    "text": "Overfitting and Test-Set Accuracy\n\nQuestion: Why does the test-set accuracy decrease when we add additional features?\nAnswer: Because we are now overfitting our data.\nOverfitting occurs when we find relationships between words (or n-grams) and classes in our training data that do not generalise to our test data"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#test-set-validation-for-feature-selection",
+    "href": "slides/week-09/09-Annotations.html#test-set-validation-for-feature-selection",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Test-Set Validation for Feature Selection",
+    "text": "Test-Set Validation for Feature Selection\n\nWe can use the test-set performance statistics to select between model specifications\nWe will compare the accuracy, sensitivity and specificity for the following models:\n\nOur “raw” model (unigrams, nothing removed)\nA “trimmed” model (unigrams, no stopwords, trimmed)\nA “stopwords” model (unigrams, stopwords removed, not trimmed)\nA “reduced” model (unigrams, stopwords removed, trimmed, wordstem)\n\nThe “best” model is the one which has the highest classification scores"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#test-set-validation-for-feature-selection-1",
+    "href": "slides/week-09/09-Annotations.html#test-set-validation-for-feature-selection-1",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Test-Set Validation for Feature Selection",
+    "text": "Test-Set Validation for Feature Selection\n\n\n\nModel Evaluation Metrics\n\n\nModel\nAccuracy\nSensitivity\nSpecificity\nNum_Features\n\n\n\n\nRaw\n0.7175768\n0.8958333\n0.4345238\n9490\n\n\nTrim\n0.6962457\n0.8097222\n0.6071429\n996\n\n\nStopwords\n0.6493174\n0.8541667\n0.2559524\n9349\n\n\nReduced\n0.6220137\n0.7916667\n0.2976190\n622"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#cross-validation",
+    "href": "slides/week-09/09-Annotations.html#cross-validation",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Cross-Validation",
+    "text": "Cross-Validation\n\nTo calculate the test-set accuracy we randomly allocated observations to the test and training sets\nIf we repeat this process with a new randomization, we will get different test-set performance scores\nThe simple validation approach suffers from two weaknesses:\n\nEstimates of test-set accuracy can be highly variable\nWe are only using a subset of the data to train the model (the observations in the training set)\n\nImplication: We need a method that uses all data for training and generates more stable test-set accuracy."
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#k-fold-cross-validation",
+    "href": "slides/week-09/09-Annotations.html#k-fold-cross-validation",
+    "title": "(Semi-)Supervised Methods",
+    "section": "K-fold Cross-Validation",
+    "text": "K-fold Cross-Validation\n\nCross-validation is an alternative to a simple train-test split\nThis approach involves randomly dividing the set of observations into k groups, or folds, of approximately equal size. Typical choices are k = 5 or k = 10.\nFor each of the k folds we do the following\n\nTrain the Naive Bayes model on all observations not included in the fold\nGenerate predictions for the observations in the fold\nCalculate the accuracy etc of the predictions for the observations in the held-out fold\n\nWe then calculate the performance metrics by averaging over those computed on each fold"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#k-fold-cross-validation-application",
+    "href": "slides/week-09/09-Annotations.html#k-fold-cross-validation-application",
+    "title": "(Semi-)Supervised Methods",
+    "section": "K-fold Cross-Validation Application",
+    "text": "K-fold Cross-Validation Application\n\n# \"held_out\" is a logical vetor of true and false values\nget_performance_scores &lt;- function(held_out){\n  \n  # Set up train and test sets for this fold\n  dfmat_train &lt;- dfm_subset(dfmat, !held_out)\n  dfmat_test &lt;- dfm_subset(dfmat, held_out)\n  \n  # Train model on everything except held-out fold\n  nb_train &lt;- textmodel_nb(x = dfmat_train, \n                         y = dfmat_train$class,\n                         prior = \"docfreq\")\n  \n  # Predict for held-out fold\n  dfmat_test$predicted_class &lt;- predict(nb_train, \n                                        newdata = dfmat_test, \n                                        type = \"class\")\n  \n  # Calculate accuracy, specificity, sensitivity\n  confusion_nb &lt;- table(predicted_classification = dfmat_test$predicted_class,\n                        true_classification = dfmat_test$class)\n  \n  confusion_nb_statistics &lt;- confusionMatrix(confusion_nb)\n  \n  accuracy &lt;- confusion_nb_statistics$overall[1]\n  sensitivity &lt;- confusion_nb_statistics$byClass[1]\n  specificity &lt;- confusion_nb_statistics$byClass[2]\n  \n  return(data.frame(accuracy, sensitivity, specificity))\n  \n}"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#k-fold-cross-validation-application-1",
+    "href": "slides/week-09/09-Annotations.html#k-fold-cross-validation-application-1",
+    "title": "(Semi-)Supervised Methods",
+    "section": "K-fold Cross-Validation Application",
+    "text": "K-fold Cross-Validation Application\n\ndfmat &lt;- dat_classified_english %&gt;% \n  corpus() %&gt;%\n  tokens() %&gt;% \n  dfm()\n\nK &lt;- 5\nfolds &lt;- sample(1:K, nrow(dfmat), replace = T)\nget_performance_scores(folds == 1)\n\n          accuracy sensitivity specificity\nAccuracy 0.7137031   0.8756831   0.4659091"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#k-fold-cross-validation-application-2",
+    "href": "slides/week-09/09-Annotations.html#k-fold-cross-validation-application-2",
+    "title": "(Semi-)Supervised Methods",
+    "section": "K-fold Cross-Validation Application",
+    "text": "K-fold Cross-Validation Application\n\nall_folds &lt;- lapply(1:5, function(k) get_performance_scores(folds == k))\nall_folds\n\n[[1]]\n          accuracy sensitivity specificity\nAccuracy 0.7137031   0.8756831   0.4659091\n\n[[2]]\n          accuracy sensitivity specificity\nAccuracy 0.7207131   0.8977273   0.4855491\n\n[[3]]\n          accuracy sensitivity specificity\nAccuracy 0.7251908   0.8905405   0.3666667\n\n[[4]]\n          accuracy sensitivity specificity\nAccuracy 0.6920223   0.8768473   0.4771242\n\n[[5]]\n          accuracy sensitivity specificity\nAccuracy 0.7201337   0.9032698   0.3579545\n\n\n\ncolMeans(bind_rows(all_folds))\n\n   accuracy sensitivity specificity \n  0.7143526   0.8888136   0.4306407"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#extensions",
+    "href": "slides/week-09/09-Annotations.html#extensions",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Extensions",
+    "text": "Extensions\nNaive Bayes is only one supervised learning text-classification method\n\nRegularized Logistic Regression\n\nDirectly models the probability that each document is in class kk using logistic regression\nRegularization required to prevent overfitting data\ntextmodel_lr in quanteda\n\nSupport Vector Machines\n\nSVMs draw a hyperplane through the multidimensional word space that best separates documents into different classes\nCan accomodate non-linear boundaries between classes\ntextmodel_svm() in quanteda"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#advantages-of-naive-bayes",
+    "href": "slides/week-09/09-Annotations.html#advantages-of-naive-bayes",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Advantages of Naive Bayes",
+    "text": "Advantages of Naive Bayes\n\nFast\n\nTakes seconds to compute, even for very large vocabularies/corpuses\n\nEasy to apply\n\nOne line of code in quanteda\n\nCan easily be extended to include…\n\n… multiple categories\n… different text representations (bigrams, tri-grams etc)"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#disadvantages-of-naive-bayes",
+    "href": "slides/week-09/09-Annotations.html#disadvantages-of-naive-bayes",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Disadvantages of Naive Bayes",
+    "text": "Disadvantages of Naive Bayes\n\nIndependence assumption\n\nIndependence means NB is unable to account for interactions between words\n\ne.g. When the word “freedom” appears with the word “speech” that should indicate something different from when it appears without the word “speech”\n\nIndependence also means that NB is often overconfident\n\nEach additional word counts as a new piece of information\n\nIn some contexts, the independence assumption can decrease predictive accuracy"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#disadvantages-of-naive-bayes-1",
+    "href": "slides/week-09/09-Annotations.html#disadvantages-of-naive-bayes-1",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Disadvantages of Naive Bayes",
+    "text": "Disadvantages of Naive Bayes\n\nLinear classifier\n\nOther methods (e.g. SVM) allow the classification probabilities to change non-linearly in the word counts\ne.g. Perhaps seeing the word “tax” once should have a smaller effect on the probability that a text is about tax reform or fiscal policy than seeing the word “tax” five times"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#coding",
+    "href": "slides/week-09/09-Annotations.html#coding",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Coding",
+    "text": "Coding\n\n\n\nText-as-Data in R | Spring 2025 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#k-fold-cross-validation---concept",
+    "href": "slides/week-09/09-Annotations.html#k-fold-cross-validation---concept",
+    "title": "(Semi-)Supervised Methods",
+    "section": "K-fold Cross-Validation - Concept",
+    "text": "K-fold Cross-Validation - Concept\n\nK-fold cross-validation is an alternative to a simple train-test split\nThis approach involves randomly dividing the set of observations into k groups, or folds, of approximately equal size. Typical choices are k = 5 or k = 10.\nFor each of the k folds we do the following\n\nTrain the Naive Bayes model on all observations not included in the fold\nGenerate predictions for the observations in the fold\nCalculate the accuracy etc of the predictions for the observations in the held-out fold\n\nWe then calculate the performance metrics by averaging over those computed on each fold"
+  },
+  {
+    "objectID": "slides/week-09/09-Annotations.html#coding-1",
+    "href": "slides/week-09/09-Annotations.html#coding-1",
+    "title": "(Semi-)Supervised Methods",
+    "section": "Coding",
+    "text": "Coding\nLet’s do the same for German!\n\nTrain and predict a Naive Bayes model.\nValidate the model.\nWhat happens if you use a Support Vector Machine (SVM) using textmodel_svm()? Is it better? Look at accuracy, specificity, and sensitivity.\n\nYou can find the replication archive here: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/7NP2XH&version=1.0\n\n\n\nText-as-Data in R | Spring 2025 | University of Mannheim"
+  },
+  {
+    "objectID": "weeks/week-09-0.html",
+    "href": "weeks/week-09-0.html",
+    "title": "(Semi-)Supervised Methods",
+    "section": "",
+    "text": "To Do’s before our session\n\nTry out to run topic models on your own! On parliamentary speeches or a data set of your choice. Experiment with the number of topics and inspect the model outcomes.\n\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\n(Semi-)Supervised Methods\n\n\nWeek 09\n\n\nApr 8, 2025\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nYou can find the coded sentences in German for the coding task on ILIAS."
   }
 ]

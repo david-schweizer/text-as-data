@@ -11,3 +11,15 @@
   font-size: 32px !important;
 }
 
+
+.reveal table {
+  font-size: 32px;
+}
+
+.callout-note .callout-content li {
+  font-size: 24px !important;
+}
+
+.callout-note .callout-title p{
+  font-size: 24px !important;
+}

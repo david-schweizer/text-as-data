@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="">
+<meta name="dcterms.date" content="2025-04-08">
 
-<title>Text-as-Data - Course Website - Schedule, slides &amp; materials</title>
+<title>Text-as-Data - Course Website - (Semi-)Supervised Methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,23 +25,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -70,20 +72,20 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-material .list');
+    const listingTargetEl = window.document.querySelector('#listing-slides .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-subtitle','listing-title','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-title','listing-subtitle','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
       searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-material'] = new List('listing-material', options);
+    window['quarto-listings']['listing-slides'] = new List('listing-slides', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -127,7 +129,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="css/custom.css">
+<link rel="stylesheet" href="../css/custom.css">
 </head>
 
 <body class="nav-sidebar docked">
@@ -139,7 +141,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./material.html">Schedule, slides &amp; materials</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">(Semi-)Supervised Methods</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -153,8 +155,8 @@ window.Quarto = {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./images/hex_sticker.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/hex_sticker.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main">
     <a href="https://ilias.uni-mannheim.de/goto.php?target=crs_1589237&amp;client_id=ILIAS" title="Ilias" class="quarto-navigation-tool px-1" aria-label="Ilias"><i class="bi bi-bank"></i></a>
@@ -169,19 +171,19 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./syllabus.html" class="sidebar-item-text sidebar-link">
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material.html" class="sidebar-item-text sidebar-link active">
+  <a href="../material.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schedule, slides &amp; materials</span></a>
   </div>
 </li>
@@ -191,14 +193,23 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#to-dos-before-our-session" id="toc-to-dos-before-our-session" class="nav-link active" data-scroll-target="#to-dos-before-our-session">To Do’s before our session</a></li>
+  <li><a href="#seminar-slides" id="toc-seminar-slides" class="nav-link" data-scroll-target="#seminar-slides">Seminar slides</a></li>
+  <li><a href="#materials" id="toc-materials" class="nav-link" data-scroll-target="#materials">Materials</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Schedule, slides &amp; materials</h1>
+<h1 class="title">(Semi-)Supervised Methods</h1>
+<p class="subtitle lead">Week 09</p>
 </div>
 
 
@@ -206,6 +217,12 @@ window.Quarto = {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 8, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -215,17 +232,23 @@ window.Quarto = {
 </header>
 
 
-<p>You can find all course materials below. This includes slides, code, links to readings, etc.</p>
-<p>Just click on the topic of the respective week.</p>
-<div id="listing-material" class="quarto-listing quarto-listing-container-table">
+<section id="to-dos-before-our-session" class="level1">
+<h1>To Do’s before our session</h1>
+<ul>
+<li>Try out to run topic models on your own! On parliamentary speeches or a data set of your choice. Experiment with the number of topics and inspect the model outcomes.</li>
+</ul>
+</section>
+<section id="seminar-slides" class="level1">
+<h1>Seminar slides</h1>
+<div id="listing-slides" class="quarto-listing quarto-listing-container-table">
 <table class="quarto-listing-table table">
 <thead>
 <tr>
 <th>
-Week
+Topic
 </th>
 <th>
-Topic
+Session
 </th>
 <th>
 Date
@@ -233,136 +256,15 @@ Date
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-listing-date-sort="1739228400000" data-listing-file-modified-sort="1739274615504" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="202" data-listing-title-sort="Intro Session" data-listing-filename-sort="week-01.qmd">
+<tr data-index="0" data-listing-date-sort="1744063200000" data-listing-file-modified-sort="1744110317924" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="25" data-listing-word-count-sort="4949" data-listing-title-sort="(Semi-)Supervised Methods" data-listing-filename-sort="09-Annotations.qmd">
 <td>
-<span class="listing-subtitle">Week 01</span>
+<a href="../slides/week-09/09-Annotations.html" class="title listing-title">(Semi-)Supervised Methods</a>
 </td>
-<td>
-<a href="./weeks/week-01.html" class="title listing-title">Intro Session</a>
-</td>
-<td>
-<span class="listing-date">February 11, 2025</span>
-</td>
-</tr>
-<tr data-index="1" data-listing-date-sort="1739833200000" data-listing-file-modified-sort="1739882323455" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="145" data-listing-title-sort="Intro to R" data-listing-filename-sort="week-02.qmd">
-<td>
-<span class="listing-subtitle">Week 02</span>
-</td>
-<td>
-<a href="./weeks/week-02.html" class="title listing-title">Intro to R</a>
-</td>
-<td>
-<span class="listing-date">February 18, 2025</span>
-</td>
-</tr>
-<tr data-index="2" data-listing-date-sort="1740438000000" data-listing-file-modified-sort="1740420081876" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="100" data-listing-title-sort="Tidyverse I: Import, tidy, and transform" data-listing-filename-sort="week-03.qmd">
-<td>
-<span class="listing-subtitle">Week 03</span>
-</td>
-<td>
-<a href="./weeks/week-03.html" class="title listing-title">Tidyverse I: Import, tidy, and transform</a>
-</td>
-<td>
-<span class="listing-date">February 25, 2025</span>
-</td>
-</tr>
-<tr data-index="3" data-listing-date-sort="1741042800000" data-listing-file-modified-sort="1741096727445" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="35" data-listing-title-sort="Tidyverse II: Transform, and visualize" data-listing-filename-sort="week-04.qmd">
-<td>
-<span class="listing-subtitle">Week 04</span>
-</td>
-<td>
-<a href="./weeks/week-04.html" class="title listing-title">Tidyverse II: Transform, and visualize</a>
-</td>
-<td>
-<span class="listing-date">March 04, 2025</span>
-</td>
-</tr>
-<tr data-index="4" data-listing-date-sort="1741647600000" data-listing-file-modified-sort="1741776351386" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="46" data-listing-title-sort="Intro to Text-as-Data I: Concepts" data-listing-filename-sort="week-05.qmd">
-<td>
-<span class="listing-subtitle">Week 05</span>
-</td>
-<td>
-<a href="./weeks/week-05.html" class="title listing-title">Intro to Text-as-Data I: Concepts</a>
-</td>
-<td>
-<span class="listing-date">March 11, 2025</span>
-</td>
-</tr>
-<tr data-index="5" data-listing-date-sort="1742252400000" data-listing-file-modified-sort="1742307110114" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="118" data-listing-title-sort="Intro to Text-as-Data II: Workflow" data-listing-filename-sort="week-06.qmd">
-<td>
-<span class="listing-subtitle">Week 06</span>
-</td>
-<td>
-<a href="./weeks/week-06.html" class="title listing-title">Intro to Text-as-Data II: Workflow</a>
-</td>
-<td>
-<span class="listing-date">March 18, 2025</span>
-</td>
-</tr>
-<tr data-index="6" data-listing-date-sort="1742857200000" data-listing-file-modified-sort="1742911900302" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="32" data-listing-title-sort="Dictionary and Sentiment" data-listing-filename-sort="week-07.qmd">
-<td>
-<span class="listing-subtitle">Week 07</span>
-</td>
-<td>
-<a href="./weeks/week-07.html" class="title listing-title">Dictionary and Sentiment</a>
-</td>
-<td>
-<span class="listing-date">March 25, 2025</span>
-</td>
-</tr>
-<tr data-index="7" data-listing-date-sort="1743458400000" data-listing-file-modified-sort="1743412428662" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="53" data-listing-title-sort="Topic Models" data-listing-filename-sort="week-08.qmd">
-<td>
-<span class="listing-subtitle">Week 08</span>
-</td>
-<td>
-<a href="./weeks/week-08.html" class="title listing-title">Topic Models</a>
-</td>
-<td>
-<span class="listing-date">April 01, 2025</span>
-</td>
-</tr>
-<tr data-index="8" data-listing-date-sort="1744063200000" data-listing-file-modified-sort="1744117584426" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="48" data-listing-title-sort="(Semi-)Supervised Methods" data-listing-filename-sort="week-09-0.qmd">
 <td>
 <span class="listing-subtitle">Week 09</span>
 </td>
 <td>
-<a href="./weeks/week-09-0.html" class="title listing-title">(Semi-)Supervised Methods</a>
-</td>
-<td>
-<span class="listing-date">April 08, 2025</span>
-</td>
-</tr>
-<tr data-index="9" data-listing-date-sort="1744668000000" data-listing-file-modified-sort="1744019659836" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="72" data-listing-title-sort="Easter Break - No Session" data-listing-filename-sort="week-09-1-easter.qmd">
-<td>
-<span class="listing-subtitle">Week 10</span>
-</td>
-<td>
-<a href="./weeks/week-09-1-easter.html" class="title listing-title">Easter Break - No Session</a>
-</td>
-<td>
-<span class="listing-date">April 15, 2025</span>
-</td>
-</tr>
-<tr data-index="10" data-listing-date-sort="1745272800000" data-listing-file-modified-sort="1744019639133" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="72" data-listing-title-sort="Easter Break - No Session" data-listing-filename-sort="week-09-2-easter.qmd">
-<td>
-<span class="listing-subtitle">Week 11</span>
-</td>
-<td>
-<a href="./weeks/week-09-2-easter.html" class="title listing-title">Easter Break - No Session</a>
-</td>
-<td>
-<span class="listing-date">April 22, 2025</span>
-</td>
-</tr>
-<tr data-index="11" data-listing-date-sort="1745877600000" data-listing-file-modified-sort="1744018738062" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="72" data-listing-title-sort="Web scraping: Basics" data-listing-filename-sort="week-10.qmd">
-<td>
-<span class="listing-subtitle">Week 12</span>
-</td>
-<td>
-<a href="./weeks/week-10.html" class="title listing-title">Web scraping: Basics</a>
-</td>
-<td>
-<span class="listing-date">April 29, 2025</span>
+<span class="listing-date">Apr 8, 2025</span>
 </td>
 </tr>
 </tbody>
@@ -371,9 +273,14 @@ Date
 No matching items
 </div>
 </div>
+</section>
+<section id="materials" class="level1">
+<h1>Materials</h1>
+<p>You can find the coded sentences in German for the coding task on ILIAS.</p>
 
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
