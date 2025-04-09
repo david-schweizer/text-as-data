@@ -9723,5 +9723,25 @@
     "title": "(Semi-)Supervised Methods",
     "section": "",
     "text": "To Do’s before our session\n\nTry out to run topic models on your own! On parliamentary speeches or a data set of your choice. Experiment with the number of topics and inspect the model outcomes.\n\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\n(Semi-)Supervised Methods\n\n\nWeek 09\n\n\nApr 8, 2025\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nYou can find the coded sentences in German for the coding task on ILIAS."
+  },
+  {
+    "objectID": "reading.html",
+    "href": "reading.html",
+    "title": "Text-as-Data Literature",
+    "section": "",
+    "text": "In the following, you find a selection of political science articles that apply on of the methods we have covered in our seminar: Dictionary approaches, unsupervised and semi-supervised topic models, and supervised learning approaches. Some of the articles go also beyond or combine these methods and implement more complex text-as-data methods.\nFor most of these articles, you can inspect the supplementary materials and/or their replication files. This allows you to follow their analyses in detail!\nYou can read all of the articles using the university’s library account when they are not open access.\nIf you find an article that you like, please let me know and I will add it to the list.",
+    "crumbs": [
+      "Text-as-Data literature"
+    ]
+  },
+  {
+    "objectID": "reading.html#reading-list",
+    "href": "reading.html#reading-list",
+    "title": "Text-as-Data Literature",
+    "section": "Reading list:",
+    "text": "Reading list:\nIn italics after the citation: The approach used that is similar to our methods covered in the seminar. Many of the articles combine multiple approaches and also implement additional approaches not covered.\n\nAsh, E., Krümmel, J., & Slapin, J. B. (2024). Gender and reactions to speeches in German parliamentary debates. American Journal of Political Science. - Unsupervised topic model\nGessler, T., & Hunger, S. (2022). How the refugee crisis and radical right parties shape party competition on immigration. Political Science Research and Methods, 10(3), 524-544. - Dictionaries, Supervised learning\nKittel, R. C. (2025). Simply Speaking? Language Complexity among (Non-) Populist Actors in Parliamentary Debates. Government and Opposition, 1-31. - Semi-supervised approach, complexity scores\nKollberg, M. (2024). The challenger advantage–how challenger parties disrupt mainstream party dominance in the European Parliament. Journal of European Public Policy, 1-30. - Dictionaries, semi-supervised\nMerkley, E., & Stecula, D. A. (2021). Party cues in the news: Democratic elites, Republican backlash, and the dynamics of climate skepticism. British Journal of Political Science, 51(4), 1439-1456. - Dictionaries\nMüller, S. (2022). The temporal focus of campaign communication. The Journal of Politics, 84(1), 585-590. - Supervised learning\nMüller, S., & Ncib, J. (2024). Legislating landlords: Private interests, issue emphasis, and policy positions. Legislative Studies Quarterly, 49(4), 925-942. - Semi-supervised approaches\nMüller, S., & Proksch, S. O. (2024). Nostalgia in European party politics: a text-based measurement approach. British Journal of Political Science, 54(3), 993-1005. - Dictionaries, supervised learning\nPeterson, A., & Spirling, A. (2018). Classification accuracy as a substantive quantity of interest: Measuring polarization in westminster systems. Political Analysis, 26(1), 120-128. - Supervised learning\nProksch, S. O., Lowe, W., Wäckerle, J., & Soroka, S. (2019). Multilingual sentiment analysis: A new approach to measuring conflict in legislative speeches. Legislative Studies Quarterly, 44(1), 97-131. - Dictionaries\nSchürmann, L. (2024). The impact of local protests on political elite communication: evidence from Fridays for Future in Germany. Journal of Elections, Public Opinion and Parties, 34(3), 510-530. - Dictionaries\nSchürmann, L., & Stier, S. (2023). Who represents the constituency? Online political communication by members of parliament in the German mixed‐member electoral system. Legislative Studies Quarterly, 48(1), 219-234. - Dictionaries\nSimonsen, K. B., & Widmann, T. (2025). When Do Political Parties Moralize?: A Cross-National Study of the Use of Moral Language in Political Communication on Immigration. British Journal of Political Science, 55, e33. - Dictionaries",
+    "crumbs": [
+      "Text-as-Data literature"
+    ]
   }
 ]

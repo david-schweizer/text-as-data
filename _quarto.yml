@@ -24,6 +24,8 @@ website:
         text: Syllabus
       - href: material.qmd
         text: Schedule, slides & materials
+      - href: reading.qmd
+        text: Text-as-Data literature
         
 format:
   html:

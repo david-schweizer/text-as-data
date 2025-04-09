@@ -1,0 +1,109 @@
+---
+title: "Text-as-Data Literature"
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+In the following, you find a selection of political science articles
+that apply on of the methods we have covered in our seminar: Dictionary
+approaches, unsupervised and semi-supervised topic models, and
+supervised learning approaches. Some of the articles go also beyond or
+combine these methods and implement more complex text-as-data methods.
+
+For most of these articles, you can inspect the supplementary materials
+and/or their replication files. This allows you to follow their analyses
+in detail!
+
+You can read all of the articles using the university's library account
+when they are not open access.
+
+If you find an article that you like, please let me know and I will add
+it to the list.
+
+## Reading list:
+
+In italics after the citation: The approach used that is similar to our
+methods covered in the seminar. Many of the articles combine multiple
+approaches and also implement additional approaches not covered.
+
+-   [Ash, E., Krümmel, J., & Slapin, J. B. (2024). Gender and reactions
+    to speeches in German parliamentary debates. *American Journal of
+    Political
+    Science*.](https://onlinelibrary.wiley.com/doi/full/10.1111/ajps.12867)
+    *- Unsupervised topic model*
+
+-   [Gessler, T., & Hunger, S. (2022). How the refugee crisis and
+    radical right parties shape party competition on
+    immigration. *Political Science Research and Methods*, *10*(3),
+    524-544.](https://www.cambridge.org/core/journals/political-science-research-and-methods/article/how-the-refugee-crisis-and-radical-right-parties-shape-party-competition-on-immigration/ACFDD7C29E6EB431BCADF194FE114DE4#article)
+    *- Dictionaries, Supervised learning*
+
+-   [Kittel, R. C. (2025). Simply Speaking? Language Complexity among
+    (Non-) Populist Actors in Parliamentary Debates. *Government and
+    Opposition*,
+    1-31.](https://www.cambridge.org/core/journals/government-and-opposition/article/simply-speaking-language-complexity-among-nonpopulist-actors-in-parliamentary-debates/30B241C0182677F07A6ABD31BC519831)
+    *- Semi-supervised approach, complexity scores*
+
+-   [Kollberg, M. (2024). The challenger advantage–how challenger
+    parties disrupt mainstream party dominance in the European
+    Parliament. *Journal of European Public Policy*,
+    1-30.](https://www.tandfonline.com/doi/full/10.1080/13501763.2024.2391510#abstract)
+    *- Dictionaries, semi-supervised*
+
+-   [Merkley, E., & Stecula, D. A. (2021). Party cues in the news:
+    Democratic elites, Republican backlash, and the dynamics of climate
+    skepticism. *British Journal of Political Science*, *51*(4),
+    1439-1456.](https://www.cambridge.org/core/journals/british-journal-of-political-science/article/party-cues-in-the-news-democratic-elites-republican-backlash-and-the-dynamics-of-climate-skepticism/9B173B1C904EC70361BBBF51C456A343)
+    *- Dictionaries*
+
+-   [Müller, S. (2022). The temporal focus of campaign
+    communication. *The Journal of Politics*, *84*(1),
+    585-590.](https://www.journals.uchicago.edu/doi/abs/10.1086/715165?casa_token=GFQOLUscLEYAAAAA:7cxqAz35adoj_32HKwO9bwpBihkJyfKhGlnTlH2XumBy52txECX1bzwTApWhQ-IrytUxwt_QaYw&casa_token=FDR5qxOnMiwAAAAA:S_MCFzKIxwG2NuGI7Mw2QSggBbViTifstnhsnefAB-ZnBhQ6t7VjyTsQJOHA4L0jDSbkIa3NjCI)
+    *- Supervised learning*
+
+-   [Müller, S., & Ncib, J. (2024). Legislating landlords: Private
+    interests, issue emphasis, and policy positions. *Legislative
+    Studies Quarterly*, *49*(4),
+    925-942.](https://onlinelibrary.wiley.com/doi/full/10.1111/lsq.12458)
+    *- Semi-supervised approaches*
+
+-   [Müller, S., & Proksch, S. O. (2024). Nostalgia in European party
+    politics: a text-based measurement approach. *British Journal of
+    Political Science*, *54*(3),
+    993-1005.](https://www.cambridge.org/core/journals/british-journal-of-political-science/article/nostalgia-in-european-party-politics-a-textbased-measurement-approach/41C48D60B039F3081EB522FB76646E96) -
+    *Dictionaries, supervised learning*
+
+-   [Peterson, A., & Spirling, A. (2018). Classification accuracy as a
+    substantive quantity of interest: Measuring polarization in
+    westminster systems. *Political Analysis*, *26*(1),
+    120-128.](https://www.cambridge.org/core/journals/political-analysis/article/classification-accuracy-as-a-substantive-quantity-of-interest-measuring-polarization-in-westminster-systems/45746D999CFCD1CB43E362392D7B2FB4)
+    *- Supervised learning*
+
+-   [Proksch, S. O., Lowe, W., Wäckerle, J., & Soroka, S. (2019).
+    Multilingual sentiment analysis: A new approach to measuring
+    conflict in legislative speeches. *Legislative Studies
+    Quarterly*, *44*(1),
+    97-131.](https://onlinelibrary.wiley.com/doi/full/10.1111/lsq.12218)
+    *- Dictionaries*
+
+-   [Schürmann, L. (2024). The impact of local protests on political
+    elite communication: evidence from Fridays for Future in
+    Germany. *Journal of Elections, Public Opinion and
+    Parties*, *34*(3),
+    510-530.](https://www.tandfonline.com/doi/full/10.1080/17457289.2023.2189729)
+    *- Dictionaries*
+
+-   [Schürmann, L., & Stier, S. (2023). Who represents the constituency?
+    Online political communication by members of parliament in the
+    German mixed‐member electoral system. *Legislative Studies
+    Quarterly*, *48*(1),
+    219-234.](https://onlinelibrary.wiley.com/doi/full/10.1111/lsq.12379)
+    *- Dictionaries*
+
+-   [Simonsen, K. B., & Widmann, T. (2025). When Do Political Parties
+    Moralize?: A Cross-National Study of the Use of Moral Language in
+    Political Communication on Immigration. *British Journal of
+    Political Science*, *55*,
+    e33.](https://www.cambridge.org/core/journals/british-journal-of-political-science/article/when-do-political-parties-moralize-a-crossnational-study-of-the-use-of-moral-language-in-political-communication-on-immigration/ACFEDBCD015BDEEA277CE689D3816E96)
+    *- Dictionaries*
