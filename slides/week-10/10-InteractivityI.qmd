@@ -1,5 +1,5 @@
 ---
-title: "Web scraping basics"
+title: "Web scraping: Basics"
 subtitle: "Week 12"
 author: "David Schweizer"
 date: "April 29, 2025"
@@ -7,6 +7,7 @@ date-format: long
 institute: "University of Mannheim"
 format: 
   revealjs:
+    css: ../../styles.css 
     theme: simple
     slide-number: c/t #< collapsed/total
     footer: "Text-as-Data in R | Spring 2025 | University of Mannheim"
@@ -58,13 +59,13 @@ Today and in the next sessions we will use:
 
     -   You have to restart open browsers after installing Java
 
-## Chrome
+## Chrome & Firefox
 
--   Chrome is best suited for `RSelenium` and favoured by most developers
+-   In general, chrome is best suited for `RSelenium` and favoured by most developers
 
 -   You can download Chrome from https://www.google.com/chrome/
 
--   However, Firefox is also fine!
+-   However, Firefox is also fine! I use both when webscraping
 
 ## SelectorGadget
 
@@ -173,65 +174,6 @@ Crawl-delay: 10
 ```
 :::
 
-## robots.txt Example
-
-```{r, eval=FALSE, echo=TRUE}
-User-agent: googlebot
-Allow: /
-```
-
-This websites' protocol is only for Google:
-
--   Google is allowed to scrape everything without any restrictions
--   No defined rule for anyone else
-
-## robots.txt Example
-
-::: panel-tabset
-## Example
-
-```{r, eval=FALSE, echo=TRUE}
-User-agent: googlebot
-Disallow: /about/
-Disallow: /history/
-Crawl-delay: 60
-```
-
-## Meaning
-
-This websites' protocol is only for Google:
-
--   Google is disallowed to scrape two specific paths
--   Only allowed to access at 60-seconds intervals
--   No defined rule for anyone else
-:::
-
-## robots.txt Example
-
-::: panel-tabset
-## Example
-
-```{r, eval=FALSE, echo=TRUE}
-User-agent: googlebot
-Allow: /
-Crawl-delay: 5
-
-User-agent: bing
-Disallow: /
-  
-User-agent: *
-Allow: /companyinfo/
-```
-
-## Meaning
-
-This websites' protocol is for different user agents:
-
--   Google is allowed to scrape everything in 60-second intervals
--   Bing is not allowed to scrape anything
--   Everyone else can scrape the section or page located at www.EXAMPLE.com/companyinfo/
-:::
-
 ## robots.txt Additional Information
 
 The key *Visit-time* is less often used:
@@ -254,6 +196,26 @@ Disallow: /impressum/
 Visit-time: 00:00-06:00 # visit website during night time in Germany
 ```
 
+## Example
+
+https://www.gruene-bundestag.de/robots.txt
+
+![](robots.jpg)
+
+## ChatGPT or others can help:
+
+Line-by-Line Explanation
+
+`User-agent: *` : Applies the rules to **all web crawlers** (e.g., Googlebot, Bingbot).
+
+`Disallow:` (Blocked Paths) : `/fileadmin/_temp_/` – Blocks access to temporary file storage.
+
+`Allow:` (Exceptions to Blocking) : `/fileadmin/_processed_/` – Allows crawlers to index processed/optimized media.
+
+`Sitemap:` `https://www.gruene-bundestag.de/sitemap.xml` – Helps crawlers discover and index the site more efficiently.
+
+Any path **not listed** in the file is considered **allowed** by default. Examples of allowed paths: - `/about/` ✅
+
 ## robotstxt Package
 
 The *robotstxt* package simplifies the process of checking website protocols:
@@ -268,14 +230,11 @@ The package has two main functions:
 
 ## robotstxt Package - robotstxt function
 
-::: panel-tabset
-## Info
-
 Using the *robotstxt* function to get a protocol:
 
 -   provide the base URL of a website within the *domain* argument as a string
 
--   most of the time no additional arguments needed \## Code
+-   most of the time no additional arguments needed
 
 ```{r, eval = FALSE, echo =TRUE}
 library(robotstxt)
@@ -285,7 +244,6 @@ robotstxt(
   ...
 )
 ```
-:::
 
 ## robotstxt Package - robotstxt function
 
@@ -348,7 +306,7 @@ paths_allowed("https://www.uni-mannheim.de/",
 ```{r, echo=TRUE}
 paths_allowed("https://www.uni-mannheim.de/",
               paths = c("/studienangebot/", "/ausschreibungen/"),
-              bot = c("googlebot", "bing"))
+              bot = c("googlebot", "GPTBot"))
 ```
 
 ## Exercise 1
@@ -366,7 +324,7 @@ Check the protocols of a newspaper such as ZEIT ONLINE (www.zeit.de) or the New 
     -   using the `robotstxt` function
     -   are there any ethical issues?
 
-## Ethics: Speed, Purpose, and Storage
+## ⚠️ Speed, Purpose, and Storage
 
 -   **Speed:** repeated, automatic web scraping in very short-time intervals can lead to overloading a website's server
 
@@ -640,11 +598,15 @@ The **body** element contains the main body of pages:
 
 ## HTML - Syntax / Tags
 
-Most elements have opening and closing tags:
+Most elements have opening and closing tags.
+
+[Input:]{.underline}
 
 ``` md
 <p> This is a paragraph. </p>
 ```
+
+[Output:]{.underline}
 
 This is a paragraph.
 
@@ -654,11 +616,15 @@ The tag name, here *p*, defines structure of the element; the closing tag has a 
 
 ## HTML - Syntax / Attributes
 
-Elements might have attributes
+Elements might have attributes.
+
+[Input:]{.underline}
 
 ``` md
 <p>This is <strong id="count-sentence">one</strong> sentence.</p> 
 ```
+
+[Output:]{.underline}
 
 This is **one** sentence.
 
@@ -668,13 +634,17 @@ Attributes are added to the opening tags (separated with a white space) - the id
 
 ## HTML - Syntax / Attributes
 
-There can be more than one attribute in a single element:
+There can be more than one attribute in a single element.
+
+[Input:]{.underline}
 
 ``` md
 <p>This is <strong class="count" id="count-sentence">one</strong> sentence.</p> 
 
 <p>This is <strong class="count" id="count-paragraph">one</strong> paragraph.</p> 
 ```
+
+[Output:]{.underline}
 
 This is **one** sentence.
 
@@ -686,11 +656,15 @@ The same *class* attribute can apply to multiple elements (here: *count*)
 
 ## HTML - Links
 
-Links are provided with the *a* (anchor) element
+Links are provided with the *a* (anchor) element.
+
+[Input:]{.underline}
 
 ``` md
 <p>Click <a href="https://www.uni-mannheim.de/">here</a> for the university's website.</p>
 ```
+
+[Output:]{.underline}
 
 Click [here](href=%22https://www.uni-mannheim.de/) for the university's website.
 
@@ -700,12 +674,16 @@ Click [here](href=%22https://www.uni-mannheim.de/) for the university's website.
 
 ## HTML - Links
 
-Links can have titles:
+Links can also have titles.
+
+[Input:]{.underline}
 
 ``` md
 <p>Click <a title="This text appears when visitors hover over the link"
 href="https://www.uni-mannheim.de/">here</a> to get to the university's website.</p>
 ```
+
+[Output:]{.underline}
 
 Click [here](https://www.uni-mannheim.de/ "This text appears when visitors hover over the link") to get to the university's website.
 
@@ -715,21 +693,22 @@ The title attribute is one of the optional attributes - becomes visible when hov
 
 ## HTML - Lists
 
-The `<ul>` tag introduces un-ordered lists, while the `<li>` tag defines lists items
+The `<ul>` tag introduces un-ordered lists, while the `<li>` tag defines lists items.
+
+[Input:]{.underline}
 
 ``` md
 <ul>
   <li>books</li>
   <li>journal articles</li>
-  <li>reports</li>
 </ul>
 ```
+
+[Output:]{.underline}
 
 -   books
 
 -   journal articles
-
--   reports
 
 ::: {.callout-note appearance="simple"}
 Ordered lists are introduced with the the `<ol>` tag instead
@@ -770,12 +749,16 @@ This is the concluding paragraph.
 
 ## HTML - Containers
 
-The `<span>` tag also defines a section, containing a part of an element
+The `<span>` tag also defines a section, containing a part of an element.
+
+[Input:]{.underline}
 
 ```{r, eval=FALSE, echo=TRUE}
 <p>This is an <`span` style="text-decoration: underline;">important paragraph<`/span`>, which
 you must read carefully.<p>
 ```
+
+[Output:]{.underline}
 
 This is an [important paragraph]{style="text-decoration: underline;"}, which you must read carefully.
 
@@ -835,7 +818,7 @@ CSS syntax consists of a declaration, with one or more properties and values
 
 ```         
 p {font-size:14px;}
-h1 h2 {color:blue;}
+h1, h2 {color:blue;}
 .count {background-color:yellow;}
 #count-sentence {color:red; font-size:16px;}
 ```
@@ -894,6 +877,15 @@ Externally defined rules
 -   apply to all matching selectors on linked pages
 :::
 
+## CSS file
+
+```{r, eval=FALSE, echo=TRUE}
+# We save this as style.css. You can create this with any text file (text editor). Also rom within R.
+
+p {font-size:14px;}
+h1, h2 {color:blue;}
+```
+
 ## Code
 
 ```{r, echo=TRUE, eval=FALSE}
@@ -901,7 +893,7 @@ Externally defined rules
 <!DOCTYPE html> 
 <html> 
   <head> 
-    <link rel="styles" href="C.css"> 
+    <link rel="stylesheet" href="style.css"> 
     <title>This is a title</title>
   </head> 
   <body>
@@ -921,7 +913,7 @@ Externally defined rules
 CSS rules can also be defined inline:
 
 ``` md
-<p>This is <strong `style="color:blue;"`>one</strong> sentence.</p>
+<p>This is <strong style="color:blue;">one</strong> sentence.</p>
 ```
 
 <p>This is <strong style="color:blue;">one</strong> sentence.</p>

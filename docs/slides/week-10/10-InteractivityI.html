@@ -12,7 +12,7 @@
 
   <meta name="author" content="David Schweizer">
   <meta name="dcterms.date" content="2025-04-29">
-  <title>Text-as-Data - Course Website - Web scraping basics</title>
+  <title>Text-as-Data - Course Website - Web scraping: Basics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -97,6 +97,7 @@
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="../../styles.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -392,7 +393,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Web scraping basics</h1>
+  <h1 class="title">Web scraping: Basics</h1>
   <p class="subtitle">Week 12</p>
 
 <div class="quarto-title-authors">
@@ -446,12 +447,12 @@ David Schweizer
 </ul></li>
 </ul>
 </section>
-<section id="chrome" class="slide level2">
-<h2>Chrome</h2>
+<section id="chrome-firefox" class="slide level2">
+<h2>Chrome &amp; Firefox</h2>
 <ul>
-<li><p>Chrome is best suited for <code>RSelenium</code> and favoured by most developers</p></li>
+<li><p>In general, chrome is best suited for <code>RSelenium</code> and favoured by most developers</p></li>
 <li><p>You can download Chrome from https://www.google.com/chrome/</p></li>
-<li><p>However, Firefox is also fine!</p></li>
+<li><p>However, Firefox is also fine! I use both when webscraping</p></li>
 </ul>
 </section>
 <section id="selectorgadget" class="slide level2">
@@ -582,89 +583,38 @@ David Schweizer
 </div>
 </div>
 </section>
-<section id="robots.txt-example" class="slide level2">
-<h2>robots.txt Example</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>User<span class="sc">-</span>agent<span class="sc">:</span> googlebot</span>
-<span id="cb4-2"><a></a>Allow<span class="sc">:</span> <span class="er">/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>This websites’ protocol is only for Google:</p>
-<ul>
-<li>Google is allowed to scrape everything without any restrictions</li>
-<li>No defined rule for anyone else</li>
-</ul>
-</section>
-<section id="robots.txt-example-1" class="slide level2">
-<h2>robots.txt Example</h2>
-<div class="panel-tabset">
-<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Example</a></li><li><a href="#tabset-3-2">Meaning</a></li></ul>
-<div class="tab-content">
-<div id="tabset-3-1">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>User<span class="sc">-</span>agent<span class="sc">:</span> googlebot</span>
-<span id="cb5-2"><a></a>Disallow<span class="sc">:</span> <span class="er">/</span>about<span class="sc">/</span></span>
-<span id="cb5-3"><a></a>Disallow<span class="sc">:</span> <span class="er">/</span>history<span class="sc">/</span></span>
-<span id="cb5-4"><a></a>Crawl<span class="sc">-</span>delay<span class="sc">:</span> <span class="dv">60</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div id="tabset-3-2">
-<p>This websites’ protocol is only for Google:</p>
-<ul>
-<li>Google is disallowed to scrape two specific paths</li>
-<li>Only allowed to access at 60-seconds intervals</li>
-<li>No defined rule for anyone else</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="robots.txt-example-2" class="slide level2">
-<h2>robots.txt Example</h2>
-<div class="panel-tabset">
-<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Example</a></li><li><a href="#tabset-4-2">Meaning</a></li></ul>
-<div class="tab-content">
-<div id="tabset-4-1">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>User<span class="sc">-</span>agent<span class="sc">:</span> googlebot</span>
-<span id="cb6-2"><a></a>Allow<span class="sc">:</span> <span class="er">/</span></span>
-<span id="cb6-3"><a></a>Crawl<span class="sc">-</span>delay<span class="sc">:</span> <span class="dv">5</span></span>
-<span id="cb6-4"><a></a></span>
-<span id="cb6-5"><a></a>User<span class="sc">-</span>agent<span class="sc">:</span> bing</span>
-<span id="cb6-6"><a></a>Disallow<span class="sc">:</span> <span class="er">/</span></span>
-<span id="cb6-7"><a></a>  </span>
-<span id="cb6-8"><a></a>User<span class="sc">-</span>agent<span class="sc">:</span> <span class="er">*</span></span>
-<span id="cb6-9"><a></a>Allow<span class="sc">:</span> <span class="er">/</span>companyinfo<span class="sc">/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div id="tabset-4-2">
-<p>This websites’ protocol is for different user agents:</p>
-<ul>
-<li>Google is allowed to scrape everything in 60-second intervals</li>
-<li>Bing is not allowed to scrape anything</li>
-<li>Everyone else can scrape the section or page located at www.EXAMPLE.com/companyinfo/</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
 <section id="robots.txt-additional-information" class="slide level2">
 <h2>robots.txt Additional Information</h2>
 <p>The key <em>Visit-time</em> is less often used:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>User<span class="sc">-</span>agent<span class="sc">:</span> <span class="er">*</span></span>
-<span id="cb7-2"><a></a>Allow<span class="sc">:</span> <span class="er">/</span></span>
-<span id="cb7-3"><a></a>Disallow<span class="sc">:</span> <span class="er">/</span>impressum<span class="sc">/</span></span>
-<span id="cb7-4"><a></a>Visit<span class="sc">-</span>time<span class="sc">:</span> <span class="dv">00</span><span class="sc">:</span><span class="dv">00-06</span><span class="sc">:</span><span class="dv">00</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>User<span class="sc">-</span>agent<span class="sc">:</span> <span class="er">*</span></span>
+<span id="cb4-2"><a></a>Allow<span class="sc">:</span> <span class="er">/</span></span>
+<span id="cb4-3"><a></a>Disallow<span class="sc">:</span> <span class="er">/</span>impressum<span class="sc">/</span></span>
+<span id="cb4-4"><a></a>Visit<span class="sc">-</span>time<span class="sc">:</span> <span class="dv">00</span><span class="sc">:</span><span class="dv">00-06</span><span class="sc">:</span><span class="dv">00</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><em>robots.txt</em> files can also include comments (preceded by #)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># This is a robots.txt file</span></span>
-<span id="cb8-2"><a></a></span>
-<span id="cb8-3"><a></a>User<span class="sc">-</span>agent<span class="sc">:</span> <span class="er">*</span></span>
-<span id="cb8-4"><a></a>Allow<span class="sc">:</span> <span class="er">/</span></span>
-<span id="cb8-5"><a></a>Disallow<span class="sc">:</span> <span class="er">/</span>impressum<span class="sc">/</span></span>
-<span id="cb8-6"><a></a>Visit<span class="sc">-</span>time<span class="sc">:</span> <span class="dv">00</span><span class="sc">:</span><span class="dv">00-06</span><span class="sc">:</span><span class="dv">00</span> <span class="co"># visit website during night time in Germany</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># This is a robots.txt file</span></span>
+<span id="cb5-2"><a></a></span>
+<span id="cb5-3"><a></a>User<span class="sc">-</span>agent<span class="sc">:</span> <span class="er">*</span></span>
+<span id="cb5-4"><a></a>Allow<span class="sc">:</span> <span class="er">/</span></span>
+<span id="cb5-5"><a></a>Disallow<span class="sc">:</span> <span class="er">/</span>impressum<span class="sc">/</span></span>
+<span id="cb5-6"><a></a>Visit<span class="sc">-</span>time<span class="sc">:</span> <span class="dv">00</span><span class="sc">:</span><span class="dv">00-06</span><span class="sc">:</span><span class="dv">00</span> <span class="co"># visit website during night time in Germany</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="example-2" class="slide level2">
+<h2>Example</h2>
+<p>https://www.gruene-bundestag.de/robots.txt</p>
+
+<img data-src="robots.jpg" class="r-stretch"></section>
+<section id="chatgpt-or-others-can-help" class="slide level2">
+<h2>ChatGPT or others can help:</h2>
+<p>Line-by-Line Explanation</p>
+<p><code>User-agent: *</code> : Applies the rules to <strong>all web crawlers</strong> (e.g., Googlebot, Bingbot).</p>
+<p><code>Disallow:</code> (Blocked Paths) : <code>/fileadmin/_temp_/</code> – Blocks access to temporary file storage.</p>
+<p><code>Allow:</code> (Exceptions to Blocking) : <code>/fileadmin/_processed_/</code> – Allows crawlers to index processed/optimized media.</p>
+<p><code>Sitemap:</code> <code>https://www.gruene-bundestag.de/sitemap.xml</code> – Helps crawlers discover and index the site more efficiently.</p>
+<p>Any path <strong>not listed</strong> in the file is considered <strong>allowed</strong> by default. Examples of allowed paths: - <code>/about/</code> ✅</p>
 </section>
 <section id="robotstxt-package" class="slide level2">
 <h2>robotstxt Package</h2>
@@ -681,32 +631,25 @@ David Schweizer
 </section>
 <section id="robotstxt-package---robotstxt-function" class="slide level2">
 <h2>robotstxt Package - robotstxt function</h2>
-<div class="panel-tabset">
-<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Info</a></li></ul>
-<div class="tab-content">
-<div id="tabset-5-1">
 <p>Using the <em>robotstxt</em> function to get a protocol:</p>
 <ul>
 <li><p>provide the base URL of a website within the <em>domain</em> argument as a string</p></li>
-<li><p>most of the time no additional arguments needed ## Code</p></li>
+<li><p>most of the time no additional arguments needed</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">library</span>(robotstxt)</span>
-<span id="cb9-2"><a></a></span>
-<span id="cb9-3"><a></a><span class="fu">robotstxt</span>(</span>
-<span id="cb9-4"><a></a>  <span class="at">domain =</span> <span class="cn">NULL</span>,</span>
-<span id="cb9-5"><a></a>  ...</span>
-<span id="cb9-6"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">library</span>(robotstxt)</span>
+<span id="cb6-2"><a></a></span>
+<span id="cb6-3"><a></a><span class="fu">robotstxt</span>(</span>
+<span id="cb6-4"><a></a>  <span class="at">domain =</span> <span class="cn">NULL</span>,</span>
+<span id="cb6-5"><a></a>  ...</span>
+<span id="cb6-6"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="robotstxt-package---robotstxt-function-1" class="slide level2">
 <h2>robotstxt Package - robotstxt function</h2>
 <p>Let’s have a look at our university:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">robotstxt</span>(<span class="at">domain =</span> <span class="st">"https://www.uni-mannheim.de/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">robotstxt</span>(<span class="at">domain =</span> <span class="st">"https://www.uni-mannheim.de/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$domain
 [1] "https://www.uni-mannheim.de/"
@@ -769,8 +712,8 @@ function (paths = "/", bot = "*")
     spiderbar::can_fetch(obj = self$robexclobj, path = paths, 
         user_agent = bot)
 }
-&lt;bytecode: 0x000001b92859b8d0&gt;
-&lt;environment: 0x000001b92859ad38&gt;
+&lt;bytecode: 0x0000015aa4dfd218&gt;
+&lt;environment: 0x0000015aa4dfc4c0&gt;
 
 attr(,"class")
 [1] "robotstxt"</code></pre>
@@ -781,7 +724,7 @@ attr(,"class")
 <h2>robotstxt Package - robotstxt function</h2>
 <p>Checking the list of permissions (add $permissions):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">robotstxt</span>(<span class="at">domain =</span> <span class="st">"https://www.uni-mannheim.de/"</span>)<span class="sc">$</span>permissions</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">robotstxt</span>(<span class="at">domain =</span> <span class="st">"https://www.uni-mannheim.de/"</span>)<span class="sc">$</span>permissions</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     field    useragent                                     value
 1 Disallow       GPTBot                                         /
@@ -794,9 +737,9 @@ attr(,"class")
 <section id="robotstxt-package---paths_allowed" class="slide level2">
 <h2>robotstxt Package - paths_allowed</h2>
 <div class="panel-tabset">
-<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Info</a></li><li><a href="#tabset-6-2">Code</a></li></ul>
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Info</a></li><li><a href="#tabset-3-2">Code</a></li></ul>
 <div class="tab-content">
-<div id="tabset-6-1">
+<div id="tabset-3-1">
 <p>We can use the <code>paths_allowed</code> function in order to check if we are allowed to scrape specific paths:</p>
 <ul>
 <li><p>provide the base URL of a website within the <em>domain</em> argument as a string</p></li>
@@ -807,16 +750,16 @@ attr(,"class")
 <li><p>Output is either <em>TRUE</em>: We are allowed to scrape or <em>FALSE</em>: We are not allowed to scrape.</p></li>
 </ul>
 </div>
-<div id="tabset-6-2">
+<div id="tabset-3-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">library</span>(robotstxt)</span>
-<span id="cb14-2"><a></a></span>
-<span id="cb14-3"><a></a><span class="fu">paths_allowed</span>(</span>
-<span id="cb14-4"><a></a>  <span class="at">domain =</span> <span class="st">"auto"</span>,</span>
-<span id="cb14-5"><a></a>  <span class="at">paths =</span> <span class="st">"/"</span>,</span>
-<span id="cb14-6"><a></a>  <span class="at">bot =</span> <span class="st">"*"</span>,</span>
-<span id="cb14-7"><a></a>  ...</span>
-<span id="cb14-8"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">library</span>(robotstxt)</span>
+<span id="cb11-2"><a></a></span>
+<span id="cb11-3"><a></a><span class="fu">paths_allowed</span>(</span>
+<span id="cb11-4"><a></a>  <span class="at">domain =</span> <span class="st">"auto"</span>,</span>
+<span id="cb11-5"><a></a>  <span class="at">paths =</span> <span class="st">"/"</span>,</span>
+<span id="cb11-6"><a></a>  <span class="at">bot =</span> <span class="st">"*"</span>,</span>
+<span id="cb11-7"><a></a>  ...</span>
+<span id="cb11-8"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -826,24 +769,24 @@ attr(,"class")
 <h2>robotstxt Package - paths_allowed</h2>
 <p>Let’s check different paths:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">paths_allowed</span>(<span class="st">"https://www.uni-mannheim.de/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">paths_allowed</span>(<span class="st">"https://www.uni-mannheim.de/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">paths_allowed</span>(<span class="st">"https://www.uni-mannheim.de/"</span>,</span>
-<span id="cb17-2"><a></a>              <span class="at">paths =</span> <span class="fu">c</span>(<span class="st">"/studienangebot/"</span>, <span class="st">"/ausschreibungen/"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">paths_allowed</span>(<span class="st">"https://www.uni-mannheim.de/"</span>,</span>
+<span id="cb14-2"><a></a>              <span class="at">paths =</span> <span class="fu">c</span>(<span class="st">"/studienangebot/"</span>, <span class="st">"/ausschreibungen/"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE TRUE</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">paths_allowed</span>(<span class="st">"https://www.uni-mannheim.de/"</span>,</span>
-<span id="cb19-2"><a></a>              <span class="at">paths =</span> <span class="fu">c</span>(<span class="st">"/studienangebot/"</span>, <span class="st">"/ausschreibungen/"</span>),</span>
-<span id="cb19-3"><a></a>              <span class="at">bot =</span> <span class="fu">c</span>(<span class="st">"googlebot"</span>, <span class="st">"bing"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">paths_allowed</span>(<span class="st">"https://www.uni-mannheim.de/"</span>,</span>
+<span id="cb16-2"><a></a>              <span class="at">paths =</span> <span class="fu">c</span>(<span class="st">"/studienangebot/"</span>, <span class="st">"/ausschreibungen/"</span>),</span>
+<span id="cb16-3"><a></a>              <span class="at">bot =</span> <span class="fu">c</span>(<span class="st">"googlebot"</span>, <span class="st">"GPTBot"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE TRUE</code></pre>
+<pre><code>[1]  TRUE FALSE</code></pre>
 </div>
 </div>
 </section>
@@ -863,8 +806,8 @@ attr(,"class")
 </ul></li>
 </ul>
 </section>
-<section id="ethics-speed-purpose-and-storage" class="slide level2">
-<h2>Ethics: Speed, Purpose, and Storage</h2>
+<section id="speed-purpose-and-storage" class="slide level2">
+<h2>⚠️ Speed, Purpose, and Storage</h2>
 <ul>
 <li><p><strong>Speed:</strong> repeated, automatic web scraping in very short-time intervals can lead to overloading a website’s server</p>
 <ul>
@@ -934,9 +877,9 @@ attr(,"class")
 <section id="html-overview" class="slide level2">
 <h2>HTML Overview</h2>
 <div class="panel-tabset">
-<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Info</a></li><li><a href="#tabset-7-2">Example</a></li></ul>
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Info</a></li><li><a href="#tabset-4-2">Example</a></li></ul>
 <div class="tab-content">
-<div id="tabset-7-1">
+<div id="tabset-4-1">
 <p>HTML stands for <em>hypertext markup language</em>:</p>
 <ul>
 <li><p>structures what is visible to visitors of a website:</p>
@@ -947,25 +890,25 @@ attr(,"class")
 </ul></li>
 </ul>
 </div>
-<div id="tabset-7-2">
+<div id="tabset-4-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="sc">&lt;!</span>DOCTYPE html<span class="sc">&gt;</span></span>
-<span id="cb21-2"><a></a><span class="er">&lt;</span>html<span class="sc">&gt;</span></span>
-<span id="cb21-3"><a></a>  <span class="er">&lt;</span>head<span class="sc">&gt;</span></span>
-<span id="cb21-4"><a></a>    <span class="er">&lt;</span>style<span class="sc">&gt;</span></span>
-<span id="cb21-5"><a></a>      h1 {color<span class="sc">:</span> red;}</span>
-<span id="cb21-6"><a></a>    <span class="sc">&lt;</span><span class="er">/</span>style<span class="sc">&gt;</span></span>
-<span id="cb21-7"><a></a>    <span class="er">&lt;</span>title<span class="sc">&gt;</span>This is a title<span class="sc">&lt;</span><span class="er">/</span>title<span class="sc">&gt;</span></span>
-<span id="cb21-8"><a></a>  <span class="er">&lt;/</span>head<span class="sc">&gt;</span></span>
-<span id="cb21-9"><a></a>  <span class="er">&lt;</span>body<span class="sc">&gt;</span></span>
-<span id="cb21-10"><a></a>    <span class="er">&lt;</span>h1<span class="sc">&gt;</span>This is a header<span class="sc">&lt;</span><span class="er">/</span>h1<span class="sc">&gt;</span>      </span>
-<span id="cb21-11"><a></a>    <span class="er">&lt;</span>p<span class="sc">&gt;</span>This is a paragraph.<span class="sc">&lt;</span><span class="er">/</span>p<span class="sc">&gt;</span></span>
-<span id="cb21-12"><a></a>    <span class="er">&lt;</span>ol<span class="sc">&gt;</span></span>
-<span id="cb21-13"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span>This is a <span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span></span>
-<span id="cb21-14"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span> ordered list<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span></span>
-<span id="cb21-15"><a></a>    <span class="er">&lt;/</span>ol<span class="sc">&gt;</span></span>
-<span id="cb21-16"><a></a>  <span class="er">&lt;/</span>body<span class="sc">&gt;</span></span>
-<span id="cb21-17"><a></a><span class="er">&lt;/</span>html<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="sc">&lt;!</span>DOCTYPE html<span class="sc">&gt;</span></span>
+<span id="cb18-2"><a></a><span class="er">&lt;</span>html<span class="sc">&gt;</span></span>
+<span id="cb18-3"><a></a>  <span class="er">&lt;</span>head<span class="sc">&gt;</span></span>
+<span id="cb18-4"><a></a>    <span class="er">&lt;</span>style<span class="sc">&gt;</span></span>
+<span id="cb18-5"><a></a>      h1 {color<span class="sc">:</span> red;}</span>
+<span id="cb18-6"><a></a>    <span class="sc">&lt;</span><span class="er">/</span>style<span class="sc">&gt;</span></span>
+<span id="cb18-7"><a></a>    <span class="er">&lt;</span>title<span class="sc">&gt;</span>This is a title<span class="sc">&lt;</span><span class="er">/</span>title<span class="sc">&gt;</span></span>
+<span id="cb18-8"><a></a>  <span class="er">&lt;/</span>head<span class="sc">&gt;</span></span>
+<span id="cb18-9"><a></a>  <span class="er">&lt;</span>body<span class="sc">&gt;</span></span>
+<span id="cb18-10"><a></a>    <span class="er">&lt;</span>h1<span class="sc">&gt;</span>This is a header<span class="sc">&lt;</span><span class="er">/</span>h1<span class="sc">&gt;</span>      </span>
+<span id="cb18-11"><a></a>    <span class="er">&lt;</span>p<span class="sc">&gt;</span>This is a paragraph.<span class="sc">&lt;</span><span class="er">/</span>p<span class="sc">&gt;</span></span>
+<span id="cb18-12"><a></a>    <span class="er">&lt;</span>ol<span class="sc">&gt;</span></span>
+<span id="cb18-13"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span>This is a <span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span></span>
+<span id="cb18-14"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span> ordered list<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span></span>
+<span id="cb18-15"><a></a>    <span class="er">&lt;/</span>ol<span class="sc">&gt;</span></span>
+<span id="cb18-16"><a></a>  <span class="er">&lt;/</span>body<span class="sc">&gt;</span></span>
+<span id="cb18-17"><a></a><span class="er">&lt;/</span>html<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -981,23 +924,23 @@ attr(,"class")
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="sc">&lt;!</span>DOCTYPE html<span class="sc">&gt;</span></span>
-<span id="cb22-2"><a></a><span class="er">&lt;</span>html<span class="sc">&gt;</span></span>
-<span id="cb22-3"><a></a>  <span class="er">&lt;</span>head<span class="sc">&gt;</span></span>
-<span id="cb22-4"><a></a>    <span class="er">&lt;</span>style<span class="sc">&gt;</span></span>
-<span id="cb22-5"><a></a>      h1 {color<span class="sc">:</span> red;}</span>
-<span id="cb22-6"><a></a>    <span class="sc">&lt;</span><span class="er">/</span>style<span class="sc">&gt;</span></span>
-<span id="cb22-7"><a></a>    <span class="er">&lt;</span>title<span class="sc">&gt;</span>This is a title<span class="sc">&lt;</span><span class="er">/</span>title<span class="sc">&gt;</span></span>
-<span id="cb22-8"><a></a>  <span class="er">&lt;/</span>head<span class="sc">&gt;</span></span>
-<span id="cb22-9"><a></a>  <span class="er">&lt;</span>body<span class="sc">&gt;</span></span>
-<span id="cb22-10"><a></a>    <span class="er">&lt;</span>h1<span class="sc">&gt;</span>This is a header<span class="sc">&lt;</span><span class="er">/</span>h1<span class="sc">&gt;</span>      </span>
-<span id="cb22-11"><a></a>    <span class="er">&lt;</span>p<span class="sc">&gt;</span>This is a paragraph.<span class="sc">&lt;</span><span class="er">/</span>p<span class="sc">&gt;</span></span>
-<span id="cb22-12"><a></a>    <span class="er">&lt;</span>ol<span class="sc">&gt;</span></span>
-<span id="cb22-13"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span>This is a<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span></span>
-<span id="cb22-14"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span> ordered list<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span></span>
-<span id="cb22-15"><a></a>    <span class="er">&lt;/</span>ol<span class="sc">&gt;</span></span>
-<span id="cb22-16"><a></a>  <span class="er">&lt;/</span>body<span class="sc">&gt;</span></span>
-<span id="cb22-17"><a></a><span class="er">&lt;/</span>html<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="sc">&lt;!</span>DOCTYPE html<span class="sc">&gt;</span></span>
+<span id="cb19-2"><a></a><span class="er">&lt;</span>html<span class="sc">&gt;</span></span>
+<span id="cb19-3"><a></a>  <span class="er">&lt;</span>head<span class="sc">&gt;</span></span>
+<span id="cb19-4"><a></a>    <span class="er">&lt;</span>style<span class="sc">&gt;</span></span>
+<span id="cb19-5"><a></a>      h1 {color<span class="sc">:</span> red;}</span>
+<span id="cb19-6"><a></a>    <span class="sc">&lt;</span><span class="er">/</span>style<span class="sc">&gt;</span></span>
+<span id="cb19-7"><a></a>    <span class="er">&lt;</span>title<span class="sc">&gt;</span>This is a title<span class="sc">&lt;</span><span class="er">/</span>title<span class="sc">&gt;</span></span>
+<span id="cb19-8"><a></a>  <span class="er">&lt;/</span>head<span class="sc">&gt;</span></span>
+<span id="cb19-9"><a></a>  <span class="er">&lt;</span>body<span class="sc">&gt;</span></span>
+<span id="cb19-10"><a></a>    <span class="er">&lt;</span>h1<span class="sc">&gt;</span>This is a header<span class="sc">&lt;</span><span class="er">/</span>h1<span class="sc">&gt;</span>      </span>
+<span id="cb19-11"><a></a>    <span class="er">&lt;</span>p<span class="sc">&gt;</span>This is a paragraph.<span class="sc">&lt;</span><span class="er">/</span>p<span class="sc">&gt;</span></span>
+<span id="cb19-12"><a></a>    <span class="er">&lt;</span>ol<span class="sc">&gt;</span></span>
+<span id="cb19-13"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span>This is a<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span></span>
+<span id="cb19-14"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span> ordered list<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span></span>
+<span id="cb19-15"><a></a>    <span class="er">&lt;/</span>ol<span class="sc">&gt;</span></span>
+<span id="cb19-16"><a></a>  <span class="er">&lt;/</span>body<span class="sc">&gt;</span></span>
+<span id="cb19-17"><a></a><span class="er">&lt;/</span>html<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1012,23 +955,23 @@ attr(,"class")
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23" data-code-line-numbers="4,5,6,10,14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="sc">&lt;!</span>DOCTYPE html<span class="sc">&gt;</span> </span>
-<span id="cb23-2"><a></a><span class="er">&lt;</span>html<span class="sc">&gt;</span></span>
-<span id="cb23-3"><a></a>  <span class="er">&lt;</span>head<span class="sc">&gt;</span></span>
-<span id="cb23-4"><a></a>    <span class="er">&lt;</span>style<span class="sc">&gt;</span> </span>
-<span id="cb23-5"><a></a>      h1 {color<span class="sc">:</span> red;} </span>
-<span id="cb23-6"><a></a>    <span class="sc">&lt;</span><span class="er">/</span>style<span class="sc">&gt;</span> </span>
-<span id="cb23-7"><a></a>    <span class="er">&lt;</span>title<span class="sc">&gt;</span>This is a title<span class="sc">&lt;</span><span class="er">/</span>title<span class="sc">&gt;</span></span>
-<span id="cb23-8"><a></a>  <span class="er">&lt;/</span>head<span class="sc">&gt;</span></span>
-<span id="cb23-9"><a></a>  <span class="er">&lt;</span>body<span class="sc">&gt;</span></span>
-<span id="cb23-10"><a></a>    <span class="er">&lt;</span>h1<span class="sc">&gt;</span>This is a header<span class="sc">&lt;</span><span class="er">/</span>h1<span class="sc">&gt;</span>       </span>
-<span id="cb23-11"><a></a>    <span class="er">&lt;</span>p<span class="sc">&gt;</span>This is a paragraph.<span class="sc">&lt;</span><span class="er">/</span>p<span class="sc">&gt;</span></span>
-<span id="cb23-12"><a></a>    <span class="er">&lt;</span>ol<span class="sc">&gt;</span></span>
-<span id="cb23-13"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span>This is a<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span></span>
-<span id="cb23-14"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span> ordered list<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span></span>
-<span id="cb23-15"><a></a>    <span class="er">&lt;/</span>ol<span class="sc">&gt;</span></span>
-<span id="cb23-16"><a></a>  <span class="er">&lt;/</span>body<span class="sc">&gt;</span></span>
-<span id="cb23-17"><a></a><span class="er">&lt;/</span>html<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20" data-code-line-numbers="4,5,6,10,14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="sc">&lt;!</span>DOCTYPE html<span class="sc">&gt;</span> </span>
+<span id="cb20-2"><a></a><span class="er">&lt;</span>html<span class="sc">&gt;</span></span>
+<span id="cb20-3"><a></a>  <span class="er">&lt;</span>head<span class="sc">&gt;</span></span>
+<span id="cb20-4"><a></a>    <span class="er">&lt;</span>style<span class="sc">&gt;</span> </span>
+<span id="cb20-5"><a></a>      h1 {color<span class="sc">:</span> red;} </span>
+<span id="cb20-6"><a></a>    <span class="sc">&lt;</span><span class="er">/</span>style<span class="sc">&gt;</span> </span>
+<span id="cb20-7"><a></a>    <span class="er">&lt;</span>title<span class="sc">&gt;</span>This is a title<span class="sc">&lt;</span><span class="er">/</span>title<span class="sc">&gt;</span></span>
+<span id="cb20-8"><a></a>  <span class="er">&lt;/</span>head<span class="sc">&gt;</span></span>
+<span id="cb20-9"><a></a>  <span class="er">&lt;</span>body<span class="sc">&gt;</span></span>
+<span id="cb20-10"><a></a>    <span class="er">&lt;</span>h1<span class="sc">&gt;</span>This is a header<span class="sc">&lt;</span><span class="er">/</span>h1<span class="sc">&gt;</span>       </span>
+<span id="cb20-11"><a></a>    <span class="er">&lt;</span>p<span class="sc">&gt;</span>This is a paragraph.<span class="sc">&lt;</span><span class="er">/</span>p<span class="sc">&gt;</span></span>
+<span id="cb20-12"><a></a>    <span class="er">&lt;</span>ol<span class="sc">&gt;</span></span>
+<span id="cb20-13"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span>This is a<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span></span>
+<span id="cb20-14"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span> ordered list<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span></span>
+<span id="cb20-15"><a></a>    <span class="er">&lt;/</span>ol<span class="sc">&gt;</span></span>
+<span id="cb20-16"><a></a>  <span class="er">&lt;/</span>body<span class="sc">&gt;</span></span>
+<span id="cb20-17"><a></a><span class="er">&lt;/</span>html<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1044,23 +987,23 @@ attr(,"class")
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24" data-code-line-numbers="2,17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="sc">&lt;!</span>DOCTYPE html<span class="sc">&gt;</span> </span>
-<span id="cb24-2"><a></a><span class="er">&lt;</span>html<span class="sc">&gt;</span> </span>
-<span id="cb24-3"><a></a>  <span class="er">&lt;</span>head<span class="sc">&gt;</span></span>
-<span id="cb24-4"><a></a>    <span class="er">&lt;</span>style<span class="sc">&gt;</span> </span>
-<span id="cb24-5"><a></a>      h1 {color<span class="sc">:</span> red;} </span>
-<span id="cb24-6"><a></a>    <span class="sc">&lt;</span><span class="er">/</span>style<span class="sc">&gt;</span> </span>
-<span id="cb24-7"><a></a>    <span class="er">&lt;</span>title<span class="sc">&gt;</span>This is a title<span class="sc">&lt;</span><span class="er">/</span>title<span class="sc">&gt;</span></span>
-<span id="cb24-8"><a></a>  <span class="er">&lt;/</span>head<span class="sc">&gt;</span></span>
-<span id="cb24-9"><a></a>  <span class="er">&lt;</span>body<span class="sc">&gt;</span></span>
-<span id="cb24-10"><a></a>    <span class="er">&lt;</span>h1<span class="sc">&gt;</span>This is a header<span class="sc">&lt;</span><span class="er">/</span>h1<span class="sc">&gt;</span>      </span>
-<span id="cb24-11"><a></a>    <span class="er">&lt;</span>p<span class="sc">&gt;</span>This is a paragraph.<span class="sc">&lt;</span><span class="er">/</span>p<span class="sc">&gt;</span></span>
-<span id="cb24-12"><a></a>    <span class="er">&lt;</span>ol<span class="sc">&gt;</span></span>
-<span id="cb24-13"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span>This is a<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span></span>
-<span id="cb24-14"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span> ordered list<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span> </span>
-<span id="cb24-15"><a></a>    <span class="er">&lt;/</span>ol<span class="sc">&gt;</span></span>
-<span id="cb24-16"><a></a>  <span class="er">&lt;/</span>body<span class="sc">&gt;</span></span>
-<span id="cb24-17"><a></a><span class="er">&lt;/</span>html<span class="sc">&gt;</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21" data-code-line-numbers="2,17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="sc">&lt;!</span>DOCTYPE html<span class="sc">&gt;</span> </span>
+<span id="cb21-2"><a></a><span class="er">&lt;</span>html<span class="sc">&gt;</span> </span>
+<span id="cb21-3"><a></a>  <span class="er">&lt;</span>head<span class="sc">&gt;</span></span>
+<span id="cb21-4"><a></a>    <span class="er">&lt;</span>style<span class="sc">&gt;</span> </span>
+<span id="cb21-5"><a></a>      h1 {color<span class="sc">:</span> red;} </span>
+<span id="cb21-6"><a></a>    <span class="sc">&lt;</span><span class="er">/</span>style<span class="sc">&gt;</span> </span>
+<span id="cb21-7"><a></a>    <span class="er">&lt;</span>title<span class="sc">&gt;</span>This is a title<span class="sc">&lt;</span><span class="er">/</span>title<span class="sc">&gt;</span></span>
+<span id="cb21-8"><a></a>  <span class="er">&lt;/</span>head<span class="sc">&gt;</span></span>
+<span id="cb21-9"><a></a>  <span class="er">&lt;</span>body<span class="sc">&gt;</span></span>
+<span id="cb21-10"><a></a>    <span class="er">&lt;</span>h1<span class="sc">&gt;</span>This is a header<span class="sc">&lt;</span><span class="er">/</span>h1<span class="sc">&gt;</span>      </span>
+<span id="cb21-11"><a></a>    <span class="er">&lt;</span>p<span class="sc">&gt;</span>This is a paragraph.<span class="sc">&lt;</span><span class="er">/</span>p<span class="sc">&gt;</span></span>
+<span id="cb21-12"><a></a>    <span class="er">&lt;</span>ol<span class="sc">&gt;</span></span>
+<span id="cb21-13"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span>This is a<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span></span>
+<span id="cb21-14"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span> ordered list<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span> </span>
+<span id="cb21-15"><a></a>    <span class="er">&lt;/</span>ol<span class="sc">&gt;</span></span>
+<span id="cb21-16"><a></a>  <span class="er">&lt;/</span>body<span class="sc">&gt;</span></span>
+<span id="cb21-17"><a></a><span class="er">&lt;/</span>html<span class="sc">&gt;</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1076,23 +1019,23 @@ attr(,"class")
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25" data-code-line-numbers="3,8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="sc">&lt;!</span>DOCTYPE html<span class="sc">&gt;</span> </span>
-<span id="cb25-2"><a></a><span class="er">&lt;</span>html<span class="sc">&gt;</span> </span>
-<span id="cb25-3"><a></a>  <span class="er">&lt;</span>head<span class="sc">&gt;</span> </span>
-<span id="cb25-4"><a></a>    <span class="er">&lt;</span>style<span class="sc">&gt;</span> </span>
-<span id="cb25-5"><a></a>      h1 {color<span class="sc">:</span> red;} </span>
-<span id="cb25-6"><a></a>    <span class="sc">&lt;</span><span class="er">/</span>style<span class="sc">&gt;</span> </span>
-<span id="cb25-7"><a></a>    <span class="er">&lt;</span>title<span class="sc">&gt;</span>This is a title<span class="sc">&lt;</span><span class="er">/</span>title<span class="sc">&gt;</span></span>
-<span id="cb25-8"><a></a>  <span class="er">&lt;/</span>head<span class="sc">&gt;</span> </span>
-<span id="cb25-9"><a></a>  <span class="er">&lt;</span>body<span class="sc">&gt;</span></span>
-<span id="cb25-10"><a></a>    <span class="er">&lt;</span>h1<span class="sc">&gt;</span>This is a header<span class="sc">&lt;</span><span class="er">/</span>h1<span class="sc">&gt;</span>       </span>
-<span id="cb25-11"><a></a>    <span class="er">&lt;</span>p<span class="sc">&gt;</span>This is a paragraph.<span class="sc">&lt;</span><span class="er">/</span>p<span class="sc">&gt;</span></span>
-<span id="cb25-12"><a></a>    <span class="er">&lt;</span>ol<span class="sc">&gt;</span></span>
-<span id="cb25-13"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span>This is a<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span></span>
-<span id="cb25-14"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span> ordered list<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span> </span>
-<span id="cb25-15"><a></a>    <span class="er">&lt;/</span>ol<span class="sc">&gt;</span></span>
-<span id="cb25-16"><a></a>  <span class="er">&lt;/</span>body<span class="sc">&gt;</span></span>
-<span id="cb25-17"><a></a><span class="er">&lt;/</span>html<span class="sc">&gt;</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22" data-code-line-numbers="3,8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="sc">&lt;!</span>DOCTYPE html<span class="sc">&gt;</span> </span>
+<span id="cb22-2"><a></a><span class="er">&lt;</span>html<span class="sc">&gt;</span> </span>
+<span id="cb22-3"><a></a>  <span class="er">&lt;</span>head<span class="sc">&gt;</span> </span>
+<span id="cb22-4"><a></a>    <span class="er">&lt;</span>style<span class="sc">&gt;</span> </span>
+<span id="cb22-5"><a></a>      h1 {color<span class="sc">:</span> red;} </span>
+<span id="cb22-6"><a></a>    <span class="sc">&lt;</span><span class="er">/</span>style<span class="sc">&gt;</span> </span>
+<span id="cb22-7"><a></a>    <span class="er">&lt;</span>title<span class="sc">&gt;</span>This is a title<span class="sc">&lt;</span><span class="er">/</span>title<span class="sc">&gt;</span></span>
+<span id="cb22-8"><a></a>  <span class="er">&lt;/</span>head<span class="sc">&gt;</span> </span>
+<span id="cb22-9"><a></a>  <span class="er">&lt;</span>body<span class="sc">&gt;</span></span>
+<span id="cb22-10"><a></a>    <span class="er">&lt;</span>h1<span class="sc">&gt;</span>This is a header<span class="sc">&lt;</span><span class="er">/</span>h1<span class="sc">&gt;</span>       </span>
+<span id="cb22-11"><a></a>    <span class="er">&lt;</span>p<span class="sc">&gt;</span>This is a paragraph.<span class="sc">&lt;</span><span class="er">/</span>p<span class="sc">&gt;</span></span>
+<span id="cb22-12"><a></a>    <span class="er">&lt;</span>ol<span class="sc">&gt;</span></span>
+<span id="cb22-13"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span>This is a<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span></span>
+<span id="cb22-14"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span> ordered list<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span> </span>
+<span id="cb22-15"><a></a>    <span class="er">&lt;/</span>ol<span class="sc">&gt;</span></span>
+<span id="cb22-16"><a></a>  <span class="er">&lt;/</span>body<span class="sc">&gt;</span></span>
+<span id="cb22-17"><a></a><span class="er">&lt;/</span>html<span class="sc">&gt;</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1112,31 +1055,33 @@ attr(,"class")
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26" data-code-line-numbers="9,16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="sc">&lt;!</span>DOCTYPE html<span class="sc">&gt;</span> </span>
-<span id="cb26-2"><a></a><span class="er">&lt;</span>html<span class="sc">&gt;</span> </span>
-<span id="cb26-3"><a></a>  <span class="er">&lt;</span>head<span class="sc">&gt;</span> </span>
-<span id="cb26-4"><a></a>    <span class="er">&lt;</span>style<span class="sc">&gt;</span> </span>
-<span id="cb26-5"><a></a>      h1 {color<span class="sc">:</span> red;} </span>
-<span id="cb26-6"><a></a>    <span class="sc">&lt;</span><span class="er">/</span>style<span class="sc">&gt;</span> </span>
-<span id="cb26-7"><a></a>    <span class="er">&lt;</span>title<span class="sc">&gt;</span>This is a title<span class="sc">&lt;</span><span class="er">/</span>title<span class="sc">&gt;</span></span>
-<span id="cb26-8"><a></a>  <span class="er">&lt;/</span>head<span class="sc">&gt;</span> </span>
-<span id="cb26-9"><a></a>  <span class="er">&lt;</span>body<span class="sc">&gt;</span></span>
-<span id="cb26-10"><a></a>    <span class="er">&lt;</span>h1<span class="sc">&gt;</span>This is a header<span class="sc">&lt;</span><span class="er">/</span>h1<span class="sc">&gt;</span>       </span>
-<span id="cb26-11"><a></a>    <span class="er">&lt;</span>p<span class="sc">&gt;</span>This is a paragraph.<span class="sc">&lt;</span><span class="er">/</span>p<span class="sc">&gt;</span></span>
-<span id="cb26-12"><a></a>    <span class="er">&lt;</span>ol<span class="sc">&gt;</span></span>
-<span id="cb26-13"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span>This is a<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span></span>
-<span id="cb26-14"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span> ordered list<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span> </span>
-<span id="cb26-15"><a></a>    <span class="er">&lt;/</span>ol<span class="sc">&gt;</span></span>
-<span id="cb26-16"><a></a>  <span class="er">&lt;/</span>body<span class="sc">&gt;</span></span>
-<span id="cb26-17"><a></a><span class="er">&lt;/</span>html<span class="sc">&gt;</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23" data-code-line-numbers="9,16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="sc">&lt;!</span>DOCTYPE html<span class="sc">&gt;</span> </span>
+<span id="cb23-2"><a></a><span class="er">&lt;</span>html<span class="sc">&gt;</span> </span>
+<span id="cb23-3"><a></a>  <span class="er">&lt;</span>head<span class="sc">&gt;</span> </span>
+<span id="cb23-4"><a></a>    <span class="er">&lt;</span>style<span class="sc">&gt;</span> </span>
+<span id="cb23-5"><a></a>      h1 {color<span class="sc">:</span> red;} </span>
+<span id="cb23-6"><a></a>    <span class="sc">&lt;</span><span class="er">/</span>style<span class="sc">&gt;</span> </span>
+<span id="cb23-7"><a></a>    <span class="er">&lt;</span>title<span class="sc">&gt;</span>This is a title<span class="sc">&lt;</span><span class="er">/</span>title<span class="sc">&gt;</span></span>
+<span id="cb23-8"><a></a>  <span class="er">&lt;/</span>head<span class="sc">&gt;</span> </span>
+<span id="cb23-9"><a></a>  <span class="er">&lt;</span>body<span class="sc">&gt;</span></span>
+<span id="cb23-10"><a></a>    <span class="er">&lt;</span>h1<span class="sc">&gt;</span>This is a header<span class="sc">&lt;</span><span class="er">/</span>h1<span class="sc">&gt;</span>       </span>
+<span id="cb23-11"><a></a>    <span class="er">&lt;</span>p<span class="sc">&gt;</span>This is a paragraph.<span class="sc">&lt;</span><span class="er">/</span>p<span class="sc">&gt;</span></span>
+<span id="cb23-12"><a></a>    <span class="er">&lt;</span>ol<span class="sc">&gt;</span></span>
+<span id="cb23-13"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span>This is a<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span></span>
+<span id="cb23-14"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span> ordered list<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span> </span>
+<span id="cb23-15"><a></a>    <span class="er">&lt;/</span>ol<span class="sc">&gt;</span></span>
+<span id="cb23-16"><a></a>  <span class="er">&lt;/</span>body<span class="sc">&gt;</span></span>
+<span id="cb23-17"><a></a><span class="er">&lt;/</span>html<span class="sc">&gt;</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="html---syntax-tags" class="slide level2">
 <h2>HTML - Syntax / Tags</h2>
-<p>Most elements have opening and closing tags:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb27-1"><a></a>&lt;p&gt; This is a paragraph. &lt;/p&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Most elements have opening and closing tags.</p>
+<p><u>Input:</u></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb24-1"><a></a>&lt;p&gt; This is a paragraph. &lt;/p&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><u>Output:</u></p>
 <p>This is a paragraph.</p>
 <div class="callout callout-note callout-style-simple">
 <div class="callout-body">
@@ -1151,8 +1096,10 @@ attr(,"class")
 </section>
 <section id="html---syntax-attributes" class="slide level2">
 <h2>HTML - Syntax / Attributes</h2>
-<p>Elements might have attributes</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb28-1"><a></a>&lt;p&gt;This is &lt;strong id="count-sentence"&gt;one&lt;/strong&gt; sentence.&lt;/p&gt; </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Elements might have attributes.</p>
+<p><u>Input:</u></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a></a>&lt;p&gt;This is &lt;strong id="count-sentence"&gt;one&lt;/strong&gt; sentence.&lt;/p&gt; </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><u>Output:</u></p>
 <p>This is <strong>one</strong> sentence.</p>
 <div class="callout callout-note callout-style-simple">
 <div class="callout-body">
@@ -1167,10 +1114,12 @@ attr(,"class")
 </section>
 <section id="html---syntax-attributes-1" class="slide level2">
 <h2>HTML - Syntax / Attributes</h2>
-<p>There can be more than one attribute in a single element:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb29-1"><a></a>&lt;p&gt;This is &lt;strong class="count" id="count-sentence"&gt;one&lt;/strong&gt; sentence.&lt;/p&gt; </span>
-<span id="cb29-2"><a></a></span>
-<span id="cb29-3"><a></a>&lt;p&gt;This is &lt;strong class="count" id="count-paragraph"&gt;one&lt;/strong&gt; paragraph.&lt;/p&gt; </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>There can be more than one attribute in a single element.</p>
+<p><u>Input:</u></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb26-1"><a></a>&lt;p&gt;This is &lt;strong class="count" id="count-sentence"&gt;one&lt;/strong&gt; sentence.&lt;/p&gt; </span>
+<span id="cb26-2"><a></a></span>
+<span id="cb26-3"><a></a>&lt;p&gt;This is &lt;strong class="count" id="count-paragraph"&gt;one&lt;/strong&gt; paragraph.&lt;/p&gt; </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><u>Output:</u></p>
 <p>This is <strong>one</strong> sentence.</p>
 <p>This is <strong>one</strong> paragraph.</p>
 <div class="callout callout-note callout-style-simple">
@@ -1186,8 +1135,10 @@ attr(,"class")
 </section>
 <section id="html---links" class="slide level2">
 <h2>HTML - Links</h2>
-<p>Links are provided with the <em>a</em> (anchor) element</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a></a>&lt;p&gt;Click &lt;a href="https://www.uni-mannheim.de/"&gt;here&lt;/a&gt; for the university's website.&lt;/p&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Links are provided with the <em>a</em> (anchor) element.</p>
+<p><u>Input:</u></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb27-1"><a></a>&lt;p&gt;Click &lt;a href="https://www.uni-mannheim.de/"&gt;here&lt;/a&gt; for the university's website.&lt;/p&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><u>Output:</u></p>
 <p>Click <a href="href=&quot;https://www.uni-mannheim.de/">here</a> for the university’s website.</p>
 <div class="callout callout-note callout-style-simple">
 <div class="callout-body">
@@ -1202,9 +1153,11 @@ attr(,"class")
 </section>
 <section id="html---links-1" class="slide level2">
 <h2>HTML - Links</h2>
-<p>Links can have titles:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb31-1"><a></a>&lt;p&gt;Click &lt;a title="This text appears when visitors hover over the link"</span>
-<span id="cb31-2"><a></a>href="https://www.uni-mannheim.de/"&gt;here&lt;/a&gt; to get to the university's website.&lt;/p&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Links can also have titles.</p>
+<p><u>Input:</u></p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb28-1"><a></a>&lt;p&gt;Click &lt;a title="This text appears when visitors hover over the link"</span>
+<span id="cb28-2"><a></a>href="https://www.uni-mannheim.de/"&gt;here&lt;/a&gt; to get to the university's website.&lt;/p&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><u>Output:</u></p>
 <p>Click <a href="https://www.uni-mannheim.de/" title="This text appears when visitors hover over the link">here</a> to get to the university’s website.</p>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -1222,16 +1175,16 @@ attr(,"class")
 </section>
 <section id="html---lists" class="slide level2">
 <h2>HTML - Lists</h2>
-<p>The <code>&lt;ul&gt;</code> tag introduces un-ordered lists, while the <code>&lt;li&gt;</code> tag defines lists items</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb32-1"><a></a>&lt;ul&gt;</span>
-<span id="cb32-2"><a></a>  &lt;li&gt;books&lt;/li&gt;</span>
-<span id="cb32-3"><a></a>  &lt;li&gt;journal articles&lt;/li&gt;</span>
-<span id="cb32-4"><a></a>  &lt;li&gt;reports&lt;/li&gt;</span>
-<span id="cb32-5"><a></a>&lt;/ul&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The <code>&lt;ul&gt;</code> tag introduces un-ordered lists, while the <code>&lt;li&gt;</code> tag defines lists items.</p>
+<p><u>Input:</u></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb29-1"><a></a>&lt;ul&gt;</span>
+<span id="cb29-2"><a></a>  &lt;li&gt;books&lt;/li&gt;</span>
+<span id="cb29-3"><a></a>  &lt;li&gt;journal articles&lt;/li&gt;</span>
+<span id="cb29-4"><a></a>&lt;/ul&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><u>Output:</u></p>
 <ul>
 <li><p>books</p></li>
 <li><p>journal articles</p></li>
-<li><p>reports</p></li>
 </ul>
 <div class="callout callout-note callout-style-simple">
 <div class="callout-body">
@@ -1248,23 +1201,23 @@ attr(,"class")
 <h2>HTML - Containers</h2>
 <p>The <code>&lt;div&gt;</code> tag defines a section, containing one or often more elements:</p>
 <div class="panel-tabset">
-<ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1">Code</a></li><li><a href="#tabset-8-2">Output</a></li></ul>
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Code</a></li><li><a href="#tabset-5-2">Output</a></li></ul>
 <div class="tab-content">
-<div id="tabset-8-1">
+<div id="tabset-5-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="sc">&lt;</span>p<span class="sc">&gt;</span>This is an introductory paragraph.<span class="sc">&lt;</span><span class="er">/</span>p<span class="sc">&gt;</span></span>
-<span id="cb33-2"><a></a><span class="er">&lt;</span><span class="st">`</span><span class="at">div</span><span class="st">`</span> style<span class="ot">=</span><span class="st">"text-decoration: underline;"</span><span class="sc">&gt;</span></span>
-<span id="cb33-3"><a></a><span class="er">&lt;</span>p<span class="sc">&gt;</span>In this important division there are two </span>
-<span id="cb33-4"><a></a>elements, which are<span class="sc">:</span><span class="er">&lt;/</span>p<span class="sc">&gt;</span></span>
-<span id="cb33-5"><a></a><span class="er">&lt;</span>ul<span class="sc">&gt;</span></span>
-<span id="cb33-6"><a></a>  <span class="er">&lt;</span>li<span class="sc">&gt;</span>a paragraph, and<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span></span>
-<span id="cb33-7"><a></a>  <span class="er">&lt;</span>li<span class="sc">&gt;</span>an unordered list.<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span></span>
-<span id="cb33-8"><a></a><span class="er">&lt;/</span>ul<span class="sc">&gt;</span></span>
-<span id="cb33-9"><a></a><span class="er">&lt;</span><span class="st">`</span><span class="at">/div</span><span class="st">`</span><span class="sc">&gt;</span></span>
-<span id="cb33-10"><a></a><span class="er">&lt;</span>p<span class="sc">&gt;</span>This is the concluding paragraph.<span class="sc">&lt;</span>p<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="sc">&lt;</span>p<span class="sc">&gt;</span>This is an introductory paragraph.<span class="sc">&lt;</span><span class="er">/</span>p<span class="sc">&gt;</span></span>
+<span id="cb30-2"><a></a><span class="er">&lt;</span><span class="st">`</span><span class="at">div</span><span class="st">`</span> style<span class="ot">=</span><span class="st">"text-decoration: underline;"</span><span class="sc">&gt;</span></span>
+<span id="cb30-3"><a></a><span class="er">&lt;</span>p<span class="sc">&gt;</span>In this important division there are two </span>
+<span id="cb30-4"><a></a>elements, which are<span class="sc">:</span><span class="er">&lt;/</span>p<span class="sc">&gt;</span></span>
+<span id="cb30-5"><a></a><span class="er">&lt;</span>ul<span class="sc">&gt;</span></span>
+<span id="cb30-6"><a></a>  <span class="er">&lt;</span>li<span class="sc">&gt;</span>a paragraph, and<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span></span>
+<span id="cb30-7"><a></a>  <span class="er">&lt;</span>li<span class="sc">&gt;</span>an unordered list.<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span></span>
+<span id="cb30-8"><a></a><span class="er">&lt;/</span>ul<span class="sc">&gt;</span></span>
+<span id="cb30-9"><a></a><span class="er">&lt;</span><span class="st">`</span><span class="at">/div</span><span class="st">`</span><span class="sc">&gt;</span></span>
+<span id="cb30-10"><a></a><span class="er">&lt;</span>p<span class="sc">&gt;</span>This is the concluding paragraph.<span class="sc">&lt;</span>p<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<div id="tabset-8-2">
+<div id="tabset-5-2">
 <p>This is an introductory paragraph.</p>
 <p><u>In this important division there are two elements, which are:</u></p>
 <ul>
@@ -1278,11 +1231,13 @@ attr(,"class")
 </section>
 <section id="html---containers-1" class="slide level2">
 <h2>HTML - Containers</h2>
-<p>The <code>&lt;span&gt;</code> tag also defines a section, containing a part of an element</p>
+<p>The <code>&lt;span&gt;</code> tag also defines a section, containing a part of an element.</p>
+<p><u>Input:</u></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="sc">&lt;</span>p<span class="sc">&gt;</span>This is an <span class="sc">&lt;</span><span class="st">`</span><span class="at">span</span><span class="st">`</span> style<span class="ot">=</span><span class="st">"text-decoration: underline;"</span><span class="sc">&gt;</span>important paragraph<span class="sc">&lt;</span><span class="st">`</span><span class="at">/span</span><span class="st">`</span><span class="sc">&gt;</span>, which</span>
-<span id="cb34-2"><a></a>you must read carefully.<span class="sc">&lt;</span>p<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="sc">&lt;</span>p<span class="sc">&gt;</span>This is an <span class="sc">&lt;</span><span class="st">`</span><span class="at">span</span><span class="st">`</span> style<span class="ot">=</span><span class="st">"text-decoration: underline;"</span><span class="sc">&gt;</span>important paragraph<span class="sc">&lt;</span><span class="st">`</span><span class="at">/span</span><span class="st">`</span><span class="sc">&gt;</span>, which</span>
+<span id="cb31-2"><a></a>you must read carefully.<span class="sc">&lt;</span>p<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><u>Output:</u></p>
 <p>This is an <span style="text-decoration: underline;">important paragraph</span>, which you must read carefully.</p>
 <div class="callout callout-note callout-style-simple">
 <div class="callout-body">
@@ -1330,9 +1285,9 @@ attr(,"class")
 <section id="css-syntax" class="slide level2">
 <h2>CSS Syntax</h2>
 <div class="panel-tabset">
-<ul id="tabset-9" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-9-1">Selectors</a></li><li><a href="#tabset-9-2">Declaration</a></li><li><a href="#tabset-9-3">Examples</a></li></ul>
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Selectors</a></li><li><a href="#tabset-6-2">Declaration</a></li><li><a href="#tabset-6-3">Examples</a></li></ul>
 <div class="tab-content">
-<div id="tabset-9-1">
+<div id="tabset-6-1">
 <p>CSS syntax consists of one or more selectors, matching one or more HTML elements or attributes</p>
 <div class="callout callout-note callout-style-simple">
 <div class="callout-body">
@@ -1353,7 +1308,7 @@ attr(,"class")
 </div>
 </div>
 </div>
-<div id="tabset-9-2">
+<div id="tabset-6-2">
 <p>CSS syntax consists of a declaration, with one or more properties and values</p>
 <div class="callout callout-note callout-style-simple">
 <div class="callout-body">
@@ -1369,9 +1324,9 @@ attr(,"class")
 </div>
 </div>
 </div>
-<div id="tabset-9-3">
+<div id="tabset-6-3">
 <pre><code>p {font-size:14px;}
-h1 h2 {color:blue;}
+h1, h2 {color:blue;}
 .count {background-color:yellow;}
 #count-sentence {color:red; font-size:16px;}</code></pre>
 </div>
@@ -1381,9 +1336,9 @@ h1 h2 {color:blue;}
 <section id="css-internal" class="slide level2">
 <h2>CSS Internal</h2>
 <div class="panel-tabset">
-<ul id="tabset-10" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-10-1">Info</a></li><li><a href="#tabset-10-2">Code</a></li></ul>
+<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Info</a></li><li><a href="#tabset-7-2">Code</a></li></ul>
 <div class="tab-content">
-<div id="tabset-10-1">
+<div id="tabset-7-1">
 <p>CSS rules can be defined internally:</p>
 <ul>
 <li>within the style element</li>
@@ -1391,25 +1346,25 @@ h1 h2 {color:blue;}
 </ul>
 <p>Internally defined rules apply to all matching selectors on the same page</p>
 </div>
-<div id="tabset-10-2">
+<div id="tabset-7-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36" data-code-line-numbers="4,5,6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a><span class="sc">&lt;!</span>DOCTYPE html<span class="sc">&gt;</span> </span>
-<span id="cb36-2"><a></a><span class="er">&lt;</span>html<span class="sc">&gt;</span> </span>
-<span id="cb36-3"><a></a>  <span class="er">&lt;</span>head<span class="sc">&gt;</span> </span>
-<span id="cb36-4"><a></a>    <span class="er">&lt;</span>style<span class="sc">&gt;</span>  </span>
-<span id="cb36-5"><a></a>      h1 {color<span class="sc">:</span> red;} </span>
-<span id="cb36-6"><a></a>    <span class="sc">&lt;</span><span class="er">/</span>style<span class="sc">&gt;</span> </span>
-<span id="cb36-7"><a></a>    <span class="er">&lt;</span>title<span class="sc">&gt;</span>This is a title<span class="sc">&lt;</span><span class="er">/</span>title<span class="sc">&gt;</span></span>
-<span id="cb36-8"><a></a>  <span class="er">&lt;/</span>head<span class="sc">&gt;</span> </span>
-<span id="cb36-9"><a></a>  <span class="er">&lt;</span>body<span class="sc">&gt;</span></span>
-<span id="cb36-10"><a></a>    <span class="er">&lt;</span>h1<span class="sc">&gt;</span>This is a header<span class="sc">&lt;</span><span class="er">/</span>h1<span class="sc">&gt;</span>       </span>
-<span id="cb36-11"><a></a>    <span class="er">&lt;</span>p<span class="sc">&gt;</span>This is a paragraph.<span class="sc">&lt;</span><span class="er">/</span>p<span class="sc">&gt;</span></span>
-<span id="cb36-12"><a></a>    <span class="er">&lt;</span>ol<span class="sc">&gt;</span></span>
-<span id="cb36-13"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span>This is a<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span></span>
-<span id="cb36-14"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span> ordered list<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span> </span>
-<span id="cb36-15"><a></a>    <span class="er">&lt;/</span>ol<span class="sc">&gt;</span></span>
-<span id="cb36-16"><a></a>  <span class="er">&lt;/</span>body<span class="sc">&gt;</span></span>
-<span id="cb36-17"><a></a><span class="er">&lt;/</span>html<span class="sc">&gt;</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33" data-code-line-numbers="4,5,6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="sc">&lt;!</span>DOCTYPE html<span class="sc">&gt;</span> </span>
+<span id="cb33-2"><a></a><span class="er">&lt;</span>html<span class="sc">&gt;</span> </span>
+<span id="cb33-3"><a></a>  <span class="er">&lt;</span>head<span class="sc">&gt;</span> </span>
+<span id="cb33-4"><a></a>    <span class="er">&lt;</span>style<span class="sc">&gt;</span>  </span>
+<span id="cb33-5"><a></a>      h1 {color<span class="sc">:</span> red;} </span>
+<span id="cb33-6"><a></a>    <span class="sc">&lt;</span><span class="er">/</span>style<span class="sc">&gt;</span> </span>
+<span id="cb33-7"><a></a>    <span class="er">&lt;</span>title<span class="sc">&gt;</span>This is a title<span class="sc">&lt;</span><span class="er">/</span>title<span class="sc">&gt;</span></span>
+<span id="cb33-8"><a></a>  <span class="er">&lt;/</span>head<span class="sc">&gt;</span> </span>
+<span id="cb33-9"><a></a>  <span class="er">&lt;</span>body<span class="sc">&gt;</span></span>
+<span id="cb33-10"><a></a>    <span class="er">&lt;</span>h1<span class="sc">&gt;</span>This is a header<span class="sc">&lt;</span><span class="er">/</span>h1<span class="sc">&gt;</span>       </span>
+<span id="cb33-11"><a></a>    <span class="er">&lt;</span>p<span class="sc">&gt;</span>This is a paragraph.<span class="sc">&lt;</span><span class="er">/</span>p<span class="sc">&gt;</span></span>
+<span id="cb33-12"><a></a>    <span class="er">&lt;</span>ol<span class="sc">&gt;</span></span>
+<span id="cb33-13"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span>This is a<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span></span>
+<span id="cb33-14"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span> ordered list<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span> </span>
+<span id="cb33-15"><a></a>    <span class="er">&lt;/</span>ol<span class="sc">&gt;</span></span>
+<span id="cb33-16"><a></a>  <span class="er">&lt;/</span>body<span class="sc">&gt;</span></span>
+<span id="cb33-17"><a></a><span class="er">&lt;/</span>html<span class="sc">&gt;</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1418,9 +1373,9 @@ h1 h2 {color:blue;}
 <section id="css-external" class="slide level2">
 <h2>CSS External</h2>
 <div class="panel-tabset">
-<ul id="tabset-11" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-11-1">Info</a></li><li><a href="#tabset-11-2">Code</a></li></ul>
+<ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1">Info</a></li><li><a href="#tabset-8-2">CSS file</a></li><li><a href="#tabset-8-3">Code</a></li></ul>
 <div class="tab-content">
-<div id="tabset-11-1">
+<div id="tabset-8-1">
 <p>CSS rules can be defined externally:</p>
 <ul>
 <li>css file needs to be saved &amp; linked to the html document</li>
@@ -1441,23 +1396,31 @@ h1 h2 {color:blue;}
 </div>
 </div>
 </div>
-<div id="tabset-11-2">
+<div id="tabset-8-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="sc">&lt;!</span>DOCTYPE html<span class="sc">&gt;</span> </span>
-<span id="cb37-2"><a></a><span class="er">&lt;</span>html<span class="sc">&gt;</span> </span>
-<span id="cb37-3"><a></a>  <span class="er">&lt;</span>head<span class="sc">&gt;</span> </span>
-<span id="cb37-4"><a></a>    <span class="er">&lt;</span>link rel<span class="ot">=</span><span class="st">"styles"</span> href<span class="ot">=</span><span class="st">"C.css"</span><span class="sc">&gt;</span> </span>
-<span id="cb37-5"><a></a>    <span class="er">&lt;</span>title<span class="sc">&gt;</span>This is a title<span class="sc">&lt;</span><span class="er">/</span>title<span class="sc">&gt;</span></span>
-<span id="cb37-6"><a></a>  <span class="er">&lt;/</span>head<span class="sc">&gt;</span> </span>
-<span id="cb37-7"><a></a>  <span class="er">&lt;</span>body<span class="sc">&gt;</span></span>
-<span id="cb37-8"><a></a>    <span class="er">&lt;</span>h1<span class="sc">&gt;</span>This is a header<span class="sc">&lt;</span><span class="er">/</span>h1<span class="sc">&gt;</span>       </span>
-<span id="cb37-9"><a></a>    <span class="er">&lt;</span>p<span class="sc">&gt;</span>This is a paragraph.<span class="sc">&lt;</span><span class="er">/</span>p<span class="sc">&gt;</span></span>
-<span id="cb37-10"><a></a>    <span class="er">&lt;</span>ol<span class="sc">&gt;</span></span>
-<span id="cb37-11"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span>This is a<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span></span>
-<span id="cb37-12"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span> ordered list<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span> </span>
-<span id="cb37-13"><a></a>    <span class="er">&lt;/</span>ol<span class="sc">&gt;</span></span>
-<span id="cb37-14"><a></a>  <span class="er">&lt;/</span>body<span class="sc">&gt;</span></span>
-<span id="cb37-15"><a></a><span class="er">&lt;/</span>html<span class="sc">&gt;</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="co"># We save this as style.css. You can create this with any text file (text editor). Also rom within R.</span></span>
+<span id="cb34-2"><a></a></span>
+<span id="cb34-3"><a></a>p {font<span class="sc">-</span>size<span class="sc">:</span><span class="dv">14</span>px;}</span>
+<span id="cb34-4"><a></a>h1, h2 {color<span class="sc">:</span>blue;}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-8-3">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a><span class="sc">&lt;!</span>DOCTYPE html<span class="sc">&gt;</span> </span>
+<span id="cb35-2"><a></a><span class="er">&lt;</span>html<span class="sc">&gt;</span> </span>
+<span id="cb35-3"><a></a>  <span class="er">&lt;</span>head<span class="sc">&gt;</span> </span>
+<span id="cb35-4"><a></a>    <span class="er">&lt;</span>link rel<span class="ot">=</span><span class="st">"stylesheet"</span> href<span class="ot">=</span><span class="st">"style.css"</span><span class="sc">&gt;</span> </span>
+<span id="cb35-5"><a></a>    <span class="er">&lt;</span>title<span class="sc">&gt;</span>This is a title<span class="sc">&lt;</span><span class="er">/</span>title<span class="sc">&gt;</span></span>
+<span id="cb35-6"><a></a>  <span class="er">&lt;/</span>head<span class="sc">&gt;</span> </span>
+<span id="cb35-7"><a></a>  <span class="er">&lt;</span>body<span class="sc">&gt;</span></span>
+<span id="cb35-8"><a></a>    <span class="er">&lt;</span>h1<span class="sc">&gt;</span>This is a header<span class="sc">&lt;</span><span class="er">/</span>h1<span class="sc">&gt;</span>       </span>
+<span id="cb35-9"><a></a>    <span class="er">&lt;</span>p<span class="sc">&gt;</span>This is a paragraph.<span class="sc">&lt;</span><span class="er">/</span>p<span class="sc">&gt;</span></span>
+<span id="cb35-10"><a></a>    <span class="er">&lt;</span>ol<span class="sc">&gt;</span></span>
+<span id="cb35-11"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span>This is a<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span></span>
+<span id="cb35-12"><a></a>       <span class="er">&lt;</span>li<span class="sc">&gt;</span> ordered list<span class="sc">&lt;</span><span class="er">/</span>li<span class="sc">&gt;</span> </span>
+<span id="cb35-13"><a></a>    <span class="er">&lt;/</span>ol<span class="sc">&gt;</span></span>
+<span id="cb35-14"><a></a>  <span class="er">&lt;/</span>body<span class="sc">&gt;</span></span>
+<span id="cb35-15"><a></a><span class="er">&lt;/</span>html<span class="sc">&gt;</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1466,7 +1429,7 @@ h1 h2 {color:blue;}
 <section id="css-inline" class="slide level2">
 <h2>CSS Inline</h2>
 <p>CSS rules can also be defined inline:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb38-1"><a></a>&lt;p&gt;This is &lt;strong `style="color:blue;"`&gt;one&lt;/strong&gt; sentence.&lt;/p&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb36-1"><a></a>&lt;p&gt;This is &lt;strong style="color:blue;"&gt;one&lt;/strong&gt; sentence.&lt;/p&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>
 This is <strong style="color:blue;">one</strong> sentence.
 </p>
