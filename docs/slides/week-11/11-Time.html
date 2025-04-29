@@ -8,11 +8,11 @@
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.450">
+  <meta name="generator" content="quarto-1.4.555">
 
   <meta name="author" content="David Schweizer">
-  <meta name="dcterms.date" content="2024-05-07">
-  <title>Automated Data Collection - Course Website - Web scraping dynamic</title>
+  <meta name="dcterms.date" content="2025-05-06">
+  <title>Text-as-Data - Course Website - Web scraping: Static</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -30,71 +30,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -222,7 +157,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -391,7 +327,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Web scraping dynamic</h1>
+  <h1 class="title">Web scraping: Static</h1>
   <p class="subtitle">Week 13</p>
 
 <div class="quarto-title-authors">
@@ -405,404 +341,17 @@ David Schweizer
     </div>
 </div>
 
-  <p class="date">May 7, 2024</p>
+  <p class="date">May 6, 2025</p>
 </section>
-<section id="plan-for-today" class="slide level2">
-<h2>Plan for today</h2>
-<ul>
-<li><p>Short input:</p>
-<ul>
-<li><strong>Crawling</strong> static pages and <strong>scraping dynamic</strong> pages</li>
-</ul></li>
-<li><p>Your turn!</p></li>
-</ul>
-</section>
-<section id="crawling-static-pages-overview" class="slide level2">
-<h2>Crawling (Static) Pages: Overview</h2>
-<p>Most of the time, one page does not include all information we are interested in (e.g, it is spread over different pages of a website).</p>
-<p>In this case, we can <strong>crawl</strong> over these different pages by using information on one of the website’s pages.</p>
-<p>We can use <em>for loops</em> for crawling.</p>
-<ul>
-<li>This can take a long time</li>
-<li>We should even more think about ethical scraping!</li>
-</ul>
-</section>
-<section id="example-bundeswahlleiterin---btw-2021" class="slide level2">
-<h2>Example: Bundeswahlleiterin - BTW 2021</h2>
+<section id="tba" class="title-slide slide level1 center">
+<h1>TBA</h1>
 
-<img data-src="Bild1.png" class="r-stretch"></section>
-<section id="example-btw-2021---land" class="slide level2">
-<h2>Example: BTW 2021 - Land</h2>
-
-<img data-src="bild3.jpg" class="r-stretch"></section>
-<section id="example-btw-2021---results-in-tables" class="slide level2">
-<h2>Example: BTW 2021 - Results in tables</h2>
-
-<img data-src="bild4.jpg" class="r-stretch"></section>
-<section id="example-select-links-with-selectorgadget" class="slide level2">
-<h2>Example: Select links with SelectorGadget</h2>
-
-<img data-src="Bild2.png" class="r-stretch"></section>
-<section id="example-get-links" class="slide level2">
-<h2>Example: Get links</h2>
-<p>First, we scrape the page that has all URLs:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>links <span class="ot">&lt;-</span> <span class="fu">bow</span>(<span class="at">url =</span> <span class="st">"https://www.bundeswahlleiter.de/bundestagswahlen/2021/ergebnisse.html"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>        <span class="fu">scrape</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a>        <span class="fu">html_elements</span>(<span class="at">css =</span> <span class="st">".linklist__item+ .linklist__item a"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-4"><a href="#cb1-4"></a>        <span class="fu">html_attr</span>(<span class="st">"href"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-5"><a href="#cb1-5"></a>        <span class="fu">url_absolute</span>(<span class="at">base =</span> <span class="st">"https://www.bundeswahlleiter.de/bundestagswahlen/2021/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">head</span>(links)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "https://www.bundeswahlleiter.de/bundestagswahlen/2021/ergebnisse/bund-99/land-8.html" 
-[2] "https://www.bundeswahlleiter.de/bundestagswahlen/2021/ergebnisse/bund-99/land-9.html" 
-[3] "https://www.bundeswahlleiter.de/bundestagswahlen/2021/ergebnisse/bund-99/land-11.html"
-[4] "https://www.bundeswahlleiter.de/bundestagswahlen/2021/ergebnisse/bund-99/land-12.html"
-[5] "https://www.bundeswahlleiter.de/bundestagswahlen/2021/ergebnisse/bund-99/land-4.html" 
-[6] "https://www.bundeswahlleiter.de/bundestagswahlen/2021/ergebnisse/bund-99/land-2.html" </code></pre>
-</div>
-</div>
-</section>
-<section id="example-get-tables-from-each-page" class="slide level2">
-<h2>Example: Get tables from each page</h2>
-<p>First, we create an empty list. We store our table later in that list.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4" data-code-line-numbers="1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>list <span class="ot">&lt;-</span> <span class="fu">list</span> ()</span>
-<span id="cb4-2"><a href="#cb4-2"></a></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(links)) {</span>
-<span id="cb4-4"><a href="#cb4-4"></a>  </span>
-<span id="cb4-5"><a href="#cb4-5"></a>  page <span class="ot">&lt;-</span> <span class="fu">bow</span>(links[i]) <span class="sc">%&gt;%</span> <span class="fu">scrape</span>()</span>
-<span id="cb4-6"><a href="#cb4-6"></a>  </span>
-<span id="cb4-7"><a href="#cb4-7"></a>  list[[i]] <span class="ot">&lt;-</span> page <span class="sc">%&gt;%</span> </span>
-<span id="cb4-8"><a href="#cb4-8"></a>          <span class="fu">html_table</span>() </span>
-<span id="cb4-9"><a href="#cb4-9"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="example-get-tables-from-each-page-1" class="slide level2">
-<h2>Example: Get tables from each page</h2>
-<p>Next, we use a <em>for loop</em> to iterate over each element in our list of links:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5" data-code-line-numbers="3,10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>list <span class="ot">&lt;-</span> <span class="fu">list</span> () </span>
-<span id="cb5-2"><a href="#cb5-2"></a></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(links)) { </span>
-<span id="cb5-4"><a href="#cb5-4"></a>    </span>
-<span id="cb5-5"><a href="#cb5-5"></a>  page <span class="ot">&lt;-</span> <span class="fu">bow</span>(links[i]) <span class="sc">%&gt;%</span> <span class="fu">scrape</span>()</span>
-<span id="cb5-6"><a href="#cb5-6"></a></span>
-<span id="cb5-7"><a href="#cb5-7"></a>  list[[i]] <span class="ot">&lt;-</span> page <span class="sc">%&gt;%</span> </span>
-<span id="cb5-8"><a href="#cb5-8"></a>        <span class="fu">html_table</span>() </span>
-<span id="cb5-9"><a href="#cb5-9"></a></span>
-<span id="cb5-10"><a href="#cb5-10"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="example-get-tables-from-each-page-2" class="slide level2">
-<h2>Example: Get tables from each page</h2>
-<p>Then, we <em>politely</em> (<code>bow()</code>) get the source code for each link (<code>scrape()</code>):</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>list <span class="ot">&lt;-</span> <span class="fu">list</span> () </span>
-<span id="cb6-2"><a href="#cb6-2"></a></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(links)) { </span>
-<span id="cb6-4"><a href="#cb6-4"></a>  </span>
-<span id="cb6-5"><a href="#cb6-5"></a>page <span class="ot">&lt;-</span> <span class="fu">bow</span>(links[i]) <span class="sc">%&gt;%</span> <span class="fu">scrape</span>()</span>
-<span id="cb6-6"><a href="#cb6-6"></a></span>
-<span id="cb6-7"><a href="#cb6-7"></a>list[[i]] <span class="ot">&lt;-</span> page <span class="sc">%&gt;%</span> </span>
-<span id="cb6-8"><a href="#cb6-8"></a>        <span class="fu">html_table</span>() </span>
-<span id="cb6-9"><a href="#cb6-9"></a></span>
-<span id="cb6-10"><a href="#cb6-10"></a>} </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="example-get-tables-from-each-page-3" class="slide level2">
-<h2>Example: Get tables from each page</h2>
-<p>Finally, we scrape the tables from each page with <code>html_table()</code> and store the results in our list:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7" data-code-line-numbers="7,8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>list <span class="ot">&lt;-</span> <span class="fu">list</span> () </span>
-<span id="cb7-2"><a href="#cb7-2"></a></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(links)) { </span>
-<span id="cb7-4"><a href="#cb7-4"></a>  </span>
-<span id="cb7-5"><a href="#cb7-5"></a>page <span class="ot">&lt;-</span> <span class="fu">bow</span>(links[i]) <span class="sc">%&gt;%</span> <span class="fu">scrape</span>() </span>
-<span id="cb7-6"><a href="#cb7-6"></a></span>
-<span id="cb7-7"><a href="#cb7-7"></a>list[[i]] <span class="ot">&lt;-</span> page <span class="sc">%&gt;%</span> </span>
-<span id="cb7-8"><a href="#cb7-8"></a>        <span class="fu">html_table</span>()</span>
-<span id="cb7-9"><a href="#cb7-9"></a></span>
-<span id="cb7-10"><a href="#cb7-10"></a>} </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="example-get-tables-from-each-page-4" class="slide level2">
-<h2>Example: Get tables from each page</h2>
-<p>Check the first list entry:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>list[[<span class="dv">1</span>]] <span class="do">## Baden-Württemberg</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[[1]]
-# A tibble: 35 × 7
-   Merkmal         Erststimmen Erststimmen Erststimmen Zweitstimmen Zweitstimmen
-   &lt;chr&gt;           &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;        &lt;chr&gt;       
- 1 Merkmal         Anzahl      %           Diff. zu 2… Anzahl       %           
- 2 Wahlberechtigte 7.711.531   -           -           7.711.531    -           
- 3 Wählende        5.997.317   77,8        -0,5        5.997.317    77,8        
- 4 Ungültige       54.574      0,9         -0,3        47.657       0,8         
- 5 Gültige         5.942.743   99,1        +0,3        5.949.660    99,2        
- 6 CDU             1.767.316   29,7        -9,5        1.477.612    24,8        
- 7 SPD             1.247.455   21,0        +1,5        1.287.934    21,6        
- 8 GRÜNE           1.058.334   17,8        +4,4        1.022.226    17,2        
- 9 FDP             711.697     12,0        +3,3        908.039      15,3        
-10 AfD             561.058     9,4         -2,1        571.336      9,6         
-# ℹ 25 more rows
-# ℹ 1 more variable: Zweitstimmen &lt;chr&gt;</code></pre>
-</div>
-</div>
-</section>
-<section id="example-btw-2021---more-links" class="slide level2">
-<h2>Example: BTW 2021 - More links</h2>
-
-<img data-src="bild5.jpg" class="r-stretch"></section>
-<section>
-<section id="scraping-dynamic-pages" class="title-slide slide level1 center">
-<h1>Scraping dynamic pages</h1>
-
-</section>
-<section id="overview" class="slide level2">
-<h2>Overview</h2>
-<p>Dynamic pages display custom content.</p>
-<p>Different visitors see different content on the same page - e.g., depending on their input (clicking, scrolling) - URL stays the same</p>
-<p>For example, the Bundeswahlleiter (Federal Returining Officer) has dynamic elements on its website (e.g., selecting election year or voting results on subnational levels).</p>
-<p>It is more difficult to scrape dynamic than static pages - we need one extra step - for this extra step, we are using the package <em>RSelenium</em></p>
-</section>
-<section id="dynamic-pages-steps" class="slide level2">
-<h2>Dynamic Pages: Steps</h2>
-<p>Three main steps:</p>
-<ul>
-<li>Use <em>RSelenium</em> to identify and select the desired elements of the page by clicking, searching, selecting from within RStudio</li>
-<li>Get the source code
-<ul>
-<li><em>RSelenium</em> downloads in XML format</li>
-<li>we can use <em>rvest</em> to transform this into HTML</li>
-</ul></li>
-<li>Extract the relevant information from the source code using the <em>rvest</em> package
-<ul>
-<li>this is the same process as for static pages</li>
-</ul></li>
-</ul>
-</section>
-<section id="dynamic-pages-rselenium" class="slide level2">
-<h2>Dynamic Pages: RSelenium</h2>
-<p>The <em>RSelenium</em> package integrates the <a href="https://www.selenium.dev/documentation/">Selenium 2.0 WebDriver</a> into R. The package allows us to interact with</p>
-<ul>
-<li><p>browsers on our device (e.g., open a browser and navigating to a page)</p></li>
-<li><p>elements on a page (e.g., opening or clicking on a drop-down menu)</p></li>
-</ul>
-<p>In case you are stuck on a particular problem, you can easily find help for only (e.g., stackoverflow, google, etc.) or more information in the <a href="https://cran.r-project.org/web/packages/RSelenium/vignettes/basics.html">vignette</a>.</p>
-</section>
-<section id="starting-a-server-with-firefox" class="slide level2">
-<h2>Starting a Server With Firefox</h2>
-<p>We use the <code>rsDriver</code> function to start a server. This way we can control a browser of our choice from within R.</p>
-<ul>
-<li><p>The function <code>rsDriver</code> creates the object <em>driver</em> and the web browser opens</p></li>
-<li><p>You should avoid controlling this browser manually</p></li>
-<li><p>You should avoid creating multiple servers</p></li>
-<li><p><em>Note</em>: We can start only one server per port</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>driver <span class="ot">&lt;-</span> RSelenium<span class="sc">::</span><span class="fu">rsDriver</span>(<span class="at">port =</span> 0001L, </span>
-<span id="cb10-2"><a href="#cb10-2"></a>                              <span class="at">browser =</span> <span class="st">"firefox"</span>,</span>
-<span id="cb10-3"><a href="#cb10-3"></a>                              ...</span>
-<span id="cb10-4"><a href="#cb10-4"></a>                              )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="starting-a-server-with-firefox-1" class="slide level2">
-<h2>Starting a Server With Firefox</h2>
-
-<img data-src="bild3.png" class="r-stretch"></section>
-<section id="starting-a-server-with-firefox-2" class="slide level2">
-<h2>Starting a Server With Firefox</h2>
-<p>Next, we separate the client and server as different objects:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>browser <span class="ot">&lt;-</span> driver<span class="sc">$</span>client</span>
-<span id="cb11-2"><a href="#cb11-2"></a>server <span class="ot">&lt;-</span> driver<span class="sc">$</span>server</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-note callout-style-simple">
-<div class="callout-body">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-content">
-<p><code>rsDriver()</code> creates a client and a server</p>
-<ul>
-<li><p>our code primarily interacts with the client</p></li>
-<li><p>we can think of the client as the browser itself; it has the class <em>remoteDriver</em></p></li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="navigate-dynamic-pages" class="slide level2">
-<h2>Navigate dynamic pages</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>browser<span class="sc">$</span><span class="fu">navigate</span>(<span class="at">url =</span> <span class="st">"https://www.bundeswahlleiter.de/bundestagswahlen/2021/ergebnisse.html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-note callout-style-simple">
-<div class="callout-body">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-content">
-<p><em>navigate</em> is a <em>method</em> and not a <em>function</em></p>
-<ul>
-<li><p>we cannot pipe (%&gt;%) it into browser but have to use the dollar sign notation</p></li>
-<li><p>it is optional to type the name of the <em>url</em> argument</p></li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="navigate-dynamic-pages-1" class="slide level2">
-<h2>Navigate dynamic pages</h2>
-
-<img data-src="bild4.png" class="r-stretch"></section>
-<section id="navigate-dynamic-pages-2" class="slide level2">
-<h2>Navigate dynamic pages</h2>
-<p>Go back to previous URL:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>browser<span class="sc">$</span><span class="fu">goBack</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Go forward:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>browser<span class="sc">$</span><span class="fu">goForward</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Refresh:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>browser<span class="sc">$</span><span class="fu">refresh</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="navigate-dynamic-pages-3" class="slide level2">
-<h2>Navigate dynamic pages</h2>
-<p>Get URL of current page:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>browser<span class="sc">$</span><span class="fu">getCurrentUrl</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Get title of current page</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>browser<span class="sc">$</span><span class="fu">getTitle</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="dynamic-pages-close-open-browser" class="slide level2">
-<h2>Dynamic Pages: Close &amp; Open Browser</h2>
-<p>We can close the browser without closing our session on the server:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>browser<span class="sc">$</span><span class="fu">close</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>And open a new browser without using the <code>rsDriver</code> function again, as the server is still running:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>browser<span class="sc">$</span><span class="fu">open</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="dynamic-pages-get-page-source" class="slide level2">
-<h2>Dynamic Pages: Get Page Source</h2>
-<p>Using the <em>RSelenium</em> package, we get the page source code the following way:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>browser<span class="sc">$</span><span class="fu">getPageSource</span>()[[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li><em>Note:</em> This method returns a list . The XML source is in the first item of the list. This is why we use [[1]] to access it.</li>
-</ul>
-<!-- -->
-<ul>
-<li>This is similar to our <em>bow() %&gt;% scrape()</em> process</li>
-</ul>
-</section>
-<section id="dynamic-pages-get-page-source-1" class="slide level2">
-<h2>Dynamic Pages: Get Page Source</h2>
-<p>We can extract links combining methods and function from the <em>RSelenium</em> and the <em>rvest</em> package:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>browser<span class="sc">$</span><span class="fu">getPageSource</span>()[[<span class="dv">1</span>]] <span class="sc">%&gt;%</span> </span>
-<span id="cb21-2"><a href="#cb21-2"></a>        <span class="fu">read_html</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb21-3"><a href="#cb21-3"></a>        <span class="fu">html_elements</span>(<span class="at">css =</span> <span class="st">".linklist__item+ .linklist__item a"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb21-4"><a href="#cb21-4"></a>        <span class="fu">html_attr</span>(<span class="st">"href"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="dynamic-pages-find-elements" class="slide level2">
-<h2>Dynamic Pages: Find Elements</h2>
-<p>We can locate an element on the open browser using CSS selectors</p>
-<p>There are also other selectors as</p>
-<ul>
-<li><p>xpath</p></li>
-<li><p>id</p></li>
-<li><p>name</p></li>
-<li><p>link text</p></li>
-</ul>
-</section>
-<section id="dynamic-pages-find-and-highlight-elements" class="slide level2">
-<h2>Dynamic Pages: Find and Highlight Elements</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="do">## navigate to page</span></span>
-<span id="cb22-2"><a href="#cb22-2"></a>browser<span class="sc">$</span><span class="fu">navigate</span>(<span class="at">url =</span> <span class="st">"https://www.bundeswahlleiter.de/bundestagswahlen/2021/ergebnisse.html"</span>)</span>
-<span id="cb22-3"><a href="#cb22-3"></a></span>
-<span id="cb22-4"><a href="#cb22-4"></a><span class="do">## find and store element</span></span>
-<span id="cb22-5"><a href="#cb22-5"></a>selection <span class="ot">&lt;-</span> browser<span class="sc">$</span><span class="fu">findElement</span>(<span class="at">using =</span> <span class="st">"css selector"</span>, <span class="at">value =</span> <span class="st">".dropdown__toggler"</span>)</span>
-<span id="cb22-6"><a href="#cb22-6"></a></span>
-<span id="cb22-7"><a href="#cb22-7"></a><span class="do">## highlight element</span></span>
-<span id="cb22-8"><a href="#cb22-8"></a>selection<span class="sc">$</span><span class="fu">highlightElement</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Note: The highlighted element will flash for one or two seconds on the open browser.</p>
-</section>
-<section id="dynamic-pages-input-selenium-keys" class="slide level2">
-<h2>Dynamic Pages: Input (Selenium Keys)</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">as_tibble</span>(selKeys) <span class="sc">%&gt;%</span> </span>
-<span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "null"         "cancel"       "help"         "backspace"    "tab"         
- [6] "clear"        "return"       "enter"        "shift"        "control"     
-[11] "alt"          "pause"        "escape"       "space"        "page_up"     
-[16] "page_down"    "end"          "home"         "left_arrow"   "up_arrow"    
-[21] "right_arrow"  "down_arrow"   "insert"       "delete"       "semicolon"   
-[26] "equals"       "numpad_0"     "numpad_1"     "numpad_2"     "numpad_3"    
-[31] "numpad_4"     "numpad_5"     "numpad_6"     "numpad_7"     "numpad_8"    
-[36] "numpad_9"     "multiply"     "add"          "separator"    "subtract"    
-[41] "decimal"      "divide"       "f1"           "f2"           "f3"          
-[46] "f4"           "f5"           "f6"           "f7"           "f8"          
-[51] "f9"           "f10"          "f11"          "f12"          "command_meta"</code></pre>
-</div>
-</div>
-</section>
-<section id="dynamic-pages-input" class="slide level2">
-<h2>Dynamic Pages: Input</h2>
-<p>For example, we can scroll up and down a page from within R:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>body <span class="ot">&lt;-</span> browser<span class="sc">$</span><span class="fu">findElement</span>(<span class="at">using =</span> <span class="st">"css"</span>, <span class="at">value =</span> <span class="st">"body"</span>)</span>
-<span id="cb25-2"><a href="#cb25-2"></a></span>
-<span id="cb25-3"><a href="#cb25-3"></a>body<span class="sc">$</span><span class="fu">sendKeysToElement</span>(<span class="fu">list</span>(<span class="at">key =</span> <span class="st">"page_down"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section></section>
-<section id="dynamic-pages-example-bundeswahlleiterin" class="title-slide slide level1 center">
-<h1>Dynamic Pages: Example Bundeswahlleiterin</h1>
-<p>You can find the code on ILIAS or a link on the website.</p>
-</section>
-
-<section>
-<section id="your-turn" class="title-slide slide level1 center">
-<h1>Your turn!</h1>
-
-</section>
-<section id="task-for-today-basic" class="slide level2">
-<h2>Task for today: Basic</h2>
-<ul>
-<li><p>Try to navigate the Bundeswahlleiterin website with commands from RStudio</p></li>
-<li><p>Can you extend the example and scrape the data for the remaining states?</p></li>
-</ul>
-</section>
-<section id="task-for-today-advanced" class="slide level2">
-<h2>Task for today: Advanced</h2>
-<ul>
-<li><p>Try to scrape the election data at the district level in Baden-Württemberg. This follows the same logic as in the example.</p></li>
-<li><p>Try to scrape press releases from the AfD <a href="https://www.afd.de/presse/" class="uri">https://www.afd.de/presse/</a>. Things to consider: How can you crawl over all press releases? How can you actually access the separate press releases? How can you display all press releases</p></li>
-</ul>
-
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
-<p>Automated Data Collection | Spring 2024 | University of Mannheim</p>
+<p>Text-as-Data in R | Spring 2025 | University of Mannheim</p>
 </div>
-</section></section>
+</div>
+</section>
     </div>
   </div>
 
@@ -829,7 +378,6 @@ David Schweizer
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -1014,44 +562,6 @@ David Schweizer
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
@@ -1128,10 +638,27 @@ David Schweizer
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -1141,8 +668,17 @@ David Schweizer
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -1156,7 +692,11 @@ David Schweizer
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {

@@ -1,5 +1,5 @@
 ---
-title: "Web scraping: Basics"
+title: "Web scraping basics"
 subtitle: "Week 12"
 author: "David Schweizer"
 date: "April 29, 2025"
@@ -13,4 +13,933 @@ format:
 editor: visual
 ---
 
-# TBA
+```{r setup, include=FALSE}
+pacman::p_load(
+  "tidyverse",
+  "robotstxt"
+)
+```
+
+## Today and Next Sessions
+
+**Today:**
+
+-   Setup, Legal and ethical issues, HTML basics, and CSS basics
+
+Next sessions:
+
+-   Scraping static pages
+
+-   Scraping dynamic pages
+
+## Packages
+
+Installing the necessary packages:
+
+```{r, eval= FALSE, echo = TRUE}
+install.packages(c("rvest", "RSelenium", "robotstxt", "polite"))
+```
+
+Today and in the next sessions we will use:
+
+-   `rvest` [(Wickham, 2021)](https://cran.r-project.org/web/packages/rvest/index.html), for scraping websites & `RSelenium` [(Harrison, 2020)](https://docs.ropensci.org/RSelenium/), for browsing the web programmatically
+
+-   `robotstxt` [(Meissner and Ren, 2020)](https://cran.r-project.org/web/packages/robotstxt/index.html), for checking permissions to scrape websites
+
+-   `polite` [(Perepolkin, 2019)](https://github.com/dmi3kno/polite), for compliance with permissions to scrape websites
+
+## Java
+
+-   `RSelenium` needs Java to run
+
+    -   for the automation of scripts
+
+-   You can download Java from https://www.java.com/en/download/
+
+    -   You have to restart open browsers after installing Java
+
+## Chrome
+
+-   Chrome is best suited for `RSelenium` and favoured by most developers
+
+-   You can download Chrome from https://www.google.com/chrome/
+
+-   However, Firefox is also fine!
+
+## SelectorGadget
+
+-   Can be added as an extension for Chrome
+
+    -   simplifies the selection process for web scraping
+    -   [open source](https://github.com/cantino/selectorgadget)
+
+-   You can search for *SelectorGadget* here: https://chrome.google.com/webstore/category/extensions
+
+-   Alternative: [ScrapeMate](https://github.com/hermit-crab/ScrapeMate)
+
+    -   works for both Chrome and Firefox
+    -   search ScrapeMate at https://addons.mozilla.org/ to add the extension on Firefox
+
+## Legal Issues
+
+-   Web scraping could be illegal!
+
+    -   it depends: Who is web scraping what sites? How is the scraping conducted? Under which jurisdiction?
+
+-   The following represent possible illegal web scraping activities:
+
+    -   web scraping results in collapse of website (too many and large inquiries)
+
+    -   collecting (private) copyright data and use it for own gain (e.g., selling e-mail adresses)
+
+## Ethical Issues
+
+-   Web scraping could also be unethical!
+
+    -   again, it depends: *Who, what, why, and how?*
+
+-   The following represent possible unethical web scraping activities:
+
+    -   not respecting restrictions set by the website administrator (e.g., *robots.txt* files)
+
+    -   collecting data in short time-intervals without need which is available to download via an API
+
+## robots.txt Files
+
+-   Most websites provide a so-called robots exclusion protocol
+
+    -   it includes information on what is allowed to scrape and at what speed
+
+    -   the information is stored within *robots.txt* files
+
+        -   the can be found via the websites URL: e.g., www.EXAMPLE.com/robots.txt
+
+-   These rules are not binding, so you could scrape the website however you want.
+
+    -   **BUT:** legal and ethical issues!
+
+## robots.txt Syntax
+
+::: panel-tabset
+## General
+
+-   *robots.txt* files are easy to read and understand
+
+    -   we can make use of the `robotstxt` package
+
+## Syntax
+
+-   *User-agent*: Who is the protocol intended for?
+
+-   *Allow*: What part of the website can be scraped?
+
+-   *Disallow*: What part of the website is not allowed to be scraped?
+
+-   *Crawl-delay*: How fast should we scrape the website?
+
+::: {.callout-tip appearance="simple"}
+The key always starts with capital letters and is followed by a colon.
+:::
+
+## Example
+
+```{r, eval=FALSE, echo=TRUE}
+User-agent:
+Allow:
+Disallow:
+Crawl-delay:
+```
+:::
+
+## robots.txt Syntax
+
+::: panel-tabset
+## Example
+
+Websites define the keys themselves:
+
+-   `*`: protocol is targeted at everyone
+-   `/`: full website can be scraped
+-   `/about/`: this specific path is not allowed to be scraped
+-   numeric values for *Crawl-delay:* are given in seconds
+
+## Code
+
+```{r, eval=FALSE, echo=TRUE}
+User-agent: *
+Allow: /
+Disallow: /about/
+Crawl-delay: 10
+```
+:::
+
+## robots.txt Example
+
+```{r, eval=FALSE, echo=TRUE}
+User-agent: googlebot
+Allow: /
+```
+
+This websites' protocol is only for Google:
+
+-   Google is allowed to scrape everything without any restrictions
+-   No defined rule for anyone else
+
+## robots.txt Example
+
+::: panel-tabset
+## Example
+
+```{r, eval=FALSE, echo=TRUE}
+User-agent: googlebot
+Disallow: /about/
+Disallow: /history/
+Crawl-delay: 60
+```
+
+## Meaning
+
+This websites' protocol is only for Google:
+
+-   Google is disallowed to scrape two specific paths
+-   Only allowed to access at 60-seconds intervals
+-   No defined rule for anyone else
+:::
+
+## robots.txt Example
+
+::: panel-tabset
+## Example
+
+```{r, eval=FALSE, echo=TRUE}
+User-agent: googlebot
+Allow: /
+Crawl-delay: 5
+
+User-agent: bing
+Disallow: /
+  
+User-agent: *
+Allow: /companyinfo/
+```
+
+## Meaning
+
+This websites' protocol is for different user agents:
+
+-   Google is allowed to scrape everything in 60-second intervals
+-   Bing is not allowed to scrape anything
+-   Everyone else can scrape the section or page located at www.EXAMPLE.com/companyinfo/
+:::
+
+## robots.txt Additional Information
+
+The key *Visit-time* is less often used:
+
+```{r, eval=FALSE, echo=TRUE}
+User-agent: *
+Allow: /
+Disallow: /impressum/
+Visit-time: 00:00-06:00
+```
+
+*robots.txt* files can also include comments (preceded by #)
+
+```{r, eval=FALSE, echo=TRUE}
+# This is a robots.txt file
+
+User-agent: *
+Allow: /
+Disallow: /impressum/
+Visit-time: 00:00-06:00 # visit website during night time in Germany
+```
+
+## robotstxt Package
+
+The *robotstxt* package simplifies the process of checking website protocols:
+
+-   we can check protocols from within R
+-   we can check rules for specific paths and agents
+
+The package has two main functions:
+
+-   `robotstxt`: get the complete protocol
+-   `paths_allowed`: check specific paths in the protocol
+
+## robotstxt Package - robotstxt function
+
+::: panel-tabset
+## Info
+
+Using the *robotstxt* function to get a protocol:
+
+-   provide the base URL of a website within the *domain* argument as a string
+
+-   most of the time no additional arguments needed \## Code
+
+```{r, eval = FALSE, echo =TRUE}
+library(robotstxt)
+
+robotstxt(
+  domain = NULL,
+  ...
+)
+```
+:::
+
+## robotstxt Package - robotstxt function
+
+Let's have a look at our university:
+
+```{r, echo = TRUE}
+robotstxt(domain = "https://www.uni-mannheim.de/")
+```
+
+## robotstxt Package - robotstxt function
+
+Checking the list of permissions (add \$permissions):
+
+```{r, echo = TRUE}
+robotstxt(domain = "https://www.uni-mannheim.de/")$permissions
+```
+
+## robotstxt Package - paths_allowed
+
+::: panel-tabset
+## Info
+
+We can use the `paths_allowed` function in order to check if we are allowed to scrape specific paths:
+
+-   provide the base URL of a website within the *domain* argument as a string
+
+-   Both *path* and *bot* are important arguments
+
+    -   attention to default values!
+
+-   Output is either *TRUE*: We are allowed to scrape or *FALSE*: We are not allowed to scrape.
+
+## Code
+
+```{r, eval = FALSE, echo =TRUE}
+library(robotstxt)
+
+paths_allowed(
+  domain = "auto",
+  paths = "/",
+  bot = "*",
+  ...
+)
+```
+:::
+
+## robotstxt Package - paths_allowed
+
+Let's check different paths:
+
+```{r, echo=TRUE}
+paths_allowed("https://www.uni-mannheim.de/")
+```
+
+```{r, echo=TRUE}
+paths_allowed("https://www.uni-mannheim.de/",
+              paths = c("/studienangebot/", "/ausschreibungen/"))
+```
+
+```{r, echo=TRUE}
+paths_allowed("https://www.uni-mannheim.de/",
+              paths = c("/studienangebot/", "/ausschreibungen/"),
+              bot = c("googlebot", "bing"))
+```
+
+## Exercise 1
+
+Check the protocols of a newspaper such as ZEIT ONLINE (www.zeit.de) or the New York Times (www.nytimes.com)
+
+-   via your browser, with the `robotstxt` function in R, and compare the two options
+
+-   Check a specific path with the `paths_allowed` function
+
+    -   so, that it returns *FALSE.* Hint: use the information from the first task and look at the list of permissions
+
+-   Check the protocols of a website which might be interesting for you to scrape
+
+    -   using the `robotstxt` function
+    -   are there any ethical issues?
+
+## Ethics: Speed, Purpose, and Storage
+
+-   **Speed:** repeated, automatic web scraping in very short-time intervals can lead to overloading a website's server
+
+    -   waiting time might be defined in protocol (Crawl-delay key)
+
+-   **Purpose**: in the best case scenario, we have already a research question of hypothesis in mind before collecting (web scraping) data
+
+-   **Storage**: often, we will need lots of storage place (big data)
+
+    -   data should be stored privately and safely
+
+# HTML Basics
+
+## HTML Basics
+
+Websites include (usually) much more than only text, images, and links.
+
+They include code for structure, style, and functionality which is interpreted by brwosers:
+
+-   HTML: structure
+-   CSS: style
+-   e.g., JavaScript: functionality
+
+## HTML Basics
+
+If we want to web scrape, we need to refer to the source code:
+
+-   scraping what is visible on the website
+-   choosing only specific parts of a site (e.g., table)
+-   also scraping "invisible" parts (e.g., URLs hidden under text)
+
+## HTML Page Source
+
+You can view the page source by right clicking and selecting *View Page Source* (*Seitenquelltext anzeigen*) or by the shortcut *Ctrl + U* (*Strg + U*).
+
+::: columns
+::: {.column width="50%"}
+![](wiki1.png)
+:::
+
+::: {.column width="50%"}
+![](wiki2.png)
+:::
+:::
+
+## HTML DOM
+
+You can view the structured source code (DOM - document object model) by right clicking and selecting *Inspect* (*Untersuchen*) or by the shortcut *Fn + F12*.
+
+![](wiki3.png)
+
+## Exercise 2
+
+-   View the source page of a website
+
+    -   as plain source code and in DOM
+
+-   Search for words or phrases in the source code
+
+    -   copy the word from the front-end page
+    -   then search using the shortcut: *Ctrl + F* (*Strg + F*)
+
+## HTML Overview
+
+::: panel-tabset
+## Info
+
+HTML stands for *hypertext markup language*:
+
+-   structures what is visible to visitors of a website:
+
+    -   text
+    -   images
+    -   links
+
+## Example
+
+```{r, echo=TRUE, eval=FALSE}
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      h1 {color: red;}
+    </style>
+    <title>This is a title</title>
+  </head>
+  <body>
+    <h1>This is a header</h1>      
+    <p>This is a paragraph.</p>
+    <ol>
+       <li>This is a </li>
+       <li> ordered list</li>
+    </ol>
+  </body>
+</html>
+```
+:::
+
+## HTML - Declaration
+
+::: columns
+::: {.column width="50%"}
+HTML documents
+
+-   always start with a **declaration**. This way, the browser recognizes the file.
+:::
+
+::: {.column width="50%"}
+```{r, echo=TRUE, eval=FALSE}
+#| code-line-numbers: "1"
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      h1 {color: red;}
+    </style>
+    <title>This is a title</title>
+  </head>
+  <body>
+    <h1>This is a header</h1>      
+    <p>This is a paragraph.</p>
+    <ol>
+       <li>This is a</li>
+       <li> ordered list</li>
+    </ol>
+  </body>
+</html>
+```
+:::
+:::
+
+## HTML - Elements and Tags
+
+::: columns
+::: {.column width="50%"}
+HTML documents
+
+-   consist of **elements**. These are written between opening and closing **tags**.
+:::
+
+::: {.column width="50%"}
+```{r, echo=TRUE, eval=FALSE}
+#| code-line-numbers: "4,5,6,10,14"
+<!DOCTYPE html> 
+<html>
+  <head>
+    <style> 
+      h1 {color: red;} 
+    </style> 
+    <title>This is a title</title>
+  </head>
+  <body>
+    <h1>This is a header</h1>       
+    <p>This is a paragraph.</p>
+    <ol>
+       <li>This is a</li>
+       <li> ordered list</li>
+    </ol>
+  </body>
+</html>
+```
+:::
+:::
+
+## HTML - Root
+
+::: columns
+::: {.column width="50%"}
+The **html** element represents the root (top-level) element of an HTML document:
+
+-   all other elements must be descendants of this element
+
+-   important children are the *head* and *body* element
+:::
+
+::: {.column width="50%"}
+```{r, echo=TRUE, eval=FALSE}
+#| code-line-numbers: "2,17"
+<!DOCTYPE html> 
+<html> 
+  <head>
+    <style> 
+      h1 {color: red;} 
+    </style> 
+    <title>This is a title</title>
+  </head>
+  <body>
+    <h1>This is a header</h1>      
+    <p>This is a paragraph.</p>
+    <ol>
+       <li>This is a</li>
+       <li> ordered list</li> 
+    </ol>
+  </body>
+</html> 
+```
+:::
+:::
+
+## HTML - Head
+
+::: columns
+::: {.column width="50%"}
+The **head** element contains:
+
+-   titles (in browser: bars and tabs)
+-   style elements
+:::
+
+::: {.column width="50%"}
+```{r, echo=TRUE, eval=FALSE}
+#| code-line-numbers: "3,8"
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <style> 
+      h1 {color: red;} 
+    </style> 
+    <title>This is a title</title>
+  </head> 
+  <body>
+    <h1>This is a header</h1>       
+    <p>This is a paragraph.</p>
+    <ol>
+       <li>This is a</li>
+       <li> ordered list</li> 
+    </ol>
+  </body>
+</html> 
+```
+:::
+:::
+
+## HTML - Body
+
+::: columns
+::: {.column width="50%"}
+The **body** element contains the main body of pages:
+
+-   headers
+-   paragraphs
+-   lists
+-   tables
+-   images
+-   ...
+:::
+
+::: {.column width="50%"}
+```{r, echo=TRUE, eval=FALSE}
+#| code-line-numbers: "9,16"
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <style> 
+      h1 {color: red;} 
+    </style> 
+    <title>This is a title</title>
+  </head> 
+  <body>
+    <h1>This is a header</h1>       
+    <p>This is a paragraph.</p>
+    <ol>
+       <li>This is a</li>
+       <li> ordered list</li> 
+    </ol>
+  </body>
+</html> 
+```
+:::
+:::
+
+## HTML - Syntax / Tags
+
+Most elements have opening and closing tags:
+
+``` md
+<p> This is a paragraph. </p>
+```
+
+This is a paragraph.
+
+::: {.callout-note appearance="simple"}
+The tag name, here *p*, defines structure of the element; the closing tag has a forward slash */* before element name
+:::
+
+## HTML - Syntax / Attributes
+
+Elements might have attributes
+
+``` md
+<p>This is <strong id="count-sentence">one</strong> sentence.</p> 
+```
+
+This is **one** sentence.
+
+::: {.callout-note appearance="simple"}
+Attributes are added to the opening tags (separated with a white space) - the id attribute has no visible effects - other attributes (e.g., style can have visible effects!)
+:::
+
+## HTML - Syntax / Attributes
+
+There can be more than one attribute in a single element:
+
+``` md
+<p>This is <strong class="count" id="count-sentence">one</strong> sentence.</p> 
+
+<p>This is <strong class="count" id="count-paragraph">one</strong> paragraph.</p> 
+```
+
+This is **one** sentence.
+
+This is **one** paragraph.
+
+::: {.callout-note appearance="simple"}
+The same *class* attribute can apply to multiple elements (here: *count*)
+:::
+
+## HTML - Links
+
+Links are provided with the *a* (anchor) element
+
+``` md
+<p>Click <a href="https://www.uni-mannheim.de/">here</a> for the university's website.</p>
+```
+
+Click [here](href=%22https://www.uni-mannheim.de/) for the university's website.
+
+::: {.callout-note appearance="simple"}
+*href* (hypertext reference) is a required attribute for this element - most attributes are optional, but some are required
+:::
+
+## HTML - Links
+
+Links can have titles:
+
+``` md
+<p>Click <a title="This text appears when visitors hover over the link"
+href="https://www.uni-mannheim.de/">here</a> to get to the university's website.</p>
+```
+
+Click [here](https://www.uni-mannheim.de/ "This text appears when visitors hover over the link") to get to the university's website.
+
+::: callout-note
+The title attribute is one of the optional attributes - becomes visible when hovered over.
+:::
+
+## HTML - Lists
+
+The `<ul>` tag introduces un-ordered lists, while the `<li>` tag defines lists items
+
+``` md
+<ul>
+  <li>books</li>
+  <li>journal articles</li>
+  <li>reports</li>
+</ul>
+```
+
+-   books
+
+-   journal articles
+
+-   reports
+
+::: {.callout-note appearance="simple"}
+Ordered lists are introduced with the the `<ol>` tag instead
+:::
+
+## HTML - Containers
+
+The `<div>` tag defines a section, containing one or often more elements:
+
+::: panel-tabset
+## Code
+
+```{r, eval=FALSE, echo = TRUE}
+<p>This is an introductory paragraph.</p>
+<`div` style="text-decoration: underline;">
+<p>In this important division there are two 
+elements, which are:</p>
+<ul>
+  <li>a paragraph, and</li>
+  <li>an unordered list.</li>
+</ul>
+<`/div`>
+<p>This is the concluding paragraph.<p>
+```
+
+## Output
+
+This is an introductory paragraph.
+
+[In this important division there are two elements, which are:]{.underline}
+
+-   [a paragraph,]{.underline}
+
+-   [and an unordered list.]{.underline}
+
+This is the concluding paragraph.
+:::
+
+## HTML - Containers
+
+The `<span>` tag also defines a section, containing a part of an element
+
+```{r, eval=FALSE, echo=TRUE}
+<p>This is an <`span` style="text-decoration: underline;">important paragraph<`/span`>, which
+you must read carefully.<p>
+```
+
+This is an [important paragraph]{style="text-decoration: underline;"}, which you must read carefully.
+
+::: {.callout-note appearance="simple"}
+Containers are useful in applying styles to sections
+:::
+
+## Exercise 3
+
+-   Create a HTML file in RStudio:
+
+    -   File -\> New File -\> HTML File
+
+-   Add to the HTML code from the slides
+
+-   Click *Preview* to view your result
+
+# CSS Overview
+
+## CSS (*cascading stylesheets)*
+
+-   styles what is visible to visitors of the website:
+    -   text, images, links
+    -   ...
+
+CSS can be defined
+
+-   inline, as an attribute of an element
+-   internally, as a child element of the head element
+-   externally, but then linked in the head element
+
+## CSS Syntax
+
+::: panel-tabset
+## Selectors
+
+CSS syntax consists of one or more selectors, matching one or more HTML elements or attributes
+
+::: {.callout-note appearance="simple"}
+-   syntax changes with selector type
+    -   elements and attributes are written as they are
+    -   classes are prefixed with a full stop
+    -   ids with a hashtag
+-   the same rule can be defined for more than one element or attribute
+:::
+
+## Declaration
+
+CSS syntax consists of a declaration, with one or more properties and values
+
+::: {.callout-note appearance="simple"}
+-   values are followed by a semicolon
+-   property:value; pairs are separated by a white space
+:::
+
+## Examples
+
+```         
+p {font-size:14px;}
+h1 h2 {color:blue;}
+.count {background-color:yellow;}
+#count-sentence {color:red; font-size:16px;}
+```
+:::
+
+## CSS Internal
+
+::: panel-tabset
+## Info
+
+CSS rules can be defined internally:
+
+-   within the style element
+-   as a child of the head element
+
+Internally defined rules apply to all matching selectors on the same page
+
+## Code
+
+```{r, echo=TRUE, eval=FALSE}
+#| code-line-numbers: "4,5,6"
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <style>  
+      h1 {color: red;} 
+    </style> 
+    <title>This is a title</title>
+  </head> 
+  <body>
+    <h1>This is a header</h1>       
+    <p>This is a paragraph.</p>
+    <ol>
+       <li>This is a</li>
+       <li> ordered list</li> 
+    </ol>
+  </body>
+</html> 
+```
+:::
+
+## CSS External
+
+::: panel-tabset
+## Info
+
+CSS rules can be defined externally:
+
+-   css file needs to be saved & linked to the html document
+-   defined with the the *linked* element and as a child of the head element
+
+::: {.callout-note appearance="simple"}
+Externally defined rules
+
+-   are saved in a file with .css extension
+-   apply to all matching selectors on linked pages
+:::
+
+## Code
+
+```{r, echo=TRUE, eval=FALSE}
+#| code-line-numbers: "4"
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <link rel="styles" href="C.css"> 
+    <title>This is a title</title>
+  </head> 
+  <body>
+    <h1>This is a header</h1>       
+    <p>This is a paragraph.</p>
+    <ol>
+       <li>This is a</li>
+       <li> ordered list</li> 
+    </ol>
+  </body>
+</html> 
+```
+:::
+
+## CSS Inline
+
+CSS rules can also be defined inline:
+
+``` md
+<p>This is <strong `style="color:blue;"`>one</strong> sentence.</p>
+```
+
+<p>This is <strong style="color:blue;">one</strong> sentence.</p>
+
+::: {.callout-note appearance="simple"}
+-   with the style attribute
+-   does not require selector
+-   applies only to that element
+:::
+
+## Exercise 4
+
+-   Provide some css to your HTML document created before
+
+    -   use internal or external style (not inline)
+
+    -   e.g., increase font size
+
+    -   change color
+
+    -   for more ideas: www.w3schools.com/css

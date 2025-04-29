@@ -28,7 +28,7 @@
     "href": "material.html",
     "title": "Schedule, slides & materials",
     "section": "",
-    "text": "You can find all course materials below. This includes slides, code, links to readings, etc.\nJust click on the topic of the respective week.\n\n\n\n\n\nWeek\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nFebruary 11, 2025\n\n\n\n\nWeek 02\n\n\nIntro to R\n\n\nFebruary 18, 2025\n\n\n\n\nWeek 03\n\n\nTidyverse I: Import, tidy, and transform\n\n\nFebruary 25, 2025\n\n\n\n\nWeek 04\n\n\nTidyverse II: Transform, and visualize\n\n\nMarch 04, 2025\n\n\n\n\nWeek 05\n\n\nIntro to Text-as-Data I: Concepts\n\n\nMarch 11, 2025\n\n\n\n\nWeek 06\n\n\nIntro to Text-as-Data II: Workflow\n\n\nMarch 18, 2025\n\n\n\n\nWeek 07\n\n\nDictionary and Sentiment\n\n\nMarch 25, 2025\n\n\n\n\nWeek 08\n\n\nTopic Models\n\n\nApril 01, 2025\n\n\n\n\nWeek 09\n\n\n(Semi-)Supervised Methods\n\n\nApril 08, 2025\n\n\n\n\nWeek 10\n\n\nEaster Break - No Session\n\n\nApril 15, 2025\n\n\n\n\nWeek 11\n\n\nEaster Break - No Session\n\n\nApril 22, 2025\n\n\n\n\nWeek 12\n\n\nWeb scraping: Basics\n\n\nApril 29, 2025\n\n\n\n\n\nNo matching items",
+    "text": "You can find all course materials below. This includes slides, code, links to readings, etc.\nJust click on the topic of the respective week.\n\n\n\n\n\nWeek\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nFebruary 11, 2025\n\n\n\n\nWeek 02\n\n\nIntro to R\n\n\nFebruary 18, 2025\n\n\n\n\nWeek 03\n\n\nTidyverse I: Import, tidy, and transform\n\n\nFebruary 25, 2025\n\n\n\n\nWeek 04\n\n\nTidyverse II: Transform, and visualize\n\n\nMarch 04, 2025\n\n\n\n\nWeek 05\n\n\nIntro to Text-as-Data I: Concepts\n\n\nMarch 11, 2025\n\n\n\n\nWeek 06\n\n\nIntro to Text-as-Data II: Workflow\n\n\nMarch 18, 2025\n\n\n\n\nWeek 07\n\n\nDictionary and Sentiment\n\n\nMarch 25, 2025\n\n\n\n\nWeek 08\n\n\nTopic Models\n\n\nApril 01, 2025\n\n\n\n\nWeek 09\n\n\n(Semi-)Supervised Methods\n\n\nApril 08, 2025\n\n\n\n\nWeek 10\n\n\nEaster Break - No Session\n\n\nApril 15, 2025\n\n\n\n\nWeek 11\n\n\nEaster Break - No Session\n\n\nApril 22, 2025\n\n\n\n\nWeek 12\n\n\nWeb scraping: Basics\n\n\nApril 29, 2025\n\n\n\n\nWeek 13\n\n\nWeb scraping: Static\n\n\nMay 06, 2025\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Schedule, slides & materials"
     ]
@@ -242,14 +242,14 @@
     "href": "weeks/week-10.html",
     "title": "Web scraping: Basics",
     "section": "",
-    "text": "To Do’s before our session\n\nWork on Assignment 2. The deadline is 28.04.2025 13:00. Feel free to get in touch with me via e-mail about anything unclear or when you are stuck.\nTake the Easter break to think a bit more about what you want to work on in the term paper and what method might be suitable. By now, you have encountered various text-as-data methods: dictionaries, unsupervised, and supervised approaches.\n\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nWeb scraping: Basics\n\n\nWeek 12\n\n\nApr 29, 2025\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA."
+    "text": "To Do’s before our session\n\nWork on Assignment 2. The deadline is 28.04.2025 13:00. Feel free to get in touch with me via e-mail about anything unclear or when you are stuck.\nTake the Easter break to think a bit more about what you want to work on in the term paper and what method might be suitable. By now, you have encountered various text-as-data methods: dictionaries, unsupervised, and supervised approaches.\n\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nWeb scraping basics\n\n\nWeek 12\n\n\nApr 29, 2025\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nThere are no additional materials for today."
   },
   {
     "objectID": "weeks/week-11.html",
     "href": "weeks/week-11.html",
-    "title": "Web scraping dynamic",
+    "title": "Web scraping: Static",
     "section": "",
-    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nWeb scraping dynamic\n\n\nWeek 13\n\n\nMay 7, 2024\n\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nYou can find the code for the Bundeswahlleiterin example here.\n\n\nTo Do’s before our session\nThink about possible dynamic websites that you want to scrape. Let me know on Slack or via e-mail!"
+    "text": "To Do’s before our session\nHave a look at Chapter 24 in R for Data Science. Do you have already a website in mind that you might want to scrape? Think about possible websites and let me know via e-mail or ILIAS!\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nWeb scraping: Static\n\n\nWeek 13\n\n\nMay 6, 2025\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA."
   },
   {
     "objectID": "weeks/week-12.html",
@@ -6934,9 +6934,9 @@
   {
     "objectID": "slides/week-10/10-InteractivityI.html#exercise-1",
     "href": "slides/week-10/10-InteractivityI.html#exercise-1",
-    "title": "Web scraping static",
+    "title": "Web scraping basics",
     "section": "Exercise 1",
-    "text": "Exercise 1\n\nGet the source code of https://en.wikipedia.org/wiki/World_population using the read_html function\nGet the same source code using the polite package\n\n“introduce” yourself to the webpage\ndefine a delay time"
+    "text": "Exercise 1\nCheck the protocols of a newspaper such as ZEIT ONLINE (www.zeit.de) or the New York Times (www.nytimes.com)\n\nvia your browser, with the robotstxt function in R, and compare the two options\nCheck a specific path with the paths_allowed function\n\nso, that it returns FALSE. Hint: use the information from the first task and look at the list of permissions\n\nCheck the protocols of a website which might be interesting for you to scrape\n\nusing the robotstxt function\nare there any ethical issues?"
   },
   {
     "objectID": "slides/week-10/10-InteractivityI.html#rvest-html_elements",
@@ -7074,9 +7074,9 @@
   {
     "objectID": "slides/week-10/10-InteractivityI.html#exercise-2",
     "href": "slides/week-10/10-InteractivityI.html#exercise-2",
-    "title": "Web scraping static",
-    "section": "Exercise 2:",
-    "text": "Exercise 2:\n\nScrape the this Wikipedia site (politely)\n\nCreate a data frame including United Nations organizations in Europe\nCan you manage to have one row per organization?\n\nTry to scrape another static website!\n\n\n\nAutomated Data Collection | Spring 2024 | University of Mannheim"
+    "title": "Web scraping basics",
+    "section": "Exercise 2",
+    "text": "Exercise 2\n\nView the source page of a website\n\nas plain source code and in DOM\n\nSearch for words or phrases in the source code\n\ncopy the word from the front-end page\nthen search using the shortcut: Ctrl + F (Strg + F)"
   },
   {
     "objectID": "slides/week-10/10-InteractivityI.html#using-selectorgadget",
@@ -9743,5 +9743,327 @@
     "crumbs": [
       "Text-as-Data literature"
     ]
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#today-and-next-sessions",
+    "href": "slides/week-10/10-InteractivityI.html#today-and-next-sessions",
+    "title": "Web scraping basics",
+    "section": "Today and Next Sessions",
+    "text": "Today and Next Sessions\nToday:\n\nSetup, Legal and ethical issues, HTML basics, and CSS basics\n\nNext sessions:\n\nScraping static pages\nScraping dynamic pages"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#packages",
+    "href": "slides/week-10/10-InteractivityI.html#packages",
+    "title": "Web scraping basics",
+    "section": "Packages",
+    "text": "Packages\nInstalling the necessary packages:\n\ninstall.packages(c(\"rvest\", \"RSelenium\", \"robotstxt\", \"polite\"))\n\nToday and in the next sessions we will use:\n\nrvest (Wickham, 2021), for scraping websites & RSelenium (Harrison, 2020), for browsing the web programmatically\nrobotstxt (Meissner and Ren, 2020), for checking permissions to scrape websites\npolite (Perepolkin, 2019), for compliance with permissions to scrape websites"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#java",
+    "href": "slides/week-10/10-InteractivityI.html#java",
+    "title": "Web scraping basics",
+    "section": "Java",
+    "text": "Java\n\nRSelenium needs Java to run\n\nfor the automation of scripts\n\nYou can download Java from https://www.java.com/en/download/\n\nYou have to restart open browsers after installing Java"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#chrome",
+    "href": "slides/week-10/10-InteractivityI.html#chrome",
+    "title": "Web scraping basics",
+    "section": "Chrome",
+    "text": "Chrome\n\nChrome is best suited for RSelenium and favoured by most developers\nYou can download Chrome from https://www.google.com/chrome/\nHowever, Firefox is also fine!"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#selectorgadget",
+    "href": "slides/week-10/10-InteractivityI.html#selectorgadget",
+    "title": "Web scraping basics",
+    "section": "SelectorGadget",
+    "text": "SelectorGadget\n\nCan be added as an extension for Chrome\n\nsimplifies the selection process for web scraping\nopen source\n\nYou can search for SelectorGadget here: https://chrome.google.com/webstore/category/extensions\nAlternative: ScrapeMate\n\nworks for both Chrome and Firefox\nsearch ScrapeMate at https://addons.mozilla.org/ to add the extension on Firefox"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#legal-issues",
+    "href": "slides/week-10/10-InteractivityI.html#legal-issues",
+    "title": "Web scraping basics",
+    "section": "Legal Issues",
+    "text": "Legal Issues\n\nWeb scraping could be illegal!\n\nit depends: Who is web scraping what sites? How is the scraping conducted? Under which jurisdiction?\n\nThe following represent possible illegal web scraping activities:\n\nweb scraping results in collapse of website (too many and large inquiries)\ncollecting (private) copyright data and use it for own gain (e.g., selling e-mail adresses)"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#ethical-issues",
+    "href": "slides/week-10/10-InteractivityI.html#ethical-issues",
+    "title": "Web scraping basics",
+    "section": "Ethical Issues",
+    "text": "Ethical Issues\n\nWeb scraping could also be unethical!\n\nagain, it depends: Who, what, why, and how?\n\nThe following represent possible unethical web scraping activities:\n\nnot respecting restrictions set by the website administrator (e.g., robots.txt files)\ncollecting data in short time-intervals without need which is available to download via an API"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#robots.txt-files",
+    "href": "slides/week-10/10-InteractivityI.html#robots.txt-files",
+    "title": "Web scraping basics",
+    "section": "robots.txt Files",
+    "text": "robots.txt Files\n\nMost websites provide a so-called robots exclusion protocol\n\nit includes information on what is allowed to scrape and at what speed\nthe information is stored within robots.txt files\n\nthe can be found via the websites URL: e.g., www.EXAMPLE.com/robots.txt\n\n\nThese rules are not binding, so you could scrape the website however you want.\n\nBUT: legal and ethical issues!"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#robots.txt-syntax",
+    "href": "slides/week-10/10-InteractivityI.html#robots.txt-syntax",
+    "title": "Web scraping basics",
+    "section": "robots.txt Syntax",
+    "text": "robots.txt Syntax\n\nGeneralSyntaxExample\n\n\n\nrobots.txt files are easy to read and understand\n\nwe can make use of the robotstxt package\n\n\n\n\n\nUser-agent: Who is the protocol intended for?\nAllow: What part of the website can be scraped?\nDisallow: What part of the website is not allowed to be scraped?\nCrawl-delay: How fast should we scrape the website?\n\n\n\n\n\n\n\nThe key always starts with capital letters and is followed by a colon.\n\n\n\n\n\n\nUser-agent:\nAllow:\nDisallow:\nCrawl-delay:"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#robots.txt-syntax-1",
+    "href": "slides/week-10/10-InteractivityI.html#robots.txt-syntax-1",
+    "title": "Web scraping basics",
+    "section": "robots.txt Syntax",
+    "text": "robots.txt Syntax\n\nExampleCode\n\n\nWebsites define the keys themselves:\n\n*: protocol is targeted at everyone\n/: full website can be scraped\n/about/: this specific path is not allowed to be scraped\nnumeric values for Crawl-delay: are given in seconds\n\n\n\n\nUser-agent: *\nAllow: /\nDisallow: /about/\nCrawl-delay: 10"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#robots.txt-example",
+    "href": "slides/week-10/10-InteractivityI.html#robots.txt-example",
+    "title": "Web scraping basics",
+    "section": "robots.txt Example",
+    "text": "robots.txt Example\n\nUser-agent: googlebot\nAllow: /\n\nThis websites’ protocol is only for Google:\n\nGoogle is allowed to scrape everything without any restrictions\nNo defined rule for anyone else"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#robots.txt-example-1",
+    "href": "slides/week-10/10-InteractivityI.html#robots.txt-example-1",
+    "title": "Web scraping basics",
+    "section": "robots.txt Example",
+    "text": "robots.txt Example\n\nExampleMeaning\n\n\n\nUser-agent: googlebot\nDisallow: /about/\nDisallow: /history/\nCrawl-delay: 60\n\n\n\nThis websites’ protocol is only for Google:\n\nGoogle is disallowed to scrape two specific paths\nOnly allowed to access at 60-seconds intervals\nNo defined rule for anyone else"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#robots.txt-example-2",
+    "href": "slides/week-10/10-InteractivityI.html#robots.txt-example-2",
+    "title": "Web scraping basics",
+    "section": "robots.txt Example",
+    "text": "robots.txt Example\n\nExampleMeaning\n\n\n\nUser-agent: googlebot\nAllow: /\nCrawl-delay: 5\n\nUser-agent: bing\nDisallow: /\n  \nUser-agent: *\nAllow: /companyinfo/\n\n\n\nThis websites’ protocol is for different user agents:\n\nGoogle is allowed to scrape everything in 60-second intervals\nBing is not allowed to scrape anything\nEveryone else can scrape the section or page located at www.EXAMPLE.com/companyinfo/"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#robots.txt-additional-information",
+    "href": "slides/week-10/10-InteractivityI.html#robots.txt-additional-information",
+    "title": "Web scraping basics",
+    "section": "robots.txt Additional Information",
+    "text": "robots.txt Additional Information\nThe key Visit-time is less often used:\n\nUser-agent: *\nAllow: /\nDisallow: /impressum/\nVisit-time: 00:00-06:00\n\nrobots.txt files can also include comments (preceded by #)\n\n# This is a robots.txt file\n\nUser-agent: *\nAllow: /\nDisallow: /impressum/\nVisit-time: 00:00-06:00 # visit website during night time in Germany"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#robotstxt-package",
+    "href": "slides/week-10/10-InteractivityI.html#robotstxt-package",
+    "title": "Web scraping basics",
+    "section": "robotstxt Package",
+    "text": "robotstxt Package\nThe robotstxt package simplifies the process of checking website protocols:\n\nwe can check protocols from within R\nwe can check rules for specific paths and agents\n\nThe package has two main functions:\n\nrobotstxt: get the complete protocol\npaths_allowed: check specific paths in the protocol"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#robotstxt-package---robotstxt-function",
+    "href": "slides/week-10/10-InteractivityI.html#robotstxt-package---robotstxt-function",
+    "title": "Web scraping basics",
+    "section": "robotstxt Package - robotstxt function",
+    "text": "robotstxt Package - robotstxt function\n\nInfo\n\n\nUsing the robotstxt function to get a protocol:\n\nprovide the base URL of a website within the domain argument as a string\nmost of the time no additional arguments needed ## Code\n\n\nlibrary(robotstxt)\n\nrobotstxt(\n  domain = NULL,\n  ...\n)"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#robotstxt-package---robotstxt-function-1",
+    "href": "slides/week-10/10-InteractivityI.html#robotstxt-package---robotstxt-function-1",
+    "title": "Web scraping basics",
+    "section": "robotstxt Package - robotstxt function",
+    "text": "robotstxt Package - robotstxt function\nLet’s have a look at our university:\n\nrobotstxt(domain = \"https://www.uni-mannheim.de/\")\n\n$domain\n[1] \"https://www.uni-mannheim.de/\"\n\n$text\n[robots.txt]\n--------------------------------------\n\nUser-agent: GPTBot\nDisallow: /\n\nUser-agent: ImagesiftBot \nDisallow: /\n\nUser-agent: *\nDisallow:\nDisallow: /media/Universitaet/Videos/Typo3_Schulung\n\nSitemap: https://www.uni-mannheim.de/xml-sitemap\n\n\n\n\n\n$robexclobj\n&lt;Robots Exclusion Protocol Object&gt;\n$bots\n[1] \"GPTBot\"       \"ImagesiftBot\" \"*\"           \n\n$comments\n[1] line    comment\n&lt;0 Zeilen&gt; (oder row.names mit Länge 0)\n\n$permissions\n     field    useragent                                     value\n1 Disallow       GPTBot                                         /\n2 Disallow ImagesiftBot                                         /\n3 Disallow            *                                          \n4 Disallow            * /media/Universitaet/Videos/Typo3_Schulung\n\n$crawl_delay\n[1] field     useragent value    \n&lt;0 Zeilen&gt; (oder row.names mit Länge 0)\n\n$host\n[1] field     useragent value    \n&lt;0 Zeilen&gt; (oder row.names mit Länge 0)\n\n$sitemap\n    field useragent                                   value\n1 Sitemap         * https://www.uni-mannheim.de/xml-sitemap\n\n$other\n[1] field     useragent value    \n&lt;0 Zeilen&gt; (oder row.names mit Länge 0)\n\n$check\nfunction (paths = \"/\", bot = \"*\") \n{\n    spiderbar::can_fetch(obj = self$robexclobj, path = paths, \n        user_agent = bot)\n}\n&lt;bytecode: 0x000001b92859b8d0&gt;\n&lt;environment: 0x000001b92859ad38&gt;\n\nattr(,\"class\")\n[1] \"robotstxt\""
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#robotstxt-package---robotstxt-function-2",
+    "href": "slides/week-10/10-InteractivityI.html#robotstxt-package---robotstxt-function-2",
+    "title": "Web scraping basics",
+    "section": "robotstxt Package - robotstxt function",
+    "text": "robotstxt Package - robotstxt function\nChecking the list of permissions (add $permissions):\n\nrobotstxt(domain = \"https://www.uni-mannheim.de/\")$permissions\n\n     field    useragent                                     value\n1 Disallow       GPTBot                                         /\n2 Disallow ImagesiftBot                                         /\n3 Disallow            *                                          \n4 Disallow            * /media/Universitaet/Videos/Typo3_Schulung"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#robotstxt-package---paths_allowed",
+    "href": "slides/week-10/10-InteractivityI.html#robotstxt-package---paths_allowed",
+    "title": "Web scraping basics",
+    "section": "robotstxt Package - paths_allowed",
+    "text": "robotstxt Package - paths_allowed\n\nInfoCode\n\n\nWe can use the paths_allowed function in order to check if we are allowed to scrape specific paths:\n\nprovide the base URL of a website within the domain argument as a string\nBoth path and bot are important arguments\n\nattention to default values!\n\nOutput is either TRUE: We are allowed to scrape or FALSE: We are not allowed to scrape.\n\n\n\n\nlibrary(robotstxt)\n\npaths_allowed(\n  domain = \"auto\",\n  paths = \"/\",\n  bot = \"*\",\n  ...\n)"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#robotstxt-package---paths_allowed-1",
+    "href": "slides/week-10/10-InteractivityI.html#robotstxt-package---paths_allowed-1",
+    "title": "Web scraping basics",
+    "section": "robotstxt Package - paths_allowed",
+    "text": "robotstxt Package - paths_allowed\nLet’s check different paths:\n\npaths_allowed(\"https://www.uni-mannheim.de/\")\n\n[1] TRUE\n\n\n\npaths_allowed(\"https://www.uni-mannheim.de/\",\n              paths = c(\"/studienangebot/\", \"/ausschreibungen/\"))\n\n[1] TRUE TRUE\n\n\n\npaths_allowed(\"https://www.uni-mannheim.de/\",\n              paths = c(\"/studienangebot/\", \"/ausschreibungen/\"),\n              bot = c(\"googlebot\", \"bing\"))\n\n[1] TRUE TRUE"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#ethics-speed-purpose-and-storage",
+    "href": "slides/week-10/10-InteractivityI.html#ethics-speed-purpose-and-storage",
+    "title": "Web scraping basics",
+    "section": "Ethics: Speed, Purpose, and Storage",
+    "text": "Ethics: Speed, Purpose, and Storage\n\nSpeed: repeated, automatic web scraping in very short-time intervals can lead to overloading a website’s server\n\nwaiting time might be defined in protocol (Crawl-delay key)\n\nPurpose: in the best case scenario, we have already a research question of hypothesis in mind before collecting (web scraping) data\nStorage: often, we will need lots of storage place (big data)\n\ndata should be stored privately and safely"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#html-basics-1",
+    "href": "slides/week-10/10-InteractivityI.html#html-basics-1",
+    "title": "Web scraping basics",
+    "section": "HTML Basics",
+    "text": "HTML Basics\nWebsites include (usually) much more than only text, images, and links.\nThey include code for structure, style, and functionality which is interpreted by brwosers:\n\nHTML: structure\nCSS: style\ne.g., JavaScript: functionality"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#html-basics-2",
+    "href": "slides/week-10/10-InteractivityI.html#html-basics-2",
+    "title": "Web scraping basics",
+    "section": "HTML Basics",
+    "text": "HTML Basics\nIf we want to web scrape, we need to refer to the source code:\n\nscraping what is visible on the website\nchoosing only specific parts of a site (e.g., table)\nalso scraping “invisible” parts (e.g., URLs hidden under text)"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#html-page-source",
+    "href": "slides/week-10/10-InteractivityI.html#html-page-source",
+    "title": "Web scraping basics",
+    "section": "HTML Page Source",
+    "text": "HTML Page Source\nYou can view the page source by right clicking and selecting View Page Source (Seitenquelltext anzeigen) or by the shortcut Ctrl + U (Strg + U)."
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#html-dom",
+    "href": "slides/week-10/10-InteractivityI.html#html-dom",
+    "title": "Web scraping basics",
+    "section": "HTML DOM",
+    "text": "HTML DOM\nYou can view the structured source code (DOM - document object model) by right clicking and selecting Inspect (Untersuchen) or by the shortcut Fn + F12."
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#html-overview",
+    "href": "slides/week-10/10-InteractivityI.html#html-overview",
+    "title": "Web scraping basics",
+    "section": "HTML Overview",
+    "text": "HTML Overview\n\nInfoExample\n\n\nHTML stands for hypertext markup language:\n\nstructures what is visible to visitors of a website:\n\ntext\nimages\nlinks\n\n\n\n\n\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n  &lt;head&gt;\n    &lt;style&gt;\n      h1 {color: red;}\n    &lt;/style&gt;\n    &lt;title&gt;This is a title&lt;/title&gt;\n  &lt;/head&gt;\n  &lt;body&gt;\n    &lt;h1&gt;This is a header&lt;/h1&gt;      \n    &lt;p&gt;This is a paragraph.&lt;/p&gt;\n    &lt;ol&gt;\n       &lt;li&gt;This is a &lt;/li&gt;\n       &lt;li&gt; ordered list&lt;/li&gt;\n    &lt;/ol&gt;\n  &lt;/body&gt;\n&lt;/html&gt;"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#html---declaration",
+    "href": "slides/week-10/10-InteractivityI.html#html---declaration",
+    "title": "Web scraping basics",
+    "section": "HTML - Declaration",
+    "text": "HTML - Declaration\n\n\nHTML documents\n\nalways start with a declaration. This way, the browser recognizes the file.\n\n\n\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n  &lt;head&gt;\n    &lt;style&gt;\n      h1 {color: red;}\n    &lt;/style&gt;\n    &lt;title&gt;This is a title&lt;/title&gt;\n  &lt;/head&gt;\n  &lt;body&gt;\n    &lt;h1&gt;This is a header&lt;/h1&gt;      \n    &lt;p&gt;This is a paragraph.&lt;/p&gt;\n    &lt;ol&gt;\n       &lt;li&gt;This is a&lt;/li&gt;\n       &lt;li&gt; ordered list&lt;/li&gt;\n    &lt;/ol&gt;\n  &lt;/body&gt;\n&lt;/html&gt;"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#html---elements-and-tags",
+    "href": "slides/week-10/10-InteractivityI.html#html---elements-and-tags",
+    "title": "Web scraping basics",
+    "section": "HTML - Elements and Tags",
+    "text": "HTML - Elements and Tags\n\n\nHTML documents\n\nconsist of elements. These are written between opening and closing tags.\n\n\n\n&lt;!DOCTYPE html&gt; \n&lt;html&gt;\n  &lt;head&gt;\n    &lt;style&gt; \n      h1 {color: red;} \n    &lt;/style&gt; \n    &lt;title&gt;This is a title&lt;/title&gt;\n  &lt;/head&gt;\n  &lt;body&gt;\n    &lt;h1&gt;This is a header&lt;/h1&gt;       \n    &lt;p&gt;This is a paragraph.&lt;/p&gt;\n    &lt;ol&gt;\n       &lt;li&gt;This is a&lt;/li&gt;\n       &lt;li&gt; ordered list&lt;/li&gt;\n    &lt;/ol&gt;\n  &lt;/body&gt;\n&lt;/html&gt;"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#html---root",
+    "href": "slides/week-10/10-InteractivityI.html#html---root",
+    "title": "Web scraping basics",
+    "section": "HTML - Root",
+    "text": "HTML - Root\n\n\nThe html element represents the root (top-level) element of an HTML document:\n\nall other elements must be descendants of this element\nimportant children are the head and body element\n\n\n\n&lt;!DOCTYPE html&gt; \n&lt;html&gt; \n  &lt;head&gt;\n    &lt;style&gt; \n      h1 {color: red;} \n    &lt;/style&gt; \n    &lt;title&gt;This is a title&lt;/title&gt;\n  &lt;/head&gt;\n  &lt;body&gt;\n    &lt;h1&gt;This is a header&lt;/h1&gt;      \n    &lt;p&gt;This is a paragraph.&lt;/p&gt;\n    &lt;ol&gt;\n       &lt;li&gt;This is a&lt;/li&gt;\n       &lt;li&gt; ordered list&lt;/li&gt; \n    &lt;/ol&gt;\n  &lt;/body&gt;\n&lt;/html&gt;"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#html---head",
+    "href": "slides/week-10/10-InteractivityI.html#html---head",
+    "title": "Web scraping basics",
+    "section": "HTML - Head",
+    "text": "HTML - Head\n\n\nThe head element contains:\n\ntitles (in browser: bars and tabs)\nstyle elements\n\n\n\n&lt;!DOCTYPE html&gt; \n&lt;html&gt; \n  &lt;head&gt; \n    &lt;style&gt; \n      h1 {color: red;} \n    &lt;/style&gt; \n    &lt;title&gt;This is a title&lt;/title&gt;\n  &lt;/head&gt; \n  &lt;body&gt;\n    &lt;h1&gt;This is a header&lt;/h1&gt;       \n    &lt;p&gt;This is a paragraph.&lt;/p&gt;\n    &lt;ol&gt;\n       &lt;li&gt;This is a&lt;/li&gt;\n       &lt;li&gt; ordered list&lt;/li&gt; \n    &lt;/ol&gt;\n  &lt;/body&gt;\n&lt;/html&gt;"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#html---body",
+    "href": "slides/week-10/10-InteractivityI.html#html---body",
+    "title": "Web scraping basics",
+    "section": "HTML - Body",
+    "text": "HTML - Body\n\n\nThe body element contains the main body of pages:\n\nheaders\nparagraphs\nlists\ntables\nimages\n…\n\n\n\n&lt;!DOCTYPE html&gt; \n&lt;html&gt; \n  &lt;head&gt; \n    &lt;style&gt; \n      h1 {color: red;} \n    &lt;/style&gt; \n    &lt;title&gt;This is a title&lt;/title&gt;\n  &lt;/head&gt; \n  &lt;body&gt;\n    &lt;h1&gt;This is a header&lt;/h1&gt;       \n    &lt;p&gt;This is a paragraph.&lt;/p&gt;\n    &lt;ol&gt;\n       &lt;li&gt;This is a&lt;/li&gt;\n       &lt;li&gt; ordered list&lt;/li&gt; \n    &lt;/ol&gt;\n  &lt;/body&gt;\n&lt;/html&gt;"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#html---syntax-tags",
+    "href": "slides/week-10/10-InteractivityI.html#html---syntax-tags",
+    "title": "Web scraping basics",
+    "section": "HTML - Syntax / Tags",
+    "text": "HTML - Syntax / Tags\nMost elements have opening and closing tags:\n&lt;p&gt; This is a paragraph. &lt;/p&gt;\nThis is a paragraph.\n\n\n\n\n\n\nThe tag name, here p, defines structure of the element; the closing tag has a forward slash / before element name"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#html---syntax-attributes",
+    "href": "slides/week-10/10-InteractivityI.html#html---syntax-attributes",
+    "title": "Web scraping basics",
+    "section": "HTML - Syntax / Attributes",
+    "text": "HTML - Syntax / Attributes\nElements might have attributes\n&lt;p&gt;This is &lt;strong id=\"count-sentence\"&gt;one&lt;/strong&gt; sentence.&lt;/p&gt; \nThis is one sentence.\n\n\n\n\n\n\nAttributes are added to the opening tags (separated with a white space) - the id attribute has no visible effects - other attributes (e.g., style can have visible effects!)"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#html---syntax-attributes-1",
+    "href": "slides/week-10/10-InteractivityI.html#html---syntax-attributes-1",
+    "title": "Web scraping basics",
+    "section": "HTML - Syntax / Attributes",
+    "text": "HTML - Syntax / Attributes\nThere can be more than one attribute in a single element:\n&lt;p&gt;This is &lt;strong class=\"count\" id=\"count-sentence\"&gt;one&lt;/strong&gt; sentence.&lt;/p&gt; \n\n&lt;p&gt;This is &lt;strong class=\"count\" id=\"count-paragraph\"&gt;one&lt;/strong&gt; paragraph.&lt;/p&gt; \nThis is one sentence.\nThis is one paragraph.\n\n\n\n\n\n\nThe same class attribute can apply to multiple elements (here: count)"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#html---links",
+    "href": "slides/week-10/10-InteractivityI.html#html---links",
+    "title": "Web scraping basics",
+    "section": "HTML - Links",
+    "text": "HTML - Links\nLinks are provided with the a (anchor) element\n&lt;p&gt;Click &lt;a href=\"https://www.uni-mannheim.de/\"&gt;here&lt;/a&gt; for the university's website.&lt;/p&gt;\nClick here for the university’s website.\n\n\n\n\n\n\nhref (hypertext reference) is a required attribute for this element - most attributes are optional, but some are required"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#html---links-1",
+    "href": "slides/week-10/10-InteractivityI.html#html---links-1",
+    "title": "Web scraping basics",
+    "section": "HTML - Links",
+    "text": "HTML - Links\nLinks can have titles:\n&lt;p&gt;Click &lt;a title=\"This text appears when visitors hover over the link\"\nhref=\"https://www.uni-mannheim.de/\"&gt;here&lt;/a&gt; to get to the university's website.&lt;/p&gt;\nClick here to get to the university’s website.\n\n\n\n\n\n\nNote\n\n\nThe title attribute is one of the optional attributes - becomes visible when hovered over."
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#html---lists",
+    "href": "slides/week-10/10-InteractivityI.html#html---lists",
+    "title": "Web scraping basics",
+    "section": "HTML - Lists",
+    "text": "HTML - Lists\nThe &lt;ul&gt; tag introduces un-ordered lists, while the &lt;li&gt; tag defines lists items\n&lt;ul&gt;\n  &lt;li&gt;books&lt;/li&gt;\n  &lt;li&gt;journal articles&lt;/li&gt;\n  &lt;li&gt;reports&lt;/li&gt;\n&lt;/ul&gt;\n\nbooks\njournal articles\nreports\n\n\n\n\n\n\n\nOrdered lists are introduced with the the &lt;ol&gt; tag instead"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#html---containers",
+    "href": "slides/week-10/10-InteractivityI.html#html---containers",
+    "title": "Web scraping basics",
+    "section": "HTML - Containers",
+    "text": "HTML - Containers\nThe &lt;div&gt; tag defines a section, containing one or often more elements:\n\nCodeOutput\n\n\n\n&lt;p&gt;This is an introductory paragraph.&lt;/p&gt;\n&lt;`div` style=\"text-decoration: underline;\"&gt;\n&lt;p&gt;In this important division there are two \nelements, which are:&lt;/p&gt;\n&lt;ul&gt;\n  &lt;li&gt;a paragraph, and&lt;/li&gt;\n  &lt;li&gt;an unordered list.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;`/div`&gt;\n&lt;p&gt;This is the concluding paragraph.&lt;p&gt;\n\n\n\nThis is an introductory paragraph.\nIn this important division there are two elements, which are:\n\na paragraph,\nand an unordered list.\n\nThis is the concluding paragraph."
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#html---containers-1",
+    "href": "slides/week-10/10-InteractivityI.html#html---containers-1",
+    "title": "Web scraping basics",
+    "section": "HTML - Containers",
+    "text": "HTML - Containers\nThe &lt;span&gt; tag also defines a section, containing a part of an element\n\n&lt;p&gt;This is an &lt;`span` style=\"text-decoration: underline;\"&gt;important paragraph&lt;`/span`&gt;, which\nyou must read carefully.&lt;p&gt;\n\nThis is an important paragraph, which you must read carefully.\n\n\n\n\n\n\nContainers are useful in applying styles to sections"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#exercise-3",
+    "href": "slides/week-10/10-InteractivityI.html#exercise-3",
+    "title": "Web scraping basics",
+    "section": "Exercise 3",
+    "text": "Exercise 3\n\nCreate a HTML file in RStudio:\n\nFile -&gt; New File -&gt; HTML File\n\nAdd to the HTML code from the slides\nClick Preview to view your result"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#css-cascading-stylesheets",
+    "href": "slides/week-10/10-InteractivityI.html#css-cascading-stylesheets",
+    "title": "Web scraping basics",
+    "section": "CSS (cascading stylesheets)",
+    "text": "CSS (cascading stylesheets)\n\nstyles what is visible to visitors of the website:\n\ntext, images, links\n…\n\n\nCSS can be defined\n\ninline, as an attribute of an element\ninternally, as a child element of the head element\nexternally, but then linked in the head element"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#css-syntax",
+    "href": "slides/week-10/10-InteractivityI.html#css-syntax",
+    "title": "Web scraping basics",
+    "section": "CSS Syntax",
+    "text": "CSS Syntax\n\nSelectorsDeclarationExamples\n\n\nCSS syntax consists of one or more selectors, matching one or more HTML elements or attributes\n\n\n\n\n\n\n\nsyntax changes with selector type\n\nelements and attributes are written as they are\nclasses are prefixed with a full stop\nids with a hashtag\n\nthe same rule can be defined for more than one element or attribute\n\n\n\n\n\n\nCSS syntax consists of a declaration, with one or more properties and values\n\n\n\n\n\n\n\nvalues are followed by a semicolon\nproperty:value; pairs are separated by a white space\n\n\n\n\n\n\np {font-size:14px;}\nh1 h2 {color:blue;}\n.count {background-color:yellow;}\n#count-sentence {color:red; font-size:16px;}"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#css-internal",
+    "href": "slides/week-10/10-InteractivityI.html#css-internal",
+    "title": "Web scraping basics",
+    "section": "CSS Internal",
+    "text": "CSS Internal\n\nInfoCode\n\n\nCSS rules can be defined internally:\n\nwithin the style element\nas a child of the head element\n\nInternally defined rules apply to all matching selectors on the same page\n\n\n\n&lt;!DOCTYPE html&gt; \n&lt;html&gt; \n  &lt;head&gt; \n    &lt;style&gt;  \n      h1 {color: red;} \n    &lt;/style&gt; \n    &lt;title&gt;This is a title&lt;/title&gt;\n  &lt;/head&gt; \n  &lt;body&gt;\n    &lt;h1&gt;This is a header&lt;/h1&gt;       \n    &lt;p&gt;This is a paragraph.&lt;/p&gt;\n    &lt;ol&gt;\n       &lt;li&gt;This is a&lt;/li&gt;\n       &lt;li&gt; ordered list&lt;/li&gt; \n    &lt;/ol&gt;\n  &lt;/body&gt;\n&lt;/html&gt;"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#css-external",
+    "href": "slides/week-10/10-InteractivityI.html#css-external",
+    "title": "Web scraping basics",
+    "section": "CSS External",
+    "text": "CSS External\n\nInfoCode\n\n\nCSS rules can be defined externally:\n\ncss file needs to be saved & linked to the html document\ndefined with the the linked element and as a child of the head element\n\n\n\n\n\n\n\nExternally defined rules\n\nare saved in a file with .css extension\napply to all matching selectors on linked pages\n\n\n\n\n\n\n\n&lt;!DOCTYPE html&gt; \n&lt;html&gt; \n  &lt;head&gt; \n    &lt;link rel=\"styles\" href=\"C.css\"&gt; \n    &lt;title&gt;This is a title&lt;/title&gt;\n  &lt;/head&gt; \n  &lt;body&gt;\n    &lt;h1&gt;This is a header&lt;/h1&gt;       \n    &lt;p&gt;This is a paragraph.&lt;/p&gt;\n    &lt;ol&gt;\n       &lt;li&gt;This is a&lt;/li&gt;\n       &lt;li&gt; ordered list&lt;/li&gt; \n    &lt;/ol&gt;\n  &lt;/body&gt;\n&lt;/html&gt;"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#css-inline",
+    "href": "slides/week-10/10-InteractivityI.html#css-inline",
+    "title": "Web scraping basics",
+    "section": "CSS Inline",
+    "text": "CSS Inline\nCSS rules can also be defined inline:\n&lt;p&gt;This is &lt;strong `style=\"color:blue;\"`&gt;one&lt;/strong&gt; sentence.&lt;/p&gt;\n\nThis is one sentence.\n\n\n\n\n\n\n\n\nwith the style attribute\ndoes not require selector\napplies only to that element"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#exercise-4",
+    "href": "slides/week-10/10-InteractivityI.html#exercise-4",
+    "title": "Web scraping basics",
+    "section": "Exercise 4",
+    "text": "Exercise 4\n\nProvide some css to your HTML document created before\n\nuse internal or external style (not inline)\ne.g., increase font size\nchange color\nfor more ideas: www.w3schools.com/css\n\n\n\n\n\nText-as-Data in R | Spring 2025 | University of Mannheim"
   }
 ]
