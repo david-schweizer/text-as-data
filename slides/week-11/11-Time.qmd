@@ -405,7 +405,7 @@ Now, click on one of the hyperlinks in the left pane (e.g., "Main page") and one
 
 ## rvest: html_elements
 
-Extracting *a* (anchor) elements on the webpage with selector *td > a*:
+Extracting *a* (anchor) elements on the webpage with selector *td \> a*:
 
 ```{r, echo = TRUE}
 #| code-line-numbers: "4"
@@ -554,6 +554,7 @@ bow(
   html_elements(css = "#mw-content-text > div.mw-parser-output > table") %>% 
   html_table(fill = TRUE) 
 ```
+
 ## rvest: html_table
 
 ```{r, echo = TRUE}
@@ -608,7 +609,8 @@ If you do this, try to keep the number of interactions with websites at a minimu
 
 ## Exercise 2:
 
--   Scrape the this [Wikipedia site](https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location) (politely)
-    -   Create a data frame including United Nations organizations in Europe
-    -   Can process the data and manage to have one row per organization?
--   Try to scrape another static website!
+-   Scrape the tables from this [Wikipedia site](https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location) (politely)
+    -   Create a data frame including columns for country, city, and organizations.
+    -   Process the data so that there is one row per organization:
+    -   ![](example excercise.png){width="482"}
+-   Try to scrape a (static) website of your choice.

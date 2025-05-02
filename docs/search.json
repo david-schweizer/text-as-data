@@ -10330,7 +10330,7 @@
     "href": "slides/week-11/11-Time.html#exercise-2",
     "title": "Web scraping: Static",
     "section": "Exercise 2:",
-    "text": "Exercise 2:\n\nScrape the this Wikipedia site (politely)\n\nCreate a data frame including United Nations organizations in Europe\nCan process the data and manage to have one row per organization?\n\nTry to scrape another static website!\n\n\n\n\nText-as-Data in R | Spring 2025 | University of Mannheim"
+    "text": "Exercise 2:\n\nScrape the tables from this Wikipedia site (politely)\n\nCreate a data frame including columns for country, city, and organizations.\nProcess the data so that there is one row per organization:\n\n\nTry to scrape a (static) website of your choice.\n\n\n\n\nText-as-Data in R | Spring 2025 | University of Mannheim"
   },
   {
     "objectID": "slides/week-11/11-Time.html#rvest-html_table-1",
