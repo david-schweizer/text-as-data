@@ -11,8 +11,8 @@
   <meta name="generator" content="quarto-1.4.555">
 
   <meta name="author" content="David Schweizer">
-  <meta name="dcterms.date" content="2024-05-14">
-  <title>Automated Data Collection - Course Website - Interactive I: Create your first Shiny app</title>
+  <meta name="dcterms.date" content="2025-05-13">
+  <title>Text-as-Data - Course Website - Web scraping: Dynamic</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -30,73 +30,9 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="../../styles.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -392,7 +328,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Interactive I: Create your first Shiny app</h1>
+  <h1 class="title">Web scraping: Dynamic</h1>
   <p class="subtitle">Week 14</p>
 
 <div class="quarto-title-authors">
@@ -406,247 +342,17 @@ David Schweizer
     </div>
 </div>
 
-  <p class="date">May 14, 2024</p>
+  <p class="date">May 13, 2025</p>
 </section>
-<section id="so-far" class="slide level2">
-<h2>… so far:</h2>
-<ul>
-<li><p>Block I: Import, Tidy, Transform, &amp; Visualize Data</p></li>
-<li><p>Block II: Communicate &amp; Collaborate</p></li>
-</ul>
-
-<img data-src="workflow.png" class="quarto-figure quarto-figure-center r-stretch"><ul>
-<li>Block III: Web scraping</li>
-</ul>
-<p>➡️ Today and next week: Back to communicating our results (Block II), but in an <strong>interactive</strong> way!</p>
-</section>
-<section id="plan-for-today" class="slide level2">
-<h2>Plan for today</h2>
-<p><strong>Short input</strong></p>
-<ul>
-<li><p>Using dashboards</p></li>
-<li><p>A short introduction to shiny (dashboards)</p></li>
-<li><p>Next week: Reactivity &amp; themes</p></li>
-</ul>
-<p><strong>Coding</strong></p>
-<ul>
-<li><p>Applied examples</p></li>
-<li><p>Your first shiny app!</p></li>
-</ul>
-</section>
-<section id="dashboards" class="slide level2">
-<h2>Dashboards</h2>
-<ul>
-<li><p>Dashboards represent a tool for effective data visualization</p></li>
-<li><p>They allow us to communicate information as intuitively as possible and can support data-driven decision making</p></li>
-<li><p>We focus presenting our <em>results</em> and telling a story!</p></li>
-<li><p>Dashboards are useful for science communication but also provide added value in other areas such as consulting, business, etc.</p></li>
-</ul>
-</section>
-<section id="dashboard---covid" class="slide level2">
-<h2>Dashboard - Covid</h2>
-<p>… but of course many other applications! GovTech, Finance, Marketing, …</p>
-<p><a href="https://infektionsradar.gesund.bund.de/de"><img data-src="dashboard_example.jpg"></a></p>
-</section>
-<section>
-<section id="shiny-apps" class="title-slide slide level1 center">
-<h1>Shiny apps</h1>
-
-</section>
-<section id="why-shiny-apps" class="slide level2">
-<h2>Why Shiny apps?</h2>
-<p>Most importantly:</p>
-<ul>
-<li><p>(Interactive) communication of scientific results</p></li>
-<li><p>(Interactive) visualization of data sets</p></li>
-</ul>
-<p>But there are many more use cases!</p>
-</section>
-<section id="shiny-apps---user-showcase" class="slide level2">
-<h2>Shiny apps - User showcase</h2>
-<p><a href="https://shiny.posit.co/r/gallery/#user-showcase"><img data-src="user_showcase.jpg"></a></p>
-</section>
-<section id="shiny-apps-in-action-in-government" class="slide level2">
-<h2>Shiny apps in action in government</h2>
-<p>… and more interesting examples <a href="https://www.appsilon.com/post/r-shiny-in-government-examples">here</a>.</p>
-<p><a href="https://scotland.shinyapps.io/sg-national-electrofishing-programme-scotland/"><img data-src="shiny_scotland.jpg"></a></p>
-</section>
-<section id="shiny-apps-in-your-final-project" class="slide level2">
-<h2>Shiny apps in your final project</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><a href="https://statepol.github.io/Database/"><img data-src="statepol.jpg" alt="StatePol Database: <https://statepol.github.io/Database/>"></a></p>
-<figcaption>StatePol Database: &lt;https://statepol.github.io/Database/&gt;</figcaption>
-</figure>
-</div>
-</section>
-<section id="shiny-apps-can-also-look-like-this" class="slide level2">
-<h2>Shiny apps can also look like this:</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><a href="https://gallery.shinyapps.io/freedom-press-index/#home"><img data-src="shiny_press.jpg" alt="news-r: https://gallery.shinyapps.io/freedom-press-index/#home"></a></p>
-<figcaption>news-r: https://gallery.shinyapps.io/freedom-press-index/#home</figcaption>
-</figure>
-</div>
-</section></section>
-<section>
-<section id="but-lets-start-with-the-basics" class="title-slide slide level1 center">
-<h1>But let’s start with the basics!</h1>
-
-</section>
-<section id="key-elements-of-a-shiny-app" class="slide level2">
-<h2>Key elements of a Shiny app</h2>
-<ul>
-<li><p>UI (user interface):</p>
-<ul>
-<li>Here, we can determine the “look” of our app.</li>
-</ul></li>
-<li><p>Server:</p>
-<ul>
-<li>Here, we define our functions</li>
-</ul></li>
-<li><p>shinyApp():</p>
-<ul>
-<li>Combines our UI and server parts.</li>
-</ul></li>
-</ul>
-</section>
-<section id="bslib" class="slide level2">
-<h2>bslib</h2>
-
-<img data-src="images/clipboard-3666061840.png" class="r-stretch"></section>
-<section id="how-to-assemble-these-elements" class="slide level2">
-<h2>How to assemble these elements</h2>
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">set up</a></li><li><a href="#tabset-1-2">ui</a></li><li><a href="#tabset-1-3">server</a></li><li><a href="#tabset-1-4">shinyApp()</a></li><li><a href="#tabset-1-5">Output</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(shiny)</span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(bslib)</span>
-<span id="cb1-3"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-4"><a></a></span>
-<span id="cb1-5"><a></a>data <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/constituency_shapes_vote.RDS"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div id="tabset-1-2">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>ui <span class="ot">&lt;-</span> <span class="fu">page_sidebar</span>(</span>
-<span id="cb2-2"><a></a>      <span class="at">title =</span> <span class="st">"2017 German election data"</span>,</span>
-<span id="cb2-3"><a></a>      <span class="at">sidebar =</span> <span class="fu">sidebar</span>(</span>
-<span id="cb2-4"><a></a>        <span class="fu">selectInput</span>(</span>
-<span id="cb2-5"><a></a>          <span class="at">inputId =</span> <span class="st">"parties"</span>, </span>
-<span id="cb2-6"><a></a>          <span class="at">label =</span> <span class="st">"Choose a party"</span>, </span>
-<span id="cb2-7"><a></a>          <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"AfD"</span>, <span class="st">"CDU"</span>, <span class="st">"CSU"</span>, </span>
-<span id="cb2-8"><a></a>                      <span class="st">"Left"</span> <span class="ot">=</span> <span class="st">"DIE LINKE"</span>, </span>
-<span id="cb2-9"><a></a>                      <span class="st">"FDP"</span>, </span>
-<span id="cb2-10"><a></a>                      <span class="st">"Greens"</span> <span class="ot">=</span> <span class="st">"GRÜNE"</span>, </span>
-<span id="cb2-11"><a></a>                      <span class="st">"SPD"</span>), </span>
-<span id="cb2-12"><a></a>          <span class="at">selected =</span> <span class="st">"AfD"</span></span>
-<span id="cb2-13"><a></a>        )</span>
-<span id="cb2-14"><a></a>      ),</span>
-<span id="cb2-15"><a></a>    </span>
-<span id="cb2-16"><a></a>    <span class="fu">plotOutput</span>(<span class="st">"histogram"</span>)</span>
-<span id="cb2-17"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div id="tabset-1-3">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
-<span id="cb3-2"><a></a>  </span>
-<span id="cb3-3"><a></a>  output<span class="sc">$</span>histogram <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb3-4"><a></a>    </span>
-<span id="cb3-5"><a></a>    data <span class="sc">%&gt;%</span> </span>
-<span id="cb3-6"><a></a>      <span class="fu">filter</span>(party <span class="sc">==</span> input<span class="sc">$</span>parties) <span class="sc">%&gt;%</span></span>
-<span id="cb3-7"><a></a>      <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb3-8"><a></a>      <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> vote_share),</span>
-<span id="cb3-9"><a></a>                     <span class="at">binwidth =</span> <span class="fl">2.5</span>,</span>
-<span id="cb3-10"><a></a>                     <span class="at">boundary =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
-<span id="cb3-11"><a></a>      <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>(<span class="at">scale =</span> <span class="dv">1</span>), </span>
-<span id="cb3-12"><a></a>                         <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">80</span>)) <span class="sc">+</span></span>
-<span id="cb3-13"><a></a>      <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb3-14"><a></a>      <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Count"</span>,</span>
-<span id="cb3-15"><a></a>           <span class="at">x =</span> <span class="st">"Vote share"</span>)</span>
-<span id="cb3-16"><a></a>  })</span>
-<span id="cb3-17"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div id="tabset-1-4">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div id="tabset-1-5">
-<p><img data-src="basic.jpg" width="1002"></p>
-</div>
-</div>
-</div>
-</section>
-<section id="applied-example---multiple-pages" class="slide level2">
-<h2>Applied Example - Multiple pages</h2>
-<p><a href="https://davidschweizer.shinyapps.io/shiny_dashboard/"><img data-src="dashboard.jpg"></a></p>
-</section>
-<section id="building-your-own-app" class="slide level2">
-<h2>Building your own app</h2>
-<div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Get started</a></li><li><a href="#tabset-2-2">Customize</a></li><li><a href="#tabset-2-3">Widgets</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1">
-<ul>
-<li><p>There are many great resources online. I recommend starting with the R Shiny documentation on how to get started and to build your own app:</p>
-<ul>
-<li>https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/index.html</li>
-</ul></li>
-<li><p>In addition, the <em>Mastering Shiny</em> book by Hadley Wickham is great!</p>
-<ul>
-<li>https://mastering-shiny.org/index.html</li>
-</ul></li>
-</ul>
-</div>
-<div id="tabset-2-2">
-<p><a href="https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/index.html"><img data-src="shiny.png" width="852"></a></p>
-</div>
-<div id="tabset-2-3">
-<p><a href="https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/index.html"><img data-src="widgets.png" width="719"></a></p>
-</div>
-</div>
-</div>
-</section>
-<section id="how-to-publish-your-app" class="slide level2">
-<h2>How to publish your app</h2>
-<ul>
-<li><p>There are many ways. I find <em>shinyapps.io</em> the easiest.</p>
-<ul>
-<li>Set up a free account at <em>shinyapps.io</em></li>
-</ul></li>
-<li><p>Follow only a few steps in this <a href="https://shiny.posit.co/r/articles/share/shinyapps/">short tutorial</a>. It includes:</p>
-<ul>
-<li><p>Installing and loading the rsconnect package</p></li>
-<li><p>Add your token from your shinyapps.io account to the rsconnect package once</p></li>
-<li><p>Deploy your app via the <em>Publish</em> button while viewing the app</p></li>
-</ul></li>
-</ul>
-</section></section>
-<section>
-<section id="applied-example" class="title-slide slide level1 center">
-<h1>Applied example</h1>
-
-</section>
-<section id="your-turn" class="slide level2">
-<h2>Your turn!</h2>
-<ul>
-<li><p>Take some time to understand and run the R scripts provided on ILIAS or access the via the links on the course website.</p></li>
-<li><p>Now, apply it to different data! Always a simple start: Gapminder.</p></li>
-<li><p>Also: Try out different widgets. For example, a slider. When using a slider, you need a continuous variable!</p></li>
-<li><p>If you have time left, set up a free account at <em>shinyapps.io</em> and try to publish your first Shiny app (dashboard) online.</p></li>
-</ul>
+<section id="tba" class="title-slide slide level1 center">
+<h1>TBA</h1>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
-<p>Automated Data Collection | Spring 2024 | University of Mannheim</p>
+<p>Text-as-Data in R | Spring 2025 | University of Mannheim</p>
 </div>
 </div>
-</section></section>
+</section>
     </div>
   </div>
 
@@ -857,82 +563,6 @@ David Schweizer
         ]
       });
     </script>
-    
-
-    <script>
-
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-
-      // slide changes (different for each slide format).
-
-      (function () {
-
-        // dispatch for htmlwidgets
-
-        function fireSlideEnter() {
-
-          const event = window.document.createEvent("Event");
-
-          event.initEvent("slideenter", true, true);
-
-          window.document.dispatchEvent(event);
-
-        }
-
-    
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-
-          fireSlideEnter();
-
-    
-
-          // dispatch for shiny
-
-          if (window.jQuery) {
-
-            if (previousSlide) {
-
-              window.jQuery(previousSlide).trigger("hidden");
-
-            }
-
-            if (currentSlide) {
-
-              window.jQuery(currentSlide).trigger("shown");
-
-            }
-
-          }
-
-        }
-
-    
-
-        // hookup for slidy
-
-        if (window.w3c_slidy) {
-
-          window.w3c_slidy.add_observer(function (slide_num) {
-
-            // slide_num starts at position 1
-
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-
-          });
-
-        }
-
-    
-
-      })();
-
-    </script>
-
-    
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

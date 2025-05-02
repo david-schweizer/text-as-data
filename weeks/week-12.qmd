@@ -1,9 +1,9 @@
 ---
-title: "Interactive I: Create your first Shiny app"
+title: "Web scraping: Dynamic"
 subtitle: "Week 14"
 description: ""
 author: ""
-date: "May 14, 2024"
+date: "May 13, 2025"
 listing:
   - id: slides
     contents:
@@ -35,6 +35,12 @@ listing:
 tbl-colwidths: [10,50,40]
 ---
 
+# To Do's before our session
+
+-   Start working on the third assignment. You can find it on ILIAS. The deadline is 20.05.2025 13:00.
+
+-   Can you use our learned web scraping techniques for your term paper? Think about possible websites that you might want to scrape. Feel free to approach me to discuss your ideas!
+
 # Seminar slides
 
 ::: {#slides}
@@ -42,12 +48,4 @@ tbl-colwidths: [10,50,40]
 
 # Materials
 
-You can find the R scripts and the necessary data to run them for today's session [**here**](https://ilias.uni-mannheim.de/goto.php?target=file_1518491_download&client_id=ILIAS) as a zip folder. Open the the R project to ensure that the relative file paths work.
-
-# To Do's before our session
-
-Please have a look at:
-
--   Chapter 1, Your first Shiny app in Wickham, Mastering Shiny. [Link to free online version](https://mastering-shiny.org/basic-app.html).
-
--   [R Shiny, Get Started: Welcome to Shiny.](https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/)
+TBA.

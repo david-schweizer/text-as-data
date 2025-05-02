@@ -46,4 +46,4 @@ Have a look at [Chapter 24 in R for Data Science](https://r4ds.hadley.nz/webscra
 
 # Materials
 
-TBA.
+There are no specific materials for today.

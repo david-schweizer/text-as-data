@@ -30,8 +30,74 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="../../styles.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -343,8 +409,1106 @@ David Schweizer
 
   <p class="date">May 6, 2025</p>
 </section>
-<section id="tba" class="title-slide slide level1 center">
-<h1>TBA</h1>
+<section id="plan-for-today" class="slide level2">
+<h2>Plan for today</h2>
+<ul>
+<li><p>Input:</p>
+<ul>
+<li>Scraping static web pages politely</li>
+</ul></li>
+<li><p>Coming up:</p>
+<ul>
+<li><strong>Crawling</strong> static pages and <strong>scraping dynamic</strong> pages</li>
+</ul></li>
+</ul>
+</section>
+<section id="static-pages-overview-1" class="slide level2">
+<h2>Static Pages: Overview (1)</h2>
+<p>We will use the <code>rvest</code> package to scrape data from static pages</p>
+<ul>
+<li><p>Static pages display the same source code and content to all visitors</p>
+<ul>
+<li>All visitors see the same page at a given URL</li>
+<li>Each page has a different URL</li>
+<li>e.g., wikipedia</li>
+</ul></li>
+</ul>
+</section>
+<section id="static-pages-overview-2" class="slide level2">
+<h2>Static Pages: Overview (2)</h2>
+<p>There are two main steps:</p>
+<ul>
+<li><p>Download the source code from one or multiple pages to R</p>
+<ul>
+<li>This is usually the only interaction with the page we need</li>
+</ul></li>
+<li><p>Select the information we want to extract from the source code</p></li>
+</ul>
+</section>
+<section id="static-pages-rvest" class="slide level2">
+<h2>Static Pages: rvest</h2>
+<p>Popular, “proven” R package exclusively for web scraping by <a href="https://hadley.nz/">Hadley Wickham</a> (part of the <em>tidyverse</em>)</p>
+<ul>
+<li>Tutorials / documentation:
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/rvest/rvest.pdf">Package documentation</a></li>
+<li><a href="https://rvest.tidyverse.org/">rvest overivew</a></li>
+<li><a href="https://bookdown.org/joone/ComputationalMethods/web-scraping.html">Example by Julian Unkel</a></li>
+</ul></li>
+<li>Can be easily combined with the <code>polite</code> package for ethical web scraping!</li>
+</ul>
+</section>
+<section id="rvest-get-source-code" class="slide level2">
+<h2>rvest: Get Source Code</h2>
+<p>The <code>read_html</code> function gets the source code of a page:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">read_html</span>(<span class="st">"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{html_document}
+&lt;html class="client-nojs vector-feature-language-in-header-enabled vector-feature-language-in-main-page-header-disabled vector-feature-page-tools-pinned-disabled vector-feature-toc-pinned-clientpref-1 vector-feature-main-menu-pinned-disabled vector-feature-limited-width-clientpref-1 vector-feature-limited-width-content-enabled vector-feature-custom-font-size-clientpref-1 vector-feature-appearance-pinned-clientpref-1 vector-feature-night-mode-enabled skin-theme-clientpref-day vector-sticky-header-enabled vector-toc-available" lang="en" dir="ltr"&gt;
+[1] &lt;head&gt;\n&lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8 ...
+[2] &lt;body class="skin--responsive skin-vector skin-vector-search-vue mediawik ...</code></pre>
+</div>
+</div>
+<div class="callout callout-note callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<ul>
+<li>This is the first step of web scraping!</li>
+<li>Now, we need to select the specific information we want to extract</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="rvest-get-source-code-1" class="slide level2">
+<h2>rvest: Get Source Code</h2>
+<p>For ethical web scraping, we check the protocol first:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">paths_allowed</span>(<span class="at">domain =</span> <span class="st">"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">read_html</span>(<span class="st">"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{html_document}
+&lt;html class="client-nojs vector-feature-language-in-header-enabled vector-feature-language-in-main-page-header-disabled vector-feature-page-tools-pinned-disabled vector-feature-toc-pinned-clientpref-1 vector-feature-main-menu-pinned-disabled vector-feature-limited-width-clientpref-1 vector-feature-limited-width-content-enabled vector-feature-custom-font-size-clientpref-1 vector-feature-appearance-pinned-clientpref-1 vector-feature-night-mode-enabled skin-theme-clientpref-day vector-sticky-header-enabled vector-toc-available" lang="en" dir="ltr"&gt;
+[1] &lt;head&gt;\n&lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8 ...
+[2] &lt;body class="skin--responsive skin-vector skin-vector-search-vue mediawik ...</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="rvest-polite-get-source-code" class="slide level2">
+<h2>rvest + polite: Get Source Code</h2>
+<ul>
+<li><p>Using the <code>polite</code> package simplifies ethical web scraping</p></li>
+<li><p>Extracting the source coude is divided into two steps:</p>
+<ul>
+<li><p>Checking the protocol</p></li>
+<li><p>Extract source code if allowed</p></li>
+</ul></li>
+<li><p>In addition, it allows us to:</p>
+<ul>
+<li><p>Set a time interval for accessing the page (minimum what is specified in the protocol)</p></li>
+<li><p>Introducing yourself to the website administrator while scraping</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="rvest-polite-get-source-code-1" class="slide level2">
+<h2>rvest + polite: Get Source Code</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Info</a></li><li><a href="#tabset-1-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<p>We can use to <code>bow</code> function to check the webpage’s protocol</p>
+<ul>
+<li>for a specific URL</li>
+</ul>
+</div>
+<div id="tabset-1-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">bow</span>(</span>
+<span id="cb7-2"><a></a>  url,</span>
+<span id="cb7-3"><a></a>  ...</span>
+<span id="cb7-4"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="rvest-polite-get-source-code-2" class="slide level2">
+<h2>rvest + polite: Get Source Code</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Info</a></li><li><a href="#tabset-2-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<p>We can use to <code>bow</code> function to check the webpage’s protocol</p>
+<ul>
+<li>for a specific URL</li>
+<li>for a specific agent</li>
+</ul>
+<div class="callout callout-note callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p>The argument <code>user-agent</code> provides the website administrator with information (e.g., name or contact details)</p>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">bow</span>(</span>
+<span id="cb8-2"><a></a>  url, </span>
+<span id="cb8-3"><a></a>  <span class="at">user_agent =</span> <span class="st">"R Übung"</span>, </span>
+<span id="cb8-4"><a></a>  ...</span>
+<span id="cb8-5"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="rvest-polite-get-source-code-3" class="slide level2">
+<h2>rvest + polite: Get Source Code</h2>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Info</a></li><li><a href="#tabset-3-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<p>We can use to <code>bow</code> function to check the webpage’s protocol</p>
+<ul>
+<li>for a specific URL</li>
+<li>for a specific agent</li>
+<li>for crawl-delay</li>
+</ul>
+<div class="callout callout-note callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p>The argument <code>delay</code> cannot be smaller than in the protocol directive</p>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-3-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">bow</span>(</span>
+<span id="cb9-2"><a></a>  url, </span>
+<span id="cb9-3"><a></a>  <span class="at">user_agent =</span> <span class="st">"R Übung"</span>, </span>
+<span id="cb9-4"><a></a>  <span class="at">delay =</span> <span class="dv">5</span> </span>
+<span id="cb9-5"><a></a>  ...</span>
+<span id="cb9-6"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="rvest-polite-get-source-code-4" class="slide level2">
+<h2>rvest + polite: Get Source Code</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">bow</span>(</span>
+<span id="cb10-2"><a></a>  <span class="st">"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location"</span>, </span>
+<span id="cb10-3"><a></a>  <span class="at">user_agent =</span> <span class="st">"R Übung"</span>, </span>
+<span id="cb10-4"><a></a>  <span class="at">delay =</span> <span class="dv">5</span></span>
+<span id="cb10-5"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;polite session&gt; https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location
+    User-agent: R Übung
+    robots.txt: 464 rules are defined for 33 bots
+   Crawl delay: 5 sec
+  The path is scrapable for this user-agent</code></pre>
+</div>
+</div>
+</section>
+<section id="rvest-polite-get-source-code-5" class="slide level2">
+<h2>rvest + polite: Get Source Code</h2>
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Info</a></li><li><a href="#tabset-4-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+<p>Now, we can use the <code>scrape</code> function to extract the source code:</p>
+<ul>
+<li>for an object created with the <code>bow</code> function</li>
+<li>it will only work if the results from the <code>bow</code> function are positive
+<ul>
+<li>meaning that we follow the webpage’s protocol</li>
+</ul></li>
+</ul>
+<p>Pipe <code>bow</code> into <code>scrape</code> to avoid creating additional objects.</p>
+</div>
+<div id="tabset-4-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">scrape</span>(bow,</span>
+<span id="cb12-2"><a></a>       ...</span>
+<span id="cb12-3"><a></a>       )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br>
+</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">bow</span>(</span>
+<span id="cb13-2"><a></a>  url,</span>
+<span id="cb13-3"><a></a>  ...</span>
+<span id="cb13-4"><a></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-5"><a></a>  <span class="fu">scrape</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="rvest-polite-get-source-code-6" class="slide level2">
+<h2>rvest + polite: Get Source Code</h2>
+<p>No difference, no protocol against access:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">read_html</span>(<span class="st">"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">bow</span>(<span class="st">"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-2"><a></a>  <span class="fu">scrape</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{html_document}
+&lt;html class="client-nojs vector-feature-language-in-header-enabled vector-feature-language-in-main-page-header-disabled vector-feature-page-tools-pinned-disabled vector-feature-toc-pinned-clientpref-1 vector-feature-main-menu-pinned-disabled vector-feature-limited-width-clientpref-1 vector-feature-limited-width-content-enabled vector-feature-custom-font-size-clientpref-1 vector-feature-appearance-pinned-clientpref-1 vector-feature-night-mode-enabled skin-theme-clientpref-day vector-sticky-header-enabled vector-toc-available" lang="en" dir="ltr"&gt;
+[1] &lt;head&gt;\n&lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8 ...
+[2] &lt;body class="skin--responsive skin-vector skin-vector-search-vue mediawik ...</code></pre>
+</div>
+</div>
+</section>
+<section id="rvest-polite-get-source-code-7" class="slide level2">
+<h2>rvest + polite: Get Source Code</h2>
+<p>Now we see a difference as there is a protocol against access:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">read_html</span>(<span class="st">"https://www.zeit.de/rezepte/suche/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{html_document}
+&lt;html lang="de" class="no-js "&gt;
+[1] &lt;head&gt;\n&lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8 ...
+[2] &lt;body data-page-type="centerpage" data-template="" data-is-hp="false" dat ...</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">bow</span>(<span class="st">"https://www.zeit.de/rezepte/suche/"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-2"><a></a>  <span class="fu">scrape</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>NULL</code></pre>
+</div>
+</div>
+<div class="callout callout-tip callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p><strong>Remember</strong>: We can check the protocol of webpages with the <code>robotstxt</code> package or by adding <em>robots.txt</em> to the URL (e.g., www.zeit.de/robots.txt)]</p>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-1" class="slide level2">
+<h2>Exercise 1</h2>
+<ul>
+<li><p>Get the source code of <a href="https://en.wikipedia.org/wiki/World_population" class="uri">https://en.wikipedia.org/wiki/World_population</a> using the <em>read_html</em> function</p></li>
+<li><p>Get the same source code using the <em>polite</em> package</p>
+<ul>
+<li>“introduce” yourself to the webpage</li>
+<li>define a delay time</li>
+</ul></li>
+</ul>
+</section>
+<section id="rvest-html_elements" class="slide level2">
+<h2>rvest: html_elements</h2>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Info</a></li><li><a href="#tabset-5-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<p>The function <code>html_elements</code> allows us to extract one ore multiple HTML elements from the <em>source code</em> we have downloaded.</p>
+<div class="callout callout-note callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p><code>html_element</code> gets the first instance of a specific element, whereas <code>html_elements</code> gets all instances.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-5-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21" data-code-line-numbers="2,8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">html_element</span>(</span>
+<span id="cb21-2"><a></a>             x, </span>
+<span id="cb21-3"><a></a>             css, </span>
+<span id="cb21-4"><a></a>             xpath)</span>
+<span id="cb21-5"><a></a></span>
+<span id="cb21-6"><a></a></span>
+<span id="cb21-7"><a></a><span class="fu">html_elements</span>(</span>
+<span id="cb21-8"><a></a>              x, </span>
+<span id="cb21-9"><a></a>              css, </span>
+<span id="cb21-10"><a></a>              xpath)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="rvest-html_elements-1" class="slide level2">
+<h2>rvest: html_elements</h2>
+<div class="panel-tabset">
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Info</a></li><li><a href="#tabset-6-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1">
+<p>The function <code>html_elements</code> allows us to extract one ore multiple HTML elements from the <em>source code</em> we have downloaded.</p>
+<p>We specify the HTML elements with a selector: CSS or XPATH.</p>
+<div class="callout callout-note callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p>During our course, we will use CSS, which is simplified by using Chrome and/or SelectorGadget (ScrapeMate).</p>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-6-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22" data-code-line-numbers="3,9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">html_element</span>(</span>
+<span id="cb22-2"><a></a>             x, </span>
+<span id="cb22-3"><a></a>             css, </span>
+<span id="cb22-4"><a></a>             xpath)</span>
+<span id="cb22-5"><a></a></span>
+<span id="cb22-6"><a></a></span>
+<span id="cb22-7"><a></a><span class="fu">html_elements</span>(</span>
+<span id="cb22-8"><a></a>              x, </span>
+<span id="cb22-9"><a></a>              css, </span>
+<span id="cb22-10"><a></a>              xpath)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="how-to-find-selectors" class="slide level2">
+<h2>How to Find Selectors?</h2>
+<p>Finding the right selectors is the most important step for web scraping. We have different ways to do this:</p>
+<ul>
+<li>We can inspect the source code / DOM
+<ul>
+<li>Not easy, time consuming, error-prone</li>
+</ul></li>
+<li>We can use browser extensions such as <em>SelectorGadget</em>
+<ul>
+<li>Not always accurate, but easy and quicker</li>
+</ul></li>
+<li>We can use Chrome
+<ul>
+<li>Good for selecting single elements</li>
+</ul></li>
+</ul>
+</section>
+<section id="using-selectorgadget" class="slide level2">
+<h2>Using SelectorGadget?</h2>
+<div class="panel-tabset">
+<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Info</a></li><li><a href="#tabset-7-2">Example</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1">
+<p>Finding selectors for hyperlinks on the Wikipedia page for <a href="https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location">UN organizations by location</a></p>
+<ul>
+<li><p>Visit the webpage on your (Chrome ) browser</p></li>
+<li><p>Activate the <em>SelectorGadget</em> extension</p></li>
+<li><p>Click on any hyperlink</p></li>
+</ul>
+<div class="callout callout-note callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>The clicked on element is highlighted in green</p></li>
+<li><p>others are highlighted in yellow</p></li>
+<li><p><em>SelectorGadget</em> identifies the selector <em>a</em></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-7-2">
+<p><img data-src="screenshot1.png" width="822"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="rvest-html_elements-2" class="slide level2">
+<h2>rvest: html_elements</h2>
+<p>Extracting the <em>a</em> (anchor) elements on the webpage:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">bow</span>(</span>
+<span id="cb23-2"><a></a>  <span class="at">url =</span> <span class="st">"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-3"><a></a>  <span class="fu">scrape</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb23-4"><a></a>  <span class="fu">html_elements</span>(<span class="at">css =</span> <span class="st">"a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{xml_nodeset (577)}
+ [1] &lt;a class="mw-jump-link" href="#bodyContent"&gt;Jump to content&lt;/a&gt;
+ [2] &lt;a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z"&gt; ...
+ [3] &lt;a href="/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"&gt; ...
+ [4] &lt;a href="/wiki/Portal:Current_events" title="Articles related to current ...
+ [5] &lt;a href="/wiki/Special:Random" title="Visit a randomly selected article  ...
+ [6] &lt;a href="/wiki/Wikipedia:About" title="Learn about Wikipedia and how it  ...
+ [7] &lt;a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to con ...
+ [8] &lt;a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wik ...
+ [9] &lt;a href="/wiki/Help:Introduction" title="Learn how to edit Wikipedia"&gt;&lt;s ...
+[10] &lt;a href="/wiki/Wikipedia:Community_portal" title="The hub for editors"&gt;&lt; ...
+[11] &lt;a href="/wiki/Special:RecentChanges" title="A list of recent changes to ...
+[12] &lt;a href="/wiki/Wikipedia:File_upload_wizard" title="Add images or other  ...
+[13] &lt;a href="/wiki/Special:SpecialPages"&gt;&lt;span&gt;Special pages&lt;/span&gt;&lt;/a&gt;
+[14] &lt;a href="/wiki/Main_Page" class="mw-logo"&gt;\n\t&lt;img class="mw-logo-icon"  ...
+[15] &lt;a href="/wiki/Special:Search" class="cdx-button cdx-button--fake-button ...
+[16] &lt;a data-mw="interface" href="https://donate.wikimedia.org/?wmf_source=do ...
+[17] &lt;a data-mw="interface" href="/w/index.php?title=Special:CreateAccount&amp;am ...
+[18] &lt;a data-mw="interface" href="/w/index.php?title=Special:UserLogin&amp;amp;re ...
+[19] &lt;a href="https://donate.wikimedia.org/?wmf_source=donate&amp;amp;wmf_medium= ...
+[20] &lt;a href="/w/index.php?title=Special:CreateAccount&amp;amp;returnto=List+of+U ...
+...</code></pre>
+</div>
+</div>
+</section>
+<section id="rvest-html_elements-3" class="slide level2">
+<h2>rvest: html_elements</h2>
+<p>Extracting only the <strong>first</strong> <em>a</em> (anchor) elements on the webpage:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">bow</span>(</span>
+<span id="cb25-2"><a></a>  <span class="at">url =</span> <span class="st">"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb25-3"><a></a>  <span class="fu">scrape</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb25-4"><a></a>  <span class="fu">html_element</span>(<span class="at">css =</span> <span class="st">"a"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{html_node}
+&lt;a class="mw-jump-link" href="#bodyContent"&gt;</code></pre>
+</div>
+</div>
+<div class="callout callout-note callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p>Here, we use only the singluar version <code>html_element</code> and not <code>html_elements</code></p>
+</div>
+</div>
+</div>
+</section>
+<section id="find-selectors-with-selectorgadget" class="slide level2">
+<h2>Find Selectors With SelectorGadget</h2>
+<div class="panel-tabset">
+<ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1">Info</a></li><li><a href="#tabset-8-2">Example</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1">
+<p>Now, click on one of the hyperlinks in the left pane (e.g., “Main page”) and one of the hyperlinks outside the tables on the main pane (e.g., “1 Locations”) as we are only interested in the hyperlinks in the tables.</p>
+<div class="callout callout-note callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>If you click on a yellow element, it is then highlighted red</p></li>
+<li><p>Other elements are not highlighted anymore</p></li>
+<li><p><em>SelectorGadget</em> identifies the selector <em>.datasortkey a</em></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-8-2">
+<p><img data-src="screenshot2.png" width="860"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="rvest-html_elements-4" class="slide level2">
+<h2>rvest: html_elements</h2>
+<p>Extracting <em>a</em> (anchor) elements on the webpage with selector <em>td &gt; a</em>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">bow</span>(</span>
+<span id="cb27-2"><a></a>  <span class="at">url =</span> <span class="st">"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb27-3"><a></a>  <span class="fu">scrape</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb27-4"><a></a>  <span class="fu">html_elements</span>(<span class="at">css =</span> <span class="st">"td &gt; a"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{xml_nodeset (37)}
+ [1] &lt;a href="/wiki/Addis_Ababa" title="Addis Ababa"&gt;Addis Ababa&lt;/a&gt;
+ [2] &lt;a href="/wiki/Nairobi" title="Nairobi"&gt;Nairobi&lt;/a&gt;
+ [3] &lt;a href="/wiki/Montreal" title="Montreal"&gt;Montreal&lt;/a&gt;
+ [4] &lt;a href="/wiki/Santiago" title="Santiago"&gt;Santiago&lt;/a&gt;
+ [5] &lt;a href="/wiki/Ciudad_Col%C3%B3n" class="mw-redirect" title="Ciudad Coló ...
+ [6] &lt;a href="/wiki/Santo_Domingo" title="Santo Domingo"&gt;Santo Domingo&lt;/a&gt;
+ [7] &lt;a href="/wiki/Kingston,_Jamaica" title="Kingston, Jamaica"&gt;Kingston&lt;/a&gt;
+ [8] &lt;a href="/wiki/New_York_City" title="New York City"&gt;New York City&lt;/a&gt;
+ [9] &lt;a href="/wiki/Washington,_D.C." title="Washington, D.C."&gt;Washington&lt;/a&gt;
+[10] &lt;a href="/wiki/Macau" title="Macau"&gt;Macau&lt;/a&gt;
+[11] &lt;a href="/wiki/Macau" title="Macau"&gt;Macau&lt;/a&gt;
+[12] &lt;a href="/wiki/Tokyo" title="Tokyo"&gt;Tokyo&lt;/a&gt;
+[13] &lt;a href="/wiki/Amman" title="Amman"&gt;Amman&lt;/a&gt;
+[14] &lt;a href="/wiki/Beirut" title="Beirut"&gt;Beirut&lt;/a&gt;
+[15] &lt;a href="/wiki/Kuala_Lumpur" title="Kuala Lumpur"&gt;Kuala Lumpur&lt;/a&gt;
+[16] &lt;a href="/wiki/Bangkok" title="Bangkok"&gt;Bangkok&lt;/a&gt;
+[17] &lt;a href="/wiki/Ashgabat" title="Ashgabat"&gt;Ashgabat&lt;/a&gt;
+[18] &lt;a href="/wiki/Hanoi" title="Hanoi"&gt;Hanoi&lt;/a&gt;
+[19] &lt;a href="/wiki/Vienna" title="Vienna"&gt;Vienna&lt;/a&gt;
+[20] &lt;a href="/wiki/Copenhagen" title="Copenhagen"&gt;Copenhagen&lt;/a&gt;
+...</code></pre>
+</div>
+</div>
+</section>
+<section id="how-to-find-selectors-with-chrome" class="slide level2">
+<h2>How to Find Selectors With Chrome?</h2>
+<div class="panel-tabset">
+<ul id="tabset-9" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-9-1">Step 1</a></li><li><a href="#tabset-9-2">Step 2</a></li></ul>
+<div class="tab-content">
+<div id="tabset-9-1">
+<ul>
+<li>Right click, and then <em>Inspect</em></li>
+</ul>
+<p><img data-src="screenshot3.png" width="860"></p>
+</div>
+<div id="tabset-9-2">
+<ul>
+<li><p>Click on <img data-src="screenshot4.png"> , then on the element on the front end</p></li>
+<li><p>Right click on the highlighted element in the DOM</p></li>
+<li><p>Follow: <em>Copy -&gt; Copy selector</em></p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="rvest-html_elements-5" class="slide level2">
+<h2>rvest: html_elements</h2>
+<p>Example: Extracting only the links for Africa:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="fu">bow</span>(</span>
+<span id="cb29-2"><a></a>  <span class="at">url =</span> <span class="st">"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb29-3"><a></a>  <span class="fu">scrape</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb29-4"><a></a>  <span class="fu">html_elements</span>(<span class="at">css =</span> <span class="st">"#mw-content-text &gt; div.mw-parser-output &gt; table:nth-child(7) &gt; tbody &gt; </span></span>
+<span id="cb29-5"><a></a><span class="st">                tr &gt; td:nth-child(2) &gt; a"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{xml_nodeset (2)}
+[1] &lt;a href="/wiki/Addis_Ababa" title="Addis Ababa"&gt;Addis Ababa&lt;/a&gt;
+[2] &lt;a href="/wiki/Nairobi" title="Nairobi"&gt;Nairobi&lt;/a&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="rvest-html_text" class="slide level2">
+<h2>rvest: html_text</h2>
+<div class="panel-tabset">
+<ul id="tabset-10" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-10-1">Info</a></li><li><a href="#tabset-10-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-10-1">
+<p>The function <code>html_text</code> extracts the text content of one or more HTML elements:</p>
+<ul>
+<li>the elements chosen with the <code>html_elements</code> function</li>
+</ul>
+<div class="callout callout-note callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<ul>
+<li>Two versions:
+<ul>
+<li><code>html_text</code>returns text with any space or line breaks around it</li>
+<li><code>html_text2</code> returns plain text</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-10-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="fu">html_text</span>(x, <span class="at">trim =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb31-2"><a></a></span>
+<span id="cb31-3"><a></a><span class="fu">html_text2</span>(x, <span class="at">preserve_nbsp =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="rvest-html_text-1" class="slide level2">
+<h2>rvest: html_text</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a><span class="fu">bow</span>(</span>
+<span id="cb32-2"><a></a>  <span class="at">url =</span> <span class="st">"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb32-3"><a></a>  <span class="fu">scrape</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb32-4"><a></a>  <span class="fu">html_elements</span>(<span class="at">css =</span> <span class="st">"td &gt; a"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-5"><a></a>  <span class="fu">html_text</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Addis Ababa"   "Nairobi"       "Montreal"      "Santiago"     
+ [5] "Ciudad Colón"  "Santo Domingo" "Kingston"      "New York City"
+ [9] "Washington"    "Macau"         "Macau"         "Tokyo"        
+[13] "Amman"         "Beirut"        "Kuala Lumpur"  "Bangkok"      
+[17] "Ashgabat"      "Hanoi"         "Vienna"        "Copenhagen"   
+[21] "Helsinki"      "Paris"         "Bonn"          "Hamburg"      
+[25] "Rome"          "Trieste"       "Turin"         "Valletta"     
+[29] "The Hague"     "Maastricht"    "Oslo"          "Barcelona"    
+[33] "Madrid"        "Malmö"         "Bern"          "Geneva"       
+[37] "London"       </code></pre>
+</div>
+</div>
+</section>
+<section id="rvest-html_attr-html_attrs" class="slide level2">
+<h2>rvest: html_attr &amp; html_attrs</h2>
+<div class="panel-tabset">
+<ul id="tabset-11" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-11-1">Info</a></li><li><a href="#tabset-11-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-11-1">
+<p>The function <code>html_attrs</code> extracts the attributes of one or more HTML elements:</p>
+<ul>
+<li>the elements chosen with the <code>html_elements</code> function</li>
+</ul>
+<div class="callout callout-note callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<ul>
+<li>Two versions:
+<ul>
+<li>singular extracts specified attribute
+<ul>
+<li>attribute is specified with its name, not CSS</li>
+</ul></li>
+<li>plural extracts all attributes</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-11-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="fu">html_attr</span>(x, name, <span class="at">default =</span> <span class="cn">NA_character_</span>)</span>
+<span id="cb34-2"><a></a></span>
+<span id="cb34-3"><a></a><span class="fu">html_attrs</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="rvest-html_attrs" class="slide level2">
+<h2>rvest: html_attrs</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a><span class="fu">bow</span>(</span>
+<span id="cb35-2"><a></a>  <span class="at">url =</span> <span class="st">"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb35-3"><a></a>  <span class="fu">scrape</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb35-4"><a></a>  <span class="fu">html_elements</span>(<span class="at">css =</span> <span class="st">"td &gt; a"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb35-5"><a></a>  <span class="fu">html_attrs</span>() <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+               href               title 
+"/wiki/Addis_Ababa"       "Addis Ababa" 
+
+[[2]]
+           href           title 
+"/wiki/Nairobi"       "Nairobi" 
+
+[[3]]
+            href            title 
+"/wiki/Montreal"       "Montreal" 
+
+[[4]]
+            href            title 
+"/wiki/Santiago"       "Santiago" 
+
+[[5]]
+                     href                     class                     title 
+"/wiki/Ciudad_Col%C3%B3n"             "mw-redirect"            "Ciudad Colón" 
+
+[[6]]
+                 href                 title 
+"/wiki/Santo_Domingo"       "Santo Domingo" 
+
+[[7]]
+                     href                     title 
+"/wiki/Kingston,_Jamaica"       "Kingston, Jamaica" 
+
+[[8]]
+                 href                 title 
+"/wiki/New_York_City"       "New York City" 
+
+[[9]]
+                    href                    title 
+"/wiki/Washington,_D.C."       "Washington, D.C." 
+
+[[10]]
+         href         title 
+"/wiki/Macau"       "Macau" 
+
+[[11]]
+         href         title 
+"/wiki/Macau"       "Macau" 
+
+[[12]]
+         href         title 
+"/wiki/Tokyo"       "Tokyo" 
+
+[[13]]
+         href         title 
+"/wiki/Amman"       "Amman" 
+
+[[14]]
+          href          title 
+"/wiki/Beirut"       "Beirut" 
+
+[[15]]
+                href                title 
+"/wiki/Kuala_Lumpur"       "Kuala Lumpur" 
+
+[[16]]
+           href           title 
+"/wiki/Bangkok"       "Bangkok" 
+
+[[17]]
+            href            title 
+"/wiki/Ashgabat"       "Ashgabat" 
+
+[[18]]
+         href         title 
+"/wiki/Hanoi"       "Hanoi" 
+
+[[19]]
+          href          title 
+"/wiki/Vienna"       "Vienna" 
+
+[[20]]
+              href              title 
+"/wiki/Copenhagen"       "Copenhagen" 
+
+[[21]]
+            href            title 
+"/wiki/Helsinki"       "Helsinki" 
+
+[[22]]
+         href         title 
+"/wiki/Paris"       "Paris" 
+
+[[23]]
+        href        title 
+"/wiki/Bonn"       "Bonn" 
+
+[[24]]
+           href           title 
+"/wiki/Hamburg"       "Hamburg" 
+
+[[25]]
+        href        title 
+"/wiki/Rome"       "Rome" 
+
+[[26]]
+           href           title 
+"/wiki/Trieste"       "Trieste" 
+
+[[27]]
+         href         title 
+"/wiki/Turin"       "Turin" 
+
+[[28]]
+            href            title 
+"/wiki/Valletta"       "Valletta" 
+
+[[29]]
+             href             title 
+"/wiki/The_Hague"       "The Hague" 
+
+[[30]]
+              href              title 
+"/wiki/Maastricht"       "Maastricht" 
+
+[[31]]
+        href        title 
+"/wiki/Oslo"       "Oslo" 
+
+[[32]]
+             href             title 
+"/wiki/Barcelona"       "Barcelona" 
+
+[[33]]
+          href          title 
+"/wiki/Madrid"       "Madrid" 
+
+[[34]]
+              href              title 
+"/wiki/Malm%C3%B6"            "Malmö" 
+
+[[35]]
+        href        title 
+"/wiki/Bern"       "Bern" 
+
+[[36]]
+          href          title 
+"/wiki/Geneva"       "Geneva" 
+
+[[37]]
+          href          title 
+"/wiki/London"       "London" </code></pre>
+</div>
+</div>
+</section>
+<section id="rvest-html_attr" class="slide level2">
+<h2>rvest: html_attr</h2>
+<p>Note: Some URLs are given relative to a base URL (here: <a href="https://en.wikipedia.org)" class="uri">https://en.wikipedia.org)</a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="fu">bow</span>(</span>
+<span id="cb37-2"><a></a>  <span class="at">url =</span> <span class="st">"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb37-3"><a></a>  <span class="fu">scrape</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb37-4"><a></a>  <span class="fu">html_elements</span>(<span class="at">css =</span> <span class="st">"td &gt; a"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb37-5"><a></a>  <span class="fu">html_attr</span>(<span class="at">name =</span> <span class="st">"href"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "/wiki/Addis_Ababa"       "/wiki/Nairobi"          
+ [3] "/wiki/Montreal"          "/wiki/Santiago"         
+ [5] "/wiki/Ciudad_Col%C3%B3n" "/wiki/Santo_Domingo"    
+ [7] "/wiki/Kingston,_Jamaica" "/wiki/New_York_City"    
+ [9] "/wiki/Washington,_D.C."  "/wiki/Macau"            
+[11] "/wiki/Macau"             "/wiki/Tokyo"            
+[13] "/wiki/Amman"             "/wiki/Beirut"           
+[15] "/wiki/Kuala_Lumpur"      "/wiki/Bangkok"          
+[17] "/wiki/Ashgabat"          "/wiki/Hanoi"            
+[19] "/wiki/Vienna"            "/wiki/Copenhagen"       
+[21] "/wiki/Helsinki"          "/wiki/Paris"            
+[23] "/wiki/Bonn"              "/wiki/Hamburg"          
+[25] "/wiki/Rome"              "/wiki/Trieste"          
+[27] "/wiki/Turin"             "/wiki/Valletta"         
+[29] "/wiki/The_Hague"         "/wiki/Maastricht"       
+[31] "/wiki/Oslo"              "/wiki/Barcelona"        
+[33] "/wiki/Madrid"            "/wiki/Malm%C3%B6"       
+[35] "/wiki/Bern"              "/wiki/Geneva"           
+[37] "/wiki/London"           </code></pre>
+</div>
+</div>
+</section>
+<section id="rvest-html_attr-url_absolute" class="slide level2">
+<h2>rvest: html_attr &amp; url_absolute</h2>
+<p>Using the <code>url_absolut</code> function to complete the relative URLs:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a><span class="fu">bow</span>(</span>
+<span id="cb39-2"><a></a>  <span class="at">url =</span> <span class="st">"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb39-3"><a></a>  <span class="fu">scrape</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb39-4"><a></a>  <span class="fu">html_elements</span>(<span class="at">css =</span> <span class="st">"td &gt; a"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-5"><a></a>  <span class="fu">html_attr</span>(<span class="at">name =</span> <span class="st">"href"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-6"><a></a>  <span class="fu">url_absolute</span>(<span class="at">base =</span> <span class="st">"https://en.wikipedia.org"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "https://en.wikipedia.org/wiki/Addis_Ababa"      
+ [2] "https://en.wikipedia.org/wiki/Nairobi"          
+ [3] "https://en.wikipedia.org/wiki/Montreal"         
+ [4] "https://en.wikipedia.org/wiki/Santiago"         
+ [5] "https://en.wikipedia.org/wiki/Ciudad_Col%C3%B3n"
+ [6] "https://en.wikipedia.org/wiki/Santo_Domingo"    
+ [7] "https://en.wikipedia.org/wiki/Kingston,_Jamaica"
+ [8] "https://en.wikipedia.org/wiki/New_York_City"    
+ [9] "https://en.wikipedia.org/wiki/Washington,_D.C." 
+[10] "https://en.wikipedia.org/wiki/Macau"            
+[11] "https://en.wikipedia.org/wiki/Macau"            
+[12] "https://en.wikipedia.org/wiki/Tokyo"            
+[13] "https://en.wikipedia.org/wiki/Amman"            
+[14] "https://en.wikipedia.org/wiki/Beirut"           
+[15] "https://en.wikipedia.org/wiki/Kuala_Lumpur"     
+[16] "https://en.wikipedia.org/wiki/Bangkok"          
+[17] "https://en.wikipedia.org/wiki/Ashgabat"         
+[18] "https://en.wikipedia.org/wiki/Hanoi"            
+[19] "https://en.wikipedia.org/wiki/Vienna"           
+[20] "https://en.wikipedia.org/wiki/Copenhagen"       
+[21] "https://en.wikipedia.org/wiki/Helsinki"         
+[22] "https://en.wikipedia.org/wiki/Paris"            
+[23] "https://en.wikipedia.org/wiki/Bonn"             
+[24] "https://en.wikipedia.org/wiki/Hamburg"          
+[25] "https://en.wikipedia.org/wiki/Rome"             
+[26] "https://en.wikipedia.org/wiki/Trieste"          
+[27] "https://en.wikipedia.org/wiki/Turin"            
+[28] "https://en.wikipedia.org/wiki/Valletta"         
+[29] "https://en.wikipedia.org/wiki/The_Hague"        
+[30] "https://en.wikipedia.org/wiki/Maastricht"       
+[31] "https://en.wikipedia.org/wiki/Oslo"             
+[32] "https://en.wikipedia.org/wiki/Barcelona"        
+[33] "https://en.wikipedia.org/wiki/Madrid"           
+[34] "https://en.wikipedia.org/wiki/Malm%C3%B6"       
+[35] "https://en.wikipedia.org/wiki/Bern"             
+[36] "https://en.wikipedia.org/wiki/Geneva"           
+[37] "https://en.wikipedia.org/wiki/London"           </code></pre>
+</div>
+</div>
+</section>
+<section id="rvest-html_table" class="slide level2">
+<h2>rvest: html_table</h2>
+<p>Get full tables with the <code>html_table</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a><span class="fu">bow</span>(</span>
+<span id="cb41-2"><a></a>  <span class="at">url =</span> <span class="st">"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb41-3"><a></a>  <span class="fu">scrape</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb41-4"><a></a>  <span class="fu">html_elements</span>(<span class="at">css =</span> <span class="st">"#mw-content-text &gt; div.mw-parser-output &gt; table"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb41-5"><a></a>  <span class="fu">html_table</span>(<span class="at">fill =</span> <span class="cn">TRUE</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+# A tibble: 2 × 3
+  Country  City        Organizations                                            
+  &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt;                                                    
+1 Ethiopia Addis Ababa "United Nations Economic Commission for Africa (UNECA)"  
+2 Kenya    Nairobi     "United Nations Environment Programme (UNEP)\nUnited Nat…
+
+[[2]]
+# A tibble: 7 × 3
+  Country            City          Organizations                                
+  &lt;chr&gt;              &lt;chr&gt;         &lt;chr&gt;                                        
+1 Canada             Montreal      "International Civil Aviation Organization (…
+2 Chile              Santiago      "Economic Commission for Latin America and t…
+3 Costa Rica         Ciudad Colón  "University for Peace (UPEACE) (associated)" 
+4 Dominican Republic Santo Domingo "International Research and Training Institu…
+5 Jamaica            Kingston      "International Seabed Authority (ISA)"       
+6 United States      New York City "United Nations Security Council (UNSC)\nFor…
+7 United States      Washington    "International Monetary Fund (IMF)\nUnited N…
+
+[[3]]
+# A tibble: 8 × 3
+  Country      City         Organizations                                       
+  &lt;chr&gt;        &lt;chr&gt;        &lt;chr&gt;                                               
+1 Macau        Macau        United Nations University Institute on Computing an…
+2 Japan        Tokyo        United Nations University (UNU)                     
+3 Jordan       Amman        United Nations Relief and Works Agency for Palestin…
+4 Lebanon      Beirut       Economic and Social Commission for Western Asia (ES…
+5 Malaysia     Kuala Lumpur United Nations University International Institute f…
+6 Thailand     Bangkok      Economic and Social Commission for Asia and the Pac…
+7 Turkmenistan Ashgabat     United Nations Regional Centre for Preventive Diplo…
+8 Vietnam      Hanoi        United Nations International School of Hanoi        
+
+[[4]]
+# A tibble: 19 × 3
+   Country        City       Organizations                                      
+   &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt;                                              
+ 1 Austria        Vienna     "Comprehensive Nuclear-Test-Ban Treaty Organizatio…
+ 2 Denmark        Copenhagen "United Nations Office for Project Services (UNOPS…
+ 3 Finland        Helsinki   "United Nations University World Institute for Dev…
+ 4 France         Paris      "International Institute for Educational Planning\…
+ 5 Germany        Bonn       "UN Bonn\nConvention on the Conservation of Migrat…
+ 6 Germany        Hamburg    "International Tribunal for the Law of the Sea (IT…
+ 7 Italy          Rome       "Food and Agriculture Organization of the United N…
+ 8 Italy          Trieste    "Abdus Salam International Centre for Theoretical …
+ 9 Italy          Turin      "United Nations Interregional Crime and Justice Re…
+10 Malta          Valletta   "International Institute on Ageing (INIA)"         
+11 Netherlands    The Hague  "International Court of Justice (ICJ)\nInternation…
+12 Netherlands    Maastricht "United Nations University - Maastricht Economic a…
+13 Norway         Oslo       "United Nations Common Supplier Database"          
+14 Spain          Barcelona  "United Nations University Institute on Globalizat…
+15 Spain          Madrid     "United Nations World Tourism Organization (UNWTO)"
+16 Sweden         Malmö      "World Maritime University (WMU)"                  
+17 Switzerland    Bern       "Universal Postal Union (UPU)"                     
+18 Switzerland    Geneva     "Economic Commission for Europe (ECE or UNECE)\nGl…
+19 United Kingdom London     "International Maritime Organization (IMO)"        
+
+[[5]]
+# A tibble: 6 × 2
+  Location      `Number of employees in offices of the United Nations`
+  &lt;chr&gt;         &lt;chr&gt;                                                 
+1 New York City 10,000                                                
+2 Geneva        9,800                                                 
+3 Nairobi       4,000                                                 
+4 Vienna        4,000                                                 
+5 Rome          3,200                                                 
+6 Copenhagen    1,350                                                 </code></pre>
+</div>
+</div>
+</section>
+<section id="rvest-html_table-1" class="slide level2">
+<h2>rvest: html_table</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a>table <span class="ot">&lt;-</span> <span class="fu">bow</span>(</span>
+<span id="cb43-2"><a></a>  <span class="at">url =</span> <span class="st">"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb43-3"><a></a>  <span class="fu">scrape</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb43-4"><a></a>  <span class="fu">html_elements</span>(<span class="at">css =</span> <span class="st">"#mw-content-text &gt; div.mw-parser-output &gt; table"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb43-5"><a></a>  <span class="fu">html_table</span>(<span class="at">fill =</span> <span class="cn">TRUE</span>) </span>
+<span id="cb43-6"><a></a></span>
+<span id="cb43-7"><a></a>africa <span class="ot">&lt;-</span> table[[<span class="dv">1</span>]]</span>
+<span id="cb43-8"><a></a></span>
+<span id="cb43-9"><a></a>africa</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 3
+  Country  City        Organizations                                            
+  &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt;                                                    
+1 Ethiopia Addis Ababa "United Nations Economic Commission for Africa (UNECA)"  
+2 Kenya    Nairobi     "United Nations Environment Programme (UNEP)\nUnited Nat…</code></pre>
+</div>
+</div>
+</section>
+<section id="rvest-extracting-single-variables" class="slide level2">
+<h2>rvest: Extracting single variables</h2>
+<p>An approach to create a table by getting each variable separately (e.g., cities):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a><span class="fu">tibble</span>(</span>
+<span id="cb45-2"><a></a>  <span class="at">Cities =</span></span>
+<span id="cb45-3"><a></a>  <span class="fu">bow</span>(</span>
+<span id="cb45-4"><a></a>  <span class="at">url =</span> <span class="st">"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb45-5"><a></a>  <span class="fu">scrape</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb45-6"><a></a>  <span class="fu">html_elements</span>(</span>
+<span id="cb45-7"><a></a>    <span class="at">css =</span> <span class="st">"#mw-content-text &gt; div.mw-parser-output &gt; table:nth-child(7) &gt; tbody &gt; </span></span>
+<span id="cb45-8"><a></a><span class="st">    tr &gt; td:nth-child(2) &gt; a"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb45-9"><a></a>  <span class="fu">html_text</span>()</span>
+<span id="cb45-10"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 1
+  Cities     
+  &lt;chr&gt;      
+1 Addis Ababa
+2 Nairobi    </code></pre>
+</div>
+</div>
+</section>
+<section id="rvest-extracting-single-variables-1" class="slide level2">
+<h2>rvest: Extracting single variables</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a>source_code <span class="ot">&lt;-</span> <span class="fu">bow</span>(</span>
+<span id="cb47-2"><a></a>  <span class="at">url =</span> <span class="st">"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb47-3"><a></a>  <span class="fu">scrape</span>() </span>
+<span id="cb47-4"><a></a></span>
+<span id="cb47-5"><a></a><span class="fu">tibble</span>(</span>
+<span id="cb47-6"><a></a>  <span class="at">Cities =</span> source_code  <span class="sc">%&gt;%</span> </span>
+<span id="cb47-7"><a></a>  <span class="fu">html_elements</span>(<span class="at">css =</span> </span>
+<span id="cb47-8"><a></a>     <span class="st">"#mw-content-text &gt; div.mw-parser-output &gt; table:nth-child(7) &gt; tbody &gt; </span></span>
+<span id="cb47-9"><a></a><span class="st">      tr &gt; td:nth-child(2) &gt; a"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb47-10"><a></a>  <span class="fu">html_text</span>()</span>
+<span id="cb47-11"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 1
+  Cities     
+  &lt;chr&gt;      
+1 Addis Ababa
+2 Nairobi    </code></pre>
+</div>
+</div>
+<div class="callout callout-note callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p>If you do this, try to keep the number of interactions with websites at a minimum by saving the source code as an object!</p>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-2" class="slide level2">
+<h2>Exercise 2:</h2>
+<ul>
+<li>Scrape the this <a href="https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location">Wikipedia site</a> (politely)
+<ul>
+<li>Create a data frame including United Nations organizations in Europe</li>
+<li>Can process the data and manage to have one row per organization?</li>
+</ul></li>
+<li>Try to scrape another static website!</li>
+</ul>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
@@ -562,6 +1726,82 @@ David Schweizer
         ]
       });
     </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

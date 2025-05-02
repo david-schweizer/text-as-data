@@ -559,7 +559,7 @@ plot.estimateEffect(topic_effects,
 
 -   How can we select between different values of K? How can we tell how well a given topic model is performing?
 
-## Validating Topic Models 
+## Validating Topic Models
 
 -   **Predictive metric: Held-out likelihood**
 

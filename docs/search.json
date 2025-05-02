@@ -28,7 +28,7 @@
     "href": "material.html",
     "title": "Schedule, slides & materials",
     "section": "",
-    "text": "You can find all course materials below. This includes slides, code, links to readings, etc.\nJust click on the topic of the respective week.\n\n\n\n\n\nWeek\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nFebruary 11, 2025\n\n\n\n\nWeek 02\n\n\nIntro to R\n\n\nFebruary 18, 2025\n\n\n\n\nWeek 03\n\n\nTidyverse I: Import, tidy, and transform\n\n\nFebruary 25, 2025\n\n\n\n\nWeek 04\n\n\nTidyverse II: Transform, and visualize\n\n\nMarch 04, 2025\n\n\n\n\nWeek 05\n\n\nIntro to Text-as-Data I: Concepts\n\n\nMarch 11, 2025\n\n\n\n\nWeek 06\n\n\nIntro to Text-as-Data II: Workflow\n\n\nMarch 18, 2025\n\n\n\n\nWeek 07\n\n\nDictionary and Sentiment\n\n\nMarch 25, 2025\n\n\n\n\nWeek 08\n\n\nTopic Models\n\n\nApril 01, 2025\n\n\n\n\nWeek 09\n\n\n(Semi-)Supervised Methods\n\n\nApril 08, 2025\n\n\n\n\nWeek 10\n\n\nEaster Break - No Session\n\n\nApril 15, 2025\n\n\n\n\nWeek 11\n\n\nEaster Break - No Session\n\n\nApril 22, 2025\n\n\n\n\nWeek 12\n\n\nWeb scraping: Basics\n\n\nApril 29, 2025\n\n\n\n\nWeek 13\n\n\nWeb scraping: Static\n\n\nMay 06, 2025\n\n\n\n\n\nNo matching items",
+    "text": "You can find all course materials below. This includes slides, code, links to readings, etc.\nJust click on the topic of the respective week.\n\n\n\n\n\nWeek\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nFebruary 11, 2025\n\n\n\n\nWeek 02\n\n\nIntro to R\n\n\nFebruary 18, 2025\n\n\n\n\nWeek 03\n\n\nTidyverse I: Import, tidy, and transform\n\n\nFebruary 25, 2025\n\n\n\n\nWeek 04\n\n\nTidyverse II: Transform, and visualize\n\n\nMarch 04, 2025\n\n\n\n\nWeek 05\n\n\nIntro to Text-as-Data I: Concepts\n\n\nMarch 11, 2025\n\n\n\n\nWeek 06\n\n\nIntro to Text-as-Data II: Workflow\n\n\nMarch 18, 2025\n\n\n\n\nWeek 07\n\n\nDictionary and Sentiment\n\n\nMarch 25, 2025\n\n\n\n\nWeek 08\n\n\nTopic Models\n\n\nApril 01, 2025\n\n\n\n\nWeek 09\n\n\n(Semi-)Supervised Methods\n\n\nApril 08, 2025\n\n\n\n\nWeek 10\n\n\nEaster Break - No Session\n\n\nApril 15, 2025\n\n\n\n\nWeek 11\n\n\nEaster Break - No Session\n\n\nApril 22, 2025\n\n\n\n\nWeek 12\n\n\nWeb scraping: Basics\n\n\nApril 29, 2025\n\n\n\n\nWeek 13\n\n\nWeb scraping: Static\n\n\nMay 06, 2025\n\n\n\n\nWeek 14\n\n\nWeb scraping: Dynamic\n\n\nMay 13, 2025\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Schedule, slides & materials"
     ]
@@ -249,14 +249,14 @@
     "href": "weeks/week-11.html",
     "title": "Web scraping: Static",
     "section": "",
-    "text": "To Do’s before our session\nHave a look at Chapter 24 in R for Data Science. Do you have already a website in mind that you might want to scrape? Think about possible websites and let me know via e-mail or ILIAS!\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nWeb scraping: Static\n\n\nWeek 13\n\n\nMay 6, 2025\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA."
+    "text": "To Do’s before our session\nHave a look at Chapter 24 in R for Data Science. Do you have already a website in mind that you might want to scrape? Think about possible websites and let me know via e-mail or ILIAS!\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nWeb scraping: Static\n\n\nWeek 13\n\n\nMay 6, 2025\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nThere are no specific materials for today."
   },
   {
     "objectID": "weeks/week-12.html",
     "href": "weeks/week-12.html",
-    "title": "Interactive I: Create your first Shiny app",
+    "title": "Web scraping: Dynamic",
     "section": "",
-    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nInteractive I: Create your first Shiny app\n\n\nWeek 14\n\n\nMay 14, 2024\n\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nYou can find the R scripts and the necessary data to run them for today’s session here as a zip folder. Open the the R project to ensure that the relative file paths work.\n\n\nTo Do’s before our session\nPlease have a look at:\n\nChapter 1, Your first Shiny app in Wickham, Mastering Shiny. Link to free online version.\nR Shiny, Get Started: Welcome to Shiny."
+    "text": "To Do’s before our session\n\nStart working on the third assignment. You can find it on ILIAS. The deadline is 20.05.2025 13:00.\nCan you use our learned web scraping techniques for your term paper? Think about possible websites that you might want to scrape. Feel free to approach me to discuss your ideas!\n\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nWeb scraping: Dynamic\n\n\nWeek 14\n\n\nMay 13, 2025\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA."
   },
   {
     "objectID": "weeks/week-13.html",
@@ -4229,9 +4229,9 @@
   {
     "objectID": "slides/week-11/11-Time.html#plan-for-today",
     "href": "slides/week-11/11-Time.html#plan-for-today",
-    "title": "Web scraping dynamic",
+    "title": "Web scraping: Static",
     "section": "Plan for today",
-    "text": "Plan for today\n\nShort input:\n\nCrawling static pages and scraping dynamic pages\n\nYour turn!"
+    "text": "Plan for today\n\nInput:\n\nScraping static web pages politely\n\nComing up:\n\nCrawling static pages and scraping dynamic pages"
   },
   {
     "objectID": "slides/week-11/11-Time.html#section",
@@ -8797,8 +8797,8 @@
     "objectID": "slides/week-08/08-Comparisons.html#todays-session",
     "href": "slides/week-08/08-Comparisons.html#todays-session",
     "title": "Topic Models",
-    "section": "Today’s session",
-    "text": "Today’s session\n\nInput: Topic models\nCoding: Replication & Comparison"
+    "section": "",
+    "text": "Input: Topic models\nCoding: Replication & Comparison"
   },
   {
     "objectID": "slides/week-08/08-Comparisons.html#topic-models",
@@ -8889,7 +8889,7 @@
     "href": "slides/week-08/08-Comparisons.html#lda-example",
     "title": "Topic Models",
     "section": "LDA example",
-    "text": "LDA example\n\n# Load packages\nlibrary(tidyverse)\nlibrary(quanteda)\nlibrary(topicmodels)\nlibrary(tidytext)\n\n# Load data\nload(\"Corpus_speeches_germany_19.rda\")\n\n# Get \"Fragestunden\" for opposition paries\ndata &lt;- Corpus_speeches_germany_19 %&gt;% \n  mutate(Fragestunde_logical = str_detect(agenda, \"Fragestunde\")) %&gt;% \n  filter(Fragestunde_logical == TRUE) %&gt;% \n  filter(party %in% c(\"BÜNDNIS 90/DIE GRÜNEN\", \"AfD\", \"DIE LINKE\", \"FDP\"))\n\nstr(data)\n\n'data.frame':   2498 obs. of  13 variables:\n $ speaker            : chr  \"André Hahn\" \"André Hahn\" \"Konstantin von Notz\" \"André Hahn\" ...\n $ text               : chr  \"Vielen Dank, Herr Präsident. – Ich nehme Bezug auf Medienberichte, Herr Staatssekretär. Der Bericht ist leider \"| __truncated__ \"Die Frage nach den rechtlichen Möglichkeiten des Unabhängigen Gremiums, seinen Anspruch durchzusetzen, ist nich\"| __truncated__ \"GRÜ- Herr Präsident, vielen Dank. – Herr Staatssekretär, empfinden Sie, ohne dass wir hier jetzt über geheime D\"| __truncated__ \"Vielen Dank, Herr Präsident. – Herr Staatssekretär, ich habe eine ganz einfache Frage: Haben Sie dem Unabhängig\"| __truncated__ ...\n $ party              : chr  \"DIE LINKE\" \"DIE LINKE\" \"BÜNDNIS 90/DIE GRÜNEN\" \"DIE LINKE\" ...\n $ date               : Date, format: \"2017-12-13\" \"2017-12-13\" ...\n $ agenda             : chr  \"Tagesordnungspunkt 11:  Fragestunde  Drucksache 19/188/19 \" \"Tagesordnungspunkt 11:  Fragestunde  Drucksache 19/188/19 \" \"Tagesordnungspunkt 11:  Fragestunde  Drucksache 19/188/19 \" \"Tagesordnungspunkt 11:  Fragestunde  Drucksache 19/188/19 \" ...\n $ speechnumber       : int  76 79 82 86 88 90 93 98 103 106 ...\n $ procedure_ID       : chr  \"\" \"\" \"\" \"\" ...\n $ partyfacts_ID      : num  1545 1545 1816 1545 1545 ...\n $ period             : chr  \"19\" \"19\" \"19\" \"19\" ...\n $ chair              : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...\n $ minister           : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...\n $ chancelor          : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...\n $ Fragestunde_logical: logi  TRUE TRUE TRUE TRUE TRUE TRUE ..."
+    "text": "LDA example\n\n# Load packages\nlibrary(tidyverse)\n\nWarning: Paket 'tidyverse' wurde unter R Version 4.3.3 erstellt\n\n\nWarning: Paket 'ggplot2' wurde unter R Version 4.3.3 erstellt\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(quanteda)\n\nWarning: Paket 'quanteda' wurde unter R Version 4.3.3 erstellt\n\n\nWarning in .recacheSubclasses(def@className, def, env): Nicht definierte\nSubklasse \"ndiMatrix\" von Klasse \"replValueSp\"; Definition nicht aktualisiert\n\n\nPackage version: 4.2.0\nUnicode version: 15.1\nICU version: 74.1\nParallel computing: 4 of 4 threads used.\nSee https://quanteda.io for tutorials and examples.\n\nlibrary(topicmodels)\n\nWarning: Paket 'topicmodels' wurde unter R Version 4.3.3 erstellt\n\nlibrary(tidytext)\n\nWarning: Paket 'tidytext' wurde unter R Version 4.3.3 erstellt\n\n# Load data\nload(\"Corpus_speeches_germany_19.rda\")\n\n# Get \"Fragestunden\" for opposition paries\ndata &lt;- Corpus_speeches_germany_19 %&gt;% \n  mutate(Fragestunde_logical = str_detect(agenda, \"Fragestunde\")) %&gt;% \n  filter(Fragestunde_logical == TRUE) %&gt;% \n  filter(party %in% c(\"BÜNDNIS 90/DIE GRÜNEN\", \"AfD\", \"DIE LINKE\", \"FDP\"))\n\nstr(data)\n\n'data.frame':   2498 obs. of  13 variables:\n $ speaker            : chr  \"André Hahn\" \"André Hahn\" \"Konstantin von Notz\" \"André Hahn\" ...\n $ text               : chr  \"Vielen Dank, Herr Präsident. – Ich nehme Bezug auf Medienberichte, Herr Staatssekretär. Der Bericht ist leider \"| __truncated__ \"Die Frage nach den rechtlichen Möglichkeiten des Unabhängigen Gremiums, seinen Anspruch durchzusetzen, ist nich\"| __truncated__ \"GRÜ- Herr Präsident, vielen Dank. – Herr Staatssekretär, empfinden Sie, ohne dass wir hier jetzt über geheime D\"| __truncated__ \"Vielen Dank, Herr Präsident. – Herr Staatssekretär, ich habe eine ganz einfache Frage: Haben Sie dem Unabhängig\"| __truncated__ ...\n $ party              : chr  \"DIE LINKE\" \"DIE LINKE\" \"BÜNDNIS 90/DIE GRÜNEN\" \"DIE LINKE\" ...\n $ date               : Date, format: \"2017-12-13\" \"2017-12-13\" ...\n $ agenda             : chr  \"Tagesordnungspunkt 11:  Fragestunde  Drucksache 19/188/19 \" \"Tagesordnungspunkt 11:  Fragestunde  Drucksache 19/188/19 \" \"Tagesordnungspunkt 11:  Fragestunde  Drucksache 19/188/19 \" \"Tagesordnungspunkt 11:  Fragestunde  Drucksache 19/188/19 \" ...\n $ speechnumber       : int  76 79 82 86 88 90 93 98 103 106 ...\n $ procedure_ID       : chr  \"\" \"\" \"\" \"\" ...\n $ partyfacts_ID      : num  1545 1545 1816 1545 1545 ...\n $ period             : chr  \"19\" \"19\" \"19\" \"19\" ...\n $ chair              : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...\n $ minister           : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...\n $ chancelor          : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...\n $ Fragestunde_logical: logi  TRUE TRUE TRUE TRUE TRUE TRUE ..."
   },
   {
     "objectID": "slides/week-08/08-Comparisons.html#advantages-and-disadvantages-of-lda",
@@ -8924,7 +8924,7 @@
     "href": "slides/week-08/08-Comparisons.html#structural-topic-model-application-1",
     "title": "Topic Models",
     "section": "Structural Topic Model Application",
-    "text": "Structural Topic Model Application\n\nlibrary(stm)\n# We work with the same dfm, convert to stm object\nstm &lt;- dfm %&gt;% \n  convert(to = \"stm\")\n\nsummary(stm)\n\n          Length Class      Mode     \ndocuments 2469   -none-     list     \nvocab     3230   -none-     character\nmeta        12   data.frame list"
+    "text": "Structural Topic Model Application\n\nlibrary(stm)\n\nWarning: Paket 'stm' wurde unter R Version 4.3.3 erstellt\n\n\nstm v1.3.7 successfully loaded. See ?stm for help. \n Papers, resources, and other materials at structuraltopicmodel.com\n\n# We work with the same dfm, convert to stm object\nstm &lt;- dfm %&gt;% \n  convert(to = \"stm\")\n\nWarning in dfm2stm(x, docvars, omit_empty = TRUE): Dropped 2,498 empty\ndocument(s)\n\nsummary(stm)\n\n          Length Class      Mode     \ndocuments 2469   -none-     list     \nvocab     3230   -none-     character\nmeta        12   data.frame list"
   },
   {
     "objectID": "slides/week-08/08-Comparisons.html#validating-topic-models-quantitative-metrics",
@@ -9092,7 +9092,7 @@
     "href": "slides/week-08/08-Comparisons.html#diffences-topic-8-and-topic-9",
     "title": "Topic Models",
     "section": "Diffences topic 8 and topic 9",
-    "text": "Diffences topic 8 and topic 9"
+    "text": "Diffences topic 8 and topic 9\n\n\nWarning: Removed 1 row containing missing values or values outside the scale range\n(`geom_bar()`)."
   },
   {
     "objectID": "slides/week-08/08-Comparisons.html#document-topic-probabilities",
@@ -9148,7 +9148,7 @@
     "href": "slides/week-08/08-Comparisons.html#plot-3",
     "title": "Topic Models",
     "section": "Plot",
-    "text": "Plot\n\ncloud(stmOut, topic = 15)"
+    "text": "Plot\n\ncloud(stmOut, topic = 15)\n\nWarning in wordcloud::wordcloud(words = vocab, freq = vec, max.words =\nmax.words, : bekampf could not be fit on page. It will not be plotted.\n\n\nWarning in wordcloud::wordcloud(words = vocab, freq = vec, max.words =\nmax.words, : asylverfahr could not be fit on page. It will not be plotted.\n\n\nWarning in wordcloud::wordcloud(words = vocab, freq = vec, max.words =\nmax.words, : inseln could not be fit on page. It will not be plotted.\n\n\nWarning in wordcloud::wordcloud(words = vocab, freq = vec, max.words =\nmax.words, : kabinettsausschuss could not be fit on page. It will not be\nplotted.\n\n\nWarning in wordcloud::wordcloud(words = vocab, freq = vec, max.words =\nmax.words, : abschieb could not be fit on page. It will not be plotted.\n\n\nWarning in wordcloud::wordcloud(words = vocab, freq = vec, max.words =\nmax.words, : bildung could not be fit on page. It will not be plotted.\n\n\nWarning in wordcloud::wordcloud(words = vocab, freq = vec, max.words =\nmax.words, : asylantrag could not be fit on page. It will not be plotted."
   },
   {
     "objectID": "slides/week-08/08-Comparisons.html#plot-4",
@@ -9176,7 +9176,7 @@
     "href": "slides/week-08/08-Comparisons.html#coding-1",
     "title": "Topic Models",
     "section": "Coding",
-    "text": "Coding\n\nCreate your own data based on the parliamentary speeches dataset on ILIAS or other text data. Be creative!\nTry out to run a LDA and a STM. Inspect the models.\nBONUS: Try to “replicate” this paper.\n\nUse LDA (similar topics?) instead of seeded LDA. But you can try both of course!\nThe replication files for the analysis are available on OSF Registries at https://doi.org/10.17605/OSF.IO/93DQY.\n\n\n\n\n\nText-as-Data in R | Spring 2025 | University of Mannheim"
+    "text": "Coding\n\nCreate your own data based on the parliamentary speeches dataset on ILIAS or other text data. Be creative!\nTry out to run a LDA and a STM. Inspect the models.\nBONUS: Try to “replicate” this paper.\n\nUse LDA (similar topics?) instead of seeded LDA. But you can try both of course!\nThe replication files for the analysis are available on OSF Registries at https://doi.org/10.17605/OSF.IO/93DQY."
   },
   {
     "objectID": "slides/week-08/08-Comparisons.html#inspect-1",
@@ -10093,5 +10093,257 @@
     "title": "Web scraping: Basics",
     "section": "⚠️ Speed, Purpose, and Storage",
     "text": "⚠️ Speed, Purpose, and Storage\n\nSpeed: repeated, automatic web scraping in very short-time intervals can lead to overloading a website’s server\n\nwaiting time might be defined in protocol (Crawl-delay key)\n\nPurpose: in the best case scenario, we have already a research question of hypothesis in mind before collecting (web scraping) data\nStorage: often, we will need lots of storage place (big data)\n\ndata should be stored privately and safely"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#static-pages-overview-1",
+    "href": "slides/week-11/11-Time.html#static-pages-overview-1",
+    "title": "Web scraping: Static",
+    "section": "Static Pages: Overview (1)",
+    "text": "Static Pages: Overview (1)\nWe will use the rvest package to scrape data from static pages\n\nStatic pages display the same source code and content to all visitors\n\nAll visitors see the same page at a given URL\nEach page has a different URL\ne.g., wikipedia"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#static-pages-overview-2",
+    "href": "slides/week-11/11-Time.html#static-pages-overview-2",
+    "title": "Web scraping: Static",
+    "section": "Static Pages: Overview (2)",
+    "text": "Static Pages: Overview (2)\nThere are two main steps:\n\nDownload the source code from one or multiple pages to R\n\nThis is usually the only interaction with the page we need\n\nSelect the information we want to extract from the source code"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#static-pages-rvest",
+    "href": "slides/week-11/11-Time.html#static-pages-rvest",
+    "title": "Web scraping: Static",
+    "section": "Static Pages: rvest",
+    "text": "Static Pages: rvest\nPopular, “proven” R package exclusively for web scraping by Hadley Wickham (part of the tidyverse)\n\nTutorials / documentation:\n\nPackage documentation\nrvest overivew\nExample by Julian Unkel\n\nCan be easily combined with the polite package for ethical web scraping!"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#rvest-get-source-code",
+    "href": "slides/week-11/11-Time.html#rvest-get-source-code",
+    "title": "Web scraping: Static",
+    "section": "rvest: Get Source Code",
+    "text": "rvest: Get Source Code\nThe read_html function gets the source code of a page:\n\nread_html(\"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location\")\n\n{html_document}\n&lt;html class=\"client-nojs vector-feature-language-in-header-enabled vector-feature-language-in-main-page-header-disabled vector-feature-page-tools-pinned-disabled vector-feature-toc-pinned-clientpref-1 vector-feature-main-menu-pinned-disabled vector-feature-limited-width-clientpref-1 vector-feature-limited-width-content-enabled vector-feature-custom-font-size-clientpref-1 vector-feature-appearance-pinned-clientpref-1 vector-feature-night-mode-enabled skin-theme-clientpref-day vector-sticky-header-enabled vector-toc-available\" lang=\"en\" dir=\"ltr\"&gt;\n[1] &lt;head&gt;\\n&lt;meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8 ...\n[2] &lt;body class=\"skin--responsive skin-vector skin-vector-search-vue mediawik ...\n\n\n\n\n\n\n\n\n\nThis is the first step of web scraping!\nNow, we need to select the specific information we want to extract"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#rvest-get-source-code-1",
+    "href": "slides/week-11/11-Time.html#rvest-get-source-code-1",
+    "title": "Web scraping: Static",
+    "section": "rvest: Get Source Code",
+    "text": "rvest: Get Source Code\nFor ethical web scraping, we check the protocol first:\n\npaths_allowed(domain = \"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location\")\n\n[1] TRUE\n\n\n\n\nread_html(\"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location\")\n\n{html_document}\n&lt;html class=\"client-nojs vector-feature-language-in-header-enabled vector-feature-language-in-main-page-header-disabled vector-feature-page-tools-pinned-disabled vector-feature-toc-pinned-clientpref-1 vector-feature-main-menu-pinned-disabled vector-feature-limited-width-clientpref-1 vector-feature-limited-width-content-enabled vector-feature-custom-font-size-clientpref-1 vector-feature-appearance-pinned-clientpref-1 vector-feature-night-mode-enabled skin-theme-clientpref-day vector-sticky-header-enabled vector-toc-available\" lang=\"en\" dir=\"ltr\"&gt;\n[1] &lt;head&gt;\\n&lt;meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8 ...\n[2] &lt;body class=\"skin--responsive skin-vector skin-vector-search-vue mediawik ..."
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#rvest-polite-get-source-code",
+    "href": "slides/week-11/11-Time.html#rvest-polite-get-source-code",
+    "title": "Web scraping: Static",
+    "section": "rvest + polite: Get Source Code",
+    "text": "rvest + polite: Get Source Code\n\nUsing the polite package simplifies ethical web scraping\nExtracting the source coude is divided into two steps:\n\nChecking the protocol\nExtract source code if allowed\n\nIn addition, it allows us to:\n\nSet a time interval for accessing the page (minimum what is specified in the protocol)\nIntroducing yourself to the website administrator while scraping"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#rvest-polite-get-source-code-1",
+    "href": "slides/week-11/11-Time.html#rvest-polite-get-source-code-1",
+    "title": "Web scraping: Static",
+    "section": "rvest + polite: Get Source Code",
+    "text": "rvest + polite: Get Source Code\n\nInfoCode\n\n\nWe can use to bow function to check the webpage’s protocol\n\nfor a specific URL\n\n\n\n\nbow(\n  url,\n  ...\n  )"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#rvest-polite-get-source-code-2",
+    "href": "slides/week-11/11-Time.html#rvest-polite-get-source-code-2",
+    "title": "Web scraping: Static",
+    "section": "rvest + polite: Get Source Code",
+    "text": "rvest + polite: Get Source Code\n\nInfoCode\n\n\nWe can use to bow function to check the webpage’s protocol\n\nfor a specific URL\nfor a specific agent\n\n\n\n\n\n\n\nThe argument user-agent provides the website administrator with information (e.g., name or contact details)\n\n\n\n\n\n\nbow(\n  url, \n  user_agent = \"R Übung\", \n  ...\n  )"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#rvest-polite-get-source-code-3",
+    "href": "slides/week-11/11-Time.html#rvest-polite-get-source-code-3",
+    "title": "Web scraping: Static",
+    "section": "rvest + polite: Get Source Code",
+    "text": "rvest + polite: Get Source Code\n\nInfoCode\n\n\nWe can use to bow function to check the webpage’s protocol\n\nfor a specific URL\nfor a specific agent\nfor crawl-delay\n\n\n\n\n\n\n\nThe argument delay cannot be smaller than in the protocol directive\n\n\n\n\n\n\nbow(\n  url, \n  user_agent = \"R Übung\", \n  delay = 5 \n  ...\n  )"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#rvest-polite-get-source-code-4",
+    "href": "slides/week-11/11-Time.html#rvest-polite-get-source-code-4",
+    "title": "Web scraping: Static",
+    "section": "rvest + polite: Get Source Code",
+    "text": "rvest + polite: Get Source Code\n\nbow(\n  \"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location\", \n  user_agent = \"R Übung\", \n  delay = 5\n  )\n\n&lt;polite session&gt; https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location\n    User-agent: R Übung\n    robots.txt: 464 rules are defined for 33 bots\n   Crawl delay: 5 sec\n  The path is scrapable for this user-agent"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#rvest-polite-get-source-code-5",
+    "href": "slides/week-11/11-Time.html#rvest-polite-get-source-code-5",
+    "title": "Web scraping: Static",
+    "section": "rvest + polite: Get Source Code",
+    "text": "rvest + polite: Get Source Code\n\nInfoCode\n\n\nNow, we can use the scrape function to extract the source code:\n\nfor an object created with the bow function\nit will only work if the results from the bow function are positive\n\nmeaning that we follow the webpage’s protocol\n\n\nPipe bow into scrape to avoid creating additional objects.\n\n\n\nscrape(bow,\n       ...\n       )\n\n\n\n\nbow(\n  url,\n  ...\n  ) %&gt;% \n  scrape()"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#rvest-polite-get-source-code-6",
+    "href": "slides/week-11/11-Time.html#rvest-polite-get-source-code-6",
+    "title": "Web scraping: Static",
+    "section": "rvest + polite: Get Source Code",
+    "text": "rvest + polite: Get Source Code\nNo difference, no protocol against access:\n\nread_html(\"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location\")\n\n\nbow(\"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location\") %&gt;% \n  scrape()\n\n{html_document}\n&lt;html class=\"client-nojs vector-feature-language-in-header-enabled vector-feature-language-in-main-page-header-disabled vector-feature-page-tools-pinned-disabled vector-feature-toc-pinned-clientpref-1 vector-feature-main-menu-pinned-disabled vector-feature-limited-width-clientpref-1 vector-feature-limited-width-content-enabled vector-feature-custom-font-size-clientpref-1 vector-feature-appearance-pinned-clientpref-1 vector-feature-night-mode-enabled skin-theme-clientpref-day vector-sticky-header-enabled vector-toc-available\" lang=\"en\" dir=\"ltr\"&gt;\n[1] &lt;head&gt;\\n&lt;meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8 ...\n[2] &lt;body class=\"skin--responsive skin-vector skin-vector-search-vue mediawik ..."
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#rvest-polite-get-source-code-7",
+    "href": "slides/week-11/11-Time.html#rvest-polite-get-source-code-7",
+    "title": "Web scraping: Static",
+    "section": "rvest + polite: Get Source Code",
+    "text": "rvest + polite: Get Source Code\nNow we see a difference as there is a protocol against access:\n\nread_html(\"https://www.zeit.de/rezepte/suche/\")\n\n{html_document}\n&lt;html lang=\"de\" class=\"no-js \"&gt;\n[1] &lt;head&gt;\\n&lt;meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8 ...\n[2] &lt;body data-page-type=\"centerpage\" data-template=\"\" data-is-hp=\"false\" dat ...\n\n\n\nbow(\"https://www.zeit.de/rezepte/suche/\") %&gt;% \n  scrape()\n\nNULL\n\n\n\n\n\n\n\n\nRemember: We can check the protocol of webpages with the robotstxt package or by adding robots.txt to the URL (e.g., www.zeit.de/robots.txt)]"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#exercise-1",
+    "href": "slides/week-11/11-Time.html#exercise-1",
+    "title": "Web scraping: Static",
+    "section": "Exercise 1",
+    "text": "Exercise 1\n\nGet the source code of https://en.wikipedia.org/wiki/World_population using the read_html function\nGet the same source code using the polite package\n\n“introduce” yourself to the webpage\ndefine a delay time"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#rvest-html_elements",
+    "href": "slides/week-11/11-Time.html#rvest-html_elements",
+    "title": "Web scraping: Static",
+    "section": "rvest: html_elements",
+    "text": "rvest: html_elements\n\nInfoCode\n\n\nThe function html_elements allows us to extract one ore multiple HTML elements from the source code we have downloaded.\n\n\n\n\n\n\nhtml_element gets the first instance of a specific element, whereas html_elements gets all instances.\n\n\n\n\n\n\nhtml_element(\n             x, \n             css, \n             xpath)\n\n\nhtml_elements(\n              x, \n              css, \n              xpath)"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#rvest-html_elements-1",
+    "href": "slides/week-11/11-Time.html#rvest-html_elements-1",
+    "title": "Web scraping: Static",
+    "section": "rvest: html_elements",
+    "text": "rvest: html_elements\n\nInfoCode\n\n\nThe function html_elements allows us to extract one ore multiple HTML elements from the source code we have downloaded.\nWe specify the HTML elements with a selector: CSS or XPATH.\n\n\n\n\n\n\nDuring our course, we will use CSS, which is simplified by using Chrome and/or SelectorGadget (ScrapeMate).\n\n\n\n\n\n\nhtml_element(\n             x, \n             css, \n             xpath)\n\n\nhtml_elements(\n              x, \n              css, \n              xpath)"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#how-to-find-selectors",
+    "href": "slides/week-11/11-Time.html#how-to-find-selectors",
+    "title": "Web scraping: Static",
+    "section": "How to Find Selectors?",
+    "text": "How to Find Selectors?\nFinding the right selectors is the most important step for web scraping. We have different ways to do this:\n\nWe can inspect the source code / DOM\n\nNot easy, time consuming, error-prone\n\nWe can use browser extensions such as SelectorGadget\n\nNot always accurate, but easy and quicker\n\nWe can use Chrome\n\nGood for selecting single elements"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#using-selectorgadget",
+    "href": "slides/week-11/11-Time.html#using-selectorgadget",
+    "title": "Web scraping: Static",
+    "section": "Using SelectorGadget?",
+    "text": "Using SelectorGadget?\n\nInfoExample\n\n\nFinding selectors for hyperlinks on the Wikipedia page for UN organizations by location\n\nVisit the webpage on your (Chrome ) browser\nActivate the SelectorGadget extension\nClick on any hyperlink\n\n\n\n\n\n\n\n\nThe clicked on element is highlighted in green\nothers are highlighted in yellow\nSelectorGadget identifies the selector a"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#rvest-html_elements-2",
+    "href": "slides/week-11/11-Time.html#rvest-html_elements-2",
+    "title": "Web scraping: Static",
+    "section": "rvest: html_elements",
+    "text": "rvest: html_elements\nExtracting the a (anchor) elements on the webpage:\n\nbow(\n  url = \"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location\") %&gt;%\n  scrape() %&gt;%\n  html_elements(css = \"a\")\n\n{xml_nodeset (577)}\n [1] &lt;a class=\"mw-jump-link\" href=\"#bodyContent\"&gt;Jump to content&lt;/a&gt;\n [2] &lt;a href=\"/wiki/Main_Page\" title=\"Visit the main page [z]\" accesskey=\"z\"&gt; ...\n [3] &lt;a href=\"/wiki/Wikipedia:Contents\" title=\"Guides to browsing Wikipedia\"&gt; ...\n [4] &lt;a href=\"/wiki/Portal:Current_events\" title=\"Articles related to current ...\n [5] &lt;a href=\"/wiki/Special:Random\" title=\"Visit a randomly selected article  ...\n [6] &lt;a href=\"/wiki/Wikipedia:About\" title=\"Learn about Wikipedia and how it  ...\n [7] &lt;a href=\"//en.wikipedia.org/wiki/Wikipedia:Contact_us\" title=\"How to con ...\n [8] &lt;a href=\"/wiki/Help:Contents\" title=\"Guidance on how to use and edit Wik ...\n [9] &lt;a href=\"/wiki/Help:Introduction\" title=\"Learn how to edit Wikipedia\"&gt;&lt;s ...\n[10] &lt;a href=\"/wiki/Wikipedia:Community_portal\" title=\"The hub for editors\"&gt;&lt; ...\n[11] &lt;a href=\"/wiki/Special:RecentChanges\" title=\"A list of recent changes to ...\n[12] &lt;a href=\"/wiki/Wikipedia:File_upload_wizard\" title=\"Add images or other  ...\n[13] &lt;a href=\"/wiki/Special:SpecialPages\"&gt;&lt;span&gt;Special pages&lt;/span&gt;&lt;/a&gt;\n[14] &lt;a href=\"/wiki/Main_Page\" class=\"mw-logo\"&gt;\\n\\t&lt;img class=\"mw-logo-icon\"  ...\n[15] &lt;a href=\"/wiki/Special:Search\" class=\"cdx-button cdx-button--fake-button ...\n[16] &lt;a data-mw=\"interface\" href=\"https://donate.wikimedia.org/?wmf_source=do ...\n[17] &lt;a data-mw=\"interface\" href=\"/w/index.php?title=Special:CreateAccount&am ...\n[18] &lt;a data-mw=\"interface\" href=\"/w/index.php?title=Special:UserLogin&amp;re ...\n[19] &lt;a href=\"https://donate.wikimedia.org/?wmf_source=donate&amp;wmf_medium= ...\n[20] &lt;a href=\"/w/index.php?title=Special:CreateAccount&amp;returnto=List+of+U ...\n..."
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#rvest-html_elements-3",
+    "href": "slides/week-11/11-Time.html#rvest-html_elements-3",
+    "title": "Web scraping: Static",
+    "section": "rvest: html_elements",
+    "text": "rvest: html_elements\nExtracting only the first a (anchor) elements on the webpage:\n\nbow(\n  url = \"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location\") %&gt;%\n  scrape() %&gt;%\n  html_element(css = \"a\") \n\n{html_node}\n&lt;a class=\"mw-jump-link\" href=\"#bodyContent\"&gt;\n\n\n\n\n\n\n\n\nHere, we use only the singluar version html_element and not html_elements"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#find-selectors-with-selectorgadget",
+    "href": "slides/week-11/11-Time.html#find-selectors-with-selectorgadget",
+    "title": "Web scraping: Static",
+    "section": "Find Selectors With SelectorGadget",
+    "text": "Find Selectors With SelectorGadget\n\nInfoExample\n\n\nNow, click on one of the hyperlinks in the left pane (e.g., “Main page”) and one of the hyperlinks outside the tables on the main pane (e.g., “1 Locations”) as we are only interested in the hyperlinks in the tables.\n\n\n\n\n\n\n\nIf you click on a yellow element, it is then highlighted red\nOther elements are not highlighted anymore\nSelectorGadget identifies the selector .datasortkey a"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#rvest-html_elements-4",
+    "href": "slides/week-11/11-Time.html#rvest-html_elements-4",
+    "title": "Web scraping: Static",
+    "section": "rvest: html_elements",
+    "text": "rvest: html_elements\nExtracting a (anchor) elements on the webpage with selector td &gt; a:\n\nbow(\n  url = \"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location\") %&gt;%\n  scrape() %&gt;%\n  html_elements(css = \"td &gt; a\") \n\n{xml_nodeset (37)}\n [1] &lt;a href=\"/wiki/Addis_Ababa\" title=\"Addis Ababa\"&gt;Addis Ababa&lt;/a&gt;\n [2] &lt;a href=\"/wiki/Nairobi\" title=\"Nairobi\"&gt;Nairobi&lt;/a&gt;\n [3] &lt;a href=\"/wiki/Montreal\" title=\"Montreal\"&gt;Montreal&lt;/a&gt;\n [4] &lt;a href=\"/wiki/Santiago\" title=\"Santiago\"&gt;Santiago&lt;/a&gt;\n [5] &lt;a href=\"/wiki/Ciudad_Col%C3%B3n\" class=\"mw-redirect\" title=\"Ciudad Coló ...\n [6] &lt;a href=\"/wiki/Santo_Domingo\" title=\"Santo Domingo\"&gt;Santo Domingo&lt;/a&gt;\n [7] &lt;a href=\"/wiki/Kingston,_Jamaica\" title=\"Kingston, Jamaica\"&gt;Kingston&lt;/a&gt;\n [8] &lt;a href=\"/wiki/New_York_City\" title=\"New York City\"&gt;New York City&lt;/a&gt;\n [9] &lt;a href=\"/wiki/Washington,_D.C.\" title=\"Washington, D.C.\"&gt;Washington&lt;/a&gt;\n[10] &lt;a href=\"/wiki/Macau\" title=\"Macau\"&gt;Macau&lt;/a&gt;\n[11] &lt;a href=\"/wiki/Macau\" title=\"Macau\"&gt;Macau&lt;/a&gt;\n[12] &lt;a href=\"/wiki/Tokyo\" title=\"Tokyo\"&gt;Tokyo&lt;/a&gt;\n[13] &lt;a href=\"/wiki/Amman\" title=\"Amman\"&gt;Amman&lt;/a&gt;\n[14] &lt;a href=\"/wiki/Beirut\" title=\"Beirut\"&gt;Beirut&lt;/a&gt;\n[15] &lt;a href=\"/wiki/Kuala_Lumpur\" title=\"Kuala Lumpur\"&gt;Kuala Lumpur&lt;/a&gt;\n[16] &lt;a href=\"/wiki/Bangkok\" title=\"Bangkok\"&gt;Bangkok&lt;/a&gt;\n[17] &lt;a href=\"/wiki/Ashgabat\" title=\"Ashgabat\"&gt;Ashgabat&lt;/a&gt;\n[18] &lt;a href=\"/wiki/Hanoi\" title=\"Hanoi\"&gt;Hanoi&lt;/a&gt;\n[19] &lt;a href=\"/wiki/Vienna\" title=\"Vienna\"&gt;Vienna&lt;/a&gt;\n[20] &lt;a href=\"/wiki/Copenhagen\" title=\"Copenhagen\"&gt;Copenhagen&lt;/a&gt;\n..."
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#how-to-find-selectors-with-chrome",
+    "href": "slides/week-11/11-Time.html#how-to-find-selectors-with-chrome",
+    "title": "Web scraping: Static",
+    "section": "How to Find Selectors With Chrome?",
+    "text": "How to Find Selectors With Chrome?\n\nStep 1Step 2\n\n\n\nRight click, and then Inspect\n\n\n\n\n\nClick on  , then on the element on the front end\nRight click on the highlighted element in the DOM\nFollow: Copy -&gt; Copy selector"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#rvest-html_elements-5",
+    "href": "slides/week-11/11-Time.html#rvest-html_elements-5",
+    "title": "Web scraping: Static",
+    "section": "rvest: html_elements",
+    "text": "rvest: html_elements\nExample: Extracting only the links for Africa:\n\nbow(\n  url = \"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location\") %&gt;%\n  scrape() %&gt;%\n  html_elements(css = \"#mw-content-text &gt; div.mw-parser-output &gt; table:nth-child(7) &gt; tbody &gt; \n                tr &gt; td:nth-child(2) &gt; a\") \n\n{xml_nodeset (2)}\n[1] &lt;a href=\"/wiki/Addis_Ababa\" title=\"Addis Ababa\"&gt;Addis Ababa&lt;/a&gt;\n[2] &lt;a href=\"/wiki/Nairobi\" title=\"Nairobi\"&gt;Nairobi&lt;/a&gt;"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#rvest-html_text",
+    "href": "slides/week-11/11-Time.html#rvest-html_text",
+    "title": "Web scraping: Static",
+    "section": "rvest: html_text",
+    "text": "rvest: html_text\n\nInfoCode\n\n\nThe function html_text extracts the text content of one or more HTML elements:\n\nthe elements chosen with the html_elements function\n\n\n\n\n\n\n\n\nTwo versions:\n\nhtml_textreturns text with any space or line breaks around it\nhtml_text2 returns plain text\n\n\n\n\n\n\n\n\nhtml_text(x, trim = FALSE)\n\nhtml_text2(x, preserve_nbsp = FALSE)"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#rvest-html_text-1",
+    "href": "slides/week-11/11-Time.html#rvest-html_text-1",
+    "title": "Web scraping: Static",
+    "section": "rvest: html_text",
+    "text": "rvest: html_text\n\nbow(\n  url = \"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location\") %&gt;%\n  scrape() %&gt;%\n  html_elements(css = \"td &gt; a\") %&gt;% \n  html_text() \n\n [1] \"Addis Ababa\"   \"Nairobi\"       \"Montreal\"      \"Santiago\"     \n [5] \"Ciudad Colón\"  \"Santo Domingo\" \"Kingston\"      \"New York City\"\n [9] \"Washington\"    \"Macau\"         \"Macau\"         \"Tokyo\"        \n[13] \"Amman\"         \"Beirut\"        \"Kuala Lumpur\"  \"Bangkok\"      \n[17] \"Ashgabat\"      \"Hanoi\"         \"Vienna\"        \"Copenhagen\"   \n[21] \"Helsinki\"      \"Paris\"         \"Bonn\"          \"Hamburg\"      \n[25] \"Rome\"          \"Trieste\"       \"Turin\"         \"Valletta\"     \n[29] \"The Hague\"     \"Maastricht\"    \"Oslo\"          \"Barcelona\"    \n[33] \"Madrid\"        \"Malmö\"         \"Bern\"          \"Geneva\"       \n[37] \"London\""
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#rvest-html_attr-html_attrs",
+    "href": "slides/week-11/11-Time.html#rvest-html_attr-html_attrs",
+    "title": "Web scraping: Static",
+    "section": "rvest: html_attr & html_attrs",
+    "text": "rvest: html_attr & html_attrs\n\nInfoCode\n\n\nThe function html_attrs extracts the attributes of one or more HTML elements:\n\nthe elements chosen with the html_elements function\n\n\n\n\n\n\n\n\nTwo versions:\n\nsingular extracts specified attribute\n\nattribute is specified with its name, not CSS\n\nplural extracts all attributes\n\n\n\n\n\n\n\n\nhtml_attr(x, name, default = NA_character_)\n\nhtml_attrs(x)"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#rvest-html_attrs",
+    "href": "slides/week-11/11-Time.html#rvest-html_attrs",
+    "title": "Web scraping: Static",
+    "section": "rvest: html_attrs",
+    "text": "rvest: html_attrs\n\nbow(\n  url = \"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location\") %&gt;%\n  scrape() %&gt;%\n  html_elements(css = \"td &gt; a\") %&gt;% \n  html_attrs() #&lt;&lt;\n\n[[1]]\n               href               title \n\"/wiki/Addis_Ababa\"       \"Addis Ababa\" \n\n[[2]]\n           href           title \n\"/wiki/Nairobi\"       \"Nairobi\" \n\n[[3]]\n            href            title \n\"/wiki/Montreal\"       \"Montreal\" \n\n[[4]]\n            href            title \n\"/wiki/Santiago\"       \"Santiago\" \n\n[[5]]\n                     href                     class                     title \n\"/wiki/Ciudad_Col%C3%B3n\"             \"mw-redirect\"            \"Ciudad Colón\" \n\n[[6]]\n                 href                 title \n\"/wiki/Santo_Domingo\"       \"Santo Domingo\" \n\n[[7]]\n                     href                     title \n\"/wiki/Kingston,_Jamaica\"       \"Kingston, Jamaica\" \n\n[[8]]\n                 href                 title \n\"/wiki/New_York_City\"       \"New York City\" \n\n[[9]]\n                    href                    title \n\"/wiki/Washington,_D.C.\"       \"Washington, D.C.\" \n\n[[10]]\n         href         title \n\"/wiki/Macau\"       \"Macau\" \n\n[[11]]\n         href         title \n\"/wiki/Macau\"       \"Macau\" \n\n[[12]]\n         href         title \n\"/wiki/Tokyo\"       \"Tokyo\" \n\n[[13]]\n         href         title \n\"/wiki/Amman\"       \"Amman\" \n\n[[14]]\n          href          title \n\"/wiki/Beirut\"       \"Beirut\" \n\n[[15]]\n                href                title \n\"/wiki/Kuala_Lumpur\"       \"Kuala Lumpur\" \n\n[[16]]\n           href           title \n\"/wiki/Bangkok\"       \"Bangkok\" \n\n[[17]]\n            href            title \n\"/wiki/Ashgabat\"       \"Ashgabat\" \n\n[[18]]\n         href         title \n\"/wiki/Hanoi\"       \"Hanoi\" \n\n[[19]]\n          href          title \n\"/wiki/Vienna\"       \"Vienna\" \n\n[[20]]\n              href              title \n\"/wiki/Copenhagen\"       \"Copenhagen\" \n\n[[21]]\n            href            title \n\"/wiki/Helsinki\"       \"Helsinki\" \n\n[[22]]\n         href         title \n\"/wiki/Paris\"       \"Paris\" \n\n[[23]]\n        href        title \n\"/wiki/Bonn\"       \"Bonn\" \n\n[[24]]\n           href           title \n\"/wiki/Hamburg\"       \"Hamburg\" \n\n[[25]]\n        href        title \n\"/wiki/Rome\"       \"Rome\" \n\n[[26]]\n           href           title \n\"/wiki/Trieste\"       \"Trieste\" \n\n[[27]]\n         href         title \n\"/wiki/Turin\"       \"Turin\" \n\n[[28]]\n            href            title \n\"/wiki/Valletta\"       \"Valletta\" \n\n[[29]]\n             href             title \n\"/wiki/The_Hague\"       \"The Hague\" \n\n[[30]]\n              href              title \n\"/wiki/Maastricht\"       \"Maastricht\" \n\n[[31]]\n        href        title \n\"/wiki/Oslo\"       \"Oslo\" \n\n[[32]]\n             href             title \n\"/wiki/Barcelona\"       \"Barcelona\" \n\n[[33]]\n          href          title \n\"/wiki/Madrid\"       \"Madrid\" \n\n[[34]]\n              href              title \n\"/wiki/Malm%C3%B6\"            \"Malmö\" \n\n[[35]]\n        href        title \n\"/wiki/Bern\"       \"Bern\" \n\n[[36]]\n          href          title \n\"/wiki/Geneva\"       \"Geneva\" \n\n[[37]]\n          href          title \n\"/wiki/London\"       \"London\""
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#rvest-html_attr",
+    "href": "slides/week-11/11-Time.html#rvest-html_attr",
+    "title": "Web scraping: Static",
+    "section": "rvest: html_attr",
+    "text": "rvest: html_attr\nNote: Some URLs are given relative to a base URL (here: https://en.wikipedia.org)\n\nbow(\n  url = \"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location\") %&gt;%\n  scrape() %&gt;%\n  html_elements(css = \"td &gt; a\") %&gt;% \n  html_attr(name = \"href\") \n\n [1] \"/wiki/Addis_Ababa\"       \"/wiki/Nairobi\"          \n [3] \"/wiki/Montreal\"          \"/wiki/Santiago\"         \n [5] \"/wiki/Ciudad_Col%C3%B3n\" \"/wiki/Santo_Domingo\"    \n [7] \"/wiki/Kingston,_Jamaica\" \"/wiki/New_York_City\"    \n [9] \"/wiki/Washington,_D.C.\"  \"/wiki/Macau\"            \n[11] \"/wiki/Macau\"             \"/wiki/Tokyo\"            \n[13] \"/wiki/Amman\"             \"/wiki/Beirut\"           \n[15] \"/wiki/Kuala_Lumpur\"      \"/wiki/Bangkok\"          \n[17] \"/wiki/Ashgabat\"          \"/wiki/Hanoi\"            \n[19] \"/wiki/Vienna\"            \"/wiki/Copenhagen\"       \n[21] \"/wiki/Helsinki\"          \"/wiki/Paris\"            \n[23] \"/wiki/Bonn\"              \"/wiki/Hamburg\"          \n[25] \"/wiki/Rome\"              \"/wiki/Trieste\"          \n[27] \"/wiki/Turin\"             \"/wiki/Valletta\"         \n[29] \"/wiki/The_Hague\"         \"/wiki/Maastricht\"       \n[31] \"/wiki/Oslo\"              \"/wiki/Barcelona\"        \n[33] \"/wiki/Madrid\"            \"/wiki/Malm%C3%B6\"       \n[35] \"/wiki/Bern\"              \"/wiki/Geneva\"           \n[37] \"/wiki/London\""
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#rvest-html_attr-url_absolute",
+    "href": "slides/week-11/11-Time.html#rvest-html_attr-url_absolute",
+    "title": "Web scraping: Static",
+    "section": "rvest: html_attr & url_absolute",
+    "text": "rvest: html_attr & url_absolute\nUsing the url_absolut function to complete the relative URLs:\n\nbow(\n  url = \"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location\") %&gt;%\n  scrape() %&gt;%\n  html_elements(css = \"td &gt; a\") %&gt;% \n  html_attr(name = \"href\") %&gt;% \n  url_absolute(base = \"https://en.wikipedia.org\") \n\n [1] \"https://en.wikipedia.org/wiki/Addis_Ababa\"      \n [2] \"https://en.wikipedia.org/wiki/Nairobi\"          \n [3] \"https://en.wikipedia.org/wiki/Montreal\"         \n [4] \"https://en.wikipedia.org/wiki/Santiago\"         \n [5] \"https://en.wikipedia.org/wiki/Ciudad_Col%C3%B3n\"\n [6] \"https://en.wikipedia.org/wiki/Santo_Domingo\"    \n [7] \"https://en.wikipedia.org/wiki/Kingston,_Jamaica\"\n [8] \"https://en.wikipedia.org/wiki/New_York_City\"    \n [9] \"https://en.wikipedia.org/wiki/Washington,_D.C.\" \n[10] \"https://en.wikipedia.org/wiki/Macau\"            \n[11] \"https://en.wikipedia.org/wiki/Macau\"            \n[12] \"https://en.wikipedia.org/wiki/Tokyo\"            \n[13] \"https://en.wikipedia.org/wiki/Amman\"            \n[14] \"https://en.wikipedia.org/wiki/Beirut\"           \n[15] \"https://en.wikipedia.org/wiki/Kuala_Lumpur\"     \n[16] \"https://en.wikipedia.org/wiki/Bangkok\"          \n[17] \"https://en.wikipedia.org/wiki/Ashgabat\"         \n[18] \"https://en.wikipedia.org/wiki/Hanoi\"            \n[19] \"https://en.wikipedia.org/wiki/Vienna\"           \n[20] \"https://en.wikipedia.org/wiki/Copenhagen\"       \n[21] \"https://en.wikipedia.org/wiki/Helsinki\"         \n[22] \"https://en.wikipedia.org/wiki/Paris\"            \n[23] \"https://en.wikipedia.org/wiki/Bonn\"             \n[24] \"https://en.wikipedia.org/wiki/Hamburg\"          \n[25] \"https://en.wikipedia.org/wiki/Rome\"             \n[26] \"https://en.wikipedia.org/wiki/Trieste\"          \n[27] \"https://en.wikipedia.org/wiki/Turin\"            \n[28] \"https://en.wikipedia.org/wiki/Valletta\"         \n[29] \"https://en.wikipedia.org/wiki/The_Hague\"        \n[30] \"https://en.wikipedia.org/wiki/Maastricht\"       \n[31] \"https://en.wikipedia.org/wiki/Oslo\"             \n[32] \"https://en.wikipedia.org/wiki/Barcelona\"        \n[33] \"https://en.wikipedia.org/wiki/Madrid\"           \n[34] \"https://en.wikipedia.org/wiki/Malm%C3%B6\"       \n[35] \"https://en.wikipedia.org/wiki/Bern\"             \n[36] \"https://en.wikipedia.org/wiki/Geneva\"           \n[37] \"https://en.wikipedia.org/wiki/London\""
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#rvest-html_table",
+    "href": "slides/week-11/11-Time.html#rvest-html_table",
+    "title": "Web scraping: Static",
+    "section": "rvest: html_table",
+    "text": "rvest: html_table\nGet full tables with the html_table function:\n\nbow(\n  url = \"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location\") %&gt;%\n  scrape() %&gt;%\n  html_elements(css = \"#mw-content-text &gt; div.mw-parser-output &gt; table\") %&gt;% \n  html_table(fill = TRUE) \n\n[[1]]\n# A tibble: 2 × 3\n  Country  City        Organizations                                            \n  &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt;                                                    \n1 Ethiopia Addis Ababa \"United Nations Economic Commission for Africa (UNECA)\"  \n2 Kenya    Nairobi     \"United Nations Environment Programme (UNEP)\\nUnited Nat…\n\n[[2]]\n# A tibble: 7 × 3\n  Country            City          Organizations                                \n  &lt;chr&gt;              &lt;chr&gt;         &lt;chr&gt;                                        \n1 Canada             Montreal      \"International Civil Aviation Organization (…\n2 Chile              Santiago      \"Economic Commission for Latin America and t…\n3 Costa Rica         Ciudad Colón  \"University for Peace (UPEACE) (associated)\" \n4 Dominican Republic Santo Domingo \"International Research and Training Institu…\n5 Jamaica            Kingston      \"International Seabed Authority (ISA)\"       \n6 United States      New York City \"United Nations Security Council (UNSC)\\nFor…\n7 United States      Washington    \"International Monetary Fund (IMF)\\nUnited N…\n\n[[3]]\n# A tibble: 8 × 3\n  Country      City         Organizations                                       \n  &lt;chr&gt;        &lt;chr&gt;        &lt;chr&gt;                                               \n1 Macau        Macau        United Nations University Institute on Computing an…\n2 Japan        Tokyo        United Nations University (UNU)                     \n3 Jordan       Amman        United Nations Relief and Works Agency for Palestin…\n4 Lebanon      Beirut       Economic and Social Commission for Western Asia (ES…\n5 Malaysia     Kuala Lumpur United Nations University International Institute f…\n6 Thailand     Bangkok      Economic and Social Commission for Asia and the Pac…\n7 Turkmenistan Ashgabat     United Nations Regional Centre for Preventive Diplo…\n8 Vietnam      Hanoi        United Nations International School of Hanoi        \n\n[[4]]\n# A tibble: 19 × 3\n   Country        City       Organizations                                      \n   &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt;                                              \n 1 Austria        Vienna     \"Comprehensive Nuclear-Test-Ban Treaty Organizatio…\n 2 Denmark        Copenhagen \"United Nations Office for Project Services (UNOPS…\n 3 Finland        Helsinki   \"United Nations University World Institute for Dev…\n 4 France         Paris      \"International Institute for Educational Planning\\…\n 5 Germany        Bonn       \"UN Bonn\\nConvention on the Conservation of Migrat…\n 6 Germany        Hamburg    \"International Tribunal for the Law of the Sea (IT…\n 7 Italy          Rome       \"Food and Agriculture Organization of the United N…\n 8 Italy          Trieste    \"Abdus Salam International Centre for Theoretical …\n 9 Italy          Turin      \"United Nations Interregional Crime and Justice Re…\n10 Malta          Valletta   \"International Institute on Ageing (INIA)\"         \n11 Netherlands    The Hague  \"International Court of Justice (ICJ)\\nInternation…\n12 Netherlands    Maastricht \"United Nations University - Maastricht Economic a…\n13 Norway         Oslo       \"United Nations Common Supplier Database\"          \n14 Spain          Barcelona  \"United Nations University Institute on Globalizat…\n15 Spain          Madrid     \"United Nations World Tourism Organization (UNWTO)\"\n16 Sweden         Malmö      \"World Maritime University (WMU)\"                  \n17 Switzerland    Bern       \"Universal Postal Union (UPU)\"                     \n18 Switzerland    Geneva     \"Economic Commission for Europe (ECE or UNECE)\\nGl…\n19 United Kingdom London     \"International Maritime Organization (IMO)\"        \n\n[[5]]\n# A tibble: 6 × 2\n  Location      `Number of employees in offices of the United Nations`\n  &lt;chr&gt;         &lt;chr&gt;                                                 \n1 New York City 10,000                                                \n2 Geneva        9,800                                                 \n3 Nairobi       4,000                                                 \n4 Vienna        4,000                                                 \n5 Rome          3,200                                                 \n6 Copenhagen    1,350"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#rvest-extracting-single-variables",
+    "href": "slides/week-11/11-Time.html#rvest-extracting-single-variables",
+    "title": "Web scraping: Static",
+    "section": "rvest: Extracting single variables",
+    "text": "rvest: Extracting single variables\nAn approach to create a table by getting each variable separately (e.g., cities):\n\ntibble(\n  Cities =\n  bow(\n  url = \"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location\") %&gt;%\n  scrape() %&gt;%\n  html_elements(\n    css = \"#mw-content-text &gt; div.mw-parser-output &gt; table:nth-child(7) &gt; tbody &gt; \n    tr &gt; td:nth-child(2) &gt; a\") %&gt;% \n  html_text()\n)\n\n# A tibble: 2 × 1\n  Cities     \n  &lt;chr&gt;      \n1 Addis Ababa\n2 Nairobi"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#rvest-extracting-single-variables-1",
+    "href": "slides/week-11/11-Time.html#rvest-extracting-single-variables-1",
+    "title": "Web scraping: Static",
+    "section": "rvest: Extracting single variables",
+    "text": "rvest: Extracting single variables\n\nsource_code &lt;- bow(\n  url = \"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location\") %&gt;%\n  scrape() \n\ntibble(\n  Cities = source_code  %&gt;% \n  html_elements(css = \n     \"#mw-content-text &gt; div.mw-parser-output &gt; table:nth-child(7) &gt; tbody &gt; \n      tr &gt; td:nth-child(2) &gt; a\") %&gt;% \n  html_text()\n)\n\n# A tibble: 2 × 1\n  Cities     \n  &lt;chr&gt;      \n1 Addis Ababa\n2 Nairobi    \n\n\n\n\n\n\n\n\nIf you do this, try to keep the number of interactions with websites at a minimum by saving the source code as an object!"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#exercise-2",
+    "href": "slides/week-11/11-Time.html#exercise-2",
+    "title": "Web scraping: Static",
+    "section": "Exercise 2:",
+    "text": "Exercise 2:\n\nScrape the this Wikipedia site (politely)\n\nCreate a data frame including United Nations organizations in Europe\nCan process the data and manage to have one row per organization?\n\nTry to scrape another static website!\n\n\n\n\nText-as-Data in R | Spring 2025 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#rvest-html_table-1",
+    "href": "slides/week-11/11-Time.html#rvest-html_table-1",
+    "title": "Web scraping: Static",
+    "section": "rvest: html_table",
+    "text": "rvest: html_table\n\ntable &lt;- bow(\n  url = \"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location\") %&gt;%\n  scrape() %&gt;%\n  html_elements(css = \"#mw-content-text &gt; div.mw-parser-output &gt; table\") %&gt;% \n  html_table(fill = TRUE) \n\nafrica &lt;- table[[1]]\n\nafrica\n\n# A tibble: 2 × 3\n  Country  City        Organizations                                            \n  &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt;                                                    \n1 Ethiopia Addis Ababa \"United Nations Economic Commission for Africa (UNECA)\"  \n2 Kenya    Nairobi     \"United Nations Environment Programme (UNEP)\\nUnited Nat…"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html",
+    "href": "slides/week-08/08-Comparisons.html",
+    "title": "Topic Models",
+    "section": "",
+    "text": "Input: Topic models\nCoding: Replication & Comparison"
   }
 ]
