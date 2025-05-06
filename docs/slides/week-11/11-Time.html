@@ -919,7 +919,7 @@ David Schweizer
 <ul>
 <li><p>If you click on a yellow element, it is then highlighted red</p></li>
 <li><p>Other elements are not highlighted anymore</p></li>
-<li><p><em>SelectorGadget</em> identifies the selector <em>.datasortkey a</em></p></li>
+<li><p><em>SelectorGadget</em> identifies the selector <em>td &gt; a</em></p></li>
 </ul>
 </div>
 </div>
@@ -1425,7 +1425,7 @@ David Schweizer
 <section id="rvest-html_table-1" class="slide level2">
 <h2>rvest: html_table</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a>table <span class="ot">&lt;-</span> <span class="fu">bow</span>(</span>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a>table <span class="ot">&lt;-</span> <span class="fu">bow</span>(</span>
 <span id="cb43-2"><a></a>  <span class="at">url =</span> <span class="st">"https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb43-3"><a></a>  <span class="fu">scrape</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb43-4"><a></a>  <span class="fu">html_elements</span>(<span class="at">css =</span> <span class="st">"#mw-content-text &gt; div.mw-parser-output &gt; table"</span>) <span class="sc">%&gt;%</span> </span>

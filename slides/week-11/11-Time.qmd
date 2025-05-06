@@ -395,7 +395,7 @@ Now, click on one of the hyperlinks in the left pane (e.g., "Main page") and one
 
 -   Other elements are not highlighted anymore
 
--   *SelectorGadget* identifies the selector *.datasortkey a*
+-   *SelectorGadget* identifies the selector *td \> a*
 :::
 
 ## Example
@@ -558,7 +558,6 @@ bow(
 ## rvest: html_table
 
 ```{r, echo = TRUE}
-#| code-line-numbers: "5"
 table <- bow(
   url = "https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location") %>%
   scrape() %>%
@@ -612,5 +611,5 @@ If you do this, try to keep the number of interactions with websites at a minimu
 -   Scrape the tables from this [Wikipedia site](https://en.wikipedia.org/wiki/List_of_United_Nations_organizations_by_location) (politely)
     -   Create a data frame including columns for country, city, and organizations.
     -   Process the data so that there is one row per organization:
-    -   ![](example excercise.png){width="482"}
+    -   ![](example%20excercise.png){width="482"}
 -   Try to scrape a (static) website of your choice.

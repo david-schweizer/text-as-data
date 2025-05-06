@@ -10239,7 +10239,7 @@
     "href": "slides/week-11/11-Time.html#find-selectors-with-selectorgadget",
     "title": "Web scraping: Static",
     "section": "Find Selectors With SelectorGadget",
-    "text": "Find Selectors With SelectorGadget\n\nInfoExample\n\n\nNow, click on one of the hyperlinks in the left pane (e.g., “Main page”) and one of the hyperlinks outside the tables on the main pane (e.g., “1 Locations”) as we are only interested in the hyperlinks in the tables.\n\n\n\n\n\n\n\nIf you click on a yellow element, it is then highlighted red\nOther elements are not highlighted anymore\nSelectorGadget identifies the selector .datasortkey a"
+    "text": "Find Selectors With SelectorGadget\n\nInfoExample\n\n\nNow, click on one of the hyperlinks in the left pane (e.g., “Main page”) and one of the hyperlinks outside the tables on the main pane (e.g., “1 Locations”) as we are only interested in the hyperlinks in the tables.\n\n\n\n\n\n\n\nIf you click on a yellow element, it is then highlighted red\nOther elements are not highlighted anymore\nSelectorGadget identifies the selector td &gt; a"
   },
   {
     "objectID": "slides/week-11/11-Time.html#rvest-html_elements-4",
