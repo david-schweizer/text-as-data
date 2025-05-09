@@ -28,7 +28,7 @@
     "href": "material.html",
     "title": "Schedule, slides & materials",
     "section": "",
-    "text": "You can find all course materials below. This includes slides, code, links to readings, etc.\nJust click on the topic of the respective week.\n\n\n\n\n\nWeek\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nFebruary 11, 2025\n\n\n\n\nWeek 02\n\n\nIntro to R\n\n\nFebruary 18, 2025\n\n\n\n\nWeek 03\n\n\nTidyverse I: Import, tidy, and transform\n\n\nFebruary 25, 2025\n\n\n\n\nWeek 04\n\n\nTidyverse II: Transform, and visualize\n\n\nMarch 04, 2025\n\n\n\n\nWeek 05\n\n\nIntro to Text-as-Data I: Concepts\n\n\nMarch 11, 2025\n\n\n\n\nWeek 06\n\n\nIntro to Text-as-Data II: Workflow\n\n\nMarch 18, 2025\n\n\n\n\nWeek 07\n\n\nDictionary and Sentiment\n\n\nMarch 25, 2025\n\n\n\n\nWeek 08\n\n\nTopic Models\n\n\nApril 01, 2025\n\n\n\n\nWeek 09\n\n\n(Semi-)Supervised Methods\n\n\nApril 08, 2025\n\n\n\n\nWeek 10\n\n\nEaster Break - No Session\n\n\nApril 15, 2025\n\n\n\n\nWeek 11\n\n\nEaster Break - No Session\n\n\nApril 22, 2025\n\n\n\n\nWeek 12\n\n\nWeb scraping: Basics\n\n\nApril 29, 2025\n\n\n\n\nWeek 13\n\n\nWeb scraping: Static\n\n\nMay 06, 2025\n\n\n\n\nWeek 14\n\n\nWeb scraping: Dynamic\n\n\nMay 13, 2025\n\n\n\n\n\nNo matching items",
+    "text": "You can find all course materials below. This includes slides, code, links to readings, etc.\nJust click on the topic of the respective week.\n\n\n\n\n\nWeek\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nFebruary 11, 2025\n\n\n\n\nWeek 02\n\n\nIntro to R\n\n\nFebruary 18, 2025\n\n\n\n\nWeek 03\n\n\nTidyverse I: Import, tidy, and transform\n\n\nFebruary 25, 2025\n\n\n\n\nWeek 04\n\n\nTidyverse II: Transform, and visualize\n\n\nMarch 04, 2025\n\n\n\n\nWeek 05\n\n\nIntro to Text-as-Data I: Concepts\n\n\nMarch 11, 2025\n\n\n\n\nWeek 06\n\n\nIntro to Text-as-Data II: Workflow\n\n\nMarch 18, 2025\n\n\n\n\nWeek 07\n\n\nDictionary and Sentiment\n\n\nMarch 25, 2025\n\n\n\n\nWeek 08\n\n\nTopic Models\n\n\nApril 01, 2025\n\n\n\n\nWeek 09\n\n\n(Semi-)Supervised Methods\n\n\nApril 08, 2025\n\n\n\n\nWeek 10\n\n\nEaster Break - No Session\n\n\nApril 15, 2025\n\n\n\n\nWeek 11\n\n\nEaster Break - No Session\n\n\nApril 22, 2025\n\n\n\n\nWeek 12\n\n\nWeb scraping: Basics\n\n\nApril 29, 2025\n\n\n\n\nWeek 13\n\n\nWeb scraping: Static\n\n\nMay 06, 2025\n\n\n\n\nWeek 14\n\n\nWeb scraping: Dynamic\n\n\nMay 13, 2025\n\n\n\n\nWeek 15\n\n\nOutlook: Large Language Models and More\n\n\nMay 20, 2025\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Schedule, slides & materials"
     ]
@@ -261,9 +261,9 @@
   {
     "objectID": "weeks/week-13.html",
     "href": "weeks/week-13.html",
-    "title": "Interactive II: Making pretty (and more interactive) Shiny apps",
+    "title": "Outlook: Large Language Models and More",
     "section": "",
-    "text": "Materials\nFor today’s session, there are no slides. We will start directly with reviewing the exemplary code: Again, the goal is to visualize the relationship between unemployment rate and the vote share of the main parties at the 2017 German federal elections at the district level. Add on for today: We want to be able to click on specific observations in the scatterplot, let the Shiny app display the name of the election district and produce a barplot displaying the vote shares of all parties in this specific election district.\nAs a next step, we will explore different theming options.\nYou can download the script here.\nYou can find lots of information on theming here and here. You can find more on interactions with plots here. If you want to dive deeper into the topic, you might want to check out the ggiraph package!\nYour turn:\n\nTry to add a second page replacing unemployment rate with another variable (e.g., GDP per capita).\nTry different interactions than a single click.\nCan you apply the code to different (your own) data?\n\nThere will be no mandatory assignment. However, I want to encourage you to work on these three tasks (if you could not finish it during the seminar) and I am happy to review your code.\n\n\nTo Do’s before our session\n\nHave a look at the bslib package and its functionalities. What would you like to implement for your own project?\nOnly two more weeks before the semester ends: Start thinking about what kind of data you would like to scrape! Can you combine it with other data sets?"
+    "text": "To Do’s before our session\nWork on the third assignment. You can find it on ILIAS. The deadline is 20.05.2025 13:00.\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nOutlook: Large Language Models and More\n\n\nWeek 15\n\n\nMay 20, 2024\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA."
   },
   {
     "objectID": "weeks/week-14.html",
@@ -4439,9 +4439,9 @@
   {
     "objectID": "slides/week-12/12-Space.html#plan-for-today",
     "href": "slides/week-12/12-Space.html#plan-for-today",
-    "title": "Interactive I: Create your first Shiny app",
+    "title": "Web scraping: Dynamic",
     "section": "Plan for today",
-    "text": "Plan for today\nShort input\n\nUsing dashboards\nA short introduction to shiny (dashboards)\nNext week: Reactivity & themes\n\nCoding\n\nApplied examples\nYour first shiny app!"
+    "text": "Plan for today\n\nCrawling static pages\nCrawling and scraping dynamic pages"
   },
   {
     "objectID": "slides/week-12/12-Space.html#the-2012-us-elections",
@@ -4736,9 +4736,9 @@
   {
     "objectID": "slides/week-13/13-InteractivityII.html#tba",
     "href": "slides/week-13/13-InteractivityII.html#tba",
-    "title": "Interactive II: Making pretty Shiny apps",
+    "title": "Outlook: Large Language Models and More",
     "section": "TBA",
-    "text": "TBA\n\n\nAutomated Data Collection | Spring 2024 | University of Mannheim"
+    "text": "TBA\n\n\n\nText-as-Data in R | Spring 2025 | University of Mannheim"
   },
   {
     "objectID": "slides/week-01/01-IntroSession.html#schedule",
@@ -10345,5 +10345,264 @@
     "title": "Topic Models",
     "section": "",
     "text": "Input: Topic models\nCoding: Replication & Comparison"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#crawling-static-pages-overview",
+    "href": "slides/week-12/12-Space.html#crawling-static-pages-overview",
+    "title": "Web scraping: Dynamic",
+    "section": "Crawling (Static) Pages: Overview",
+    "text": "Crawling (Static) Pages: Overview\nMost of the time, one page does not include all information we are interested in (e.g, it is spread over different pages of a website).\nIn this case, we can crawl over these different pages by using information on one of the website’s pages.\nWe can use for loops for crawling.\n\nThis can take a long time\nWe should even more think about ethical scraping!"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#example-european-greens",
+    "href": "slides/week-12/12-Space.html#example-european-greens",
+    "title": "Web scraping: Dynamic",
+    "section": "Example: European Greens",
+    "text": "Example: European Greens\nOur goal is to scrape the text of the press releases. Therefore, we first need the URLs of the respective pages!"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#example-select-selector",
+    "href": "slides/week-12/12-Space.html#example-select-selector",
+    "title": "Web scraping: Dynamic",
+    "section": "Example: Select selector",
+    "text": "Example: Select selector"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#example-get-links",
+    "href": "slides/week-12/12-Space.html#example-get-links",
+    "title": "Web scraping: Dynamic",
+    "section": "Example: Get links",
+    "text": "Example: Get links\nNow, we can scrape the URLs:\n\nlinks &lt;- bow(url = \"https://europeangreens.eu/news/press-releases/\") %&gt;%\n        scrape() %&gt;%\n        html_elements(css = \"#main-content &gt; div &gt; div &gt; div &gt; a\") %&gt;% \n        # html_elements(css = \"a.card-update.grey\") # gives the same result\n        html_attr(\"href\") %&gt;% \n        url_absolute(\"https://europeangreens.eu/news/press-releases/\")\n\n\n\n\n\n\n\nChoosing the css selector:\n\n\nIf you copy the selector from the (chrome) website, you should get the following: #main-content &gt; div &gt; div &gt; div:nth-child(1) &gt; a. This selects only the link for the first press release!\nBy removing “:nth-child(1)”, we get all relevant links."
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#example-get-the-press-releases",
+    "href": "slides/week-12/12-Space.html#example-get-the-press-releases",
+    "title": "Web scraping: Dynamic",
+    "section": "Example: Get the press releases",
+    "text": "Example: Get the press releases\nFirst, we create an empty list. We store the press releases later in that list:\n\nlist &lt;- list()\n\nfor (i in 1:length(links)) {\n  \n  page &lt;- bow(links[i]) %&gt;% scrape()\n  \n  list[[i]] &lt;- page %&gt;% \n          html_elements(\"#main-content &gt; div &gt; div &gt; div &gt; div\") %&gt;% \n          html_text2() \n}"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#example-get-the-press-releases-1",
+    "href": "slides/week-12/12-Space.html#example-get-the-press-releases-1",
+    "title": "Web scraping: Dynamic",
+    "section": "Example: Get the press releases",
+    "text": "Example: Get the press releases\nNext, we use a for loop to iterate over each element in our list of links:\n\nlist &lt;- list()\n\nfor (i in 1:length(links)) {\n  \n  page &lt;- bow(links[i]) %&gt;% scrape()\n  \n  list[[i]] &lt;- page %&gt;% \n          html_elements(\"#main-content &gt; div &gt; div &gt; div &gt; div\") %&gt;% \n          html_text2() \n}"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#example-get-the-press-releases-2",
+    "href": "slides/week-12/12-Space.html#example-get-the-press-releases-2",
+    "title": "Web scraping: Dynamic",
+    "section": "Example: Get the press releases",
+    "text": "Example: Get the press releases\nThen, we politely (bow()) get the source code for each link (scrape()):\n\nlist &lt;- list()\n\nfor (i in 1:length(links)) {\n  \n  page &lt;- bow(links[i]) %&gt;% scrape()\n  \n  list[[i]] &lt;- page %&gt;% \n          html_elements(\"#main-content &gt; div &gt; div &gt; div &gt; div\") %&gt;% \n          html_text2() \n}"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#example-get-the-press-releases-3",
+    "href": "slides/week-12/12-Space.html#example-get-the-press-releases-3",
+    "title": "Web scraping: Dynamic",
+    "section": "Example: Get the press releases",
+    "text": "Example: Get the press releases\nFinally, we scrape the tables from each page with html_text2() and store the results in our list using the appropriate css selector:\n\nlist &lt;- list()\n\nfor (i in 1:length(links)) {\n  \n  page &lt;- bow(links[i]) %&gt;% scrape()\n  \n  list[[i]] &lt;- page %&gt;% \n          html_elements(\"#main-content &gt; div &gt; div &gt; div &gt; div\") %&gt;% \n          html_text2() \n}"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#example-get-the-press-releases-4",
+    "href": "slides/week-12/12-Space.html#example-get-the-press-releases-4",
+    "title": "Web scraping: Dynamic",
+    "section": "Example: Get the press releases",
+    "text": "Example: Get the press releases\nCheck the first list entry:\n\nlist[[1]]\n\n[1] \"Green parties from across Europe have called for deeper European integration as an answer to the turbulent global geopolitics of this time. \\n\\nToday is Europe Day, and the leaders of the European Green Party (EGP), the Greens/EFA Group in the European Parliament, the Federation of Young European Greens (FYEG), and Green parties across Europe have signed the joint Green call for a democratic, united and federal Europe, that asks for a renewed European social contract that empowers citizens, strengthens the rule of law, and protects the climate and environment. \\n\\nCiarán Cuffe, co-chair of the European Green Party commented: “The European project has been and remains the greatest antidote to nationalism, fascism and tyranny. From Putin's war in Ukraine, Trump's threats to Canada and Greenland, Netanyahu's plans to occupy Gaza, to the democratic rollbacks in Hungary, Slovakia, Turkey, and Georgia: violence and division have once again risen to the fore. Europe withstood it before and will do so again. Next week, as Poland, Portugal and Romania go to the polls, let's again resist the far right’s attempts to take away our freedom. Europe must boldly stand its ground and move forward - free, green and just.” \\n\\nVula Tsetsi, co-chair of the European Green Party added: “The challenges Europe faces today—from economic insecurity to the climate crisis—require a more united European Union. Citizens are demanding solutions and fairness, and their expectations toward the EU are clear: they want leadership that improves lives, protects freedoms, and secures our shared future. We must seize this moment to deepen European integration as a concrete commitment to deliver on housing, jobs, health, and sustainability and security. Pro-European forces must act with unity and determination to show that Europe is the answer.” \\n\\nIn the statement, Green leaders call for deeper European integration and advocate for a more united, democratic, social and federal Europe, starting with five concrete priorities: a fiscal union, an end to veto politics, a Green Deal-driven industrial strategy, a common approach to security and defence, and a commitment to enlargement. The aim of these reforms is to make Europe stronger and enlarge its scope of action in order to face the current turbulent times. \\n\\n \\n\\nRead the full text of the joint statement here. \\n\\nSign up to receive press releases\\nJoin Us\\nI agree to the Privacy Policy and would like to receive email updates from the European Greens.\\nPress Contact\\nTom Zoete\\ntom.zoete@europeangreens.eu\""
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#example-get-the-press-releases-5",
+    "href": "slides/week-12/12-Space.html#example-get-the-press-releases-5",
+    "title": "Web scraping: Dynamic",
+    "section": "Example: Get the press releases",
+    "text": "Example: Get the press releases\nNow, let’s create a dataframe:\n\npress_releases &lt;- tibble(\n  text_raw = unlist(list) # using unlist() to transform the list\n)\n\nhead(press_releases)\n\n# A tibble: 6 × 1\n  text_raw                                                                      \n  &lt;chr&gt;                                                                         \n1 \"Green parties from across Europe have called for deeper European integration…\n2 \"The European Green Party strongly condemns the Israeli government plans to e…\n3 \"As the European People’s Party is having its annual congress in Valencia thi…\n4 \"Climate and meteorological institutions have declared Europe the fastest war…\n5 \"Italian Prime Minister Giorgia Meloni and other European far-right politicia…\n6 \"const t=\\\"undefined\\\"!=typeof HTMLImageElement&&\\\"loading\\\"in HTMLImageEleme…"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#exercise-1",
+    "href": "slides/week-12/12-Space.html#exercise-1",
+    "title": "Web scraping: Dynamic",
+    "section": "Exercise 1",
+    "text": "Exercise 1\n\nScrape also the headers and the dates of publication. For this, you just need to adapt the css selector!\nAdd them as additional rows to our “press_releases” dataframe.\nCan you extract the text, the headers, and the dates in one loop?"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#overview",
+    "href": "slides/week-12/12-Space.html#overview",
+    "title": "Web scraping: Dynamic",
+    "section": "Overview",
+    "text": "Overview\n\nDynamic pages display custom content.\nDifferent visitors see different content on the same page - e.g., depending on their input (clicking, scrolling) - URL stays the same\nFor example, the European Greens have dynamic elements on its website (e.g., clicking “forward” on the press release section to display older press releases).\nIt is more difficult to scrape dynamic than static pages - we need one extra step - for this extra step, we are using the package RSelenium"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#dynamic-pages-steps",
+    "href": "slides/week-12/12-Space.html#dynamic-pages-steps",
+    "title": "Web scraping: Dynamic",
+    "section": "Dynamic Pages: Steps",
+    "text": "Dynamic Pages: Steps\nThree main steps:\n\nUse RSelenium to identify and select the desired elements of the page by clicking, searching, selecting from within RStudio\nGet the source code\n\nRSelenium downloads in XML format\nwe can use rvest to transform this into HTML\n\nExtract the relevant information from the source code using the rvest package\n\nthis is the same process as for static pages"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#dynamic-pages-rselenium",
+    "href": "slides/week-12/12-Space.html#dynamic-pages-rselenium",
+    "title": "Web scraping: Dynamic",
+    "section": "Dynamic Pages: RSelenium",
+    "text": "Dynamic Pages: RSelenium\nThe RSelenium package integrates the Selenium 2.0 WebDriver into R. The package allows us to interact with\n\nbrowsers on our device (e.g., open a browser and navigating to a page)\nelements on a page (e.g., opening or clicking on a drop-down menu)\n\nIn case you are stuck on a particular problem, you can easily find help for online (e.g., ChatGPT, stackoverflow, google, etc.) or more information in the vignette."
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#starting-a-server-with-firefox",
+    "href": "slides/week-12/12-Space.html#starting-a-server-with-firefox",
+    "title": "Web scraping: Dynamic",
+    "section": "Starting a Server With Firefox",
+    "text": "Starting a Server With Firefox\nWe use the rsDriver function to start a server. This way we can control a browser of our choice from within R.\n\nThe function rsDriver creates the object driver and the web browser opens\nYou should avoid controlling this browser manually\nYou should avoid creating multiple servers\nNote: We can start only one server per port\n\n\ndriver &lt;- RSelenium::rsDriver(port = 0001L, \n                              browser = \"firefox\",\n                              ...\n                              )"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#starting-a-server-with-firefox-1",
+    "href": "slides/week-12/12-Space.html#starting-a-server-with-firefox-1",
+    "title": "Web scraping: Dynamic",
+    "section": "Starting a Server With Firefox",
+    "text": "Starting a Server With Firefox"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#starting-a-server-with-firefox-2",
+    "href": "slides/week-12/12-Space.html#starting-a-server-with-firefox-2",
+    "title": "Web scraping: Dynamic",
+    "section": "Starting a Server With Firefox",
+    "text": "Starting a Server With Firefox\nNext, we separate the client and server as different objects:\n\nbrowser &lt;- driver$client\nserver &lt;- driver$server\n\n\n\n\n\n\n\nrsDriver() creates a client and a server\n\nour code primarily interacts with the client\nwe can think of the client as the browser itself; it has the class remoteDriver"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#navigate-dynamic-pages",
+    "href": "slides/week-12/12-Space.html#navigate-dynamic-pages",
+    "title": "Web scraping: Dynamic",
+    "section": "Navigate dynamic pages",
+    "text": "Navigate dynamic pages\n\nbrowser$navigate(url = \"https://europeangreens.eu/news/press-releases/\")\n\n\n\n\n\n\n\nnavigate is a method and not a function\n\nwe cannot pipe (%&gt;%) it into browser but have to use the dollar sign notation\nit is optional to type the name of the url argument"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#navigate-dynamic-pages-1",
+    "href": "slides/week-12/12-Space.html#navigate-dynamic-pages-1",
+    "title": "Web scraping: Dynamic",
+    "section": "Navigate dynamic pages",
+    "text": "Navigate dynamic pages"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#navigate-dynamic-pages-2",
+    "href": "slides/week-12/12-Space.html#navigate-dynamic-pages-2",
+    "title": "Web scraping: Dynamic",
+    "section": "Navigate dynamic pages",
+    "text": "Navigate dynamic pages\nGo back to previous URL:\n\nbrowser$goBack()\n\nGo forward:\n\nbrowser$goForward()\n\nRefresh:\n\nbrowser$refresh()"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#navigate-dynamic-pages-3",
+    "href": "slides/week-12/12-Space.html#navigate-dynamic-pages-3",
+    "title": "Web scraping: Dynamic",
+    "section": "Navigate dynamic pages",
+    "text": "Navigate dynamic pages\nGet URL of current page:\n\nbrowser$getCurrentUrl()\n\nGet title of current page\n\nbrowser$getTitle()"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#dynamic-pages-close-open-browser",
+    "href": "slides/week-12/12-Space.html#dynamic-pages-close-open-browser",
+    "title": "Web scraping: Dynamic",
+    "section": "Dynamic Pages: Close & Open Browser",
+    "text": "Dynamic Pages: Close & Open Browser\nWe can close the browser without closing our session on the server:\n\nbrowser$close()\n\nAnd open a new browser without using the rsDriver function again, as the server is still running:\n\nbrowser$open()\n\nAfter closing the browser, we also want to stop the server:\n\ndriver$server$stop()"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#dynamic-pages-get-page-source",
+    "href": "slides/week-12/12-Space.html#dynamic-pages-get-page-source",
+    "title": "Web scraping: Dynamic",
+    "section": "Dynamic Pages: Get Page Source",
+    "text": "Dynamic Pages: Get Page Source\nUsing the RSelenium package, we get the page source code the following way:\n\nbrowser$getPageSource()[[1]]\n\n\nNote: This method returns a list . The XML source is in the first item of the list. This is why we use [[1]] to access it.\n\n\n\nThis is similar to our bow() %&gt;% scrape() process"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#dynamic-pages-get-page-source-1",
+    "href": "slides/week-12/12-Space.html#dynamic-pages-get-page-source-1",
+    "title": "Web scraping: Dynamic",
+    "section": "Dynamic Pages: Get Page Source",
+    "text": "Dynamic Pages: Get Page Source\nWe can extract links combining methods and function from the RSelenium and the rvest package:\n\nbrowser$getPageSource()[[1]] %&gt;% \n        read_html() %&gt;% \n        html_elements(css = \"#main-content &gt; div &gt; div &gt; div &gt; a\") %&gt;% \n        html_attr(\"href\")\n\n\n\n [1] \"/news/global-turbulence-recalls-importance-of-europe/\"                                   \n [2] \"/news/greens-call-for-urgent-eu-action-to-halt-gaza-escalation/\"                         \n [3] \"/news/the-climate-crisis-killed-in-valencia-will-the-european-people-s-party-keep-looki/\"\n [4] \"/news/climate-crisis-reaches-new-heights-in-europe-as-conservatives-roll-back-protectio/\"\n [5] \"/news/from-toasts-to-tariffs-meloni-and-far-right-affection-for-trump-backfires/\"        \n [6] \"/news/netanyahu-must-see-justice-not-red-carpets/\"                                       \n [7] \"/news/european-greens-highlight-progressive-leadership-of-sumar/\"                        \n [8] \"/news/turkey-eu-greens-condemn-1000-arrests-of-opposition-members-protesters-and-journa/\"\n [9] \"/news/arrest-of-istanbul-mayor-is-a-gross-escalation-of-erdogan-s-authoritarianism/\"     \n[10] \"/news/proposed-new-party-promises-a-stronger-progressive-front-in-the-netherlands/\"      \n[11] \"/news/serbia-protests-europe-should-not-remain-silent-on-vucic-s-violence-and-repressio/\"\n[12] \"/news/europe-needs-investment-in-green-industry-not-the-false-promise-of-deregulation/\""
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#dynamic-pages-find-elements",
+    "href": "slides/week-12/12-Space.html#dynamic-pages-find-elements",
+    "title": "Web scraping: Dynamic",
+    "section": "Dynamic Pages: Find Elements",
+    "text": "Dynamic Pages: Find Elements\nWe can locate an element on the open browser using CSS selectors\nThere are also other selectors as\n\nxpath\nid\nname\nlink text"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#find-highlight-click-elements",
+    "href": "slides/week-12/12-Space.html#find-highlight-click-elements",
+    "title": "Web scraping: Dynamic",
+    "section": "Find, Highlight, Click Elements",
+    "text": "Find, Highlight, Click Elements\n\n## navigate to page\nbrowser$navigate(url = \"https://europeangreens.eu/news/press-releases/\")\n\n## find and store element\nselection &lt;- browser$findElement(using = \"css selector\", value = \"#main-content &gt; div &gt; div &gt; ul &gt; li:nth-child(9)\")\n\n## highlight element\nselection$highlightElement()\n\n## click element\nselection$clickElement()\n\nNote: The highlighted element will flash for one or two seconds on the open browser."
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#dynamic-pages-input-selenium-keys",
+    "href": "slides/week-12/12-Space.html#dynamic-pages-input-selenium-keys",
+    "title": "Web scraping: Dynamic",
+    "section": "Dynamic Pages: Input (Selenium Keys)",
+    "text": "Dynamic Pages: Input (Selenium Keys)\n\nas_tibble(selKeys) %&gt;% \n  names()\n\n [1] \"null\"         \"cancel\"       \"help\"         \"backspace\"    \"tab\"         \n [6] \"clear\"        \"return\"       \"enter\"        \"shift\"        \"control\"     \n[11] \"alt\"          \"pause\"        \"escape\"       \"space\"        \"page_up\"     \n[16] \"page_down\"    \"end\"          \"home\"         \"left_arrow\"   \"up_arrow\"    \n[21] \"right_arrow\"  \"down_arrow\"   \"insert\"       \"delete\"       \"semicolon\"   \n[26] \"equals\"       \"numpad_0\"     \"numpad_1\"     \"numpad_2\"     \"numpad_3\"    \n[31] \"numpad_4\"     \"numpad_5\"     \"numpad_6\"     \"numpad_7\"     \"numpad_8\"    \n[36] \"numpad_9\"     \"multiply\"     \"add\"          \"separator\"    \"subtract\"    \n[41] \"decimal\"      \"divide\"       \"f1\"           \"f2\"           \"f3\"          \n[46] \"f4\"           \"f5\"           \"f6\"           \"f7\"           \"f8\"          \n[51] \"f9\"           \"f10\"          \"f11\"          \"f12\"          \"command_meta\"\n\n\nFor example, we can scroll up and down a page from within R:\n\nbody &lt;- browser$findElement(using = \"css\", value = \"body\")\n\nbody$sendKeysToElement(list(key = \"page_down\"))"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#dynamic-pages-input",
+    "href": "slides/week-12/12-Space.html#dynamic-pages-input",
+    "title": "Web scraping: Dynamic",
+    "section": "Dynamic Pages: Input",
+    "text": "Dynamic Pages: Input\nFor example, we can scroll up and down a page from within R:\n\nbody &lt;- browser$findElement(using = \"css\", value = \"body\")\n\nbody$sendKeysToElement(list(key = \"page_down\"))"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#back-to-press-releases",
+    "href": "slides/week-12/12-Space.html#back-to-press-releases",
+    "title": "Web scraping: Dynamic",
+    "section": "Back to press releases",
+    "text": "Back to press releases\n\nNow, we know how to navigate the website. The goal is to scrape all press releases that are available.\nTo get all press releases, we have to first crawl over the 26 pages and extract the URLs that lead to the press releases while doing so.\nAfter extracting all URLs, we can scrape the text of the press releases."
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#crawl-and-extract-urls",
+    "href": "slides/week-12/12-Space.html#crawl-and-extract-urls",
+    "title": "Web scraping: Dynamic",
+    "section": "Crawl and extract URLs",
+    "text": "Crawl and extract URLs\nAgain, we will use a loop to crawl over the website:\n\nbrowser$navigate(url = \"https://europeangreens.eu/news/press-releases/\")\n\nselenium_links &lt;- list()\n\nfor (i in 1:26) {\n  \n  # get the source code first\n  selenium_links[[i]] &lt;- browser$getPageSource()[[1]] %&gt;% \n        # use rvest to scrape the elements we are interested in\n        read_html() %&gt;% \n        html_elements(css = \"#main-content &gt; div &gt; div &gt; div &gt; a\") %&gt;% \n        html_attr(\"href\") %&gt;% \n        url_absolute(\"https://europeangreens.eu/news/press-releases/\")\n  \n  Sys.sleep(0.1) # stop the loop for 0.1s\n  \n   ## got to next page\n   selection &lt;- browser$findElement(using = \"css selector\", value = \"#main-content &gt; div &gt; div &gt; ul &gt; li:nth-child(9)\")\n      \n   selection$clickElement()\n}"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#check-urls",
+    "href": "slides/week-12/12-Space.html#check-urls",
+    "title": "Web scraping: Dynamic",
+    "section": "Check URLs",
+    "text": "Check URLs\n\n# We now have links stored in a list of lists\nhead(selenium_links)\n\n[[1]]\n [1] \"https://europeangreens.eu/news/global-turbulence-recalls-importance-of-europe/\"                                   \n [2] \"https://europeangreens.eu/news/greens-call-for-urgent-eu-action-to-halt-gaza-escalation/\"                         \n [3] \"https://europeangreens.eu/news/the-climate-crisis-killed-in-valencia-will-the-european-people-s-party-keep-looki/\"\n [4] \"https://europeangreens.eu/news/climate-crisis-reaches-new-heights-in-europe-as-conservatives-roll-back-protectio/\"\n [5] \"https://europeangreens.eu/news/from-toasts-to-tariffs-meloni-and-far-right-affection-for-trump-backfires/\"        \n [6] \"https://europeangreens.eu/news/netanyahu-must-see-justice-not-red-carpets/\"                                       \n [7] \"https://europeangreens.eu/news/european-greens-highlight-progressive-leadership-of-sumar/\"                        \n [8] \"https://europeangreens.eu/news/turkey-eu-greens-condemn-1000-arrests-of-opposition-members-protesters-and-journa/\"\n [9] \"https://europeangreens.eu/news/arrest-of-istanbul-mayor-is-a-gross-escalation-of-erdogan-s-authoritarianism/\"     \n[10] \"https://europeangreens.eu/news/proposed-new-party-promises-a-stronger-progressive-front-in-the-netherlands/\"      \n[11] \"https://europeangreens.eu/news/serbia-protests-europe-should-not-remain-silent-on-vucic-s-violence-and-repressio/\"\n[12] \"https://europeangreens.eu/news/europe-needs-investment-in-green-industry-not-the-false-promise-of-deregulation/\"  \n\n[[2]]\n [1] \"https://europeangreens.eu/news/european-people-s-party-s-attacks-on-civil-society-and-independent-journalism-are/\"\n [2] \"https://europeangreens.eu/news/eu-greens-congratulate-bundnis-90-die-grunen-and-warn-against-the-far-right/\"      \n [3] \"https://europeangreens.eu/news/israeli-government-attempts-to-put-an-80-tax-on-donations-to-ngos/\"                \n [4] \"https://europeangreens.eu/news/eu-greens-welcome-ukraine-emergency-summit/\"                                       \n [5] \"https://europeangreens.eu/news/trump-and-meloni-give-free-rein-to-war-criminals/\"                                 \n [6] \"https://europeangreens.eu/news/greens-urge-european-support-for-serbian-citizens-fight-for-justice/\"              \n [7] \"https://europeangreens.eu/news/german-conservatives-breaking-the-firewall-against-the-far-right/\"                 \n [8] \"https://europeangreens.eu/news/greens-call-for-independent-european-investigation-into-greek-rail-disaster/\"      \n [9] \"https://europeangreens.eu/news/europe-must-stand-strong-as-trump-undermines-climate-and-peace/\"                   \n[10] \"https://europeangreens.eu/news/european-greens-cautiously-optimistic-ceasefire-agreement-will-lead-to-lasting-pe/\"\n[11] \"https://europeangreens.eu/news/2024-hottest-year-time-to-stop-the-greenbashing/\"                                  \n[12] \"https://europeangreens.eu/news/trump-threatening-greenland-is-madness/\"                                           \n\n[[3]]\n [1] \"https://europeangreens.eu/news/vula-tsetsi-and-ciaran-cuffe-elected-as-the-new-co-chairs-of-european-green-party/\"\n [2] \"https://europeangreens.eu/news/there-is-a-way-out-of-france-s-political-mess/\"                                    \n [3] \"https://europeangreens.eu/news/european-greens-support-the-georgian-people/\"                                      \n [4] \"https://europeangreens.eu/news/europe-must-strengthen-climate-action-and-democracy-to-counter-far-right-autocrat/\"\n [5] \"https://europeangreens.eu/news/us-elections-european-greens-call-for-jill-stein-to-step-down/\"                    \n [6] \"https://europeangreens.eu/news/georgian-regime-is-intimidating-civil-society/\"                                    \n [7] \"https://europeangreens.eu/news/georgia-s-election-of-a-lifetime/\"                                                 \n [8] \"https://europeangreens.eu/news/moldovans-say-yes-to-the-road-to-eu-membership/\"                                   \n [9] \"https://europeangreens.eu/news/amid-russian-interference-moldova-referendum-paves-the-way-towards-the-eu/\"        \n[10] \"https://europeangreens.eu/news/european-greens-stand-in-solidarity-with-people-in-serbia-opposing-the-rio-tinto/\" \n[11] \"https://europeangreens.eu/news/devastating-floods-and-wildfires-underline-the-importance-of-friday-s-call-for-cl/\"\n[12] \"https://europeangreens.eu/news/uk-elections-historic-victory-for-the-green-party/\"                                \n\n[[4]]\n [1] \"https://europeangreens.eu/news/declaration-conjointe-des-verts-europeens-du-parti-socialiste-europeen-du-parti-d/\"\n [2] \"https://europeangreens.eu/news/joint-declaration-by-the-european-greens-the-party-of-european-socialists-the-eur/\"\n [3] \"https://europeangreens.eu/news/united-green-family-ready-for-the-next-challenges-across-europe/\"                  \n [4] \"https://europeangreens.eu/news/european-green-party-congratulates-the-courageous-green-ministers-who-secured-the/\"\n [5] \"https://europeangreens.eu/news/french-democracy-in-danger-as-les-republicains-epp-ally-with-le-pen-s-far-right-p/\"\n [6] \"https://europeangreens.eu/news/european-greens-congratulate-nicolae-stefanuta-and-warn-against-electoral-irregul/\"\n [7] \"https://europeangreens.eu/news/european-elections-show-democratic-majority-must-stand-united-against-far-right-m/\"\n [8] \"https://europeangreens.eu/news/the-european-greens-support-budapest-mayor-gergely-karacsony/\"                     \n [9] \"https://europeangreens.eu/news/choose-courage-and-vote-green/\"                                                    \n[10] \"https://europeangreens.eu/news/european-elections-reaction-to-the-dutch-exit-poll/\"                               \n[11] \"https://europeangreens.eu/news/world-environment-day-european-greens-urge-eu-council-s-approval-of-the-nature-re/\"\n[12] \"https://europeangreens.eu/news/brussels-event-to-be-attended-by-far-right-activists-disguised-as-farmers/\"        \n\n[[5]]\n [1] \"https://europeangreens.eu/news/centre-right-is-aligning-itself-with-dangerous-partners-on-the-right/\"             \n [2] \"https://europeangreens.eu/news/devastating-floods-in-germany-and-italy-more-protection-and-climate-action-needed/\"\n [3] \"https://europeangreens.eu/news/in-the-climate-protests-and-the-european-elections-the-future-of-the-green-deal-i/\"\n [4] \"https://europeangreens.eu/news/voters-deserve-clarity-on-alleged-links-between-far-right-meps-and-russia/\"        \n [5] \"https://europeangreens.eu/news/orban-s-secret-service-attempts-to-intimidate-the-pro-european-democratic-mayor-o/\"\n [6] \"https://europeangreens.eu/news/greens-alone-in-taking-threat-of-the-far-right-seriously/\"                         \n [7] \"https://europeangreens.eu/news/a-battle-against-the-far-right-and-for-the-green-deal/\"                            \n [8] \"https://europeangreens.eu/news/giorgia-meloni-collaborate-le-pen-milei-trump/\"                                    \n [9] \"https://europeangreens.eu/news/liberals-member-vvd-dutch-far-right-government/\"                                   \n[10] \"https://europeangreens.eu/news/a-shocking-betrayal-of-liberal-and-democratic-values/\"                             \n[11] \"https://europeangreens.eu/news/european-people-s-party-affiliate-forms-government-with-far-right-in-croatia/\"     \n[12] \"https://europeangreens.eu/news/greens-rallying-in-brussels-choose-courage-vote-green/\"                            \n\n[[6]]\n [1] \"https://europeangreens.eu/news/in-the-climate-protests-and-the-european-elections-the-future-of-the-green-deal-i/\"\n [2] \"https://europeangreens.eu/news/ursula-von-der-leyen-does-not-rule-out-cooperating-with-the-far-right-ecr/\"        \n [3] \"https://europeangreens.eu/news/greens-on-maastricht-debate-this-european-elections-will-be-about-courage-and-fre/\"\n [4] \"https://europeangreens.eu/news/far-right-russian-roulette-european-democracy/\"                                    \n [5] \"https://europeangreens.eu/news/european-people-party-representatives-at-far-right-conference/\"                    \n [6] \"https://europeangreens.eu/news/chinagate-on-top-of-russiagate/\"                                                   \n [7] \"https://europeangreens.eu/news/speed-up-the-russiagate-investigation-before-the-eu-elections/\"                    \n [8] \"https://europeangreens.eu/news/green-leaders-call-for-european-council-to-maintain-environmental-ambition-in-fiv/\"\n [9] \"https://europeangreens.eu/news/von-der-leyen-failing-to-participate-in-debates-would-be-damaging-european-democr/\"\n[10] \"https://europeangreens.eu/news/nicolae-stefanuta-reaches-100-000-signature-and-will-stand-for-european-parliamen/\"\n[11] \"https://europeangreens.eu/news/urgent-investigation-needed-into-russian-money-in-european-politics/\"              \n[12] \"https://europeangreens.eu/news/stop-fossil-fuel-subsidies-now/\""
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#scrape-press-releases",
+    "href": "slides/week-12/12-Space.html#scrape-press-releases",
+    "title": "Web scraping: Dynamic",
+    "section": "Scrape press releases",
+    "text": "Scrape press releases\nNow, we are in the same scenario as before! We just need to loop over the URLs and extract the text.\n\nselenium_list &lt;- list()\n\nfor (i in 1:length(selenium_links)) {\n  \n  selenium_list[[i]]  &lt;- bow(selenium_links[i]) %&gt;% \n          scrape() %&gt;% \n          html_elements(\"#main-content &gt; div &gt; div &gt; div &gt; div\") %&gt;% \n          html_text2() \n}\n\n\n\n\n\n\n\nNote\n\n\nLooping over the URLs can take quite some time depending on how many URLs we have."
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#check-the-first-entry",
+    "href": "slides/week-12/12-Space.html#check-the-first-entry",
+    "title": "Web scraping: Dynamic",
+    "section": "Check the first entry",
+    "text": "Check the first entry\n\nselenium_list[[1]]\n\n[1] \"Green parties from across Europe have called for deeper European integration as an answer to the turbulent global geopolitics of this time. \\n\\nToday is Europe Day, and the leaders of the European Green Party (EGP), the Greens/EFA Group in the European Parliament, the Federation of Young European Greens (FYEG), and Green parties across Europe have signed the joint Green call for a democratic, united and federal Europe, that asks for a renewed European social contract that empowers citizens, strengthens the rule of law, and protects the climate and environment. \\n\\nCiarán Cuffe, co-chair of the European Green Party commented: “The European project has been and remains the greatest antidote to nationalism, fascism and tyranny. From Putin's war in Ukraine, Trump's threats to Canada and Greenland, Netanyahu's plans to occupy Gaza, to the democratic rollbacks in Hungary, Slovakia, Turkey, and Georgia: violence and division have once again risen to the fore. Europe withstood it before and will do so again. Next week, as Poland, Portugal and Romania go to the polls, let's again resist the far right’s attempts to take away our freedom. Europe must boldly stand its ground and move forward - free, green and just.” \\n\\nVula Tsetsi, co-chair of the European Green Party added: “The challenges Europe faces today—from economic insecurity to the climate crisis—require a more united European Union. Citizens are demanding solutions and fairness, and their expectations toward the EU are clear: they want leadership that improves lives, protects freedoms, and secures our shared future. We must seize this moment to deepen European integration as a concrete commitment to deliver on housing, jobs, health, and sustainability and security. Pro-European forces must act with unity and determination to show that Europe is the answer.” \\n\\nIn the statement, Green leaders call for deeper European integration and advocate for a more united, democratic, social and federal Europe, starting with five concrete priorities: a fiscal union, an end to veto politics, a Green Deal-driven industrial strategy, a common approach to security and defence, and a commitment to enlargement. The aim of these reforms is to make Europe stronger and enlarge its scope of action in order to face the current turbulent times. \\n\\n \\n\\nRead the full text of the joint statement here. \\n\\nSign up to receive press releases\\nJoin Us\\nI agree to the Privacy Policy and would like to receive email updates from the European Greens.\\nPress Contact\\nTom Zoete\\ntom.zoete@europeangreens.eu\""
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#again-create-a-dataframetibble",
+    "href": "slides/week-12/12-Space.html#again-create-a-dataframetibble",
+    "title": "Web scraping: Dynamic",
+    "section": "Again: create a dataframe/tibble",
+    "text": "Again: create a dataframe/tibble\n\npress_releases &lt;- tibble(\n  text_raw = unlist(selenium_list) # unlist() to transform the list\n)\n\npress_releases\n\n# A tibble: 306 × 1\n   text_raw                                                                     \n   &lt;chr&gt;                                                                        \n 1 \"Green parties from across Europe have called for deeper European integratio…\n 2 \"The European Green Party strongly condemns the Israeli government plans to …\n 3 \"As the European People’s Party is having its annual congress in Valencia th…\n 4 \"Climate and meteorological institutions have declared Europe the fastest wa…\n 5 \"Italian Prime Minister Giorgia Meloni and other European far-right politici…\n 6 \"const t=\\\"undefined\\\"!=typeof HTMLImageElement&&\\\"loading\\\"in HTMLImageElem…\n 7 \"A high-level delegation of the European Green Party will take part in the S…\n 8 \"The European Green Party condemns the Erdoğan government’s escalating repre…\n 9 \"The arrest of Istanbul Mayor Ekrem İmamoğlu is an appalling escalation in P…\n10 \"The executive committees of Dutch parties GroenLinks and PvdA have announce…\n# ℹ 296 more rows"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#exercise-2",
+    "href": "slides/week-12/12-Space.html#exercise-2",
+    "title": "Web scraping: Dynamic",
+    "section": "Exercise 2",
+    "text": "Exercise 2\n\nCan you transfer this to other party (group) websites?\nFor example, https://pes.eu/news-press-releases/. Here, instead of clicking on to the next page, you need to click on the “Load more” button.\nYou can also choose any website of your choice and try to navigate it from within RStudio.\n\n\n\n\nText-as-Data in R | Spring 2025 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#example-inspect-links",
+    "href": "slides/week-12/12-Space.html#example-inspect-links",
+    "title": "Web scraping: Dynamic",
+    "section": "Example: Inspect links",
+    "text": "Example: Inspect links\n\nhead(links)\n\n[1] \"https://europeangreens.eu/news/global-turbulence-recalls-importance-of-europe/\"                                   \n[2] \"https://europeangreens.eu/news/greens-call-for-urgent-eu-action-to-halt-gaza-escalation/\"                         \n[3] \"https://europeangreens.eu/news/the-climate-crisis-killed-in-valencia-will-the-european-people-s-party-keep-looki/\"\n[4] \"https://europeangreens.eu/news/climate-crisis-reaches-new-heights-in-europe-as-conservatives-roll-back-protectio/\"\n[5] \"https://europeangreens.eu/news/from-toasts-to-tariffs-meloni-and-far-right-affection-for-trump-backfires/\"        \n[6] \"https://europeangreens.eu/news/netanyahu-must-see-justice-not-red-carpets/\"                                       \n\n\nNow, we can scrape these URLs!"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#check-urls-1",
+    "href": "slides/week-12/12-Space.html#check-urls-1",
+    "title": "Web scraping: Dynamic",
+    "section": "Check URLs",
+    "text": "Check URLs\n\n# We need to \"unlist\" this:\nselenium_links &lt;- unlist(selenium_links)\n\n# This leaves us with a vector of lists that we can loop over!\nhead(selenium_links)\n\n[1] \"https://europeangreens.eu/news/global-turbulence-recalls-importance-of-europe/\"                                   \n[2] \"https://europeangreens.eu/news/greens-call-for-urgent-eu-action-to-halt-gaza-escalation/\"                         \n[3] \"https://europeangreens.eu/news/the-climate-crisis-killed-in-valencia-will-the-european-people-s-party-keep-looki/\"\n[4] \"https://europeangreens.eu/news/climate-crisis-reaches-new-heights-in-europe-as-conservatives-roll-back-protectio/\"\n[5] \"https://europeangreens.eu/news/from-toasts-to-tariffs-meloni-and-far-right-affection-for-trump-backfires/\"        \n[6] \"https://europeangreens.eu/news/netanyahu-must-see-justice-not-red-carpets/\""
   }
 ]

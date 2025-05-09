@@ -14,4 +14,490 @@ format:
 editor: visual
 ---
 
-# TBA
+```{r setup, include=FALSE}
+pacman::p_load("tidyverse",
+    "robotstxt",
+    "rvest",
+    "polite",
+    "RSelenium")
+
+load("links.Rda")
+load("list.Rda")
+load("selenium_links.Rda")
+load("selenium_list.Rda")
+load("links_short_selenium.Rda")
+```
+
+## Plan for today
+
+-   **Crawling** static pages
+
+-   **Crawling and scraping dynamic** pages
+
+## Crawling (Static) Pages: Overview
+
+Most of the time, one page does not include all information we are interested in (e.g, it is spread over different pages of a website).
+
+In this case, we can **crawl** over these different pages by using information on one of the website's pages.
+
+We can use *for loops* for crawling.
+
+-   This can take a long time
+-   We should even more think about ethical scraping!
+
+## Example: European Greens
+
+Our goal is to scrape the text of the press releases. Therefore, we first need the URLs of the respective pages!
+
+[![](european_greens.png){width="775"}](https://europeangreens.eu/news/press-releases/)
+
+## Example: Select selector
+
+![](green_selection.png)
+
+## Example: Get links
+
+Now, we can scrape the URLs:
+
+```{r, echo = TRUE, eval=FALSE}
+links <- bow(url = "https://europeangreens.eu/news/press-releases/") %>%
+        scrape() %>%
+        html_elements(css = "#main-content > div > div > div > a") %>% 
+        # html_elements(css = "a.card-update.grey") # gives the same result
+        html_attr("href") %>% 
+        url_absolute("https://europeangreens.eu/news/press-releases/")
+```
+
+::: callout-important
+## Choosing the css selector:
+
+If you copy the selector from the (chrome) website, you should get the following: #main-content \> div \> div \> div:nth-child(1) \> a. This selects only the link for the first press release!
+
+By removing ":nth-child(1)", we get all relevant links.
+:::
+
+## Example: Inspect links
+
+```{r, echo=TRUE}
+head(links)
+```
+
+Now, we can scrape these URLs!
+
+## Example: Get the press releases
+
+First, we create an empty list. We store the press releases later in that list:
+
+```{r, echo = TRUE, eval = FALSE}
+#| code-line-numbers: "1"
+list <- list()
+
+for (i in 1:length(links)) {
+  
+  page <- bow(links[i]) %>% scrape()
+  
+  list[[i]] <- page %>% 
+          html_elements("#main-content > div > div > div > div") %>% 
+          html_text2() 
+}
+```
+
+## Example: Get the press releases
+
+Next, we use a *for loop* to iterate over each element in our list of links:
+
+```{r, echo = TRUE, eval = FALSE}
+#| code-line-numbers: "3,11"
+list <- list()
+
+for (i in 1:length(links)) {
+  
+  page <- bow(links[i]) %>% scrape()
+  
+  list[[i]] <- page %>% 
+          html_elements("#main-content > div > div > div > div") %>% 
+          html_text2() 
+}
+```
+
+## Example: Get the press releases
+
+Then, we *politely* (`bow()`) get the source code for each link (`scrape()`):
+
+```{r, echo = TRUE, eval = FALSE}
+#| code-line-numbers: "5"
+list <- list()
+
+for (i in 1:length(links)) {
+  
+  page <- bow(links[i]) %>% scrape()
+  
+  list[[i]] <- page %>% 
+          html_elements("#main-content > div > div > div > div") %>% 
+          html_text2() 
+}
+```
+
+## Example: Get the press releases
+
+Finally, we scrape the tables from each page with `html_text2()` and store the results in our list using the appropriate css selector:
+
+```{r, echo = TRUE, eval = FALSE}
+#| code-line-numbers: "7,8"
+list <- list()
+
+for (i in 1:length(links)) {
+  
+  page <- bow(links[i]) %>% scrape()
+  
+  list[[i]] <- page %>% 
+          html_elements("#main-content > div > div > div > div") %>% 
+          html_text2() 
+}
+```
+
+## Example: Get the press releases
+
+Check the first list entry:
+
+```{r, echo = TRUE}
+list[[1]]
+```
+
+## Example: Get the press releases
+
+Now, let's create a dataframe:
+
+```{r, echo=TRUE}
+press_releases <- tibble(
+  text_raw = unlist(list) # using unlist() to transform the list
+)
+
+head(press_releases)
+```
+
+## Exercise 1
+
+-   Scrape also the headers and the dates of publication. For this, you just need to adapt the css selector!
+
+-   Add them as additional rows to our "press_releases" dataframe.
+
+-   Can you extract the text, the headers, and the dates in one loop?
+
+# Scraping dynamic pages
+
+## Overview
+
+-   Dynamic pages display custom content.
+
+-   Different visitors see different content on the same page - e.g., depending on their input (clicking, scrolling) - URL stays the same
+
+-   For example, the European Greens have dynamic elements on its website (e.g., clicking "forward" on the press release section to display older press releases).
+
+-   It is more difficult to scrape dynamic than static pages - we need one extra step - for this extra step, we are using the package *RSelenium*
+
+## Dynamic Pages: Steps
+
+Three main steps:
+
+-   Use *RSelenium* to identify and select the desired elements of the page by clicking, searching, selecting from within RStudio
+-   Get the source code
+    -   *RSelenium* downloads in XML format
+    -   we can use *rvest* to transform this into HTML
+-   Extract the relevant information from the source code using the *rvest* package
+    -   this is the same process as for static pages
+
+## Dynamic Pages: RSelenium
+
+The *RSelenium* package integrates the [Selenium 2.0 WebDriver](https://www.selenium.dev/documentation/) into R. The package allows us to interact with
+
+-   browsers on our device (e.g., open a browser and navigating to a page)
+
+-   elements on a page (e.g., opening or clicking on a drop-down menu)
+
+In case you are stuck on a particular problem, you can easily find help for online (e.g., ChatGPT, stackoverflow, google, etc.) or more information in the [vignette](https://cran.r-project.org/web/packages/RSelenium/vignettes/basics.html).
+
+## Starting a Server With Firefox
+
+We use the `rsDriver` function to start a server. This way we can control a browser of our choice from within R.
+
+-   The function `rsDriver` creates the object *driver* and the web browser opens
+
+-   You should avoid controlling this browser manually
+
+-   You should avoid creating multiple servers
+
+-   *Note*: We can start only one server per port
+
+```{r, echo=TRUE, eval=FALSE}
+driver <- RSelenium::rsDriver(port = 0001L, 
+                              browser = "firefox",
+                              ...
+                              )
+```
+
+## Starting a Server With Firefox
+
+![](bild3.png)
+
+## Starting a Server With Firefox
+
+Next, we separate the client and server as different objects:
+
+```{r, echo =TRUE, eval = FALSE}
+browser <- driver$client
+server <- driver$server
+```
+
+::: {.callout-note appearance="simple"}
+`rsDriver()` creates a client and a server
+
+-   our code primarily interacts with the client
+
+-   we can think of the client as the browser itself; it has the class *remoteDriver*
+:::
+
+## Navigate dynamic pages
+
+```{r, echo =TRUE, eval=FALSE}
+browser$navigate(url = "https://europeangreens.eu/news/press-releases/")
+```
+
+::: {.callout-note appearance="simple"}
+*navigate* is a *method* and not a *function*
+
+-   we cannot pipe (%\>%) it into browser but have to use the dollar sign notation
+
+-   it is optional to type the name of the *url* argument
+:::
+
+## Navigate dynamic pages
+
+![](selenium.png)
+
+## Navigate dynamic pages
+
+Go back to previous URL:
+
+```{r, echo =TRUE, eval=FALSE}
+browser$goBack()
+```
+
+Go forward:
+
+```{r, echo =TRUE, eval=FALSE}
+browser$goForward()
+```
+
+Refresh:
+
+```{r, echo =TRUE, eval=FALSE}
+browser$refresh()
+```
+
+## Navigate dynamic pages
+
+Get URL of current page:
+
+```{r, echo =TRUE, eval=FALSE}
+browser$getCurrentUrl()
+```
+
+Get title of current page
+
+```{r, echo =TRUE, eval=FALSE}
+browser$getTitle()
+```
+
+## Dynamic Pages: Close & Open Browser
+
+We can close the browser without closing our session on the server:
+
+```{r, echo =TRUE, eval=FALSE}
+browser$close()
+```
+
+And open a new browser without using the `rsDriver` function again, as the server is still running:
+
+```{r, echo =TRUE, eval=FALSE}
+browser$open()
+```
+
+After closing the browser, we also want to stop the server:
+
+```{r, echo =TRUE, eval=FALSE}
+driver$server$stop()
+```
+
+## Dynamic Pages: Get Page Source
+
+Using the *RSelenium* package, we get the page source code the following way:
+
+```{r, echo =TRUE, eval=FALSE}
+browser$getPageSource()[[1]]
+```
+
+-   *Note:* This method returns a list . The XML source is in the first item of the list. This is why we use \[\[1\]\] to access it.
+
+<!-- -->
+
+-   This is similar to our *bow() %\>% scrape()* process
+
+## Dynamic Pages: Get Page Source
+
+We can extract links combining methods and function from the *RSelenium* and the *rvest* package:
+
+```{r, eval= FALSE, echo = TRUE}
+browser$getPageSource()[[1]] %>% 
+        read_html() %>% 
+        html_elements(css = "#main-content > div > div > div > a") %>% 
+        html_attr("href")
+```
+
+```{r, echo=FALSE}
+links_short_selenium
+```
+
+## Dynamic Pages: Find Elements
+
+We can locate an element on the open browser using CSS selectors
+
+There are also other selectors as
+
+-   xpath
+
+-   id
+
+-   name
+
+-   link text
+
+## Find, Highlight, Click Elements
+
+```{r, echo=TRUE, eval = FALSE}
+## navigate to page
+browser$navigate(url = "https://europeangreens.eu/news/press-releases/")
+
+## find and store element
+selection <- browser$findElement(using = "css selector", value = "#main-content > div > div > ul > li:nth-child(9)")
+
+## highlight element
+selection$highlightElement()
+
+## click element
+selection$clickElement()
+```
+
+Note: The highlighted element will flash for one or two seconds on the open browser.
+
+## Dynamic Pages: Input (Selenium Keys)
+
+```{r, echo=TRUE}
+as_tibble(selKeys) %>% 
+  names()
+```
+
+For example, we can scroll up and down a page from within R:
+
+```{r, echo=TRUE, eval=FALSE}
+body <- browser$findElement(using = "css", value = "body")
+
+body$sendKeysToElement(list(key = "page_down"))
+```
+
+## Back to press releases
+
+-   Now, we know how to navigate the website. The goal is to scrape all press releases that are available.
+
+-   To get all press releases, we have to first crawl over the 26 pages and extract the URLs that lead to the press releases while doing so.
+
+-   After extracting all URLs, we can scrape the text of the press releases.
+
+## Crawl and extract URLs
+
+Again, we will use a loop to crawl over the website:
+
+```{r, echo=TRUE, eval=FALSE}
+browser$navigate(url = "https://europeangreens.eu/news/press-releases/")
+
+selenium_links <- list()
+
+for (i in 1:26) {
+  
+  # get the source code first
+  selenium_links[[i]] <- browser$getPageSource()[[1]] %>% 
+        # use rvest to scrape the elements we are interested in
+        read_html() %>% 
+        html_elements(css = "#main-content > div > div > div > a") %>% 
+        html_attr("href") %>% 
+        url_absolute("https://europeangreens.eu/news/press-releases/")
+  
+  Sys.sleep(0.1) # stop the loop for 0.1s
+  
+   ## got to next page
+   selection <- browser$findElement(using = "css selector", value = "#main-content > div > div > ul > li:nth-child(9)")
+      
+   selection$clickElement()
+}
+```
+
+## Check URLs
+
+```{r, echo=TRUE}
+# We now have links stored in a list of lists
+head(selenium_links)
+```
+
+## Check URLs
+
+```{r, echo=TRUE}
+# We need to "unlist" this:
+selenium_links <- unlist(selenium_links)
+
+# This leaves us with a vector of lists that we can loop over!
+head(selenium_links)
+```
+
+## Scrape press releases
+
+Now, we are in the same scenario as before! We just need to loop over the URLs and extract the text.
+
+```{r, eval=FALSE, echo=TRUE}
+selenium_list <- list()
+
+for (i in 1:length(selenium_links)) {
+  
+  selenium_list[[i]]  <- bow(selenium_links[i]) %>% 
+          scrape() %>% 
+          html_elements("#main-content > div > div > div > div") %>% 
+          html_text2() 
+}
+```
+
+::: callout-note
+Looping over the URLs can take quite some time depending on how many URLs we have.
+:::
+
+## Check the first entry
+
+```{r, echo=TRUE}
+selenium_list[[1]]
+```
+
+## Again: create a dataframe/tibble
+
+```{r, echo=TRUE}
+press_releases <- tibble(
+  text_raw = unlist(selenium_list) # unlist() to transform the list
+)
+
+press_releases
+```
+
+## Exercise 2
+
+-   Can you transfer this to other party (group) websites?
+
+-   For example, <https://pes.eu/news-press-releases/>. Here, instead of clicking on to the next page, you need to click on the "Load more" button.
+
+-   You can also choose any website of your choice and try to navigate it from within RStudio.

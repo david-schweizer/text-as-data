@@ -1,23 +1,23 @@
 ---
-title: "Interactive II: Making pretty (and more interactive) Shiny apps"
+title: "Outlook: Large Language Models and More"
 subtitle: "Week 15"
 description: ""
 author: ""
-date: "May 21, 2024"
-# listing:
-#   - id: slides
-#     contents:
-#       - ../slides/week-13/*.qmd
-#     type: table
-#     fields: [title, subtitle, date]
-#     #date-format: "ddd, MMM DD"
-#     field-display-names:
-#       title: "Topic"
-#       subtitle: "Session"
-#       date: "Date"
-#     sort: [filename]
-#     sort-ui: false
-#     filter-ui: false
+date: "May 20, 2025"
+listing:
+  - id: slides
+    contents:
+      - ../slides/week-13/*.qmd
+    type: table
+    fields: [title, subtitle, date]
+    #date-format: "ddd, MMM DD"
+    field-display-names:
+      title: "Topic"
+      subtitle: "Session"
+      date: "Date"
+    sort: [filename]
+    sort-ui: false
+    filter-ui: false
   # - id: assignments
   #   contents:
   #     - ../hw/w1-*.qmd
@@ -35,28 +35,16 @@ date: "May 21, 2024"
 tbl-colwidths: [10,50,40]
 ---
 
-# Materials
-
-For today's session, there are *no slides.* We will start directly with reviewing the exemplary code: Again, the goal is to visualize the relationship between unemployment rate and the vote share of the main parties at the 2017 German federal elections at the district level. Add on for today: We want to be able to *click* on specific observations in the scatterplot, let the Shiny app display the name of the election district and produce a barplot displaying the vote shares of all parties in this specific election district.
-
-As a next step, we will explore different theming options.
-
-You can download the script [**here**](https://ilias.uni-mannheim.de/goto.php?target=file_1520543_download&client_id=ILIAS).
-
-You can find lots of information on theming [here](https://rstudio.github.io/bslib/) and [here](https://mastering-shiny.org/action-layout.html#shiny-themes). You can find more on interactions with plots [here](https://shiny.posit.co/r/articles/build/plot-interaction/). If you want to dive deeper into the topic, you might want to check out the [ggiraph package](https://davidgohel.github.io/ggiraph/)!
-
-**Your turn:**
-
-1.  Try to add a second *page* replacing unemployment rate with another variable (e.g., GDP per capita).
-
-2.  Try different interactions than a single click.
-
-3.  Can you apply the code to different (your own) data?
-
-**There will be no mandatory assignment. However, I want to encourage you to work on these three tasks (if you could not finish it during the seminar) and I am happy to review your code.**
-
 # To Do's before our session
 
--   Have a look at the [bslib package](https://rstudio.github.io/bslib/) and its functionalities. What would you like to implement for your own project?
+Work on the third assignment. You can find it on ILIAS. The deadline is 20.05.2025 13:00.
 
--   Only two more weeks before the semester ends: Start thinking about what kind of data you would like to scrape! Can you combine it with other data sets?
+
+# Seminar slides
+
+::: {#slides}
+:::
+
+# Materials
+
+TBA.

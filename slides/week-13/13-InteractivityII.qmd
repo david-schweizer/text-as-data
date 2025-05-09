@@ -1,17 +1,16 @@
 ---
-title: "Interactive II: Making pretty Shiny apps"
+title: "Outlook: Large Language Models and More"
 subtitle: "Week 15"
 author: "David Schweizer"
-date: "May 21, 2024"
+date: "May 20, 2024"
 date-format: long
 institute: "University of Mannheim"
-filters: 
-  - shinylive
 format: 
   revealjs:
+    css: ../../styles.css 
     theme: simple
     slide-number: c/t #< collapsed/total
-    footer: "Automated Data Collection | Spring 2024 | University of Mannheim"
+    footer: "Text-as-Data in R | Spring 2025 | University of Mannheim"
 editor: visual
 ---
 

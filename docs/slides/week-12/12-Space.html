@@ -30,6 +30,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="../../styles.css">
@@ -344,15 +409,639 @@ David Schweizer
 
   <p class="date">May 13, 2025</p>
 </section>
-<section id="tba" class="title-slide slide level1 center">
-<h1>TBA</h1>
+<section id="plan-for-today" class="slide level2">
+<h2>Plan for today</h2>
+<ul>
+<li><p><strong>Crawling</strong> static pages</p></li>
+<li><p><strong>Crawling and scraping dynamic</strong> pages</p></li>
+</ul>
+</section>
+<section id="crawling-static-pages-overview" class="slide level2">
+<h2>Crawling (Static) Pages: Overview</h2>
+<p>Most of the time, one page does not include all information we are interested in (e.g, it is spread over different pages of a website).</p>
+<p>In this case, we can <strong>crawl</strong> over these different pages by using information on one of the website’s pages.</p>
+<p>We can use <em>for loops</em> for crawling.</p>
+<ul>
+<li>This can take a long time</li>
+<li>We should even more think about ethical scraping!</li>
+</ul>
+</section>
+<section id="example-european-greens" class="slide level2">
+<h2>Example: European Greens</h2>
+<p>Our goal is to scrape the text of the press releases. Therefore, we first need the URLs of the respective pages!</p>
+<p><a href="https://europeangreens.eu/news/press-releases/"><img data-src="european_greens.png" width="775"></a></p>
+</section>
+<section id="example-select-selector" class="slide level2">
+<h2>Example: Select selector</h2>
+
+<img data-src="green_selection.png" class="r-stretch"></section>
+<section id="example-get-links" class="slide level2">
+<h2>Example: Get links</h2>
+<p>Now, we can scrape the URLs:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>links <span class="ot">&lt;-</span> <span class="fu">bow</span>(<span class="at">url =</span> <span class="st">"https://europeangreens.eu/news/press-releases/"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-2"><a></a>        <span class="fu">scrape</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1-3"><a></a>        <span class="fu">html_elements</span>(<span class="at">css =</span> <span class="st">"#main-content &gt; div &gt; div &gt; div &gt; a"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-4"><a></a>        <span class="co"># html_elements(css = "a.card-update.grey") # gives the same result</span></span>
+<span id="cb1-5"><a></a>        <span class="fu">html_attr</span>(<span class="st">"href"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-6"><a></a>        <span class="fu">url_absolute</span>(<span class="st">"https://europeangreens.eu/news/press-releases/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Choosing the css selector:</strong></p>
+</div>
+<div class="callout-content">
+<p>If you copy the selector from the (chrome) website, you should get the following: #main-content &gt; div &gt; div &gt; div:nth-child(1) &gt; a. This selects only the link for the first press release!</p>
+<p>By removing “:nth-child(1)”, we get all relevant links.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="example-inspect-links" class="slide level2">
+<h2>Example: Inspect links</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">head</span>(links)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "https://europeangreens.eu/news/global-turbulence-recalls-importance-of-europe/"                                   
+[2] "https://europeangreens.eu/news/greens-call-for-urgent-eu-action-to-halt-gaza-escalation/"                         
+[3] "https://europeangreens.eu/news/the-climate-crisis-killed-in-valencia-will-the-european-people-s-party-keep-looki/"
+[4] "https://europeangreens.eu/news/climate-crisis-reaches-new-heights-in-europe-as-conservatives-roll-back-protectio/"
+[5] "https://europeangreens.eu/news/from-toasts-to-tariffs-meloni-and-far-right-affection-for-trump-backfires/"        
+[6] "https://europeangreens.eu/news/netanyahu-must-see-justice-not-red-carpets/"                                       </code></pre>
+</div>
+</div>
+<p>Now, we can scrape these URLs!</p>
+</section>
+<section id="example-get-the-press-releases" class="slide level2">
+<h2>Example: Get the press releases</h2>
+<p>First, we create an empty list. We store the press releases later in that list:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>list <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb4-2"><a></a></span>
+<span id="cb4-3"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(links)) {</span>
+<span id="cb4-4"><a></a>  </span>
+<span id="cb4-5"><a></a>  page <span class="ot">&lt;-</span> <span class="fu">bow</span>(links[i]) <span class="sc">%&gt;%</span> <span class="fu">scrape</span>()</span>
+<span id="cb4-6"><a></a>  </span>
+<span id="cb4-7"><a></a>  list[[i]] <span class="ot">&lt;-</span> page <span class="sc">%&gt;%</span> </span>
+<span id="cb4-8"><a></a>          <span class="fu">html_elements</span>(<span class="st">"#main-content &gt; div &gt; div &gt; div &gt; div"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-9"><a></a>          <span class="fu">html_text2</span>() </span>
+<span id="cb4-10"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="example-get-the-press-releases-1" class="slide level2">
+<h2>Example: Get the press releases</h2>
+<p>Next, we use a <em>for loop</em> to iterate over each element in our list of links:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5" data-code-line-numbers="3,11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>list <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb5-2"><a></a></span>
+<span id="cb5-3"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(links)) {</span>
+<span id="cb5-4"><a></a>  </span>
+<span id="cb5-5"><a></a>  page <span class="ot">&lt;-</span> <span class="fu">bow</span>(links[i]) <span class="sc">%&gt;%</span> <span class="fu">scrape</span>()</span>
+<span id="cb5-6"><a></a>  </span>
+<span id="cb5-7"><a></a>  list[[i]] <span class="ot">&lt;-</span> page <span class="sc">%&gt;%</span> </span>
+<span id="cb5-8"><a></a>          <span class="fu">html_elements</span>(<span class="st">"#main-content &gt; div &gt; div &gt; div &gt; div"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-9"><a></a>          <span class="fu">html_text2</span>() </span>
+<span id="cb5-10"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="example-get-the-press-releases-2" class="slide level2">
+<h2>Example: Get the press releases</h2>
+<p>Then, we <em>politely</em> (<code>bow()</code>) get the source code for each link (<code>scrape()</code>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>list <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb6-2"><a></a></span>
+<span id="cb6-3"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(links)) {</span>
+<span id="cb6-4"><a></a>  </span>
+<span id="cb6-5"><a></a>  page <span class="ot">&lt;-</span> <span class="fu">bow</span>(links[i]) <span class="sc">%&gt;%</span> <span class="fu">scrape</span>()</span>
+<span id="cb6-6"><a></a>  </span>
+<span id="cb6-7"><a></a>  list[[i]] <span class="ot">&lt;-</span> page <span class="sc">%&gt;%</span> </span>
+<span id="cb6-8"><a></a>          <span class="fu">html_elements</span>(<span class="st">"#main-content &gt; div &gt; div &gt; div &gt; div"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-9"><a></a>          <span class="fu">html_text2</span>() </span>
+<span id="cb6-10"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="example-get-the-press-releases-3" class="slide level2">
+<h2>Example: Get the press releases</h2>
+<p>Finally, we scrape the tables from each page with <code>html_text2()</code> and store the results in our list using the appropriate css selector:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7" data-code-line-numbers="7,8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>list <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb7-2"><a></a></span>
+<span id="cb7-3"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(links)) {</span>
+<span id="cb7-4"><a></a>  </span>
+<span id="cb7-5"><a></a>  page <span class="ot">&lt;-</span> <span class="fu">bow</span>(links[i]) <span class="sc">%&gt;%</span> <span class="fu">scrape</span>()</span>
+<span id="cb7-6"><a></a>  </span>
+<span id="cb7-7"><a></a>  list[[i]] <span class="ot">&lt;-</span> page <span class="sc">%&gt;%</span> </span>
+<span id="cb7-8"><a></a>          <span class="fu">html_elements</span>(<span class="st">"#main-content &gt; div &gt; div &gt; div &gt; div"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-9"><a></a>          <span class="fu">html_text2</span>() </span>
+<span id="cb7-10"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="example-get-the-press-releases-4" class="slide level2">
+<h2>Example: Get the press releases</h2>
+<p>Check the first list entry:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>list[[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Green parties from across Europe have called for deeper European integration as an answer to the turbulent global geopolitics of this time. \n\nToday is Europe Day, and the leaders of the European Green Party (EGP), the Greens/EFA Group in the European Parliament, the Federation of Young European Greens (FYEG), and Green parties across Europe have signed the joint Green call for a democratic, united and federal Europe, that asks for a renewed European social contract that empowers citizens, strengthens the rule of law, and protects the climate and environment. \n\nCiarán Cuffe, co-chair of the European Green Party commented: “The European project has been and remains the greatest antidote to nationalism, fascism and tyranny. From Putin's war in Ukraine, Trump's threats to Canada and Greenland, Netanyahu's plans to occupy Gaza, to the democratic rollbacks in Hungary, Slovakia, Turkey, and Georgia: violence and division have once again risen to the fore. Europe withstood it before and will do so again. Next week, as Poland, Portugal and Romania go to the polls, let's again resist the far right’s attempts to take away our freedom. Europe must boldly stand its ground and move forward - free, green and just.” \n\nVula Tsetsi, co-chair of the European Green Party added: “The challenges Europe faces today—from economic insecurity to the climate crisis—require a more united European Union. Citizens are demanding solutions and fairness, and their expectations toward the EU are clear: they want leadership that improves lives, protects freedoms, and secures our shared future. We must seize this moment to deepen European integration as a concrete commitment to deliver on housing, jobs, health, and sustainability and security. Pro-European forces must act with unity and determination to show that Europe is the answer.” \n\nIn the statement, Green leaders call for deeper European integration and advocate for a more united, democratic, social and federal Europe, starting with five concrete priorities: a fiscal union, an end to veto politics, a Green Deal-driven industrial strategy, a common approach to security and defence, and a commitment to enlargement. The aim of these reforms is to make Europe stronger and enlarge its scope of action in order to face the current turbulent times. \n\n \n\nRead the full text of the joint statement here. \n\nSign up to receive press releases\nJoin Us\nI agree to the Privacy Policy and would like to receive email updates from the European Greens.\nPress Contact\nTom Zoete\ntom.zoete@europeangreens.eu"</code></pre>
+</div>
+</div>
+</section>
+<section id="example-get-the-press-releases-5" class="slide level2">
+<h2>Example: Get the press releases</h2>
+<p>Now, let’s create a dataframe:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>press_releases <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb10-2"><a></a>  <span class="at">text_raw =</span> <span class="fu">unlist</span>(list) <span class="co"># using unlist() to transform the list</span></span>
+<span id="cb10-3"><a></a>)</span>
+<span id="cb10-4"><a></a></span>
+<span id="cb10-5"><a></a><span class="fu">head</span>(press_releases)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 1
+  text_raw                                                                      
+  &lt;chr&gt;                                                                         
+1 "Green parties from across Europe have called for deeper European integration…
+2 "The European Green Party strongly condemns the Israeli government plans to e…
+3 "As the European People’s Party is having its annual congress in Valencia thi…
+4 "Climate and meteorological institutions have declared Europe the fastest war…
+5 "Italian Prime Minister Giorgia Meloni and other European far-right politicia…
+6 "const t=\"undefined\"!=typeof HTMLImageElement&amp;&amp;\"loading\"in HTMLImageEleme…</code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-1" class="slide level2">
+<h2>Exercise 1</h2>
+<ul>
+<li><p>Scrape also the headers and the dates of publication. For this, you just need to adapt the css selector!</p></li>
+<li><p>Add them as additional rows to our “press_releases” dataframe.</p></li>
+<li><p>Can you extract the text, the headers, and the dates in one loop?</p></li>
+</ul>
+</section>
+<section>
+<section id="scraping-dynamic-pages" class="title-slide slide level1 center">
+<h1>Scraping dynamic pages</h1>
+
+</section>
+<section id="overview" class="slide level2">
+<h2>Overview</h2>
+<ul>
+<li><p>Dynamic pages display custom content.</p></li>
+<li><p>Different visitors see different content on the same page - e.g., depending on their input (clicking, scrolling) - URL stays the same</p></li>
+<li><p>For example, the European Greens have dynamic elements on its website (e.g., clicking “forward” on the press release section to display older press releases).</p></li>
+<li><p>It is more difficult to scrape dynamic than static pages - we need one extra step - for this extra step, we are using the package <em>RSelenium</em></p></li>
+</ul>
+</section>
+<section id="dynamic-pages-steps" class="slide level2">
+<h2>Dynamic Pages: Steps</h2>
+<p>Three main steps:</p>
+<ul>
+<li>Use <em>RSelenium</em> to identify and select the desired elements of the page by clicking, searching, selecting from within RStudio</li>
+<li>Get the source code
+<ul>
+<li><em>RSelenium</em> downloads in XML format</li>
+<li>we can use <em>rvest</em> to transform this into HTML</li>
+</ul></li>
+<li>Extract the relevant information from the source code using the <em>rvest</em> package
+<ul>
+<li>this is the same process as for static pages</li>
+</ul></li>
+</ul>
+</section>
+<section id="dynamic-pages-rselenium" class="slide level2">
+<h2>Dynamic Pages: RSelenium</h2>
+<p>The <em>RSelenium</em> package integrates the <a href="https://www.selenium.dev/documentation/">Selenium 2.0 WebDriver</a> into R. The package allows us to interact with</p>
+<ul>
+<li><p>browsers on our device (e.g., open a browser and navigating to a page)</p></li>
+<li><p>elements on a page (e.g., opening or clicking on a drop-down menu)</p></li>
+</ul>
+<p>In case you are stuck on a particular problem, you can easily find help for online (e.g., ChatGPT, stackoverflow, google, etc.) or more information in the <a href="https://cran.r-project.org/web/packages/RSelenium/vignettes/basics.html">vignette</a>.</p>
+</section>
+<section id="starting-a-server-with-firefox" class="slide level2">
+<h2>Starting a Server With Firefox</h2>
+<p>We use the <code>rsDriver</code> function to start a server. This way we can control a browser of our choice from within R.</p>
+<ul>
+<li><p>The function <code>rsDriver</code> creates the object <em>driver</em> and the web browser opens</p></li>
+<li><p>You should avoid controlling this browser manually</p></li>
+<li><p>You should avoid creating multiple servers</p></li>
+<li><p><em>Note</em>: We can start only one server per port</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>driver <span class="ot">&lt;-</span> RSelenium<span class="sc">::</span><span class="fu">rsDriver</span>(<span class="at">port =</span> <span class="dv">0001</span>L, </span>
+<span id="cb12-2"><a></a>                              <span class="at">browser =</span> <span class="st">"firefox"</span>,</span>
+<span id="cb12-3"><a></a>                              ...</span>
+<span id="cb12-4"><a></a>                              )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="starting-a-server-with-firefox-1" class="slide level2">
+<h2>Starting a Server With Firefox</h2>
+
+<img data-src="bild3.png" class="r-stretch"></section>
+<section id="starting-a-server-with-firefox-2" class="slide level2">
+<h2>Starting a Server With Firefox</h2>
+<p>Next, we separate the client and server as different objects:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>browser <span class="ot">&lt;-</span> driver<span class="sc">$</span>client</span>
+<span id="cb13-2"><a></a>server <span class="ot">&lt;-</span> driver<span class="sc">$</span>server</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-note callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p><code>rsDriver()</code> creates a client and a server</p>
+<ul>
+<li><p>our code primarily interacts with the client</p></li>
+<li><p>we can think of the client as the browser itself; it has the class <em>remoteDriver</em></p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="navigate-dynamic-pages" class="slide level2">
+<h2>Navigate dynamic pages</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>browser<span class="sc">$</span><span class="fu">navigate</span>(<span class="at">url =</span> <span class="st">"https://europeangreens.eu/news/press-releases/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-note callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p><em>navigate</em> is a <em>method</em> and not a <em>function</em></p>
+<ul>
+<li><p>we cannot pipe (%&gt;%) it into browser but have to use the dollar sign notation</p></li>
+<li><p>it is optional to type the name of the <em>url</em> argument</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="navigate-dynamic-pages-1" class="slide level2">
+<h2>Navigate dynamic pages</h2>
+
+<img data-src="selenium.png" class="r-stretch"></section>
+<section id="navigate-dynamic-pages-2" class="slide level2">
+<h2>Navigate dynamic pages</h2>
+<p>Go back to previous URL:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>browser<span class="sc">$</span><span class="fu">goBack</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Go forward:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>browser<span class="sc">$</span><span class="fu">goForward</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Refresh:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>browser<span class="sc">$</span><span class="fu">refresh</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="navigate-dynamic-pages-3" class="slide level2">
+<h2>Navigate dynamic pages</h2>
+<p>Get URL of current page:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>browser<span class="sc">$</span><span class="fu">getCurrentUrl</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Get title of current page</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>browser<span class="sc">$</span><span class="fu">getTitle</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="dynamic-pages-close-open-browser" class="slide level2">
+<h2>Dynamic Pages: Close &amp; Open Browser</h2>
+<p>We can close the browser without closing our session on the server:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>browser<span class="sc">$</span><span class="fu">close</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And open a new browser without using the <code>rsDriver</code> function again, as the server is still running:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>browser<span class="sc">$</span><span class="fu">open</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>After closing the browser, we also want to stop the server:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>driver<span class="sc">$</span>server<span class="sc">$</span><span class="fu">stop</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="dynamic-pages-get-page-source" class="slide level2">
+<h2>Dynamic Pages: Get Page Source</h2>
+<p>Using the <em>RSelenium</em> package, we get the page source code the following way:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>browser<span class="sc">$</span><span class="fu">getPageSource</span>()[[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><em>Note:</em> This method returns a list . The XML source is in the first item of the list. This is why we use [[1]] to access it.</li>
+</ul>
+<!-- -->
+<ul>
+<li>This is similar to our <em>bow() %&gt;% scrape()</em> process</li>
+</ul>
+</section>
+<section id="dynamic-pages-get-page-source-1" class="slide level2">
+<h2>Dynamic Pages: Get Page Source</h2>
+<p>We can extract links combining methods and function from the <em>RSelenium</em> and the <em>rvest</em> package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>browser<span class="sc">$</span><span class="fu">getPageSource</span>()[[<span class="dv">1</span>]] <span class="sc">%&gt;%</span> </span>
+<span id="cb24-2"><a></a>        <span class="fu">read_html</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb24-3"><a></a>        <span class="fu">html_elements</span>(<span class="at">css =</span> <span class="st">"#main-content &gt; div &gt; div &gt; div &gt; a"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-4"><a></a>        <span class="fu">html_attr</span>(<span class="st">"href"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "/news/global-turbulence-recalls-importance-of-europe/"                                   
+ [2] "/news/greens-call-for-urgent-eu-action-to-halt-gaza-escalation/"                         
+ [3] "/news/the-climate-crisis-killed-in-valencia-will-the-european-people-s-party-keep-looki/"
+ [4] "/news/climate-crisis-reaches-new-heights-in-europe-as-conservatives-roll-back-protectio/"
+ [5] "/news/from-toasts-to-tariffs-meloni-and-far-right-affection-for-trump-backfires/"        
+ [6] "/news/netanyahu-must-see-justice-not-red-carpets/"                                       
+ [7] "/news/european-greens-highlight-progressive-leadership-of-sumar/"                        
+ [8] "/news/turkey-eu-greens-condemn-1000-arrests-of-opposition-members-protesters-and-journa/"
+ [9] "/news/arrest-of-istanbul-mayor-is-a-gross-escalation-of-erdogan-s-authoritarianism/"     
+[10] "/news/proposed-new-party-promises-a-stronger-progressive-front-in-the-netherlands/"      
+[11] "/news/serbia-protests-europe-should-not-remain-silent-on-vucic-s-violence-and-repressio/"
+[12] "/news/europe-needs-investment-in-green-industry-not-the-false-promise-of-deregulation/"  </code></pre>
+</div>
+</div>
+</section>
+<section id="dynamic-pages-find-elements" class="slide level2">
+<h2>Dynamic Pages: Find Elements</h2>
+<p>We can locate an element on the open browser using CSS selectors</p>
+<p>There are also other selectors as</p>
+<ul>
+<li><p>xpath</p></li>
+<li><p>id</p></li>
+<li><p>name</p></li>
+<li><p>link text</p></li>
+</ul>
+</section>
+<section id="find-highlight-click-elements" class="slide level2">
+<h2>Find, Highlight, Click Elements</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="do">## navigate to page</span></span>
+<span id="cb26-2"><a></a>browser<span class="sc">$</span><span class="fu">navigate</span>(<span class="at">url =</span> <span class="st">"https://europeangreens.eu/news/press-releases/"</span>)</span>
+<span id="cb26-3"><a></a></span>
+<span id="cb26-4"><a></a><span class="do">## find and store element</span></span>
+<span id="cb26-5"><a></a>selection <span class="ot">&lt;-</span> browser<span class="sc">$</span><span class="fu">findElement</span>(<span class="at">using =</span> <span class="st">"css selector"</span>, <span class="at">value =</span> <span class="st">"#main-content &gt; div &gt; div &gt; ul &gt; li:nth-child(9)"</span>)</span>
+<span id="cb26-6"><a></a></span>
+<span id="cb26-7"><a></a><span class="do">## highlight element</span></span>
+<span id="cb26-8"><a></a>selection<span class="sc">$</span><span class="fu">highlightElement</span>()</span>
+<span id="cb26-9"><a></a></span>
+<span id="cb26-10"><a></a><span class="do">## click element</span></span>
+<span id="cb26-11"><a></a>selection<span class="sc">$</span><span class="fu">clickElement</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note: The highlighted element will flash for one or two seconds on the open browser.</p>
+</section>
+<section id="dynamic-pages-input-selenium-keys" class="slide level2">
+<h2>Dynamic Pages: Input (Selenium Keys)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">as_tibble</span>(selKeys) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-2"><a></a>  <span class="fu">names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "null"         "cancel"       "help"         "backspace"    "tab"         
+ [6] "clear"        "return"       "enter"        "shift"        "control"     
+[11] "alt"          "pause"        "escape"       "space"        "page_up"     
+[16] "page_down"    "end"          "home"         "left_arrow"   "up_arrow"    
+[21] "right_arrow"  "down_arrow"   "insert"       "delete"       "semicolon"   
+[26] "equals"       "numpad_0"     "numpad_1"     "numpad_2"     "numpad_3"    
+[31] "numpad_4"     "numpad_5"     "numpad_6"     "numpad_7"     "numpad_8"    
+[36] "numpad_9"     "multiply"     "add"          "separator"    "subtract"    
+[41] "decimal"      "divide"       "f1"           "f2"           "f3"          
+[46] "f4"           "f5"           "f6"           "f7"           "f8"          
+[51] "f9"           "f10"          "f11"          "f12"          "command_meta"</code></pre>
+</div>
+</div>
+<p>For example, we can scroll up and down a page from within R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>body <span class="ot">&lt;-</span> browser<span class="sc">$</span><span class="fu">findElement</span>(<span class="at">using =</span> <span class="st">"css"</span>, <span class="at">value =</span> <span class="st">"body"</span>)</span>
+<span id="cb29-2"><a></a></span>
+<span id="cb29-3"><a></a>body<span class="sc">$</span><span class="fu">sendKeysToElement</span>(<span class="fu">list</span>(<span class="at">key =</span> <span class="st">"page_down"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="back-to-press-releases" class="slide level2">
+<h2>Back to press releases</h2>
+<ul>
+<li><p>Now, we know how to navigate the website. The goal is to scrape all press releases that are available.</p></li>
+<li><p>To get all press releases, we have to first crawl over the 26 pages and extract the URLs that lead to the press releases while doing so.</p></li>
+<li><p>After extracting all URLs, we can scrape the text of the press releases.</p></li>
+</ul>
+</section>
+<section id="crawl-and-extract-urls" class="slide level2">
+<h2>Crawl and extract URLs</h2>
+<p>Again, we will use a loop to crawl over the website:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>browser<span class="sc">$</span><span class="fu">navigate</span>(<span class="at">url =</span> <span class="st">"https://europeangreens.eu/news/press-releases/"</span>)</span>
+<span id="cb30-2"><a></a></span>
+<span id="cb30-3"><a></a>selenium_links <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb30-4"><a></a></span>
+<span id="cb30-5"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">26</span>) {</span>
+<span id="cb30-6"><a></a>  </span>
+<span id="cb30-7"><a></a>  <span class="co"># get the source code first</span></span>
+<span id="cb30-8"><a></a>  selenium_links[[i]] <span class="ot">&lt;-</span> browser<span class="sc">$</span><span class="fu">getPageSource</span>()[[<span class="dv">1</span>]] <span class="sc">%&gt;%</span> </span>
+<span id="cb30-9"><a></a>        <span class="co"># use rvest to scrape the elements we are interested in</span></span>
+<span id="cb30-10"><a></a>        <span class="fu">read_html</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb30-11"><a></a>        <span class="fu">html_elements</span>(<span class="at">css =</span> <span class="st">"#main-content &gt; div &gt; div &gt; div &gt; a"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-12"><a></a>        <span class="fu">html_attr</span>(<span class="st">"href"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-13"><a></a>        <span class="fu">url_absolute</span>(<span class="st">"https://europeangreens.eu/news/press-releases/"</span>)</span>
+<span id="cb30-14"><a></a>  </span>
+<span id="cb30-15"><a></a>  <span class="fu">Sys.sleep</span>(<span class="fl">0.1</span>) <span class="co"># stop the loop for 0.1s</span></span>
+<span id="cb30-16"><a></a>  </span>
+<span id="cb30-17"><a></a>   <span class="do">## got to next page</span></span>
+<span id="cb30-18"><a></a>   selection <span class="ot">&lt;-</span> browser<span class="sc">$</span><span class="fu">findElement</span>(<span class="at">using =</span> <span class="st">"css selector"</span>, <span class="at">value =</span> <span class="st">"#main-content &gt; div &gt; div &gt; ul &gt; li:nth-child(9)"</span>)</span>
+<span id="cb30-19"><a></a>      </span>
+<span id="cb30-20"><a></a>   selection<span class="sc">$</span><span class="fu">clickElement</span>()</span>
+<span id="cb30-21"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="check-urls" class="slide level2">
+<h2>Check URLs</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="co"># We now have links stored in a list of lists</span></span>
+<span id="cb31-2"><a></a><span class="fu">head</span>(selenium_links)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+ [1] "https://europeangreens.eu/news/global-turbulence-recalls-importance-of-europe/"                                   
+ [2] "https://europeangreens.eu/news/greens-call-for-urgent-eu-action-to-halt-gaza-escalation/"                         
+ [3] "https://europeangreens.eu/news/the-climate-crisis-killed-in-valencia-will-the-european-people-s-party-keep-looki/"
+ [4] "https://europeangreens.eu/news/climate-crisis-reaches-new-heights-in-europe-as-conservatives-roll-back-protectio/"
+ [5] "https://europeangreens.eu/news/from-toasts-to-tariffs-meloni-and-far-right-affection-for-trump-backfires/"        
+ [6] "https://europeangreens.eu/news/netanyahu-must-see-justice-not-red-carpets/"                                       
+ [7] "https://europeangreens.eu/news/european-greens-highlight-progressive-leadership-of-sumar/"                        
+ [8] "https://europeangreens.eu/news/turkey-eu-greens-condemn-1000-arrests-of-opposition-members-protesters-and-journa/"
+ [9] "https://europeangreens.eu/news/arrest-of-istanbul-mayor-is-a-gross-escalation-of-erdogan-s-authoritarianism/"     
+[10] "https://europeangreens.eu/news/proposed-new-party-promises-a-stronger-progressive-front-in-the-netherlands/"      
+[11] "https://europeangreens.eu/news/serbia-protests-europe-should-not-remain-silent-on-vucic-s-violence-and-repressio/"
+[12] "https://europeangreens.eu/news/europe-needs-investment-in-green-industry-not-the-false-promise-of-deregulation/"  
+
+[[2]]
+ [1] "https://europeangreens.eu/news/european-people-s-party-s-attacks-on-civil-society-and-independent-journalism-are/"
+ [2] "https://europeangreens.eu/news/eu-greens-congratulate-bundnis-90-die-grunen-and-warn-against-the-far-right/"      
+ [3] "https://europeangreens.eu/news/israeli-government-attempts-to-put-an-80-tax-on-donations-to-ngos/"                
+ [4] "https://europeangreens.eu/news/eu-greens-welcome-ukraine-emergency-summit/"                                       
+ [5] "https://europeangreens.eu/news/trump-and-meloni-give-free-rein-to-war-criminals/"                                 
+ [6] "https://europeangreens.eu/news/greens-urge-european-support-for-serbian-citizens-fight-for-justice/"              
+ [7] "https://europeangreens.eu/news/german-conservatives-breaking-the-firewall-against-the-far-right/"                 
+ [8] "https://europeangreens.eu/news/greens-call-for-independent-european-investigation-into-greek-rail-disaster/"      
+ [9] "https://europeangreens.eu/news/europe-must-stand-strong-as-trump-undermines-climate-and-peace/"                   
+[10] "https://europeangreens.eu/news/european-greens-cautiously-optimistic-ceasefire-agreement-will-lead-to-lasting-pe/"
+[11] "https://europeangreens.eu/news/2024-hottest-year-time-to-stop-the-greenbashing/"                                  
+[12] "https://europeangreens.eu/news/trump-threatening-greenland-is-madness/"                                           
+
+[[3]]
+ [1] "https://europeangreens.eu/news/vula-tsetsi-and-ciaran-cuffe-elected-as-the-new-co-chairs-of-european-green-party/"
+ [2] "https://europeangreens.eu/news/there-is-a-way-out-of-france-s-political-mess/"                                    
+ [3] "https://europeangreens.eu/news/european-greens-support-the-georgian-people/"                                      
+ [4] "https://europeangreens.eu/news/europe-must-strengthen-climate-action-and-democracy-to-counter-far-right-autocrat/"
+ [5] "https://europeangreens.eu/news/us-elections-european-greens-call-for-jill-stein-to-step-down/"                    
+ [6] "https://europeangreens.eu/news/georgian-regime-is-intimidating-civil-society/"                                    
+ [7] "https://europeangreens.eu/news/georgia-s-election-of-a-lifetime/"                                                 
+ [8] "https://europeangreens.eu/news/moldovans-say-yes-to-the-road-to-eu-membership/"                                   
+ [9] "https://europeangreens.eu/news/amid-russian-interference-moldova-referendum-paves-the-way-towards-the-eu/"        
+[10] "https://europeangreens.eu/news/european-greens-stand-in-solidarity-with-people-in-serbia-opposing-the-rio-tinto/" 
+[11] "https://europeangreens.eu/news/devastating-floods-and-wildfires-underline-the-importance-of-friday-s-call-for-cl/"
+[12] "https://europeangreens.eu/news/uk-elections-historic-victory-for-the-green-party/"                                
+
+[[4]]
+ [1] "https://europeangreens.eu/news/declaration-conjointe-des-verts-europeens-du-parti-socialiste-europeen-du-parti-d/"
+ [2] "https://europeangreens.eu/news/joint-declaration-by-the-european-greens-the-party-of-european-socialists-the-eur/"
+ [3] "https://europeangreens.eu/news/united-green-family-ready-for-the-next-challenges-across-europe/"                  
+ [4] "https://europeangreens.eu/news/european-green-party-congratulates-the-courageous-green-ministers-who-secured-the/"
+ [5] "https://europeangreens.eu/news/french-democracy-in-danger-as-les-republicains-epp-ally-with-le-pen-s-far-right-p/"
+ [6] "https://europeangreens.eu/news/european-greens-congratulate-nicolae-stefanuta-and-warn-against-electoral-irregul/"
+ [7] "https://europeangreens.eu/news/european-elections-show-democratic-majority-must-stand-united-against-far-right-m/"
+ [8] "https://europeangreens.eu/news/the-european-greens-support-budapest-mayor-gergely-karacsony/"                     
+ [9] "https://europeangreens.eu/news/choose-courage-and-vote-green/"                                                    
+[10] "https://europeangreens.eu/news/european-elections-reaction-to-the-dutch-exit-poll/"                               
+[11] "https://europeangreens.eu/news/world-environment-day-european-greens-urge-eu-council-s-approval-of-the-nature-re/"
+[12] "https://europeangreens.eu/news/brussels-event-to-be-attended-by-far-right-activists-disguised-as-farmers/"        
+
+[[5]]
+ [1] "https://europeangreens.eu/news/centre-right-is-aligning-itself-with-dangerous-partners-on-the-right/"             
+ [2] "https://europeangreens.eu/news/devastating-floods-in-germany-and-italy-more-protection-and-climate-action-needed/"
+ [3] "https://europeangreens.eu/news/in-the-climate-protests-and-the-european-elections-the-future-of-the-green-deal-i/"
+ [4] "https://europeangreens.eu/news/voters-deserve-clarity-on-alleged-links-between-far-right-meps-and-russia/"        
+ [5] "https://europeangreens.eu/news/orban-s-secret-service-attempts-to-intimidate-the-pro-european-democratic-mayor-o/"
+ [6] "https://europeangreens.eu/news/greens-alone-in-taking-threat-of-the-far-right-seriously/"                         
+ [7] "https://europeangreens.eu/news/a-battle-against-the-far-right-and-for-the-green-deal/"                            
+ [8] "https://europeangreens.eu/news/giorgia-meloni-collaborate-le-pen-milei-trump/"                                    
+ [9] "https://europeangreens.eu/news/liberals-member-vvd-dutch-far-right-government/"                                   
+[10] "https://europeangreens.eu/news/a-shocking-betrayal-of-liberal-and-democratic-values/"                             
+[11] "https://europeangreens.eu/news/european-people-s-party-affiliate-forms-government-with-far-right-in-croatia/"     
+[12] "https://europeangreens.eu/news/greens-rallying-in-brussels-choose-courage-vote-green/"                            
+
+[[6]]
+ [1] "https://europeangreens.eu/news/in-the-climate-protests-and-the-european-elections-the-future-of-the-green-deal-i/"
+ [2] "https://europeangreens.eu/news/ursula-von-der-leyen-does-not-rule-out-cooperating-with-the-far-right-ecr/"        
+ [3] "https://europeangreens.eu/news/greens-on-maastricht-debate-this-european-elections-will-be-about-courage-and-fre/"
+ [4] "https://europeangreens.eu/news/far-right-russian-roulette-european-democracy/"                                    
+ [5] "https://europeangreens.eu/news/european-people-party-representatives-at-far-right-conference/"                    
+ [6] "https://europeangreens.eu/news/chinagate-on-top-of-russiagate/"                                                   
+ [7] "https://europeangreens.eu/news/speed-up-the-russiagate-investigation-before-the-eu-elections/"                    
+ [8] "https://europeangreens.eu/news/green-leaders-call-for-european-council-to-maintain-environmental-ambition-in-fiv/"
+ [9] "https://europeangreens.eu/news/von-der-leyen-failing-to-participate-in-debates-would-be-damaging-european-democr/"
+[10] "https://europeangreens.eu/news/nicolae-stefanuta-reaches-100-000-signature-and-will-stand-for-european-parliamen/"
+[11] "https://europeangreens.eu/news/urgent-investigation-needed-into-russian-money-in-european-politics/"              
+[12] "https://europeangreens.eu/news/stop-fossil-fuel-subsidies-now/"                                                   </code></pre>
+</div>
+</div>
+</section>
+<section id="check-urls-1" class="slide level2">
+<h2>Check URLs</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="co"># We need to "unlist" this:</span></span>
+<span id="cb33-2"><a></a>selenium_links <span class="ot">&lt;-</span> <span class="fu">unlist</span>(selenium_links)</span>
+<span id="cb33-3"><a></a></span>
+<span id="cb33-4"><a></a><span class="co"># This leaves us with a vector of lists that we can loop over!</span></span>
+<span id="cb33-5"><a></a><span class="fu">head</span>(selenium_links)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "https://europeangreens.eu/news/global-turbulence-recalls-importance-of-europe/"                                   
+[2] "https://europeangreens.eu/news/greens-call-for-urgent-eu-action-to-halt-gaza-escalation/"                         
+[3] "https://europeangreens.eu/news/the-climate-crisis-killed-in-valencia-will-the-european-people-s-party-keep-looki/"
+[4] "https://europeangreens.eu/news/climate-crisis-reaches-new-heights-in-europe-as-conservatives-roll-back-protectio/"
+[5] "https://europeangreens.eu/news/from-toasts-to-tariffs-meloni-and-far-right-affection-for-trump-backfires/"        
+[6] "https://europeangreens.eu/news/netanyahu-must-see-justice-not-red-carpets/"                                       </code></pre>
+</div>
+</div>
+</section>
+<section id="scrape-press-releases" class="slide level2">
+<h2>Scrape press releases</h2>
+<p>Now, we are in the same scenario as before! We just need to loop over the URLs and extract the text.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>selenium_list <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb35-2"><a></a></span>
+<span id="cb35-3"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(selenium_links)) {</span>
+<span id="cb35-4"><a></a>  </span>
+<span id="cb35-5"><a></a>  selenium_list[[i]]  <span class="ot">&lt;-</span> <span class="fu">bow</span>(selenium_links[i]) <span class="sc">%&gt;%</span> </span>
+<span id="cb35-6"><a></a>          <span class="fu">scrape</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb35-7"><a></a>          <span class="fu">html_elements</span>(<span class="st">"#main-content &gt; div &gt; div &gt; div &gt; div"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb35-8"><a></a>          <span class="fu">html_text2</span>() </span>
+<span id="cb35-9"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>Looping over the URLs can take quite some time depending on how many URLs we have.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="check-the-first-entry" class="slide level2">
+<h2>Check the first entry</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>selenium_list[[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Green parties from across Europe have called for deeper European integration as an answer to the turbulent global geopolitics of this time. \n\nToday is Europe Day, and the leaders of the European Green Party (EGP), the Greens/EFA Group in the European Parliament, the Federation of Young European Greens (FYEG), and Green parties across Europe have signed the joint Green call for a democratic, united and federal Europe, that asks for a renewed European social contract that empowers citizens, strengthens the rule of law, and protects the climate and environment. \n\nCiarán Cuffe, co-chair of the European Green Party commented: “The European project has been and remains the greatest antidote to nationalism, fascism and tyranny. From Putin's war in Ukraine, Trump's threats to Canada and Greenland, Netanyahu's plans to occupy Gaza, to the democratic rollbacks in Hungary, Slovakia, Turkey, and Georgia: violence and division have once again risen to the fore. Europe withstood it before and will do so again. Next week, as Poland, Portugal and Romania go to the polls, let's again resist the far right’s attempts to take away our freedom. Europe must boldly stand its ground and move forward - free, green and just.” \n\nVula Tsetsi, co-chair of the European Green Party added: “The challenges Europe faces today—from economic insecurity to the climate crisis—require a more united European Union. Citizens are demanding solutions and fairness, and their expectations toward the EU are clear: they want leadership that improves lives, protects freedoms, and secures our shared future. We must seize this moment to deepen European integration as a concrete commitment to deliver on housing, jobs, health, and sustainability and security. Pro-European forces must act with unity and determination to show that Europe is the answer.” \n\nIn the statement, Green leaders call for deeper European integration and advocate for a more united, democratic, social and federal Europe, starting with five concrete priorities: a fiscal union, an end to veto politics, a Green Deal-driven industrial strategy, a common approach to security and defence, and a commitment to enlargement. The aim of these reforms is to make Europe stronger and enlarge its scope of action in order to face the current turbulent times. \n\n \n\nRead the full text of the joint statement here. \n\nSign up to receive press releases\nJoin Us\nI agree to the Privacy Policy and would like to receive email updates from the European Greens.\nPress Contact\nTom Zoete\ntom.zoete@europeangreens.eu"</code></pre>
+</div>
+</div>
+</section>
+<section id="again-create-a-dataframetibble" class="slide level2">
+<h2>Again: create a dataframe/tibble</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a>press_releases <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb38-2"><a></a>  <span class="at">text_raw =</span> <span class="fu">unlist</span>(selenium_list) <span class="co"># unlist() to transform the list</span></span>
+<span id="cb38-3"><a></a>)</span>
+<span id="cb38-4"><a></a></span>
+<span id="cb38-5"><a></a>press_releases</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 306 × 1
+   text_raw                                                                     
+   &lt;chr&gt;                                                                        
+ 1 "Green parties from across Europe have called for deeper European integratio…
+ 2 "The European Green Party strongly condemns the Israeli government plans to …
+ 3 "As the European People’s Party is having its annual congress in Valencia th…
+ 4 "Climate and meteorological institutions have declared Europe the fastest wa…
+ 5 "Italian Prime Minister Giorgia Meloni and other European far-right politici…
+ 6 "const t=\"undefined\"!=typeof HTMLImageElement&amp;&amp;\"loading\"in HTMLImageElem…
+ 7 "A high-level delegation of the European Green Party will take part in the S…
+ 8 "The European Green Party condemns the Erdoğan government’s escalating repre…
+ 9 "The arrest of Istanbul Mayor Ekrem İmamoğlu is an appalling escalation in P…
+10 "The executive committees of Dutch parties GroenLinks and PvdA have announce…
+# ℹ 296 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-2" class="slide level2">
+<h2>Exercise 2</h2>
+<ul>
+<li><p>Can you transfer this to other party (group) websites?</p></li>
+<li><p>For example, <a href="https://pes.eu/news-press-releases/" class="uri">https://pes.eu/news-press-releases/</a>. Here, instead of clicking on to the next page, you need to click on the “Load more” button.</p></li>
+<li><p>You can also choose any website of your choice and try to navigate it from within RStudio.</p></li>
+</ul>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p>Text-as-Data in R | Spring 2025 | University of Mannheim</p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -563,6 +1252,82 @@ David Schweizer
         ]
       });
     </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
