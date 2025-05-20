@@ -30,6 +30,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="../../styles.css">
@@ -344,8 +409,217 @@ David Schweizer
 
   <p class="date">May 20, 2024</p>
 </section>
-<section id="tba" class="slide level2">
-<h2>TBA</h2>
+<section id="today" class="slide level2">
+<h2>Today</h2>
+<ul>
+<li><p>Intuition behind Large Language Models (LLMs)</p></li>
+<li><p>How to use LLMs programmatically</p></li>
+<li><p>Seminar Evaluation 🗨️ So far: 7 / 18.</p></li>
+</ul>
+</section>
+<section id="llms" class="slide level2">
+<h2>LLMs</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<p>In simple terms …</p>
+<ul>
+<li><p>advanced neural network models designed for understanding, generating, and interacting with human language</p></li>
+<li><p>trained on large amounts of text data</p></li>
+<li><p>can recognize the nuances, contexts, and structures of language</p></li>
+<li><p>optimized to perform various tasks: answering questions, summarizing texts, translating languages, generating new text, …</p></li>
+</ul>
+</div><div class="column" style="width:30%;">
+<p><img data-src="LLM_logos.png"></p>
+</div>
+</div>
+</section>
+<section id="some-applications-in-political-science" class="slide level2">
+<h2>Some applications in political science:</h2>
+<ul>
+<li><p><a href="https://www.cambridge.org/core/journals/political-science-research-and-methods/article/how-to-train-your-stochastic-parrot-large-language-models-for-political-texts/8EAA8096779B5C9DDBDF1BFC71C63AEC">How to train your stochastic parrot: large language models for political texts</a></p></li>
+<li><p><a href="https://www.cambridge.org/core/journals/political-analysis/article/mapping-aideology-a-taxonomy-of-european-parties-using-generative-llms-as-zeroshot-learners/2C60C992B63A309B51F3DB3287E21D84">Mapping (A)Ideology: A Taxonomy of European Parties Using Generative LLMs as Zero-Shot Learners</a></p></li>
+<li><p><a href="https://link.springer.com/article/10.1007/s42001-024-00345-9">Open-source LLMs for text annotation: a practical guide for model setting and fine-tuning</a></p></li>
+<li><p><a href="https://www.pnas.org/doi/abs/10.1073/pnas.2305016120">ChatGPT outperforms crowd workers for text-annotation tasks</a></p></li>
+</ul>
+</section>
+<section id="llm-pre-training" class="slide level2">
+<h2>LLM pre-training</h2>
+<ul>
+<li>Training in machine learning: We use labeled data (input-ouput pairs) to optimize a prediction model.</li>
+</ul>
+
+<img data-src="lm.png" class="r-stretch"></section>
+<section id="llm-pre-training-1" class="slide level2">
+<h2>LLM pre-training</h2>
+<ul>
+<li><p>Motivation: Mimic humans’ text generation behavior by training a model for causal language modeling on large text corpora.</p></li>
+<li><p>The model learns:</p>
+<ul>
+<li><p>how words co-occur</p></li>
+<li><p>how sentences, documents, etc. are composed,</p></li>
+<li><p>and what words mean in context.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="llms-to-chat-assistants" class="slide level2">
+<h2>LLMs to chat assistants</h2>
+<ul>
+<li><p>pre-trained LLMs like GPT 4 can generate text that resembles human-generated text</p></li>
+<li><p>but prompted with some text input, they just complete it with a probable sequence of words ⇒ often gives undesirable completions</p></li>
+<li><p>to align LLMsʼ outputs with userʼs intent, they need to be able to comprehend and follow instructions</p></li>
+<li><p>conversational LLMs like ChatGPT are so versatile and popular because of their instruction-following capabilities</p></li>
+</ul>
+</section>
+<section id="llms-to-chat-assistants-1" class="slide level2">
+<h2>LLMs to chat assistants</h2>
+<p>There are variety of NLP tasks</p>
+<ul>
+<li><p>sentiment analysis</p></li>
+<li><p>question answering</p></li>
+<li><p>(extractive) summarization</p></li>
+<li><p>entity recognition</p></li>
+</ul>
+<p>These tasks can be converted into text-to-text problems ⇒ allows focusing on developing general-purpose instruction following models. Makes NLP more accessible and flexible.</p>
+</section>
+<section id="chatgpt---building-blocks" class="slide level2">
+<h2>ChatGPT - Building blocks</h2>
+<ol type="1">
+<li>A GPT model: The Underlying language model model (generative-pre-trained LLM)</li>
+<li>Instruction/conversational datasets for supervised fine-tuning</li>
+<li>Reinforcement learning with human feedback</li>
+</ol>
+<p><a href="https://www.youtube.com/watch?v=VPRSBzXzavohttps://www.youtube.com/watch?v=VPRSBzXzavo"><img data-src="gpt.png" width="781"></a></p>
+<p><a href="https://www.youtube.com/watch?v=VPRSBzXzavo">https://www.youtube.com/watch?v=VPRSBzXzavohttps://www.youtube.com/watch?v=VPRSBzXzavo</a></p>
+</section>
+<section id="gpt-model" class="slide level2">
+<h2>1. GPT model</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Training data:</p>
+<ul>
+<li>a diverse collection of internet text, including books, websites, blogs, online fora</li>
+</ul>
+<p>Text preprocessing</p>
+<ul>
+<li><p>raw content cleaned to remove any non-textual information</p></li>
+<li><p>cleaned texts converted into standardized input format</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p>Tokenization</p>
+<ul>
+<li>text are broken down into smaller tokens representing words, parts of words, or punctuation</li>
+</ul>
+<p>Model Architecture</p>
+<ul>
+<li><p>an autoregressive decoder-only Transformer to handle long-range dependencies in text</p></li>
+<li><p>optimized for generating text/text completion (see <a href="https://arxiv.org/abs/2005.14165">Brown et al.&nbsp;(2020)</a>)</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="supervised-fine-tuning" class="slide level2">
+<h2>2. Supervised fine-tuning</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>take the pre-trained GPT model</p></li>
+<li><p>take datasets recording prompts and correct completions</p></li>
+<li><p>input prompt, predict response</p></li>
+<li><p>compare to “correct” completions to optimize the modelʼs responses (fine-tuning)</p></li>
+<li><p><strong>Intuition</strong>:model learns to imitate an “ideal” chat botʼs response behavior (conditional on prompts and conversation histories)</p></li>
+<li><p>see <a href="https://arxiv.org/pdf/2203.02155">Ouyang et al.&nbsp;(2022)</a></p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="step1.png"></p>
+</div>
+</div>
+</section>
+<section id="reinforcement-learning" class="slide level2">
+<h2>3. Reinforcement learning</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Intuition</strong></p>
+<ul>
+<li><p>treat the model as an agent (not as a passive observer)</p></li>
+<li><p>fine-tune the model to generate human-preferred responses</p></li>
+</ul>
+<p><strong>Advantages</strong></p>
+<ul>
+<li>this shifts the focus from mimicking the pre-training data to producing desirable/favorable completions</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="step2_3.png"></p>
+</div>
+</div>
+</section>
+<section id="reinforcement-learning-1" class="slide level2">
+<h2>3. Reinforcement learning</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Intuition: the fine-tuned model is used as</p>
+<ul>
+<li><p><strong>reward model:</strong> Learns to predicts reward associated with a generated completion based on human feedback</p></li>
+<li><p><strong>policy model:</strong> Selects optimal completions given prior conservation history and predicted reward</p></li>
+</ul>
+<p>More on this <a href="https://www.youtube.com/live/2MBJOuVq380?t=493s">here</a>.</p>
+</div><div class="column" style="width:50%;">
+<p><a href="https://community.openai.com/t/incorrect-use-of-ui-ux-when-choosing-which-response-do-you-prefer/596139"><img data-src="openai.png"></a></p>
+</div>
+</div>
+</section>
+<section id="closed-vs-open-weights-llms" class="slide level2">
+<h2>Closed vs open-weights LLMs</h2>
+<p>Closed LLMs: Great performance, but:</p>
+<ul>
+<li><p>no free use of models’ weights/parameters</p></li>
+<li><p>no access to code or training data</p></li>
+</ul>
+<p>— Problematic for transparency, replicability, and regulation.</p>
+<p>Open LLMs: Oftentimes similar performance, and:</p>
+<ul>
+<li><p>great for transparency, replicability, and data privacy</p></li>
+<li><p>can be run locally! (when <a href="https://huggingface.co/blog/4bit-transformers-bitsandbytes">“quantized”</a>)</p></li>
+</ul>
+</section>
+<section id="using-open-llms-with-ollama" class="slide level2">
+<h2>Using open LLMs with Ollama</h2>
+<p><a href="https://jbgruber.github.io/rollama/index.html"><img data-src="rollama.png"></a></p>
+</section>
+<section id="rollama" class="slide level2">
+<h2>rollama</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># you need to download Ollama! https://ollama.com/</span></span>
+<span id="cb1-2"><a></a><span class="co"># check vignette: https://jbgruber.github.io/rollama/index.html</span></span>
+<span id="cb1-3"><a></a></span>
+<span id="cb1-4"><a></a><span class="co"># install.packages("remotes")</span></span>
+<span id="cb1-5"><a></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"JBGruber/rollama"</span>)</span>
+<span id="cb1-6"><a></a></span>
+<span id="cb1-7"><a></a><span class="co"># check whether we can access Ollama</span></span>
+<span id="cb1-8"><a></a>rollama<span class="sc">::</span><span class="fu">ping_ollama</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="rollama-1" class="slide level2">
+<h2>rollama</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># We can choose models from https://ollama.com/library</span></span>
+<span id="cb2-2"><a></a><span class="fu">pull_model</span>(<span class="st">"llama3.2:1b"</span>) <span class="co"># size = 1.3GB</span></span>
+<span id="cb2-3"><a></a></span>
+<span id="cb2-4"><a></a><span class="co"># set this as a global option</span></span>
+<span id="cb2-5"><a></a>MODEL <span class="ot">=</span> <span class="st">'llama3.2:1b'</span></span>
+<span id="cb2-6"><a></a><span class="fu">options</span>(<span class="at">rollama_model =</span> MODEL)</span>
+<span id="cb2-7"><a></a></span>
+<span id="cb2-8"><a></a><span class="co"># e.g., ask a single question:</span></span>
+<span id="cb2-9"><a></a><span class="fu">query</span>(<span class="st">"Why is the sky blue? Answer with one sentence."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<img data-src="rollama_answer.png" class="r-stretch"></section>
+<section id="using-ellmer-to-chat-with-llms" class="title-slide slide level1 center">
+<h1>Using ellmer to chat with LLMs</h1>
+<p>Initial code on ILIAS.</p>
+</section>
+
+<section id="seminar-evaluation" class="title-slide slide level1 center">
+<h1>Seminar Evaluation</h1>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
@@ -563,6 +837,82 @@ David Schweizer
         ]
       });
     </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

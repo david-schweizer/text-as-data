@@ -14,4 +14,236 @@ format:
 editor: visual
 ---
 
-## TBA
+## Today
+
+-   Intuition behind Large Language Models (LLMs)
+
+-   How to use LLMs programmatically
+
+-   Seminar Evaluation 🗨️ So far: 7 / 18.
+
+## LLMs
+
+::: columns
+::: {.column width="70%"}
+In simple terms …
+
+-   advanced neural network models designed for understanding, generating, and interacting with human language
+
+-   trained on large amounts of text data
+
+-   can recognize the nuances, contexts, and
+    structures of language
+
+-   optimized to perform various tasks: answering questions, summarizing texts, translating languages, generating new text, ...
+:::
+
+::: {.column width="30%"}
+![](LLM_logos.png)
+:::
+:::
+
+## Some applications in political science:
+
+-   [How to train your stochastic parrot: large language models for political texts](https://www.cambridge.org/core/journals/political-science-research-and-methods/article/how-to-train-your-stochastic-parrot-large-language-models-for-political-texts/8EAA8096779B5C9DDBDF1BFC71C63AEC)
+
+-   [Mapping (A)Ideology: A Taxonomy of European Parties Using Generative LLMs as Zero-Shot Learners](https://www.cambridge.org/core/journals/political-analysis/article/mapping-aideology-a-taxonomy-of-european-parties-using-generative-llms-as-zeroshot-learners/2C60C992B63A309B51F3DB3287E21D84)
+
+-   [Open-source LLMs for text annotation: a practical guide for model setting and fine-tuning](https://link.springer.com/article/10.1007/s42001-024-00345-9)
+
+-   [ChatGPT outperforms crowd workers for text-annotation tasks](https://www.pnas.org/doi/abs/10.1073/pnas.2305016120)
+
+## LLM pre-training
+
+-   Training in machine learning: We use labeled data (input-ouput pairs) to optimize a prediction model.
+
+![](lm.png)
+
+## LLM pre-training
+
+-   Motivation: Mimic humans' text generation behavior by training a model for causal language modeling on large text corpora.
+
+-   The model learns:
+
+    -   how words co-occur
+
+    -   how sentences, documents, etc. are composed,
+
+    -   and what words mean in context.
+
+## LLMs to chat assistants
+
+-   pre-trained LLMs like GPT 4 can generate text that resembles human-generated text
+
+-   but prompted with some text input, they just complete it with a probable sequence of words ⇒ often gives undesirable completions
+
+-   to align LLMsʼ outputs with userʼs intent, they need to be able to comprehend and follow instructions
+
+-   conversational LLMs like ChatGPT are so versatile and popular because of their instruction-following capabilities
+
+## LLMs to chat assistants
+
+There are variety of NLP tasks
+
+-   sentiment analysis
+
+-   question answering
+
+-   (extractive) summarization
+
+-   entity recognition
+
+These tasks can be converted into text-to-text problems ⇒ allows focusing on developing general-purpose instruction following models. Makes NLP more accessible and flexible.
+
+## ChatGPT - Building blocks
+
+1.  A GPT model: The Underlying language model model (generative-pre-trained LLM)
+2.  Instruction/conversational datasets for supervised fine-tuning
+3.  Reinforcement learning with human feedback
+
+[![](gpt.png){width="781"}](https://www.youtube.com/watch?v=VPRSBzXzavohttps://www.youtube.com/watch?v=VPRSBzXzavo)
+
+[https://www.youtube.com/watch?v=VPRSBzXzavohttps://www.youtube.com/watch?v=VPRSBzXzavo](https://www.youtube.com/watch?v=VPRSBzXzavo)
+
+## 1. GPT model
+
+::: columns
+::: {.column width="50%"}
+Training data:
+
+-   a diverse collection of internet text, including books, websites, blogs, online fora
+
+Text preprocessing
+
+-   raw content cleaned to remove any non-textual information
+
+-   cleaned texts converted into standardized input format
+:::
+
+::: {.column width="50%"}
+Tokenization
+
+-   text are broken down into smaller tokens representing words, parts of words, or punctuation
+
+Model Architecture
+
+-   an autoregressive decoder-only Transformer to handle long-range dependencies in text
+
+-   optimized for generating text/text completion (see [Brown et al. (2020)](https://arxiv.org/abs/2005.14165))
+:::
+:::
+
+## 2. Supervised fine-tuning
+
+::: columns
+::: {.column width="50%"}
+-    take the pre-trained GPT model
+
+-   take datasets recording prompts and correct completions
+
+-   input prompt, predict response
+
+-   compare to “correct” completions to optimize the modelʼs responses (fine-tuning)
+
+-   **Intuition**:model learns to imitate an “ideal” chat botʼs response behavior (conditional on prompts and conversation histories)
+
+-   see [Ouyang et al. (2022)](https://arxiv.org/pdf/2203.02155)
+:::
+
+::: {.column width="50%"}
+![](step1.png)
+:::
+:::
+
+## 3. Reinforcement learning
+
+::: columns
+::: {.column width="50%"}
+**Intuition**
+
+-   treat the model as an agent (not as a passive observer)
+
+-   fine-tune the model to generate human-preferred responses
+
+**Advantages**
+
+-   this shifts the focus from mimicking the pre-training data to producing desirable/favorable completions
+:::
+
+::: {.column width="50%"}
+![](step2_3.png)
+:::
+:::
+
+## 3. Reinforcement learning
+
+::: columns
+::: {.column width="50%"}
+Intuition: the fine-tuned model is used as
+
+-   **reward model:** Learns to predicts reward associated with a generated completion based on human feedback
+
+-   **policy model:** Selects optimal completions given prior conservation history and predicted reward
+
+More on this [here](https://www.youtube.com/live/2MBJOuVq380?t=493s).
+:::
+
+::: {.column width="50%"}
+[![](openai.png)](https://community.openai.com/t/incorrect-use-of-ui-ux-when-choosing-which-response-do-you-prefer/596139)
+:::
+:::
+
+## Closed vs open-weights LLMs
+
+Closed LLMs: Great performance, but:
+
+-   no free use of models' weights/parameters
+
+-   no access to code or training data
+
+— Problematic for transparency, replicability, and regulation.
+
+Open LLMs: Oftentimes similar performance, and:
+
+-   great for transparency, replicability, and data privacy
+
+-   can be run locally! (when ["quantized"](https://huggingface.co/blog/4bit-transformers-bitsandbytes))
+
+## Using open LLMs with Ollama
+
+[![](rollama.png)](https://jbgruber.github.io/rollama/index.html)
+
+## rollama
+
+```{r, echo=TRUE, eval=FALSE}
+# you need to download Ollama! https://ollama.com/
+# check vignette: https://jbgruber.github.io/rollama/index.html
+
+# install.packages("remotes")
+remotes::install_github("JBGruber/rollama")
+
+# check whether we can access Ollama
+rollama::ping_ollama()
+```
+
+## rollama
+
+```{r, echo=TRUE, eval=FALSE}
+# We can choose models from https://ollama.com/library
+pull_model("llama3.2:1b") # size = 1.3GB
+
+# set this as a global option
+MODEL = 'llama3.2:1b'
+options(rollama_model = MODEL)
+
+# e.g., ask a single question:
+query("Why is the sky blue? Answer with one sentence.")
+```
+
+![](rollama_answer.png)
+
+# Using ellmer to chat with LLMs
+
+Initial code on ILIAS.
+
+# Seminar Evaluation

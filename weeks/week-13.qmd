@@ -47,4 +47,4 @@ Work on the third assignment. You can find it on ILIAS. The deadline is 20.05.20
 
 # Materials
 
-TBA.
+You can find the Rscript on ILIAS.

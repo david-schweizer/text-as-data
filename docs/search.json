@@ -263,7 +263,7 @@
     "href": "weeks/week-13.html",
     "title": "Outlook: Large Language Models and More",
     "section": "",
-    "text": "To Do’s before our session\nWork on the third assignment. You can find it on ILIAS. The deadline is 20.05.2025 13:00.\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nOutlook: Large Language Models and More\n\n\nWeek 15\n\n\nMay 20, 2024\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA."
+    "text": "To Do’s before our session\nWork on the third assignment. You can find it on ILIAS. The deadline is 20.05.2025 13:00.\n\n\nSeminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nOutlook: Large Language Models and More\n\n\nWeek 15\n\n\nMay 20, 2024\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nYou can find the Rscript on ILIAS."
   },
   {
     "objectID": "weeks/week-14.html",
@@ -10604,5 +10604,145 @@
     "title": "Web scraping: Dynamic",
     "section": "Check URLs",
     "text": "Check URLs\n\n# We need to \"unlist\" this:\nselenium_links &lt;- unlist(selenium_links)\n\n# This leaves us with a vector of lists that we can loop over!\nhead(selenium_links)\n\n[1] \"https://europeangreens.eu/news/global-turbulence-recalls-importance-of-europe/\"                                   \n[2] \"https://europeangreens.eu/news/greens-call-for-urgent-eu-action-to-halt-gaza-escalation/\"                         \n[3] \"https://europeangreens.eu/news/the-climate-crisis-killed-in-valencia-will-the-european-people-s-party-keep-looki/\"\n[4] \"https://europeangreens.eu/news/climate-crisis-reaches-new-heights-in-europe-as-conservatives-roll-back-protectio/\"\n[5] \"https://europeangreens.eu/news/from-toasts-to-tariffs-meloni-and-far-right-affection-for-trump-backfires/\"        \n[6] \"https://europeangreens.eu/news/netanyahu-must-see-justice-not-red-carpets/\""
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#today",
+    "href": "slides/week-13/13-InteractivityII.html#today",
+    "title": "Outlook: Large Language Models and More",
+    "section": "Today",
+    "text": "Today\n\nIntuition behind Large Language Models (LLMs)\nHow to use LLMs programmatically\nSeminar Evaluation 🗨️ So far: 7 / 18."
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#llms",
+    "href": "slides/week-13/13-InteractivityII.html#llms",
+    "title": "Outlook: Large Language Models and More",
+    "section": "LLMs",
+    "text": "LLMs\n\n\nIn simple terms …\n\nadvanced neural network models designed for understanding, generating, and interacting with human language\ntrained on large amounts of text data\ncan recognize the nuances, contexts, and structures of language\noptimized to perform various tasks: answering questions, summarizing texts, translating languages, generating new text, …"
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#llm-pre-training",
+    "href": "slides/week-13/13-InteractivityII.html#llm-pre-training",
+    "title": "Outlook: Large Language Models and More",
+    "section": "LLM pre-training",
+    "text": "LLM pre-training\n\nTraining in machine learning: We use labeled data (input-ouput pairs) to optimize a prediction model."
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#llm-pre-training-1",
+    "href": "slides/week-13/13-InteractivityII.html#llm-pre-training-1",
+    "title": "Outlook: Large Language Models and More",
+    "section": "LLM pre-training",
+    "text": "LLM pre-training\n\nMotivation: Mimic humans’ text generation behavior by training a model for causal language modeling on large text corpora.\nThe model learns:\n\nhow words co-occur\nhow sentences, documents, etc. are composed,\nand what words mean in context."
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#llms-to-chat-assistants",
+    "href": "slides/week-13/13-InteractivityII.html#llms-to-chat-assistants",
+    "title": "Outlook: Large Language Models and More",
+    "section": "LLMs to chat assistants",
+    "text": "LLMs to chat assistants\n\npre-trained LLMs like GPT 4 can generate text that resembles human-generated text\nbut prompted with some text input, they just complete it with a probable sequence of words ⇒ often gives undesirable completions\nto align LLMsʼ outputs with userʼs intent, they need to be able to comprehend and follow instructions\nconversational LLMs like ChatGPT are so versatile and popular because of their instruction-following capabilities"
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#llms-to-chat-assistants-1",
+    "href": "slides/week-13/13-InteractivityII.html#llms-to-chat-assistants-1",
+    "title": "Outlook: Large Language Models and More",
+    "section": "LLMs to chat assistants",
+    "text": "LLMs to chat assistants\nThere are variety of NLP tasks\n\nsentiment analysis\nquestion answering\n(extractive) summarization\nentity recognition\n\nThese tasks can be converted into text-to-text problems ⇒ allows focusing on developing general-purpose instruction following models. Makes NLP more accessible and flexible."
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#chatgpt",
+    "href": "slides/week-13/13-InteractivityII.html#chatgpt",
+    "title": "Outlook: Large Language Models and More",
+    "section": "ChatGPT",
+    "text": "ChatGPT\nBuilding blocks:\n\nA GPT model: The Underlying language model model (generative-pre-trained LLM)\nInstruction/conversational datasets for supervised fine-tuning\nReinforcement learning with human feedback\n\n\nhttps://www.youtube.com/watch?v=VPRSBzXzavohttps://www.youtube.com/watch?v=VPRSBzXzavo"
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#chatgpt---building-blocks",
+    "href": "slides/week-13/13-InteractivityII.html#chatgpt---building-blocks",
+    "title": "Outlook: Large Language Models and More",
+    "section": "ChatGPT - Building blocks",
+    "text": "ChatGPT - Building blocks\n\nA GPT model: The Underlying language model model (generative-pre-trained LLM)\nInstruction/conversational datasets for supervised fine-tuning\nReinforcement learning with human feedback\n\n\nhttps://www.youtube.com/watch?v=VPRSBzXzavohttps://www.youtube.com/watch?v=VPRSBzXzavo"
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#chatgpt---gpt-model",
+    "href": "slides/week-13/13-InteractivityII.html#chatgpt---gpt-model",
+    "title": "Outlook: Large Language Models and More",
+    "section": "1. ChatGPT - GPT model",
+    "text": "1. ChatGPT - GPT model\n\n\nTraining data:\n\na diverse collection of internet text, including books, websites, blogs, online fora\n\nText preprocessing\n\nraw content cleaned to remove any non-textual information\ncleaned texts converted into standardized input format\n\n\nTokenization\n\ntext are broken down into smaller tokens representing words, parts of words, or punctuation\n\nModel Architecture\n\nan autoregressive decoder-only Transformer to handle long-range dependencies in text\noptimized for generating text/text completion (see Brown et al. (2020))"
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#gpt-model",
+    "href": "slides/week-13/13-InteractivityII.html#gpt-model",
+    "title": "Outlook: Large Language Models and More",
+    "section": "1. GPT model",
+    "text": "1. GPT model\n\n\nTraining data:\n\na diverse collection of internet text, including books, websites, blogs, online fora\n\nText preprocessing\n\nraw content cleaned to remove any non-textual information\ncleaned texts converted into standardized input format\n\n\nTokenization\n\ntext are broken down into smaller tokens representing words, parts of words, or punctuation\n\nModel Architecture\n\nan autoregressive decoder-only Transformer to handle long-range dependencies in text\noptimized for generating text/text completion (see Brown et al. (2020))"
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#supervised-fine-tuning",
+    "href": "slides/week-13/13-InteractivityII.html#supervised-fine-tuning",
+    "title": "Outlook: Large Language Models and More",
+    "section": "2. Supervised fine-tuning",
+    "text": "2. Supervised fine-tuning\n\n\n\ntake the pre-trained GPT model\ntake datasets recording prompts and correct completions\ninput prompt, predict response\ncompare to “correct” completions to optimize the modelʼs responses (fine-tuning)\nIntuition:model learns to imitate an “ideal” chat botʼs response behavior (conditional on prompts and conversation histories)\nsee Ouyang et al. (2022)"
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#reinforcement-learning-human-feedback",
+    "href": "slides/week-13/13-InteractivityII.html#reinforcement-learning-human-feedback",
+    "title": "Outlook: Large Language Models and More",
+    "section": "3. Reinforcement learning: human feedback",
+    "text": "3. Reinforcement learning: human feedback\n\n\nIntuition\n\ntreat the model as an agent (not as a passive observer)\nfine-tune the model to generate human-preferred responses\n\nAdvantages\n\nthis shifts the focus from mimicking the pre-training data to producing desirable/favorable completions\nconsequently, the model adapts its understanding of usersʼ desired outputs"
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#reinforcement-learning",
+    "href": "slides/week-13/13-InteractivityII.html#reinforcement-learning",
+    "title": "Outlook: Large Language Models and More",
+    "section": "3. Reinforcement learning",
+    "text": "3. Reinforcement learning\n\n\nIntuition\n\ntreat the model as an agent (not as a passive observer)\nfine-tune the model to generate human-preferred responses\n\nAdvantages\n\nthis shifts the focus from mimicking the pre-training data to producing desirable/favorable completions"
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#reinforcement-learning-1",
+    "href": "slides/week-13/13-InteractivityII.html#reinforcement-learning-1",
+    "title": "Outlook: Large Language Models and More",
+    "section": "3. Reinforcement learning",
+    "text": "3. Reinforcement learning\n\n\nIntuition: the fine-tuned model is used as\n\nreward model: Learns to predicts reward associated with a generated completion based on human feedback\npolicy model: Selects optimal completions given prior conservation history and predicted reward\n\nMore on this here."
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#closed-vs-open-weights-llms",
+    "href": "slides/week-13/13-InteractivityII.html#closed-vs-open-weights-llms",
+    "title": "Outlook: Large Language Models and More",
+    "section": "Closed vs open-weights LLMs",
+    "text": "Closed vs open-weights LLMs\nClosed LLMs: Great performance, but:\n\nno free use of models’ weights/parameters\nno access to code or training data\n\n— Problematic for transparency, replicability, and regulation.\nOpen LLMs: Oftentimes similar performance, and:\n\ngreat for transparency, replicability, and data privacy\ncan be run locally! (when “quantized”)"
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#using-open-llms-with-ollama",
+    "href": "slides/week-13/13-InteractivityII.html#using-open-llms-with-ollama",
+    "title": "Outlook: Large Language Models and More",
+    "section": "Using open LLMs with Ollama",
+    "text": "Using open LLMs with Ollama"
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#rollama",
+    "href": "slides/week-13/13-InteractivityII.html#rollama",
+    "title": "Outlook: Large Language Models and More",
+    "section": "rollama",
+    "text": "rollama\n\n# you need to download Ollama! https://ollama.com/\n# check vignette: https://jbgruber.github.io/rollama/index.html\n\n# install.packages(\"remotes\")\nremotes::install_github(\"JBGruber/rollama\")\n\n# check whether we can access Ollama\nrollama::ping_ollama()"
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#rollama-1",
+    "href": "slides/week-13/13-InteractivityII.html#rollama-1",
+    "title": "Outlook: Large Language Models and More",
+    "section": "rollama",
+    "text": "rollama\n\n# We can choose models from https://ollama.com/library\npull_model(\"llama3.2:1b\") # size = 1.3GB\n\n# set this as a global option\nMODEL = 'llama3.2:1b'\noptions(rollama_model = MODEL)\n\n# e.g., ask a single question:\nquery(\"Why is the sky blue? Answer with one sentence.\")"
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#applications-in-political-science",
+    "href": "slides/week-13/13-InteractivityII.html#applications-in-political-science",
+    "title": "Outlook: Large Language Models and More",
+    "section": "Applications in political science:",
+    "text": "Applications in political science:\n\nHow to train your stochastic parrot: large language models for political texts\nMapping (A)Ideology: A Taxonomy of European Parties Using Generative LLMs as Zero-Shot Learners\nOpen-source LLMs for text annotation: a practical guide for model setting and fine-tuning\nChatGPT outperforms crowd workers for text-annotation tasks"
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#some-applications-in-political-science",
+    "href": "slides/week-13/13-InteractivityII.html#some-applications-in-political-science",
+    "title": "Outlook: Large Language Models and More",
+    "section": "Some applications in political science:",
+    "text": "Some applications in political science:\n\nHow to train your stochastic parrot: large language models for political texts\nMapping (A)Ideology: A Taxonomy of European Parties Using Generative LLMs as Zero-Shot Learners\nOpen-source LLMs for text annotation: a practical guide for model setting and fine-tuning\nChatGPT outperforms crowd workers for text-annotation tasks"
   }
 ]
