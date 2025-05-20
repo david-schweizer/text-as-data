@@ -10617,7 +10617,7 @@
     "href": "slides/week-13/13-InteractivityII.html#llms",
     "title": "Outlook: Large Language Models and More",
     "section": "LLMs",
-    "text": "LLMs\n\n\nIn simple terms …\n\nadvanced neural network models designed for understanding, generating, and interacting with human language\ntrained on large amounts of text data\ncan recognize the nuances, contexts, and structures of language\noptimized to perform various tasks: answering questions, summarizing texts, translating languages, generating new text, …"
+    "text": "LLMs"
   },
   {
     "objectID": "slides/week-13/13-InteractivityII.html#llm-pre-training",
@@ -10744,5 +10744,12 @@
     "title": "Outlook: Large Language Models and More",
     "section": "Some applications in political science:",
     "text": "Some applications in political science:\n\nHow to train your stochastic parrot: large language models for political texts\nMapping (A)Ideology: A Taxonomy of European Parties Using Generative LLMs as Zero-Shot Learners\nOpen-source LLMs for text annotation: a practical guide for model setting and fine-tuning\nChatGPT outperforms crowd workers for text-annotation tasks"
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#llms-1",
+    "href": "slides/week-13/13-InteractivityII.html#llms-1",
+    "title": "Outlook: Large Language Models and More",
+    "section": "LLMs",
+    "text": "LLMs\n\n\nIn simple terms …\n\nadvanced neural network models designed for understanding, generating, and interacting with human language\ntrained on large amounts of text data\ncan recognize the nuances, contexts, and structures of language\noptimized to perform various tasks: answering questions, summarizing texts, translating languages, generating new text, …"
   }
 ]
