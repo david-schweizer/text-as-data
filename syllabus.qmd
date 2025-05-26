@@ -9,7 +9,7 @@ editor:
 ## **Course details**
 
 |               |                                                                                             |
-|---------------|---------------------------------------------------------------------------------------------|
+|-----------------|-------------------------------------------------------|
 | Seminar:      | Übung - Methoden der Vergleichenden Regierungslehre                                         |
 | Time:         | Tuesday, 15:30 – 17:00,  February 11 to May 27                                              |
 | Place:        | C -108 Methodenlabor - groß/ Telefonlabor (A 5, 6 Bauteil C)                                |
@@ -90,25 +90,79 @@ learned in this seminar.***
 
 The term paper should include the following:
 
--   Brief introduction
+-   **Brief introduction and research question:** Here, you should
+    introduce the topic you are addressing, your research question, and
+    the relevance of your contribution.
 
--   Brief theory and hypotheses
+-   **Expectations / hypotheses:** This should include a concise
+    overview of your theoretical expectation(s) that you are testing.
+    What literature do you build on /relate to? A handful of journal
+    articles is enough.
 
--   Research design: Operationalization/Measurement, Case selection
+-   **Data & Methods:** In this section, you should describe the data
+    source(s). Here, you should also discuss the scope of your study
+    (e.g., case selection). Descriptive statistics of the corpus might
+    be helpful (e.g., speeches: How many speeches delivered overall, how
+    many by party, ...). In addition, you should describe the methods
+    you are using: How do they help to answer the research question? You
+    might want to discuss advantages/disadvantages compared to other
+    approaches.
 
--   Analysis
+-   **Results:** Here, you can present (descriptive) empirical evidence
+    using figures or tables.
 
--   Brief conclusion
+-   **Conclusion:** A brief evaluation of your results and your
+    contribution (to to literature). What can we learn from the term
+    paper? What might be limitations?
 
-The term paper can contain up to 4500 words (+/- 10%, excluding title
-page, references, and appendix).
+-   Each term paper has to be accompanied by a **statutory declaration**
+    in which you assure your **independent working**. The wording of
+    such a declaration can be found in the actually valid examination
+    order PO: "Hiermit versichere ich, dass diese Arbeit von mir
+    persönlich verfasst ist und dass ich keinerlei fremde Hilfe in
+    Anspruch genommen habe. Ebenso versichere ich, dass diese Arbeit
+    oder Teile daraus weder von mir selbst noch von anderen als
+    Leistungsnachweise andernorts eingereicht wurden. Wörtliche oder
+    sinngemäße Übernahmen aus anderen Schriften und Veröffentlichungen
+    in gedruckter oder elektronischer Form sind gekennzeichnet.
+    Sämtliche Sekundärliteratur und sonstige Quellen sind nachgewiesen
+    und in der Bibliographie aufgeführt. Das Gleiche gilt für graphische
+    Darstellungen und Bilder sowie für alle InternetQuellen. Ich bin
+    ferner damit einverstanden, dass meine Arbeit zum Zwecke eines
+    Plagiatsabgleichs in elektronischer Form anonymisiert versendet und
+    gespeichert werden kann. Mir ist bekannt, dass von der Korrektur der
+    Arbeit abgesehen und die Prüfungsleistung mit „nicht ausreichend“
+    bewertet werden kann, wenn die Erklärung nicht erteilt wird."\
+    Please quote this declaration in German as this is the official
+    legally binding language (Analogous translation: I solemnly declare
+    that I have drawn up this term paper personally and without help
+    from a third part. I also solemnly declare that this paper or parts
+    of it have not already been submitted in the same or similar form by
+    me or by another person in another seminar. I have made all passages
+    recognizable as quotations that I have taken in letter or in spirit
+    from the used sources. All secondary literature or other sources are
+    verified and mentioned in the references. The same is true for
+    graphical representations, images and internet sources. I agree that
+    my paper can be sent or stored in anonymous form in order to detect
+    plagiarism. I know that the correction of the paper can be refused
+    and the examination can be graded as “not satisfactory” if this
+    declaration is missing.“)
+
+Overall, the term paper should contain **3000 - 3500 words** excluding
+title page, references, and appendix. Please stick to this word limit!
+The **title page** should at least include your term paper's title, your
+name, the name of this seminar, the semester, as well as the date of
+submission.
+
+In addition to the text, you should **submit your R code**. The script
+should be neatly presented and annotated. Do not include all code chunks
+that you tested but only the ones that you use for your final version of
+the term paper.
 
 In any case, I recommend to discuss your approach and ideas either via
 e-mail or during office hours!
 
-**A general breakdown of scoring is as follows (you will receive a more
-detailed checklist for my grading criteria towards the end of the
-semester):**
+**A general breakdown of scoring is as follows:**
 
 -   *1,0: Outstanding effort.*
 
@@ -120,13 +174,31 @@ semester):**
 
 -   *Fail.*
 
+Assessment will be based on several criteria. Given the methodological
+focus of this seminar, particular emphasis will be placed on the quality
+and rigor of data selection, analytical methods, and implementation. An
+overview of the most important grading components is provided below. The
+grading related both to content but also takes into account structure
+and formal components.
+
+|                                              |                                                                                                                                                                                                                    |
+|---------------|---------------------------------------------------------|
+| **Research question**                        | Clear, focused, and relevant research question in the area of political science and text analysis.                                                                                                                 |
+| **Data & Preprocessing**                     | Appropriate text corpus for the research question, correct data cleaning and pre-processing? Justify your steps.                                                                                                   |
+| **Methodology**                              | Appropriate use of text analysis method(s) with regard to your research question. Explain why you use a particular approach (e.g., a dictionary approach vs. a topic modeling approach).                           |
+| **Results**                                  | Correct interpretation of results? Godd use of figures or tables? Are the results linked back to the research question?                                                                                            |
+| **Conclusion**                               | Key takeaway? Possible limitations adressed?                                                                                                                                                                       |
+| **Structure & Clarity**                      | Logical flow? Clear writing? Consistent terminology? Word count? Consistent citation style throughout the paper (your choice) and correct bibliography (e.g., all citations in the text also in the bibliography)? |
+| **Code & Reproducibility**                   | Clean and annotated code? Replication of analysis possible?                                                                                                                                                        |
+| **Bonus: Originality / Creativity / Effort** | Original, creative research with regards to data and methods? Effort?                                                                                                                                              |
+
 #### Submission
 
 **In case of any questions or problems, please get in touch with me as
 early as possible.** Late submission will result in grade deductions.
 
 -   Submission via ILIAS (zip folder: This should include your term
-    paper as PDF and replication packages).
+    paper as PDF as well as your R script).
 -   **Deadline:** 01.07.2024, 17:00.
 
 ## **Organization & Learning Resources**

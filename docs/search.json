@@ -28,7 +28,7 @@
     "href": "material.html",
     "title": "Schedule, slides & materials",
     "section": "",
-    "text": "You can find all course materials below. This includes slides, code, links to readings, etc.\nJust click on the topic of the respective week.\n\n\n\n\n\nWeek\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nFebruary 11, 2025\n\n\n\n\nWeek 02\n\n\nIntro to R\n\n\nFebruary 18, 2025\n\n\n\n\nWeek 03\n\n\nTidyverse I: Import, tidy, and transform\n\n\nFebruary 25, 2025\n\n\n\n\nWeek 04\n\n\nTidyverse II: Transform, and visualize\n\n\nMarch 04, 2025\n\n\n\n\nWeek 05\n\n\nIntro to Text-as-Data I: Concepts\n\n\nMarch 11, 2025\n\n\n\n\nWeek 06\n\n\nIntro to Text-as-Data II: Workflow\n\n\nMarch 18, 2025\n\n\n\n\nWeek 07\n\n\nDictionary and Sentiment\n\n\nMarch 25, 2025\n\n\n\n\nWeek 08\n\n\nTopic Models\n\n\nApril 01, 2025\n\n\n\n\nWeek 09\n\n\n(Semi-)Supervised Methods\n\n\nApril 08, 2025\n\n\n\n\nWeek 10\n\n\nEaster Break - No Session\n\n\nApril 15, 2025\n\n\n\n\nWeek 11\n\n\nEaster Break - No Session\n\n\nApril 22, 2025\n\n\n\n\nWeek 12\n\n\nWeb scraping: Basics\n\n\nApril 29, 2025\n\n\n\n\nWeek 13\n\n\nWeb scraping: Static\n\n\nMay 06, 2025\n\n\n\n\nWeek 14\n\n\nWeb scraping: Dynamic\n\n\nMay 13, 2025\n\n\n\n\nWeek 15\n\n\nOutlook: Large Language Models and More\n\n\nMay 20, 2025\n\n\n\n\n\nNo matching items",
+    "text": "You can find all course materials below. This includes slides, code, links to readings, etc.\nJust click on the topic of the respective week.\n\n\n\n\n\nWeek\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nFebruary 11, 2025\n\n\n\n\nWeek 02\n\n\nIntro to R\n\n\nFebruary 18, 2025\n\n\n\n\nWeek 03\n\n\nTidyverse I: Import, tidy, and transform\n\n\nFebruary 25, 2025\n\n\n\n\nWeek 04\n\n\nTidyverse II: Transform, and visualize\n\n\nMarch 04, 2025\n\n\n\n\nWeek 05\n\n\nIntro to Text-as-Data I: Concepts\n\n\nMarch 11, 2025\n\n\n\n\nWeek 06\n\n\nIntro to Text-as-Data II: Workflow\n\n\nMarch 18, 2025\n\n\n\n\nWeek 07\n\n\nDictionary and Sentiment\n\n\nMarch 25, 2025\n\n\n\n\nWeek 08\n\n\nTopic Models\n\n\nApril 01, 2025\n\n\n\n\nWeek 09\n\n\n(Semi-)Supervised Methods\n\n\nApril 08, 2025\n\n\n\n\nWeek 10\n\n\nEaster Break - No Session\n\n\nApril 15, 2025\n\n\n\n\nWeek 11\n\n\nEaster Break - No Session\n\n\nApril 22, 2025\n\n\n\n\nWeek 12\n\n\nWeb scraping: Basics\n\n\nApril 29, 2025\n\n\n\n\nWeek 13\n\n\nWeb scraping: Static\n\n\nMay 06, 2025\n\n\n\n\nWeek 14\n\n\nWeb scraping: Dynamic\n\n\nMay 13, 2025\n\n\n\n\nWeek 15\n\n\nOutlook: Large Language Models and More\n\n\nMay 20, 2025\n\n\n\n\nWeek 16\n\n\nClosing Session\n\n\nMay 27, 2025\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Schedule, slides & materials"
     ]
@@ -156,7 +156,7 @@
     "href": "syllabus.html#course-requirements",
     "title": "Syllabus",
     "section": "Course requirements",
-    "text": "Course requirements\n\nActive participation and preparation:\nActive participation during our weekly sessions is important to get the most out of this course. Engaging with the assigned readings is essential for participation.\nUse ILIAS to post any questions or discuss with your peers if you do not understand concepts.\n\n\nAssignments during the semester (need to pass)\nThere will be 3 (short) assignments during the semester. Here, you have to demonstrate that you can apply the concepts/code presented during the session on your own.\nDeadlines:\n\nAssignment 1: 04.03.2025 after the session until 17.03.2025 13:00\nAssignment 2: 08.04.2025 after the session until 28.04.2025 13:00\nAssignment 3: 06.05.2025 after the session until 20.05.2025 13:00\n\n\n\nTerm paper (100% of your grade):\nIn a nutshell: Ask a question you’re curious about, collect relevant data and analyze them with regard to your question using the techniques learned in this seminar.\nThe term paper should include the following:\n\nBrief introduction\nBrief theory and hypotheses\nResearch design: Operationalization/Measurement, Case selection\nAnalysis\nBrief conclusion\n\nThe term paper can contain up to 4500 words (+/- 10%, excluding title page, references, and appendix).\nIn any case, I recommend to discuss your approach and ideas either via e-mail or during office hours!\nA general breakdown of scoring is as follows (you will receive a more detailed checklist for my grading criteria towards the end of the semester):\n\n1,0: Outstanding effort.\n1,3 - 2,0: Good effort.\n2,3 - 3,0: Good/Passing effort.\n3,3 - 4,0: Struggling effort.\nFail.\n\n\nSubmission\nIn case of any questions or problems, please get in touch with me as early as possible. Late submission will result in grade deductions.\n\nSubmission via ILIAS (zip folder: This should include your term paper as PDF and replication packages).\nDeadline: 01.07.2024, 17:00.",
+    "text": "Course requirements\n\nActive participation and preparation:\nActive participation during our weekly sessions is important to get the most out of this course. Engaging with the assigned readings is essential for participation.\nUse ILIAS to post any questions or discuss with your peers if you do not understand concepts.\n\n\nAssignments during the semester (need to pass)\nThere will be 3 (short) assignments during the semester. Here, you have to demonstrate that you can apply the concepts/code presented during the session on your own.\nDeadlines:\n\nAssignment 1: 04.03.2025 after the session until 17.03.2025 13:00\nAssignment 2: 08.04.2025 after the session until 28.04.2025 13:00\nAssignment 3: 06.05.2025 after the session until 20.05.2025 13:00\n\n\n\nTerm paper (100% of your grade):\nIn a nutshell: Ask a question you’re curious about, collect relevant data and analyze them with regard to your question using the techniques learned in this seminar.\nThe term paper should include the following:\n\nBrief introduction and research question: Here, you should introduce the topic you are addressing, your research question, and the relevance of your contribution.\nExpectations / hypotheses: This should include a concise overview of your theoretical expectation(s) that you are testing. What literature do you build on /relate to? A handful of journal articles is enough.\nData & Methods: In this section, you should describe the data source(s). Here, you should also discuss the scope of your study (e.g., case selection). Descriptive statistics of the corpus might be helpful (e.g., speeches: How many speeches delivered overall, how many by party, …). In addition, you should describe the methods you are using: How do they help to answer the research question? You might want to discuss advantages/disadvantages compared to other approaches.\nResults: Here, you can present (descriptive) empirical evidence using figures or tables.\nConclusion: A brief evaluation of your results and your contribution (to to literature). What can we learn from the term paper? What might be limitations?\nEach term paper has to be accompanied by a statutory declaration in which you assure your independent working. The wording of such a declaration can be found in the actually valid examination order PO: “Hiermit versichere ich, dass diese Arbeit von mir persönlich verfasst ist und dass ich keinerlei fremde Hilfe in Anspruch genommen habe. Ebenso versichere ich, dass diese Arbeit oder Teile daraus weder von mir selbst noch von anderen als Leistungsnachweise andernorts eingereicht wurden. Wörtliche oder sinngemäße Übernahmen aus anderen Schriften und Veröffentlichungen in gedruckter oder elektronischer Form sind gekennzeichnet. Sämtliche Sekundärliteratur und sonstige Quellen sind nachgewiesen und in der Bibliographie aufgeführt. Das Gleiche gilt für graphische Darstellungen und Bilder sowie für alle InternetQuellen. Ich bin ferner damit einverstanden, dass meine Arbeit zum Zwecke eines Plagiatsabgleichs in elektronischer Form anonymisiert versendet und gespeichert werden kann. Mir ist bekannt, dass von der Korrektur der Arbeit abgesehen und die Prüfungsleistung mit „nicht ausreichend“ bewertet werden kann, wenn die Erklärung nicht erteilt wird.”\nPlease quote this declaration in German as this is the official legally binding language (Analogous translation: I solemnly declare that I have drawn up this term paper personally and without help from a third part. I also solemnly declare that this paper or parts of it have not already been submitted in the same or similar form by me or by another person in another seminar. I have made all passages recognizable as quotations that I have taken in letter or in spirit from the used sources. All secondary literature or other sources are verified and mentioned in the references. The same is true for graphical representations, images and internet sources. I agree that my paper can be sent or stored in anonymous form in order to detect plagiarism. I know that the correction of the paper can be refused and the examination can be graded as “not satisfactory” if this declaration is missing.“)\n\nOverall, the term paper should contain 3000 - 3500 words excluding title page, references, and appendix. Please stick to this word limit! The title page should at least include your term paper’s title, your name, the name of this seminar, the semester, as well as the date of submission.\nIn addition to the text, you should submit your R code. The script should be neatly presented and annotated. Do not include all code chunks that you tested but only the ones that you use for your final version of the term paper.\nIn any case, I recommend to discuss your approach and ideas either via e-mail or during office hours!\nA general breakdown of scoring is as follows:\n\n1,0: Outstanding effort.\n1,3 - 2,0: Good effort.\n2,3 - 3,0: Good/Passing effort.\n3,3 - 4,0: Struggling effort.\nFail.\n\nAssessment will be based on several criteria. Given the methodological focus of this seminar, particular emphasis will be placed on the quality and rigor of data selection, analytical methods, and implementation. An overview of the most important grading components is provided below. The grading related both to content but also takes into account structure and formal components.\n\n\n\n\n\n\n\nResearch question\nClear, focused, and relevant research question in the area of political science and text analysis.\n\n\nData & Preprocessing\nAppropriate text corpus for the research question, correct data cleaning and pre-processing? Justify your steps.\n\n\nMethodology\nAppropriate use of text analysis method(s) with regard to your research question. Explain why you use a particular approach (e.g., a dictionary approach vs. a topic modeling approach).\n\n\nResults\nCorrect interpretation of results? Godd use of figures or tables? Are the results linked back to the research question?\n\n\nConclusion\nKey takeaway? Possible limitations adressed?\n\n\nStructure & Clarity\nLogical flow? Clear writing? Consistent terminology? Word count? Consistent citation style throughout the paper (your choice) and correct bibliography (e.g., all citations in the text also in the bibliography)?\n\n\nCode & Reproducibility\nClean and annotated code? Replication of analysis possible?\n\n\nBonus: Originality / Creativity / Effort\nOriginal, creative research with regards to data and methods? Effort?\n\n\n\n\nSubmission\nIn case of any questions or problems, please get in touch with me as early as possible. Late submission will result in grade deductions.\n\nSubmission via ILIAS (zip folder: This should include your term paper as PDF as well as your R script).\nDeadline: 01.07.2024, 17:00.",
     "crumbs": [
       "Syllabus"
     ]
@@ -270,7 +270,7 @@
     "href": "weeks/week-14.html",
     "title": "Closing Session",
     "section": "",
-    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nClosing Session\n\n\nWeek 16\n\n\nMay 28, 2024\n\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nThere are no materials for today’s session.\n\n\nTo Do’s before our session\n\nDo you have any open questions regarding the material? Please let me know via Slack or e-mail! We can devote some of the time during the session to these questions."
+    "text": "Seminar slides\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nClosing Session\n\n\nWeek 16\n\n\nMay 27, 2025\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nThere are no materials for today’s session.\n\n\nTo Do’s before our session\n\nDo you have any open questions regarding the material? Please let me know via ILIAS or e-mail! We can devote some of the time during the session to these questions."
   },
   {
     "objectID": "weeks/week08.html",
@@ -7467,8 +7467,8 @@
     "objectID": "slides/week-14/14-ClosingSession.html#plan-for-today",
     "href": "slides/week-14/14-ClosingSession.html#plan-for-today",
     "title": "Closing Session",
-    "section": "",
-    "text": "Recap - Content\nData project\nOutlook\nRecap - (Your) Feedback"
+    "section": "Plan for today",
+    "text": "Plan for today\n\nShort recap, feedback, & outlook\nTerm paper & data sources"
   },
   {
     "objectID": "slides/week-14/14-ClosingSession.html#recap---content",
@@ -7524,7 +7524,7 @@
     "href": "slides/week-14/14-ClosingSession.html#outlook-what-now",
     "title": "Closing Session",
     "section": "Outlook: What now?",
-    "text": "Outlook: What now?\nPractice and deep dive:\n\nStill access to Datacamp!\n\nExamples in social science:\n\nMZES Social Data Science Lab\n\nApply!\n\nSeminars, term papers, thesis\nCorrelAid - Data 4 Good"
+    "text": "Outlook: What now?\nPractice and deep dive:\n\nStill access to Datacamp!\n\nExamples in social science:\n\nMZES Social Data Science Lab\n\nApply!\n\nSeminars, term papers, thesis\nCorrelAid - Data 4 Good\n\n\n\n\nText-as-Data in R | Spring 2025 | University of Mannheim"
   },
   {
     "objectID": "slides/week-14/14-ClosingSession.html#outlook-what-is-possible",
@@ -8797,8 +8797,8 @@
     "objectID": "slides/week-08/08-Comparisons.html#todays-session",
     "href": "slides/week-08/08-Comparisons.html#todays-session",
     "title": "Topic Models",
-    "section": "",
-    "text": "Input: Topic models\nCoding: Replication & Comparison"
+    "section": "Today’s session",
+    "text": "Today’s session\n\nInput: Topic models\nCoding: Replication & Comparison"
   },
   {
     "objectID": "slides/week-08/08-Comparisons.html#topic-models",
@@ -8889,7 +8889,7 @@
     "href": "slides/week-08/08-Comparisons.html#lda-example",
     "title": "Topic Models",
     "section": "LDA example",
-    "text": "LDA example\n\n# Load packages\nlibrary(tidyverse)\n\nWarning: Paket 'tidyverse' wurde unter R Version 4.3.3 erstellt\n\n\nWarning: Paket 'ggplot2' wurde unter R Version 4.3.3 erstellt\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(quanteda)\n\nWarning: Paket 'quanteda' wurde unter R Version 4.3.3 erstellt\n\n\nWarning in .recacheSubclasses(def@className, def, env): Nicht definierte\nSubklasse \"ndiMatrix\" von Klasse \"replValueSp\"; Definition nicht aktualisiert\n\n\nPackage version: 4.2.0\nUnicode version: 15.1\nICU version: 74.1\nParallel computing: 4 of 4 threads used.\nSee https://quanteda.io for tutorials and examples.\n\nlibrary(topicmodels)\n\nWarning: Paket 'topicmodels' wurde unter R Version 4.3.3 erstellt\n\nlibrary(tidytext)\n\nWarning: Paket 'tidytext' wurde unter R Version 4.3.3 erstellt\n\n# Load data\nload(\"Corpus_speeches_germany_19.rda\")\n\n# Get \"Fragestunden\" for opposition paries\ndata &lt;- Corpus_speeches_germany_19 %&gt;% \n  mutate(Fragestunde_logical = str_detect(agenda, \"Fragestunde\")) %&gt;% \n  filter(Fragestunde_logical == TRUE) %&gt;% \n  filter(party %in% c(\"BÜNDNIS 90/DIE GRÜNEN\", \"AfD\", \"DIE LINKE\", \"FDP\"))\n\nstr(data)\n\n'data.frame':   2498 obs. of  13 variables:\n $ speaker            : chr  \"André Hahn\" \"André Hahn\" \"Konstantin von Notz\" \"André Hahn\" ...\n $ text               : chr  \"Vielen Dank, Herr Präsident. – Ich nehme Bezug auf Medienberichte, Herr Staatssekretär. Der Bericht ist leider \"| __truncated__ \"Die Frage nach den rechtlichen Möglichkeiten des Unabhängigen Gremiums, seinen Anspruch durchzusetzen, ist nich\"| __truncated__ \"GRÜ- Herr Präsident, vielen Dank. – Herr Staatssekretär, empfinden Sie, ohne dass wir hier jetzt über geheime D\"| __truncated__ \"Vielen Dank, Herr Präsident. – Herr Staatssekretär, ich habe eine ganz einfache Frage: Haben Sie dem Unabhängig\"| __truncated__ ...\n $ party              : chr  \"DIE LINKE\" \"DIE LINKE\" \"BÜNDNIS 90/DIE GRÜNEN\" \"DIE LINKE\" ...\n $ date               : Date, format: \"2017-12-13\" \"2017-12-13\" ...\n $ agenda             : chr  \"Tagesordnungspunkt 11:  Fragestunde  Drucksache 19/188/19 \" \"Tagesordnungspunkt 11:  Fragestunde  Drucksache 19/188/19 \" \"Tagesordnungspunkt 11:  Fragestunde  Drucksache 19/188/19 \" \"Tagesordnungspunkt 11:  Fragestunde  Drucksache 19/188/19 \" ...\n $ speechnumber       : int  76 79 82 86 88 90 93 98 103 106 ...\n $ procedure_ID       : chr  \"\" \"\" \"\" \"\" ...\n $ partyfacts_ID      : num  1545 1545 1816 1545 1545 ...\n $ period             : chr  \"19\" \"19\" \"19\" \"19\" ...\n $ chair              : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...\n $ minister           : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...\n $ chancelor          : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...\n $ Fragestunde_logical: logi  TRUE TRUE TRUE TRUE TRUE TRUE ..."
+    "text": "LDA example\n\n# Load packages\nlibrary(tidyverse)\nlibrary(quanteda)\nlibrary(topicmodels)\nlibrary(tidytext)\n\n# Load data\nload(\"Corpus_speeches_germany_19.rda\")\n\n# Get \"Fragestunden\" for opposition paries\ndata &lt;- Corpus_speeches_germany_19 %&gt;% \n  mutate(Fragestunde_logical = str_detect(agenda, \"Fragestunde\")) %&gt;% \n  filter(Fragestunde_logical == TRUE) %&gt;% \n  filter(party %in% c(\"BÜNDNIS 90/DIE GRÜNEN\", \"AfD\", \"DIE LINKE\", \"FDP\"))\n\nstr(data)\n\n'data.frame':   2498 obs. of  13 variables:\n $ speaker            : chr  \"André Hahn\" \"André Hahn\" \"Konstantin von Notz\" \"André Hahn\" ...\n $ text               : chr  \"Vielen Dank, Herr Präsident. – Ich nehme Bezug auf Medienberichte, Herr Staatssekretär. Der Bericht ist leider \"| __truncated__ \"Die Frage nach den rechtlichen Möglichkeiten des Unabhängigen Gremiums, seinen Anspruch durchzusetzen, ist nich\"| __truncated__ \"GRÜ- Herr Präsident, vielen Dank. – Herr Staatssekretär, empfinden Sie, ohne dass wir hier jetzt über geheime D\"| __truncated__ \"Vielen Dank, Herr Präsident. – Herr Staatssekretär, ich habe eine ganz einfache Frage: Haben Sie dem Unabhängig\"| __truncated__ ...\n $ party              : chr  \"DIE LINKE\" \"DIE LINKE\" \"BÜNDNIS 90/DIE GRÜNEN\" \"DIE LINKE\" ...\n $ date               : Date, format: \"2017-12-13\" \"2017-12-13\" ...\n $ agenda             : chr  \"Tagesordnungspunkt 11:  Fragestunde  Drucksache 19/188/19 \" \"Tagesordnungspunkt 11:  Fragestunde  Drucksache 19/188/19 \" \"Tagesordnungspunkt 11:  Fragestunde  Drucksache 19/188/19 \" \"Tagesordnungspunkt 11:  Fragestunde  Drucksache 19/188/19 \" ...\n $ speechnumber       : int  76 79 82 86 88 90 93 98 103 106 ...\n $ procedure_ID       : chr  \"\" \"\" \"\" \"\" ...\n $ partyfacts_ID      : num  1545 1545 1816 1545 1545 ...\n $ period             : chr  \"19\" \"19\" \"19\" \"19\" ...\n $ chair              : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...\n $ minister           : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...\n $ chancelor          : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...\n $ Fragestunde_logical: logi  TRUE TRUE TRUE TRUE TRUE TRUE ..."
   },
   {
     "objectID": "slides/week-08/08-Comparisons.html#advantages-and-disadvantages-of-lda",
@@ -8924,7 +8924,7 @@
     "href": "slides/week-08/08-Comparisons.html#structural-topic-model-application-1",
     "title": "Topic Models",
     "section": "Structural Topic Model Application",
-    "text": "Structural Topic Model Application\n\nlibrary(stm)\n\nWarning: Paket 'stm' wurde unter R Version 4.3.3 erstellt\n\n\nstm v1.3.7 successfully loaded. See ?stm for help. \n Papers, resources, and other materials at structuraltopicmodel.com\n\n# We work with the same dfm, convert to stm object\nstm &lt;- dfm %&gt;% \n  convert(to = \"stm\")\n\nWarning in dfm2stm(x, docvars, omit_empty = TRUE): Dropped 2,498 empty\ndocument(s)\n\nsummary(stm)\n\n          Length Class      Mode     \ndocuments 2469   -none-     list     \nvocab     3230   -none-     character\nmeta        12   data.frame list"
+    "text": "Structural Topic Model Application\n\nlibrary(stm)\n# We work with the same dfm, convert to stm object\nstm &lt;- dfm %&gt;% \n  convert(to = \"stm\")\n\nsummary(stm)\n\n          Length Class      Mode     \ndocuments 2469   -none-     list     \nvocab     3230   -none-     character\nmeta        12   data.frame list"
   },
   {
     "objectID": "slides/week-08/08-Comparisons.html#validating-topic-models-quantitative-metrics",
@@ -9092,7 +9092,7 @@
     "href": "slides/week-08/08-Comparisons.html#diffences-topic-8-and-topic-9",
     "title": "Topic Models",
     "section": "Diffences topic 8 and topic 9",
-    "text": "Diffences topic 8 and topic 9\n\n\nWarning: Removed 1 row containing missing values or values outside the scale range\n(`geom_bar()`)."
+    "text": "Diffences topic 8 and topic 9"
   },
   {
     "objectID": "slides/week-08/08-Comparisons.html#document-topic-probabilities",
@@ -9148,7 +9148,7 @@
     "href": "slides/week-08/08-Comparisons.html#plot-3",
     "title": "Topic Models",
     "section": "Plot",
-    "text": "Plot\n\ncloud(stmOut, topic = 15)\n\nWarning in wordcloud::wordcloud(words = vocab, freq = vec, max.words =\nmax.words, : bekampf could not be fit on page. It will not be plotted.\n\n\nWarning in wordcloud::wordcloud(words = vocab, freq = vec, max.words =\nmax.words, : asylverfahr could not be fit on page. It will not be plotted.\n\n\nWarning in wordcloud::wordcloud(words = vocab, freq = vec, max.words =\nmax.words, : inseln could not be fit on page. It will not be plotted.\n\n\nWarning in wordcloud::wordcloud(words = vocab, freq = vec, max.words =\nmax.words, : kabinettsausschuss could not be fit on page. It will not be\nplotted.\n\n\nWarning in wordcloud::wordcloud(words = vocab, freq = vec, max.words =\nmax.words, : abschieb could not be fit on page. It will not be plotted.\n\n\nWarning in wordcloud::wordcloud(words = vocab, freq = vec, max.words =\nmax.words, : bildung could not be fit on page. It will not be plotted.\n\n\nWarning in wordcloud::wordcloud(words = vocab, freq = vec, max.words =\nmax.words, : asylantrag could not be fit on page. It will not be plotted."
+    "text": "Plot\n\ncloud(stmOut, topic = 15)"
   },
   {
     "objectID": "slides/week-08/08-Comparisons.html#plot-4",
@@ -9176,7 +9176,7 @@
     "href": "slides/week-08/08-Comparisons.html#coding-1",
     "title": "Topic Models",
     "section": "Coding",
-    "text": "Coding\n\nCreate your own data based on the parliamentary speeches dataset on ILIAS or other text data. Be creative!\nTry out to run a LDA and a STM. Inspect the models.\nBONUS: Try to “replicate” this paper.\n\nUse LDA (similar topics?) instead of seeded LDA. But you can try both of course!\nThe replication files for the analysis are available on OSF Registries at https://doi.org/10.17605/OSF.IO/93DQY."
+    "text": "Coding\n\nCreate your own data based on the parliamentary speeches dataset on ILIAS or other text data. Be creative!\nTry out to run a LDA and a STM. Inspect the models.\nBONUS: Try to “replicate” this paper.\n\nUse LDA (similar topics?) instead of seeded LDA. But you can try both of course!\nThe replication files for the analysis are available on OSF Registries at https://doi.org/10.17605/OSF.IO/93DQY.\n\n\n\n\n\nText-as-Data in R | Spring 2025 | University of Mannheim"
   },
   {
     "objectID": "slides/week-08/08-Comparisons.html#inspect-1",
@@ -10751,5 +10751,85 @@
     "title": "Outlook: Large Language Models and More",
     "section": "LLMs",
     "text": "LLMs\n\n\nIn simple terms …\n\nadvanced neural network models designed for understanding, generating, and interacting with human language\ntrained on large amounts of text data\ncan recognize the nuances, contexts, and structures of language\noptimized to perform various tasks: answering questions, summarizing texts, translating languages, generating new text, …"
+  },
+  {
+    "objectID": "datasets.html",
+    "href": "datasets.html",
+    "title": "Text-as-Data Datasets",
+    "section": "",
+    "text": "While we covered how to scrape text data on our own, there are also great ready-to-use text datasets available. In the following, you find a few examples:\n\nManifesto Project Database\n\nDescription: Collection of (partly) annotated party manifestos.\n\nManifestoVault V1.0: Annotated full-text general election manifestos at the natural-sentence level of three European countries 1970-2024\n\nDescription: “Annotated full-text of national-level general election manifestos at a natural-sentence level of 43 political parties from Germany, Ireland, and the UK from 1970-2024. This repository aims to provide clean and accurate (as much as possible) full-text versions of election manifestos to facilitate all scholarly research for which parties’ election manifestos are relevant. More details on the structure of the dataset is found in the accompanying release note. (2024-12-06)”\n\n\n\n\nParlEE Dataverse\n\nDescription: “The Parliamentary Emotive Expression (ParlEE) data sets provide full-text and scaled parliamentary plenary speeches for a selection of EU member state parliaments with the goal of supporting the development and application of text analysis approaches in political science.”\n\nParlLawSpeech\n\nDescription: “The ParlLawSpeech dataset offers 4.02 GB of data in total, including machine-readable full texts of 43,582 bills, 28,124 laws, and 3,092,431 plenary speeches from eight European parliaments covering more than two decades each. ParlLawSpeech is meant to push the systematic analysis of European democracies with advanced text-as-data/NLP methods. Compared to the other excellent extant political science text corpora (cf. Sebők et al. 2025), it adds two key innovations. First, the bill and law corpora are are among the most encompassing full-text vectors of legal documents handled by parliaments. Second, we provide novel data linkage possibilities by offering a common identifier across bills, corresponding plenary speeches, and finally adopted laws- opening up new analytical opportunities to study the legislative process (basic ideas in the tutorial section).”\n\nEUSpeech: A New Dataset of EU Elite Speeches (Version 1.4)\n\nDescription: “This dataset presents EUSpeech (version 1.4), an updated dataset of 17,184 speeches from EU leaders (i.e., heads of government in 10 member states, EU commissioners, party leaders in the European Parliament, and ECB and IMF leaders) from 2007 to 2015. Version 1.3 contained a number of duplicate speeches, because some websites contained the same speeches in English and in the original language. In version 1.4 only one version of these speeches is kept. (2019-3-29)”\n\n\n\n\nUnited Nations General Debate Corpus 1946 - 2024\n\nDescription: “Every year since 1946, the General Debate has taken place at the beginning of the UN General Assembly session. Representatives from all UN member states deliver an address, discussing the issues they consider most important in global politics, revealing their governments’ positions, and seeking to persuade other states of their perspectives. The annual UN General Debate statements provide invaluable information for scholars of international relations – comparable globally and over time. However, these texts are stored as poor quality images without relevant metadata, preventing researchers from applying data science methods. This paper introduces the complete UN General Debate Corpus (UNGDC). Building on a previous incomplete release of UNGDC, we have extended the corpus to cover the entire 1946-present period, included additional data on all speakers, and provided advanced search and data visualisation tools on a new website. The complete corpus contains 10,952 speeches from 202 countries, including historical countries – making it the most comprehensive, unique, and accessible collection of global political speeches.”\n\nTweets by members of the U.S. Congress between 2009 and 2019.\n\nAnd the accompanying paper: Incivility Is Rising Among American Politicians on Twitter\nClose to 1.3 million tweets.\n\nCentral banker speeches (CBS dataset)\n\nThe dataset features 35,487 unique speeches from 131 central banks, for the period going from the beginning of January 1986 (date of the first online speech by a central bank) to the end of December 2023. Among those speeches, 5,347 were provided in a non-English language and were translated using Microsoft Translation services.\n\n\nIn addition, we can use tools provided by the university such as LexisNexis (when in the university’s wifi or VPN) to get access to (historical) news articles: https://dbis.ur.de/UBMAN/resources/1670",
+    "crumbs": [
+      "Text-as-data datasets"
+    ]
+  },
+  {
+    "objectID": "slides/week-14/14-ClosingSession.html#short-recap",
+    "href": "slides/week-14/14-ClosingSession.html#short-recap",
+    "title": "Closing Session",
+    "section": "Short recap",
+    "text": "Short recap\n\nI - R & TidyverseII - Text-as-DataIII - Webscraping\n\n\n\n\n\nIntro to R\nImport, transform, and visualize data in R!\n\n— These are also valuable skills for other seminars, thesis, internships, …"
+  },
+  {
+    "objectID": "slides/week-14/14-ClosingSession.html#short-recap-outlook",
+    "href": "slides/week-14/14-ClosingSession.html#short-recap-outlook",
+    "title": "Closing Session",
+    "section": "Short recap & outlook",
+    "text": "Short recap & outlook\n\nI - R & TidyverseII - Text-as-DataIII - Webscraping\n\n\n\n\n\nIntro to R & RStudio\nImport, transform, and visualize data in R!\n\n— These are valuable skills for other seminars, thesis, internships, …\n— Keep improving in R: Keep practicing and work on own projects. For example, at CorrelAid - Data 4 Good or creating visualization for #TidyTuesday.\n\n\n\n\n\n\n\n\n\nText-as-Data concepts and workflow\nVarious methods: Dictionaries, unsupervised and (semi-)supervised methods, LLMs with R.\n\n— Allows you to implement interesting research questions, follow state-of-the art research, and to collaborate with other researchers.\n— More on this for example at MZES speaker series.\n\n\n\n\n\n\n\n\n\nScraping static and dynamic pages\n\n— Allows you to create your own datasets! Not only relevant for academic researchers but also for policy briefs or news articles."
+  },
+  {
+    "objectID": "slides/week-14/14-ClosingSession.html#feedback",
+    "href": "slides/week-14/14-ClosingSession.html#feedback",
+    "title": "Closing Session",
+    "section": "Feedback",
+    "text": "Feedback\nOverall good, but also room for improvement. Thank you!"
+  },
+  {
+    "objectID": "slides/week-14/14-ClosingSession.html#feedback---open-round",
+    "href": "slides/week-14/14-ClosingSession.html#feedback---open-round",
+    "title": "Closing Session",
+    "section": "Feedback - Open Round",
+    "text": "Feedback - Open Round\n\nTrade-off: Topics vs. Pace\nProbably too much: Webscraping\nEngaging with the material during the semester"
+  },
+  {
+    "objectID": "slides/week-14/14-ClosingSession.html#term-paper",
+    "href": "slides/week-14/14-ClosingSession.html#term-paper",
+    "title": "Closing Session",
+    "section": "Term paper",
+    "text": "Term paper\nIn a nutshell: Ask a question you’re curious about, collect relevant data and analyze them with regard to your question using the techniques learned in this seminar.\nProposed structure (see also syllabus):\n\nBrief introduction and research question\nExpectations / hypotheses\nData & Methods\nResults\nConclusion\n\n3000 - 3500 words excluding title page, references, and appendix. R code to be submitted separately from the text."
+  },
+  {
+    "objectID": "slides/week-14/14-ClosingSession.html#term-paper-1",
+    "href": "slides/week-14/14-ClosingSession.html#term-paper-1",
+    "title": "Closing Session",
+    "section": "Term paper",
+    "text": "Term paper\n\n\n\n\n\n\n\nResearch question\nClear, focused, and relevant research question in the area of political science and text analysis.\n\n\nData & Preprocessing\nAppropriate text corpus for the research question, correct data cleaning and pre-processing? Justify your steps.\n\n\nMethodology\nAppropriate use of text analysis method(s) with regard to your research question. Explain why you use a particular approach (e.g., a dictionary approach vs. a topic modeling approach).\n\n\nResults\nCorrect interpretation of results? Godd use of figures or tables? Are the results linked back to the research question?\n\n\nConclusion\nGood summary the key takeaway? Possible limitations adressed?\n\n\n\n\n\n\nText-as-Data in R | Spring 2025 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-14/14-ClosingSession.html#term-paper---overview",
+    "href": "slides/week-14/14-ClosingSession.html#term-paper---overview",
+    "title": "Closing Session",
+    "section": "Term paper - Overview",
+    "text": "Term paper - Overview\nIn a nutshell: Ask a question you’re curious about, collect relevant data and analyze them with regard to your question using the techniques learned in this seminar.\nProposed structure (see also syllabus):\n\nBrief introduction and research question\nExpectations / hypotheses\nData & Methods\nResults\nConclusion\n\n3000 - 3500 words excluding title page, references, and appendix. R code to be submitted separately from the text."
+  },
+  {
+    "objectID": "slides/week-14/14-ClosingSession.html#term-paper---data",
+    "href": "slides/week-14/14-ClosingSession.html#term-paper---data",
+    "title": "Closing Session",
+    "section": "Term paper - Data",
+    "text": "Term paper - Data\nOption A: Webscraping\n\nFor example, press releases by political parties.\n\nOption B: Text datasets. A few examples (more on the website):\n\nManifestoVault V1.0: Annotated full-text general election manifestos at the natural-sentence level of three European countries 1970-2024\nParlLawSpeech\nTweets by members of the U.S. Congress between 2009 and 2019\n\nBoth options are perfectly fine! Option B might give some bonus points."
+  },
+  {
+    "objectID": "slides/week-14/14-ClosingSession.html#term-paper---grading",
+    "href": "slides/week-14/14-ClosingSession.html#term-paper---grading",
+    "title": "Closing Session",
+    "section": "Term paper - Grading",
+    "text": "Term paper - Grading\n\n\n\n\n\n\n\nResearch question\nClear, focused, and relevant research question in the area of political science and text analysis.\n\n\nData & Preprocessing\nAppropriate text corpus for the research question, correct data cleaning and pre-processing? Justify your steps.\n\n\nMethodology\nAppropriate use of text analysis method(s) with regard to your research question. Explain why you use a particular approach (e.g., a dictionary approach vs. a topic modeling approach).\n\n\nResults\nCorrect interpretation of results? Godd use of figures or tables? Are the results linked back to the research question?\n\n\nConclusion\nKey takeaway? Possible limitations adressed?"
+  },
+  {
+    "objectID": "slides/week-14/14-ClosingSession.html#term-paper---grading-1",
+    "href": "slides/week-14/14-ClosingSession.html#term-paper---grading-1",
+    "title": "Closing Session",
+    "section": "Term paper - Grading",
+    "text": "Term paper - Grading\n\n\n\n\n\n\n\nStructure & Clarity\nLogical flow? Clear writing? Consistent terminology? Word count? Consistent citation style throughout the paper (your choice) and correct bibliography (e.g., all citations in the text also in the bibliography)?\n\n\nCode & Reproducibility\nClean and annotated code? Replication of analysis possible?\n\n\nBonus: Originality / Creativity / Effort\nOriginal, creative research with regards to data and methods? Effort?"
   }
 ]

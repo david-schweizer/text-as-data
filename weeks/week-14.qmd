@@ -3,7 +3,7 @@ title: "Closing Session"
 subtitle: "Week 16"
 description: ""
 author: ""
-date: "May 28, 2023"
+date: "May 27, 2025"
 listing:
    - id: slides
      contents:
@@ -46,4 +46,4 @@ There are no materials for today's session.
 
 # To Do's before our session
 
-- Do you have any open questions regarding the material? Please let me know via Slack or e-mail! We can devote some of the time during the session to these questions.
+- Do you have any open questions regarding the material? Please let me know via ILIAS or e-mail! We can devote some of the time during the session to these questions.

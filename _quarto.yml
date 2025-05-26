@@ -25,7 +25,9 @@ website:
       - href: material.qmd
         text: Schedule, slides & materials
       - href: reading.qmd
-        text: Text-as-Data literature
+        text: Text-as-data literature
+      - href: datasets.qmd
+        text: Text-as-data datasets
         
 format:
   html:

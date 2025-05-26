@@ -2,91 +2,148 @@
 title: "Closing Session"
 subtitle: "Week 16"
 author: "David Schweizer"
-date: "May 28, 2024"
+date: "May 27, 2025"
 date-format: long
 institute: "University of Mannheim"
 format: 
   revealjs:
+    css: ../../styles.css 
     theme: simple
     slide-number: c/t #< collapsed/total
-    footer: "Automated Data Collection | Spring 2024 | University of Mannheim"
+    footer: "Text-as-Data in R | Spring 2025 | University of Mannheim"
 editor: visual
 ---
 
 ## Plan for today
 
--   Recap - Content
+-   Short recap, feedback, & outlook
 
--   Data project
+-   Term paper & data sources
 
--   Outlook
+## Short recap & outlook
 
--   Recap - (Your) Feedback
+::: panel-tabset
+## I - R & Tidyverse
 
-## Recap - Content
+::: columns
+::: {.column width="60%"}
+-   Intro to R & RStudio
 
-![](workflow.png)
+-   Import, transform, and visualize data in R!
 
-**AND:** Reproducibility
+— These are valuable skills for other seminars, thesis, internships, ...
 
-## Data project
+— Keep improving in R: Keep practicing and work on own projects. For example, at [CorrelAid - Data 4 Good](https://www.correlaid.org/) or creating visualization for \#[TidyTuesday](https://github.com/rfordatascience/tidytuesday).
+:::
 
-*In a nutshell: Ask a question you’re curious about, collect relevant data and visualize them with regard to your question.*
+::: {.column width="40%"}
+![](tidyverse.png)
+:::
+:::
 
-## Data project
+## II - Text-as-Data
 
--   Collect own data using web scraping methods
+::: columns
+::: {.column width="60%"}
+-   Text-as-Data concepts and workflow
 
--   Tidy and transform the data
+-   Various methods: Dictionaries, unsupervised and (semi-)supervised methods, LLMs with R.
 
--   Possibly enrich the data set with other data (sets)
+— Allows you to implement interesting research questions, follow state-of-the art research, and to collaborate with other researchers.
 
--   Visualize your data & Present your data set using an interactive web application or an (interactive Quarto document)
+— More on this for example at [MZES speaker series](https://www.mzes.uni-mannheim.de/en/news/events/kolloquium).
+:::
 
--   Describe: How could you or other researchers make use of this data for empirical research - What might be possible research questions?
+::: {.column width="40%"}
+![](text_analysis.png)
+:::
+:::
 
-## Data project - My inspiration
+## III - Webscraping
 
-[![StatePol Database: https://statepol.github.io/Database](statepol.jpg)](https://statepol.github.io/Database)
+::: columns
+::: {.column width="60%"}
+-   Scraping static and dynamic pages
 
-## Data project
+— Allows you to create your own datasets! Not only relevant for academic researchers but also for policy briefs or news articles.
+:::
 
-Let's have a look at the [syllabus](https://automated-data-collection.netlify.app/syllabus) for details.
+::: {.column width="40%"}
+![](green_selection.png)
+:::
+:::
+:::
 
-AND: I recommend discussing your project with me individually at least once via e-mail or office hours!
+## Feedback
 
-## Outlook: What now?
+Overall good, but also room for improvement. Thank you!
 
-Practice and deep dive:
+![](overall_feedback.png)
 
--   Still access to Datacamp!
+## Feedback - Open Round
 
-Examples in social science:
+-   Trade-off: Topics vs. Pace
 
--   [MZES Social Data Science Lab](https://www.mzes.uni-mannheim.de/socialsciencedatalab/page/about/)
+-   Probably too much: Webscraping
 
-Apply!
+-   Engaging with the material during the semester
 
--   Seminars, term papers, thesis
+## Term paper - Overview
 
--   [CorrelAid - Data 4 Good](https://www.correlaid.org/)
+***In a nutshell:** Ask a question you’re curious about, collect relevant data and analyze them with regard to your question using the techniques learned in this seminar.*
 
-## Outlook: What is possible?
+**Proposed structure (see also syllabus):**
 
-[![news-r: https://gallery.shinyapps.io/freedom-press-index/#home](shiny_press.jpg)](https://gallery.shinyapps.io/freedom-press-index/#home)
+-   Brief introduction and research question
 
-## Recap - Feedback
+-   Expectations / hypotheses
 
--   Organizational
+-   Data & Methods
 
--   Structure
+-   Results
 
--   Participation
+-   Conclusion
 
--   Learning
+**3000 - 3500 words** excluding title page, references, and appendix. R code to be submitted separately from the text.
 
-## Your Feedback
+## Term paper - Data
 
-1.  "Open round"
+Option A: Webscraping
 
-2.  Please take some time to fill out the survey by the institute. This is both valuable for me professionally but also for further iterations of this seminar!
+-   For example, press releases by political parties.
+
+Option B: Text datasets. A few examples (more on the website):
+
+-   [ManifestoVault V1.0: Annotated full-text general election manifestos at the natural-sentence level of three European countries 1970-2024](https://dataverse.nl/dataset.xhtml?persistentId=doi:10.34894/VKQSPO)
+
+-   [ParlLawSpeech](https://parllawspeech.org/data/)
+
+-   [Tweets by members of the U.S. Congress between 2009 and 2019](https://osf.io/pvb6d)
+
+Both options are perfectly fine! Option B might give some bonus points.
+
+## Term paper - Grading
+
+|                          |                                                                                                                                                                                          |
+|---------------|---------------------------------------------------------|
+| **Research question**    | Clear, focused, and relevant research question in the area of political science and text analysis.                                                                                       |
+| **Data & Preprocessing** | Appropriate text corpus for the research question, correct data cleaning and pre-processing? Justify your steps.                                                                         |
+| **Methodology**          | Appropriate use of text analysis method(s) with regard to your research question. Explain why you use a particular approach (e.g., a dictionary approach vs. a topic modeling approach). |
+| **Results**              | Correct interpretation of results? Godd use of figures or tables? Are the results linked back to the research question?                                                                  |
+| **Conclusion**           | Key takeaway? Possible limitations adressed?                                                                                                                                             |
+
+## Term paper - Grading
+
+|                                              |                                                                                                                                                                                                                    |
+|---------------|---------------------------------------------------------|
+| **Structure & Clarity**                      | Logical flow? Clear writing? Consistent terminology? Word count? Consistent citation style throughout the paper (your choice) and correct bibliography (e.g., all citations in the text also in the bibliography)? |
+| **Code & Reproducibility**                   | Clean and annotated code? Replication of analysis possible?                                                                                                                                                        |
+| **Bonus: Originality / Creativity / Effort** | Original, creative research with regards to data and methods? Effort?                                                                                                                                              |
+
+# Office hours!
+
+**Location:** Via Zoom / Teams.
+
+**Time:** Flexible, but preferably on Tuesday.
+
+**Alternative:** Send me a rough sketch of your research idea (bullet points are fine) via e-mail.
