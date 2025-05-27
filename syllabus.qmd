@@ -9,7 +9,7 @@ editor:
 ## **Course details**
 
 |               |                                                                                             |
-|-----------------|-------------------------------------------------------|
+|------------------|------------------------------------------------------|
 | Seminar:      | Übung - Methoden der Vergleichenden Regierungslehre                                         |
 | Time:         | Tuesday, 15:30 – 17:00,  February 11 to May 27                                              |
 | Place:        | C -108 Methodenlabor - groß/ Telefonlabor (A 5, 6 Bauteil C)                                |
@@ -106,7 +106,8 @@ The term paper should include the following:
     many by party, ...). In addition, you should describe the methods
     you are using: How do they help to answer the research question? You
     might want to discuss advantages/disadvantages compared to other
-    approaches.
+    approaches. Finally, how do you measure your concepts
+    (operationalization)?
 
 -   **Results:** Here, you can present (descriptive) empirical evidence
     using figures or tables.
@@ -181,16 +182,16 @@ overview of the most important grading components is provided below. The
 grading related both to content but also takes into account structure
 and formal components.
 
-|                                              |                                                                                                                                                                                                                    |
-|---------------|---------------------------------------------------------|
-| **Research question**                        | Clear, focused, and relevant research question in the area of political science and text analysis.                                                                                                                 |
-| **Data & Preprocessing**                     | Appropriate text corpus for the research question, correct data cleaning and pre-processing? Justify your steps.                                                                                                   |
-| **Methodology**                              | Appropriate use of text analysis method(s) with regard to your research question. Explain why you use a particular approach (e.g., a dictionary approach vs. a topic modeling approach).                           |
-| **Results**                                  | Correct interpretation of results? Godd use of figures or tables? Are the results linked back to the research question?                                                                                            |
-| **Conclusion**                               | Key takeaway? Possible limitations adressed?                                                                                                                                                                       |
-| **Structure & Clarity**                      | Logical flow? Clear writing? Consistent terminology? Word count? Consistent citation style throughout the paper (your choice) and correct bibliography (e.g., all citations in the text also in the bibliography)? |
-| **Code & Reproducibility**                   | Clean and annotated code? Replication of analysis possible?                                                                                                                                                        |
-| **Bonus: Originality / Creativity / Effort** | Original, creative research with regards to data and methods? Effort?                                                                                                                                              |
+|                                              |                                                                                                                                                                                                                            |
+|-----------------|-------------------------------------------------------|
+| **Research question**                        | Clear, focused, and relevant research question in the area of political science and text analysis.                                                                                                                         |
+| **Data & Preprocessing**                     | Appropriate text corpus for the research question, correct data cleaning and pre-processing? Justify your steps.                                                                                                           |
+| **Methodology**                              | Appropriate use of text analysis method(s) with regard to your research question. Explain why you use a particular approach (e.g., a dictionary approach vs. a topic modeling approach). How do you measure your concepts? |
+| **Results**                                  | Correct interpretation of results? Godd use of figures or tables? Are the results linked back to the research question?                                                                                                    |
+| **Conclusion**                               | Key takeaway? Possible limitations adressed?                                                                                                                                                                               |
+| **Structure & Clarity**                      | Logical flow? Clear writing? Consistent terminology? Word count? Consistent citation style throughout the paper (your choice) and correct bibliography (e.g., all citations in the text also in the bibliography)?         |
+| **Code & Reproducibility**                   | Clean and annotated code? Replication of analysis possible?                                                                                                                                                                |
+| **Bonus: Originality / Creativity / Effort** | Original, creative research with regards to data and methods? Effort?                                                                                                                                                      |
 
 #### Submission
 

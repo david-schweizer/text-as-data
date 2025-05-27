@@ -106,6 +106,84 @@ Overall good, but also room for improvement. Thank you!
 
 **3000 - 3500 words** excluding title page, references, and appendix. R code to be submitted separately from the text.
 
+## Term paper - RQ strategies
+
+-   More-of-the-same strategy
+
+-   Recycle and framing strategy
+
+## More-of-the-same strategy
+
+-   Apply existing theory to new data or cases
+
+-   Test existing hypothesis with new data or cases
+
+-   Add a new dimension, new independent variable
+
+-   Add a new theoretical twist to known problem
+
+-   Apply new method to known problem
+
+## Recycle & Framing strategy
+
+-   Challenge and question assumptions or generally held beliefs
+
+-   Or tweak assumptions to generate new ideas and RQs :
+
+    -   Changing context
+
+    -   Changing levels-of-analysis
+
+    -   ...
+
+# How to formulate a hypothesis?
+
+## Concepts & Operationalization
+
+::: panel-tabset
+## General
+
+Term
+
+-   concept’s name (branding!)
+
+Intension
+
+-   A concept’s defining attributes (meaning)
+
+Extension
+
+-   A concept’s empirical scope (operationalization)
+
+## Social status
+
+Term:
+
+-   Social status
+
+Intension:
+
+-   Subjective, Objective
+
+Extension:
+
+-   Objective -\> Income, Occupation, Education
+
+## Youth representation
+
+Term:
+
+-   Youth representation in parliament
+
+Intension:
+
+-   ?
+
+Extension:
+
+-   ?
+:::
+
 ## Term paper - Data
 
 Option A: Webscraping
@@ -124,18 +202,18 @@ Both options are perfectly fine! Option B might give some bonus points.
 
 ## Term paper - Grading
 
-|                          |                                                                                                                                                                                          |
-|---------------|---------------------------------------------------------|
-| **Research question**    | Clear, focused, and relevant research question in the area of political science and text analysis.                                                                                       |
-| **Data & Preprocessing** | Appropriate text corpus for the research question, correct data cleaning and pre-processing? Justify your steps.                                                                         |
-| **Methodology**          | Appropriate use of text analysis method(s) with regard to your research question. Explain why you use a particular approach (e.g., a dictionary approach vs. a topic modeling approach). |
-| **Results**              | Correct interpretation of results? Godd use of figures or tables? Are the results linked back to the research question?                                                                  |
-| **Conclusion**           | Key takeaway? Possible limitations adressed?                                                                                                                                             |
+|                          |                                                                                                                                                                                                                            |
+|-----------------|-------------------------------------------------------|
+| **Research question**    | Clear, focused, and relevant research question in the area of political science and text analysis.                                                                                                                         |
+| **Data & Preprocessing** | Appropriate text corpus for RQ, correct data cleaning and pre-processing? Justify your steps.                                                                                                                              |
+| **Methodology**          | Appropriate use of text analysis method(s) with regard to your research question. Explain why you use a particular approach (e.g., a dictionary approach vs. a topic modeling approach). How do you measure your concepts? |
+| **Results**              | Correct interpretation of results? Godd use of figures or tables? Results linked to the research question?                                                                                                                 |
+| **Conclusion**           | Key takeaway? Possible limitations adressed?                                                                                                                                                                               |
 
 ## Term paper - Grading
 
 |                                              |                                                                                                                                                                                                                    |
-|---------------|---------------------------------------------------------|
+|-----------------|-------------------------------------------------------|
 | **Structure & Clarity**                      | Logical flow? Clear writing? Consistent terminology? Word count? Consistent citation style throughout the paper (your choice) and correct bibliography (e.g., all citations in the text also in the bibliography)? |
 | **Code & Reproducibility**                   | Clean and annotated code? Replication of analysis possible?                                                                                                                                                        |
 | **Bonus: Originality / Creativity / Effort** | Original, creative research with regards to data and methods? Effort?                                                                                                                                              |
