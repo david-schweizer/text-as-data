@@ -27,9 +27,8 @@ few examples:
         manifestos are relevant. More details on the structure of the
         dataset is found in the accompanying release note. (2024-12-06)"
 
-```{=html}
 <!-- -->
-```
+
 -   [ParlEE Dataverse](https://dataverse.harvard.edu/dataverse/ParlEE)
 
     -   **Description:** "The Parliamentary Emotive Expression (ParlEE)
@@ -70,9 +69,8 @@ few examples:
         English and in the original language. In version 1.4 only one
         version of these speeches is kept. (2019-3-29)"
 
-```{=html}
 <!-- -->
-```
+
 -   [United Nations General Debate Corpus 1946 -
     2024](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/0TJX8Y)
 
