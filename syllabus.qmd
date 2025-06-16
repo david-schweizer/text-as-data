@@ -9,7 +9,7 @@ editor:
 ## **Course details**
 
 |               |                                                                                             |
-|------------------|------------------------------------------------------|
+|-------------------|-----------------------------------------------------|
 | Seminar:      | Übung - Methoden der Vergleichenden Regierungslehre                                         |
 | Time:         | Tuesday, 15:30 – 17:00,  February 11 to May 27                                              |
 | Place:        | C -108 Methodenlabor - groß/ Telefonlabor (A 5, 6 Bauteil C)                                |
@@ -183,7 +183,7 @@ grading related both to content but also takes into account structure
 and formal components.
 
 |                                              |                                                                                                                                                                                                                            |
-|-----------------|-------------------------------------------------------|
+|------------------|------------------------------------------------------|
 | **Research question**                        | Clear, focused, and relevant research question in the area of political science and text analysis.                                                                                                                         |
 | **Data & Preprocessing**                     | Appropriate text corpus for the research question, correct data cleaning and pre-processing? Justify your steps.                                                                                                           |
 | **Methodology**                              | Appropriate use of text analysis method(s) with regard to your research question. Explain why you use a particular approach (e.g., a dictionary approach vs. a topic modeling approach). How do you measure your concepts? |
@@ -200,7 +200,7 @@ early as possible.** Late submission will result in grade deductions.
 
 -   Submission via ILIAS (zip folder: This should include your term
     paper as PDF as well as your R script).
--   **Deadline:** 01.07.2024, 17:00.
+-   **Deadline:** 01.07.2025, 17:00.
 
 ## **Organization & Learning Resources**
 
